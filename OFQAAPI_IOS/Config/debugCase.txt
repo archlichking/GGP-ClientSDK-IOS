@@ -1,0 +1,3 @@
+Scenario: first test
+
+When i get achievement
