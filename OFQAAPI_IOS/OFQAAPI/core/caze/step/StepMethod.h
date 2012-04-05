@@ -12,9 +12,11 @@
     @private
     NSArray* params;
     NSInvocation* methodInvo;
+    id refObj;
 }
 
 @property (retain) NSArray* params;
 @property (retain) NSInvocation* methodInvo;
+@property (retain) id refObj;
 
 @end

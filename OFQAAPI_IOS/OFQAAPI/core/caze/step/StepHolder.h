@@ -19,16 +19,15 @@
      key: string step command (regexp to be)
      value: NSInvocation object
      */
-    NSMutableDictionary* stepCage;
+    NSMutableArray* stepCages;
 }
 
-@property (retain) NSMutableDictionary* stepCage;
+@property (retain) NSMutableArray* stepCages;
 
 + (StepHolder*) instance:(id) c;
 
-- (id) initWithStepObj:(id) c;
+- (id) addStepObj:(id) c;
 
-- (id) getClassObject;
 - (StepMethod*) getMethodByStep:(NSString*) stepString;
 
 

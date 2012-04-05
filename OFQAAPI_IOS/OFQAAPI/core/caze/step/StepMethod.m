@@ -12,5 +12,6 @@
 
 @synthesize methodInvo;
 @synthesize params;
+@synthesize refObj;
 
 @end

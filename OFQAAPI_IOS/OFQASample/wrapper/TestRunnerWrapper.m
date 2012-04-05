@@ -42,9 +42,13 @@
         
         [self setCaseWrappers:[[[NSMutableArray alloc] init] autorelease]];
         
-        id p = class_createInstance([AchievementStepDefinition class], 0);
+        id p = class_createInstance([SampleStepDefinition class], 0);
+        id p2 = class_createInstance([AchievementStepDefinition class], 0);
         
-        StepHolder* holder = [[StepHolder alloc] initWithStepObj:p];
+        StepHolder* holder = [[StepHolder alloc] init];
+        
+        [holder addStepObj:p];
+        [holder addStepObj:p2];
         
         [self setCb:[CaseBuilderFactory makeBuilderByType:t 
                                                raw:rawData
@@ -137,6 +141,7 @@
     [runner release];
     [caseWrappers release];
     [cb release];
+    [super dealloc];
 }
 
 @end

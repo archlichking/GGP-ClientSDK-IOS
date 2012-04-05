@@ -74,12 +74,12 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    [GreePlatform handleRemoteNotification:userInfo];
+    [GreePlatform handleRemoteNotification:userInfo application:application];
 }
 
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {  
-	return [GreePlatform handleOpenURL:url];
+	return [GreePlatform handleOpenURL:url application:application];
 }
 		
 

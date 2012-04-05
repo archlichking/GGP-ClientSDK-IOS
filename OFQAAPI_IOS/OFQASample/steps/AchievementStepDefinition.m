@@ -41,11 +41,11 @@
     return self;
 }
 
-- (void) Given_I_logged_in_as_PARAM:(NSString*) userid{
+- (void) I_logged_in_as_PARAM:(NSString*) userid{
     // do nothing here
 }
 
-- (void) When_I_load_list_of_achievement{
+- (void) I_load_list_of_achievement{
     [self setBlockSentinal:[StepDefinition WAITING]];
     [GreeAchievement loadAchievementsWithBlock:^(NSArray* achievements, NSError* error) {
         if(error) {
@@ -68,35 +68,12 @@
     }
 }
 
-- (void) Given_I_load_list_of_achievement{
-    [self setBlockSentinal:[StepDefinition WAITING]];
-    [GreeAchievement loadAchievementsWithBlock:^(NSArray* achievements, NSError* error) {
-        if(error) {
-            [self setBlockSentinal: [StepDefinition FAILED]];
-            [self setBlockActual:[error description]];
-            return;
-        }
-        if(![achievements count]) {
-            [self setBlockSentinal:[StepDefinition FAILED]];
-            [self setBlockActual:@"no achievement returned"];
-            return;
-        }
-        [self setBlockSentinal:[StepDefinition PASSED]];
-        // use actual to store achievement result
-        [self setBlockActual:achievements];
-    }];
-    
-    while ([self blockSentinal] == [StepDefinition WAITING]) {
-        [NSThread sleepForTimeInterval:1];
-    }
-}
-
-- (void) Then_I_should_have_total_achievements_PARAM:(NSString*) amount{
+- (void) I_should_have_total_achievements_PARAM:(NSString*) amount{
     [QAAssert assertEqualsExpected:amount 
                             Actual:[NSString stringWithFormat:@"%i", [[self blockActual] count]]];
 }
 
-- (void) Then_I_should_have_achievement_of_name_PARAM:(NSString*) ach_name 
+- (void) I_should_have_achievement_of_name_PARAM:(NSString*) ach_name 
                                     _with_status_PARAM:(NSString*) status 
                                       _and_score_PARAM:(NSString*) score{
     NSArray* achs = [self blockActual];
@@ -113,7 +90,7 @@
 }
 
 
-- (void) Given_I_make_sure_status_of_achievement_PARAM:(NSString*) ach_name 
+- (void) I_make_sure_status_of_achievement_PARAM:(NSString*) ach_name 
                                              _is_PARAM:(NSString*) status{
     NSArray* achs = [self blockActual];
     for (GreeAchievement* ach in achs) {
@@ -134,7 +111,7 @@
     
 }
 
-- (void) When_I_update_status_of_achievement_PARAM:(NSString*) ach_name 
+- (void) I_update_status_of_achievement_PARAM:(NSString*) ach_name 
                                           _to_PARAM:(NSString*) status{
     NSArray* achs = [self blockActual];
     for (GreeAchievement* ach in achs) {
@@ -150,7 +127,7 @@
     
 }
 
-- (void) Then_status_of_achievement_PARAM:(NSString*) ach_name 
+- (void) status_of_achievement_PARAM:(NSString*) ach_name 
                          _should_be_PARAM:(NSString*) status{
     NSArray* achs = [self blockActual];
     for (GreeAchievement* ach in achs) {
@@ -162,29 +139,9 @@
     }
 }
 
-- (void) Then_my_score_should_be_PARAM:(NSString*) increment
+- (void) my_score_should_be_PARAM:(NSString*) increment
                              _by_PARAM:(NSString*) time{
     // do nothing
-}
-
-- (void) Finally_I_make_sure_status_of_achievement_PARAM:(NSString*) ach_name 
-                                               _is_PARAM:(NSString*) status{
-    NSArray* achs = [self blockActual];
-    for (GreeAchievement* ach in achs) {
-        if([[ach name] isEqualToString:ach_name]){
-            if ([[AchievementStepDefinition lockToString:[ach isUnlocked]] isEqualToString:status]) {
-                // do nothing
-            }else{
-                // reset status of achievement
-                if ([ach isUnlocked]) {
-                    [ach relock];
-                }else{
-                    [ach unlock];
-                }
-            }
-            break;
-        }
-    }
 }
 
 @end

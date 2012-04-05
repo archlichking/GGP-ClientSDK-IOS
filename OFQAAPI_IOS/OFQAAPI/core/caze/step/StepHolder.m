@@ -13,74 +13,80 @@
 
 @implementation StepHolder
 
-@synthesize stepCage;
+@synthesize stepCages;
 
 static StepHolder* stepHolder = nil;
 
 + (StepHolder*) instance:(id) c{
     if (stepHolder == nil) {
-        stepHolder = [stepHolder initWithStepObj:c];
+        stepHolder = [stepHolder init];
     }
     return stepHolder;
 }
 
-- (id) initWithStepObj:(id) c{
-    if (self=[super init])
-    {
-        NSMutableDictionary* dd = [[NSMutableDictionary alloc] init];
-        
-        [self setStepCage:dd];
-        //set class object into dictionary
-        [[self stepCage] setObject:c 
-                     forKey:@"classObj"];
-    
-        int unsigned methodCount = 0;  
-    
-        Method* refMethods = class_copyMethodList([c class], &methodCount);
-    
-        for (int ie=0; ie<methodCount;ie++) {
-        
-            SEL s = method_getName(refMethods[ie]);
-            NSMethodSignature* mSignature = [[c class] instanceMethodSignatureForSelector:s];
-            NSInvocation* mInvocation = [NSInvocation invocationWithMethodSignature:mSignature];
-            [mInvocation setSelector:s];
-            
-            //set invocation obj
-            NSRegularExpression* regexp = [StringUtil methodNameToRegexp:NSStringFromSelector(s)];
-            [[self stepCage] setObject:mInvocation
-                         forKey:regexp];
-            
-        }
-        [dd release];
+- (id) init{
+    if (self = [super init]) {
+        stepCages = [[NSMutableArray alloc] init];
     }
+    return self;
+}
+
+- (id) addStepObj:(id) c{
+    
+    NSMutableDictionary* dd = [[[NSMutableDictionary alloc] init] autorelease];
+        
+    //set class object into dictionary
+    [dd setObject:c 
+           forKey:@"classObj"];
+    
+    int unsigned methodCount = 0;  
+    
+    Method* refMethods = class_copyMethodList([c class], &methodCount);
+    
+    for (int ie=0; ie<methodCount;ie++) {
+        
+        SEL s = method_getName(refMethods[ie]);
+        NSMethodSignature* mSignature = [[c class] instanceMethodSignatureForSelector:s];
+        NSInvocation* mInvocation = [NSInvocation invocationWithMethodSignature:mSignature];
+        [mInvocation setSelector:s];
+            
+        //set invocation obj
+        NSRegularExpression* regexp = [StringUtil methodNameToRegexp:NSStringFromSelector(s)];
+        [dd setObject:mInvocation
+                forKey:regexp];
+            
+    }
+    [[self stepCages] addObject:dd];
     //free(refMethods);
     return self;
 }
 
-- (id) getClassObject{
-    return [stepCage objectForKey:@"classObj"];
-}
 
 - (StepMethod*) getMethodByStep:(NSString*) stepString{
-    for (id key in stepCage) {
-        // temporary use, need to be modified
-        if ([key isKindOfClass:[NSString class]]) {
-            continue;
-        }
-        NSArray* ns = [key matchesInString:stepString 
-                                   options:0 
-                                     range:NSMakeRange(0, [stepString length])];
-        // should be at least 1 if matched
-        if (ns != nil && [ns count]>0) {
-            StepMethod* sm = [[[StepMethod alloc] init] autorelease];
-            [sm setMethodInvo:[stepCage objectForKey:key]];
-            //pull params if any
-            NSMutableArray* params = [[[NSMutableArray alloc] init] autorelease];
-            for (int i =1; i<[[ns objectAtIndex:0] numberOfRanges]; i++) {
-                [params addObject:[stepString substringWithRange:[[ns objectAtIndex:0] rangeAtIndex:i]]];
+    for (NSMutableDictionary* dd in stepCages) {
+       
+        for (id key in dd) {
+            // temporary use, need to be modified
+            if ([key isKindOfClass:[NSString class]]) {
+                continue;
             }
-            [sm setParams:params];
-            return sm;
+            NSArray* ns = [key matchesInString:stepString 
+                                       options:0 
+                                         range:NSMakeRange(0, [stepString length])];
+            // should be at least 1 if matched
+            if (ns != nil && [ns count]>0) {
+                StepMethod* sm = [[[StepMethod alloc] init] autorelease];
+                [sm setMethodInvo:[dd objectForKey:key]];
+                //pull params if any
+                NSMutableArray* params = [[[NSMutableArray alloc] init] autorelease];
+                // we need to omit first two params, because we also match GIVEN WHEN THEN in param 1
+                for (int i =2; i<[[ns objectAtIndex:0] numberOfRanges]; i++) {
+                    [params addObject:[stepString substringWithRange:[[ns objectAtIndex:0] rangeAtIndex:i]]];
+                }
+                [sm setParams:params];
+                [sm setRefObj:[dd objectForKey:@"classObj"]];
+                return sm;
+            }
         }
     }
     return nil;

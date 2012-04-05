@@ -29,11 +29,11 @@
 //- (void) Then_complex_10_plus_20_should_be_40;
 
 // for case 11684
-- (void) When_I_try_to_load_out_all_achievements_for_current_user;
-- (void) Then_all_achievements_I_have_should_be_return;
+- (void) I_try_to_load_out_all_achievements_for_current_user;
+- (void) all_achievements_I_have_should_be_return;
 
 // for case 11671
-- (void) When_I_try_to_load_out_all_leaderboards_for_current_user;
-- (void) Then_all_leaderboards_I_have_should_be_return;
+- (void) I_try_to_load_out_all_leaderboards_for_current_user;
+- (void) all_leaderboards_I_have_should_be_return;
 
 @end
