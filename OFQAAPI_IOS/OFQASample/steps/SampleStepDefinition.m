@@ -37,10 +37,10 @@
 //    NSLog(@"sample then i sleep");
 //}
 //
-- (void) When_I_try_to_load_out_all_achievements_for_current_user{
+- (void) I_try_to_load_out_all_achievements_for_current_user{
     
 }
-- (void) Then_all_achievements_I_have_should_be_return{
+- (void) all_achievements_I_have_should_be_return{
     [self setBlockSentinal:[StepDefinition WAITING]];
     [GreeAchievement loadAchievementsWithBlock:^(NSArray* achievements, NSError* error) {
         if(error) {
@@ -67,11 +67,11 @@
     }];
 }
 
-- (void) When_I_try_to_load_out_all_leaderboards_for_current_user{
+- (void) I_try_to_load_out_all_leaderboards_for_current_user{
     
 }
 
-- (void) Then_all_leaderboards_I_have_should_be_return{
+- (void) all_leaderboards_I_have_should_be_return{
     [GreeLeaderboard loadLeaderboardsWithBlock:^(NSArray *leaderboards, NSError *error) {
         if(error) {
             [self setBlockSentinal: [StepDefinition FAILED]];

@@ -765,7 +765,6 @@
 				INFOPLIST_FILE = "OFQASample/OFQASample-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../qaarchive861/release\"",
 					"\"$(SRCROOT)/../../../ggplib_ios/release\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -785,7 +784,6 @@
 				INFOPLIST_FILE = "OFQASample/OFQASample-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../qaarchive861/release\"",
 					"\"$(SRCROOT)/../../../ggplib_ios/release\"",
 				);
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";

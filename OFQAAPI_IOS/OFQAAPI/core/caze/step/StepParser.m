@@ -36,15 +36,15 @@
         // step 0: get method by rawStep
         StepMethod* mInvo = [holder getMethodByStep:rawStep];
         if(mInvo == nil){
-            QALog(@"no defined for step [%@]", rawSteps);
+            QALog(@"no defined for step [%@]", rawStep);
             continue;
         }else{
             // step 1: get class obj from
-            id p = [holder getClassObject];
+
             // step 2: build step
             Step* step = [[Step alloc] init];
             // 2.1 set step ref obj
-            [step setRefObj:p];
+            [step setRefObj:[mInvo refObj]];
             // 2.2 set step method invocation
             [step setRefMethodInvocation:[mInvo methodInvo]];
             // 2.3 set step params

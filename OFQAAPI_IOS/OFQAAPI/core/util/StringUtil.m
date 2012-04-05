@@ -60,7 +60,9 @@ static NSString* TCM_LINE_SPLITER = @"\r\n";
 }
 
 + (NSRegularExpression*) methodNameToRegexp:(NSString*) methodName{
-    NSString* s1 = [methodName stringByReplacingOccurrencesOfString:@"_" 
+    NSString* s0 = [NSString stringWithFormat:@"%@_%@", @"PARAM:", methodName];
+    
+    NSString* s1 = [s0 stringByReplacingOccurrencesOfString:@"_" 
                                                         withString:@" "];
     NSString* s2 = [s1 stringByReplacingOccurrencesOfString:@"PARAM:" 
                                                  withString:@"(.*)"];
