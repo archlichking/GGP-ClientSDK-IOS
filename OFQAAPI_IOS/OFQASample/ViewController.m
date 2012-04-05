@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 
-#import "SampleStepDefinition.h"
 #import "objc/runtime.h"
 #import "SBJson.h"
 #import "AppDelegate.h"

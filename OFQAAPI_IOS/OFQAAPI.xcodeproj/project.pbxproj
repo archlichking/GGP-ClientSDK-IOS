@@ -31,8 +31,6 @@
 		BA56CADE1505A7C1001ECED4 /* TestCaseWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BA56CADD1505A7C1001ECED4 /* TestCaseWrapper.m */; };
 		BA64CB6F150DDF8900E8A9EE /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA64CB6E150DDF8900E8A9EE /* libsqlite3.dylib */; };
 		BA64CB73150DE03000E8A9EE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA64CB72150DE03000E8A9EE /* StoreKit.framework */; };
-		BA64CBA1150DE41500E8A9EE /* GreePlatformCoreResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA64CB9F150DE41500E8A9EE /* GreePlatformCoreResources.bundle */; };
-		BA64CBA2150DE41500E8A9EE /* GreePlatformPortraitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA64CBA0150DE41500E8A9EE /* GreePlatformPortraitResources.bundle */; };
 		BA6D88C714FDD891009D93CB /* StepParser.h in Headers */ = {isa = PBXBuildFile; fileRef = BA6D88C514FDD891009D93CB /* StepParser.h */; };
 		BA6D88C814FDD891009D93CB /* StepParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6D88C614FDD891009D93CB /* StepParser.m */; };
 		BA6D88CC14FDED51009D93CB /* StepHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = BA6D88CA14FDED51009D93CB /* StepHolder.h */; };
@@ -78,7 +76,6 @@
 		BA89095F14F75E6E00018B0F /* TcmCommunicator.h in Headers */ = {isa = PBXBuildFile; fileRef = BA89095D14F75E6E00018B0F /* TcmCommunicator.h */; };
 		BA89096014F75E6E00018B0F /* TcmCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = BA89095E14F75E6E00018B0F /* TcmCommunicator.m */; };
 		BA96EC37150EFA5C00214FAD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA64CB70150DDF9200E8A9EE /* libz.dylib */; };
-		BA96EC38150EFCFC00214FAD /* libGreePlatform.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA64CB6C150DDF5700E8A9EE /* libGreePlatform.a */; };
 		BA97ED0E15070014000D2E63 /* TestRunnerWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BA97ED0D15070014000D2E63 /* TestRunnerWrapper.m */; };
 		BAA80765150D96A6003A94E9 /* StepMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = BAA80763150D96A6003A94E9 /* StepMethod.h */; };
 		BAA80766150D96A6003A94E9 /* StepMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA80764150D96A6003A94E9 /* StepMethod.m */; };
@@ -91,6 +88,11 @@
 		BAA80B7F150DCFC7003A94E9 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA80B7E150DCFC7003A94E9 /* AddressBook.framework */; };
 		BAA80B81150DCFCD003A94E9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA80B80150DCFCD003A94E9 /* Security.framework */; };
 		BAA80B83150DD01D003A94E9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA80B82150DD01D003A94E9 /* SystemConfiguration.framework */; };
+		BAB2102B152D4C8A00177141 /* GreePlatformCoreResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAB21028152D4C8A00177141 /* GreePlatformCoreResources.bundle */; };
+		BAB2102C152D4C8A00177141 /* GreePlatformLandscapeResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAB21029152D4C8A00177141 /* GreePlatformLandscapeResources.bundle */; };
+		BAB2102D152D4C8A00177141 /* GreePlatformPortraitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAB2102A152D4C8A00177141 /* GreePlatformPortraitResources.bundle */; };
+		BAB2102F152D4CA600177141 /* libGreePlatform.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2102E152D4CA600177141 /* libGreePlatform.a */; };
+		BAB21032152D4FC700177141 /* AchievementStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB21031152D4FC700177141 /* AchievementStepDefinition.m */; };
 		BAB8182814FC759100AF18CD /* debugCase.txt in Resources */ = {isa = PBXBuildFile; fileRef = BAB8182614FC759100AF18CD /* debugCase.txt */; };
 		BAB8182914FC759100AF18CD /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = BAB8182714FC759100AF18CD /* settings.json */; };
 		BAB8183014FC890900AF18CD /* TestRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = BAB8182E14FC890900AF18CD /* TestRunner.h */; };
@@ -145,12 +147,9 @@
 		BA56CAD91505A3FC001ECED4 /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
 		BA56CADC1505A7C1001ECED4 /* TestCaseWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestCaseWrapper.h; path = wrapper/TestCaseWrapper.h; sourceTree = "<group>"; };
 		BA56CADD1505A7C1001ECED4 /* TestCaseWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestCaseWrapper.m; path = wrapper/TestCaseWrapper.m; sourceTree = "<group>"; };
-		BA64CB6C150DDF5700E8A9EE /* libGreePlatform.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGreePlatform.a; path = ../../qaarchive861/release/libGreePlatform.a; sourceTree = "<group>"; };
 		BA64CB6E150DDF8900E8A9EE /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		BA64CB70150DDF9200E8A9EE /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BA64CB72150DE03000E8A9EE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		BA64CB9F150DE41500E8A9EE /* GreePlatformCoreResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformCoreResources.bundle; path = ../../qaarchive861/release/resources/GreePlatformCoreResources.bundle; sourceTree = "<group>"; };
-		BA64CBA0150DE41500E8A9EE /* GreePlatformPortraitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformPortraitResources.bundle; path = ../../qaarchive861/release/resources/GreePlatformPortraitResources.bundle; sourceTree = "<group>"; };
 		BA6D88C514FDD891009D93CB /* StepParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StepParser.h; path = core/caze/step/StepParser.h; sourceTree = "<group>"; };
 		BA6D88C614FDD891009D93CB /* StepParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StepParser.m; path = core/caze/step/StepParser.m; sourceTree = "<group>"; };
 		BA6D88CA14FDED51009D93CB /* StepHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StepHolder.h; path = core/caze/step/StepHolder.h; sourceTree = "<group>"; };
@@ -214,6 +213,12 @@
 		BAA80B7E150DCFC7003A94E9 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		BAA80B80150DCFCD003A94E9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BAA80B82150DD01D003A94E9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BAB21028152D4C8A00177141 /* GreePlatformCoreResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformCoreResources.bundle; path = ../../../ggplib_ios/release/resources/GreePlatformCoreResources.bundle; sourceTree = "<group>"; };
+		BAB21029152D4C8A00177141 /* GreePlatformLandscapeResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformLandscapeResources.bundle; path = ../../../ggplib_ios/release/resources/GreePlatformLandscapeResources.bundle; sourceTree = "<group>"; };
+		BAB2102A152D4C8A00177141 /* GreePlatformPortraitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformPortraitResources.bundle; path = ../../../ggplib_ios/release/resources/GreePlatformPortraitResources.bundle; sourceTree = "<group>"; };
+		BAB2102E152D4CA600177141 /* libGreePlatform.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGreePlatform.a; path = ../../../ggplib_ios/release/libGreePlatform.a; sourceTree = "<group>"; };
+		BAB21030152D4FC700177141 /* AchievementStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AchievementStepDefinition.h; path = steps/AchievementStepDefinition.h; sourceTree = "<group>"; };
+		BAB21031152D4FC700177141 /* AchievementStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AchievementStepDefinition.m; path = steps/AchievementStepDefinition.m; sourceTree = "<group>"; };
 		BAB8182614FC759100AF18CD /* debugCase.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = debugCase.txt; path = Config/debugCase.txt; sourceTree = "<group>"; };
 		BAB8182714FC759100AF18CD /* settings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = settings.json; path = Config/settings.json; sourceTree = "<group>"; };
 		BAB8182E14FC890900AF18CD /* TestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestRunner.h; path = core/caze/TestRunner.h; sourceTree = "<group>"; };
@@ -239,7 +244,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA96EC38150EFCFC00214FAD /* libGreePlatform.a in Frameworks */,
+				BAB2102F152D4CA600177141 /* libGreePlatform.a in Frameworks */,
 				BA96EC37150EFA5C00214FAD /* libz.dylib in Frameworks */,
 				BA64CB73150DE03000E8A9EE /* StoreKit.framework in Frameworks */,
 				BA64CB6F150DDF8900E8A9EE /* libsqlite3.dylib in Frameworks */,
@@ -285,6 +290,8 @@
 			children = (
 				BA381E6B14FCC6D700FBA134 /* SampleStepDefinition.h */,
 				BA381E6C14FCC6D700FBA134 /* SampleStepDefinition.m */,
+				BAB21030152D4FC700177141 /* AchievementStepDefinition.h */,
+				BAB21031152D4FC700177141 /* AchievementStepDefinition.m */,
 			);
 			name = steps;
 			sourceTree = "<group>";
@@ -438,8 +445,10 @@
 		BA89094014F75D6100018B0F = {
 			isa = PBXGroup;
 			children = (
-				BA64CB9F150DE41500E8A9EE /* GreePlatformCoreResources.bundle */,
-				BA64CBA0150DE41500E8A9EE /* GreePlatformPortraitResources.bundle */,
+				BAB2102E152D4CA600177141 /* libGreePlatform.a */,
+				BAB21028152D4C8A00177141 /* GreePlatformCoreResources.bundle */,
+				BAB21029152D4C8A00177141 /* GreePlatformLandscapeResources.bundle */,
+				BAB2102A152D4C8A00177141 /* GreePlatformPortraitResources.bundle */,
 				BA89095014F75D6100018B0F /* OFQAAPI */,
 				BA89097E14F760CD00018B0F /* Config */,
 				BA78B60314F792A200C4D6FB /* OFQASample */,
@@ -463,7 +472,6 @@
 				BA64CB72150DE03000E8A9EE /* StoreKit.framework */,
 				BA64CB70150DDF9200E8A9EE /* libz.dylib */,
 				BA64CB6E150DDF8900E8A9EE /* libsqlite3.dylib */,
-				BA64CB6C150DDF5700E8A9EE /* libGreePlatform.a */,
 				BAA80B82150DD01D003A94E9 /* SystemConfiguration.framework */,
 				BAA80B80150DCFCD003A94E9 /* Security.framework */,
 				BAA80B7E150DCFC7003A94E9 /* AddressBook.framework */,
@@ -646,8 +654,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA64CBA1150DE41500E8A9EE /* GreePlatformCoreResources.bundle in Resources */,
-				BA64CBA2150DE41500E8A9EE /* GreePlatformPortraitResources.bundle in Resources */,
+				BAB2102B152D4C8A00177141 /* GreePlatformCoreResources.bundle in Resources */,
+				BAB2102C152D4C8A00177141 /* GreePlatformLandscapeResources.bundle in Resources */,
+				BAB2102D152D4C8A00177141 /* GreePlatformPortraitResources.bundle in Resources */,
 				BA78B60814F792A200C4D6FB /* InfoPlist.strings in Resources */,
 				BA78B61114F792A200C4D6FB /* MainStoryboard.storyboard in Resources */,
 				BAB8182814FC759100AF18CD /* debugCase.txt in Resources */,
@@ -672,6 +681,7 @@
 				BADF04CE15049054006FC3B4 /* CaseTableDelegate.m in Sources */,
 				BA56CADE1505A7C1001ECED4 /* TestCaseWrapper.m in Sources */,
 				BA97ED0E15070014000D2E63 /* TestRunnerWrapper.m in Sources */,
+				BAB21032152D4FC700177141 /* AchievementStepDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,9 +766,10 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../qaarchive861/release\"",
+					"\"$(SRCROOT)/../../../ggplib_ios/release\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = /Users/thunderzhulei/qaarchive861/release/include;
+				USER_HEADER_SEARCH_PATHS = /Users/thunderzhulei/ggplib_ios/release/include;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -775,10 +786,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../qaarchive861/release\"",
+					"\"$(SRCROOT)/../../../ggplib_ios/release\"",
 				);
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				USER_HEADER_SEARCH_PATHS = /Users/thunderzhulei/qaarchive861/release/include;
+				USER_HEADER_SEARCH_PATHS = /Users/thunderzhulei/ggplib_ios/release/include;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

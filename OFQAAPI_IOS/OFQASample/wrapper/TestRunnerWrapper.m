@@ -14,12 +14,18 @@
 #import "StepHolder.h"
 #import "TestRunner.h"
 #import "CaseBuilderFactory.h"
-#import "SampleStepDefinition.h"
 #import "TcmCommunicator.h"
 
 #import "TestCaseWrapper.h"
 
 #import "objc/runtime.h"
+
+
+
+#import "SampleStepDefinition.h"
+#import "AchievementStepDefinition.h"
+
+
 
 @implementation TestRunnerWrapper
 
@@ -36,7 +42,8 @@
         
         [self setCaseWrappers:[[[NSMutableArray alloc] init] autorelease]];
         
-        id p = class_createInstance([SampleStepDefinition class], 0);
+        id p = class_createInstance([AchievementStepDefinition class], 0);
+        
         StepHolder* holder = [[StepHolder alloc] initWithStepObj:p];
         
         [self setCb:[CaseBuilderFactory makeBuilderByType:t 

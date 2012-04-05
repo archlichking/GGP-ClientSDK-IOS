@@ -33,18 +33,16 @@
     
     // --------- GREE Platform initialization
     
-    NSDictionary* settings = [NSDictionary dictionaryWithObjectsAndKeys:
-                              @"developSandbox", 
-                              GreeSettingDevelopmentMode,
-                              @"ggpsb-qa",
-                              @"serverUrlSuffix",
-                              nil];
-
+    NSDictionary* settings = [NSDictionary dictionaryWithObjectsAndKeys: 
+                              @"sandbox", GreeSettingDevelopmentMode, 
+                              @"stg1",@"serverUrlSuffix", 
+                              @"true",@"useWallet", 
+                              nil]; 
     
     
-    [GreePlatform initializeWithApplicationId:@"607" 
-                                  consumerKey:@"ec26c5b8495b" 
-                               consumerSecret:@"8b76971b196a05737c4f667fb5bcb5b2" 
+    [GreePlatform initializeWithApplicationId:@"12697" 
+                                  consumerKey:@"3c47b530df23" 
+                               consumerSecret:@"c6958d092a3db174de86678f31d86d01" 
                                      settings:settings
                                      delegate:self];
 
