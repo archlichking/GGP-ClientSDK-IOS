@@ -12,7 +12,6 @@
 @interface AchievementStepDefinition : StepDefinition{
 }
 
-- (void) I_logged_in_as_PARAM:(NSString*) userid;
 - (void) I_load_list_of_achievement;
 - (void) I_should_have_total_achievements_PARAM:(NSString*) amount;
 - (void) I_should_have_achievement_of_name_PARAM:(NSString*) ach_name 

@@ -75,6 +75,8 @@
 		BA89095514F75D6100018B0F /* OFQAAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BA89095414F75D6100018B0F /* OFQAAPI.m */; };
 		BA89095F14F75E6E00018B0F /* TcmCommunicator.h in Headers */ = {isa = PBXBuildFile; fileRef = BA89095D14F75E6E00018B0F /* TcmCommunicator.h */; };
 		BA89096014F75E6E00018B0F /* TcmCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = BA89095E14F75E6E00018B0F /* TcmCommunicator.m */; };
+		BA894EC5152EDFAC0010B6A1 /* CommenStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA894EC4152EDFAC0010B6A1 /* CommenStepDefinition.m */; };
+		BA894EC9152EE00B0010B6A1 /* LeaderboardStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA894EC8152EE00A0010B6A1 /* LeaderboardStepDefinition.m */; };
 		BA96EC37150EFA5C00214FAD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA64CB70150DDF9200E8A9EE /* libz.dylib */; };
 		BA97ED0E15070014000D2E63 /* TestRunnerWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BA97ED0D15070014000D2E63 /* TestRunnerWrapper.m */; };
 		BAA80765150D96A6003A94E9 /* StepMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = BAA80763150D96A6003A94E9 /* StepMethod.h */; };
@@ -200,6 +202,10 @@
 		BA89095414F75D6100018B0F /* OFQAAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OFQAAPI.m; sourceTree = "<group>"; };
 		BA89095D14F75E6E00018B0F /* TcmCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TcmCommunicator.h; path = core/net/TcmCommunicator.h; sourceTree = "<group>"; };
 		BA89095E14F75E6E00018B0F /* TcmCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TcmCommunicator.m; path = core/net/TcmCommunicator.m; sourceTree = "<group>"; };
+		BA894EC3152EDFAC0010B6A1 /* CommenStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommenStepDefinition.h; path = steps/CommenStepDefinition.h; sourceTree = "<group>"; };
+		BA894EC4152EDFAC0010B6A1 /* CommenStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommenStepDefinition.m; path = steps/CommenStepDefinition.m; sourceTree = "<group>"; };
+		BA894EC7152EE00A0010B6A1 /* LeaderboardStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeaderboardStepDefinition.h; path = steps/LeaderboardStepDefinition.h; sourceTree = "<group>"; };
+		BA894EC8152EE00A0010B6A1 /* LeaderboardStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaderboardStepDefinition.m; path = steps/LeaderboardStepDefinition.m; sourceTree = "<group>"; };
 		BA97ED0C15070014000D2E63 /* TestRunnerWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestRunnerWrapper.h; path = wrapper/TestRunnerWrapper.h; sourceTree = "<group>"; };
 		BA97ED0D15070014000D2E63 /* TestRunnerWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestRunnerWrapper.m; path = wrapper/TestRunnerWrapper.m; sourceTree = "<group>"; };
 		BAA80763150D96A6003A94E9 /* StepMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StepMethod.h; path = core/caze/step/StepMethod.h; sourceTree = "<group>"; };
@@ -292,6 +298,10 @@
 				BA381E6C14FCC6D700FBA134 /* SampleStepDefinition.m */,
 				BAB21030152D4FC700177141 /* AchievementStepDefinition.h */,
 				BAB21031152D4FC700177141 /* AchievementStepDefinition.m */,
+				BA894EC3152EDFAC0010B6A1 /* CommenStepDefinition.h */,
+				BA894EC4152EDFAC0010B6A1 /* CommenStepDefinition.m */,
+				BA894EC7152EE00A0010B6A1 /* LeaderboardStepDefinition.h */,
+				BA894EC8152EE00A0010B6A1 /* LeaderboardStepDefinition.m */,
 			);
 			name = steps;
 			sourceTree = "<group>";
@@ -682,6 +692,8 @@
 				BA56CADE1505A7C1001ECED4 /* TestCaseWrapper.m in Sources */,
 				BA97ED0E15070014000D2E63 /* TestRunnerWrapper.m in Sources */,
 				BAB21032152D4FC700177141 /* AchievementStepDefinition.m in Sources */,
+				BA894EC5152EDFAC0010B6A1 /* CommenStepDefinition.m in Sources */,
+				BA894EC9152EE00B0010B6A1 /* LeaderboardStepDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
