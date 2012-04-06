@@ -41,9 +41,6 @@
     return self;
 }
 
-- (void) I_logged_in_as_PARAM:(NSString*) userid{
-    // do nothing here
-}
 
 - (void) I_load_list_of_achievement{
     [self setBlockSentinal:[StepDefinition WAITING]];
@@ -83,10 +80,11 @@
                                     Actual:[AchievementStepDefinition lockToString:[ach isUnlocked]]];
             [QAAssert assertEqualsExpected:score
                                     Actual:[NSString stringWithFormat:@"%i", [ach score]]];
-            break;
+            return;
         }
     }
-    
+    [QAAssert assertEqualsExpected:ach_name
+                            Actual:@"nil"];
 }
 
 
@@ -105,10 +103,11 @@
                     [ach unlock];
                 }
             }
-            break;
+            return;
         }
     }
-    
+    [QAAssert assertEqualsExpected:ach_name
+                            Actual:@"nil"];
 }
 
 - (void) I_update_status_of_achievement_PARAM:(NSString*) ach_name 
@@ -121,10 +120,11 @@
             }else{
                 [ach unlock];
             }
-            break;
+            return;
         }
     }
-    
+    [QAAssert assertEqualsExpected:ach_name
+                            Actual:@"nil"];
 }
 
 - (void) status_of_achievement_PARAM:(NSString*) ach_name 
@@ -134,9 +134,11 @@
         if([[ach name] isEqualToString:ach_name]){
             [QAAssert assertEqualsExpected:status
                                     Actual:[AchievementStepDefinition lockToString:[ach isUnlocked]]];
-            break;
+            return;
         }
     }
+    [QAAssert assertEqualsExpected:ach_name
+                            Actual:@"nil"];
 }
 
 - (void) my_score_should_be_PARAM:(NSString*) increment
