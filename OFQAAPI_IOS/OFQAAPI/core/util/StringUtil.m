@@ -8,6 +8,8 @@
 
 #import "StringUtil.h"
 #import "CommandUtil.h"
+#import "NoCommandMatchException.h"
+#import "QALog.h"
 
 @implementation StringUtil
 
@@ -48,7 +50,11 @@ static NSString* TCM_LINE_SPLITER = @"\r\n";
             i++;
             continue; 
         }else{
-            [unfilteredRawCase removeObjectAtIndex:i];
+            //[unfilteredRawCase removeObjectAtIndex:i];
+            // raise NoCommandMatchException directly if line doesnt start with keyword
+            QALog(@"[%@] doesnt start with reserved keyword", s);
+            [NoCommandMatchException raise:@"line doesnt started with keywords" 
+                                    format:@"line doesnt started with keywords"];
         }
     }
     

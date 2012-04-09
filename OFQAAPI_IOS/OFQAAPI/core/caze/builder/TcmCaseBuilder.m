@@ -15,6 +15,7 @@
 #import "Constant.h"
 
 #import "NoSuchStepException.h"
+#import "NoCommandMatchException.h"
 
 @implementation TcmCaseBuilder
 
@@ -74,16 +75,25 @@
         NSArray* rawStepsJson = [StringUtil splitStepsFrom:[rawCase valueForKey:@"custom_steps"] 
                                                     by:[StringUtil TCM_LINE_SPLITER]];
         
-        // clean raw steps within filters "when", "then", "given"
-        NSArray* rawSteps = [StringUtil extractStepsFrom:rawStepsJson];
         NSString* tid= [[rawCase valueForKey:@"id"] stringValue];
         TestCase* tc = [[TestCase alloc] initWithId:tid 
                                               title: [rawCase valueForKey:@"title"]];
+        
         @try {
+            // clean raw steps within filters "when", "then", "given"
+            NSArray* rawSteps = [StringUtil extractStepsFrom:rawStepsJson];
+            
             NSArray* solidSteps = [stepParser parseSteps:rawSteps];
             // build test case object
             [tc setSteps:solidSteps];
             
+        }
+        @catch (NoCommandMatchException* exception) {
+            QALog(@"one step doesnt begin with keyword for case [%@]", [rawCase valueForKey:@"title"]);
+            [tc setIsExecuted:true];
+            [tc setResult:[Constant FAILED]];
+            [tc setResultComment:@"probably one or two step is not started with keywords"];
+            continue;
         }
         @catch (NoSuchStepException *exception) {
             // no step found in

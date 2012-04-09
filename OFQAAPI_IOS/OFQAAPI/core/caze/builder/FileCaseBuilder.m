@@ -11,6 +11,7 @@
 #import "CommandUtil.h"
 #import "StepParser.h"
 #import "NoSuchStepException.h"
+#import "NoCommandMatchException.h"
 #import "Constant.h"
 #import "QALog.h"
 
@@ -52,18 +53,25 @@
     NSArray* rawCase = [StringUtil splitStepsFrom:[self caseRaw] 
                                                by:[StringUtil FILE_LINE_SPLITER]];
     
-    NSArray* rawSteps = [StringUtil extractStepsFrom:rawCase];
-    // transfer String[] to Step[]
+        // transfer String[] to Step[]
     
     
     TestCase* tc = [[TestCase alloc] initWithId:@"1"
                                            title:@"debug case from debugCase.txt"];
     
     @try {
+        NSArray* rawSteps = [StringUtil extractStepsFrom:rawCase];
+
         NSArray* solidSteps = [stepParser parseSteps:rawSteps];
         // build test case object
         [tc setSteps:solidSteps];
         
+    }
+    @catch (NoCommandMatchException* exception) {
+        QALog(@"one step doesnt begin with keyword for case [%@]", [rawCase valueForKey:@"title"]);
+        [tc setIsExecuted:true];
+        [tc setResult:[Constant FAILED]];
+        [tc setResultComment:@"probably one or two step is not started with keywords"];
     }
     @catch (NoSuchStepException *exception) {
         // no step found in
