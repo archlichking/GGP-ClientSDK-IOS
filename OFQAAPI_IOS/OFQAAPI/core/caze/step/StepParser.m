@@ -12,6 +12,8 @@
 #import "Step.h"
 #import "QALog.h"
 
+#import "NoSuchStepException.h"
+
 @implementation StepParser
 
 @synthesize holder;
@@ -37,7 +39,10 @@
         StepMethod* mInvo = [holder getMethodByStep:rawStep];
         if(mInvo == nil){
             QALog(@"no defined for step [%@]", rawStep);
-            continue;
+            // throw exception directly if no step found for current test case
+            [NoSuchStepException raise:@"No Step Found"
+                                format:@"no such step [%@] defined in StepDefinition", rawStep];
+            //continue;
         }else{
             // step 1: get class obj from
 

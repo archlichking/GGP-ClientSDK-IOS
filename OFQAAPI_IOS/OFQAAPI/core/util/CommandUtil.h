@@ -14,5 +14,7 @@
 + (NSString*) WHEN_FILTER;
 + (NSString*) THEN_FILTER;
 + (NSString*) AND_FILTER;
++ (NSString*) AFTER_FILTER;
++ (NSString*) BEFORE_FILTER;
 
 @end

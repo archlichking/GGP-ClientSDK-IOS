@@ -14,6 +14,8 @@ static NSString* GIVEN_FILTER = @"Given";
 static NSString* WHEN_FILTER = @"When";
 static NSString* THEN_FILTER = @"Then";
 static NSString* AND_FILTER = @"And";
+static NSString* AFTER_FILTER = @"After";
+static NSString* BEFORE_FILTER = @"Before";
 
 + (NSString*) GIVEN_FILTER{
     return GIVEN_FILTER;
@@ -26,6 +28,13 @@ static NSString* AND_FILTER = @"And";
 }
 + (NSString*) AND_FILTER{
     return AND_FILTER;
+}
+
++ (NSString*) AFTER_FILTER{
+    return AFTER_FILTER;
+}
++ (NSString*) BEFORE_FILTER{
+    return BEFORE_FILTER;
 }
 
 @end

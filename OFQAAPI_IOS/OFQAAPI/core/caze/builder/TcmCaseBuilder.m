@@ -11,7 +11,10 @@
 #import "SBJson.h"
 #import "StringUtil.h"
 #import "StepParser.h"
+#import "QALog.h"
+#import "Constant.h"
 
+#import "NoSuchStepException.h"
 
 @implementation TcmCaseBuilder
 
@@ -73,16 +76,27 @@
         
         // clean raw steps within filters "when", "then", "given"
         NSArray* rawSteps = [StringUtil extractStepsFrom:rawStepsJson];
-        
-        NSArray* solidSteps = [stepParser parseSteps:rawSteps];
-        // build test case object
         NSString* tid= [[rawCase valueForKey:@"id"] stringValue];
-        
         TestCase* tc = [[TestCase alloc] initWithId:tid 
-                                              title: [rawCase valueForKey:@"title"] 
-                                              steps:solidSteps];
-        [resultCases addObject:tc];
-        [tc release];
+                                              title: [rawCase valueForKey:@"title"]];
+        @try {
+            NSArray* solidSteps = [stepParser parseSteps:rawSteps];
+            // build test case object
+            [tc setSteps:solidSteps];
+            
+        }
+        @catch (NoSuchStepException *exception) {
+            // no step found in
+            QALog(@"no full steps defined for case [%@]", [rawCase valueForKey:@"title"]);
+            [tc setIsExecuted:true];
+            [tc setResult:[Constant FAILED]];
+            [tc setResultComment:@"probably one or two step is not defined"];
+            continue;
+        }
+        @finally {
+            [resultCases addObject:tc];
+            [tc release];
+        }
     }
     
     

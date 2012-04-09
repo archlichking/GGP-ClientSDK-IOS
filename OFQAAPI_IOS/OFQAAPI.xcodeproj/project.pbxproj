@@ -18,6 +18,8 @@
 		BA20767F14FB5FBC00293C3C /* TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = BA20767D14FB5FBC00293C3C /* TestCase.m */; };
 		BA20768214FB62DD00293C3C /* CommandUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = BA20768014FB62DC00293C3C /* CommandUtil.h */; };
 		BA20768314FB62DD00293C3C /* CommandUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = BA20768114FB62DC00293C3C /* CommandUtil.m */; };
+		BA283D0F1532B9180055981A /* NoSuchStepException.h in Headers */ = {isa = PBXBuildFile; fileRef = BA283D0D1532B9180055981A /* NoSuchStepException.h */; };
+		BA283D101532B9180055981A /* NoSuchStepException.m in Sources */ = {isa = PBXBuildFile; fileRef = BA283D0E1532B9180055981A /* NoSuchStepException.m */; };
 		BA381E5614FCA03D00FBA134 /* TcmCaseBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = BA381E5414FCA03D00FBA134 /* TcmCaseBuilder.h */; };
 		BA381E5714FCA03D00FBA134 /* TcmCaseBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = BA381E5514FCA03D00FBA134 /* TcmCaseBuilder.m */; };
 		BA381E5A14FCAFD600FBA134 /* NetCommunicator.h in Headers */ = {isa = PBXBuildFile; fileRef = BA381E5914FCAFD600FBA134 /* NetCommunicator.h */; };
@@ -136,6 +138,8 @@
 		BA20767D14FB5FBC00293C3C /* TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestCase.m; path = core/caze/TestCase.m; sourceTree = "<group>"; };
 		BA20768014FB62DC00293C3C /* CommandUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommandUtil.h; path = core/util/CommandUtil.h; sourceTree = "<group>"; };
 		BA20768114FB62DC00293C3C /* CommandUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommandUtil.m; path = core/util/CommandUtil.m; sourceTree = "<group>"; };
+		BA283D0D1532B9180055981A /* NoSuchStepException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoSuchStepException.h; path = core/exception/NoSuchStepException.h; sourceTree = "<group>"; };
+		BA283D0E1532B9180055981A /* NoSuchStepException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoSuchStepException.m; path = core/exception/NoSuchStepException.m; sourceTree = "<group>"; };
 		BA381E5414FCA03D00FBA134 /* TcmCaseBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TcmCaseBuilder.h; path = core/caze/builder/TcmCaseBuilder.h; sourceTree = "<group>"; };
 		BA381E5514FCA03D00FBA134 /* TcmCaseBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TcmCaseBuilder.m; path = core/caze/builder/TcmCaseBuilder.m; sourceTree = "<group>"; };
 		BA381E5914FCAFD600FBA134 /* NetCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetCommunicator.h; path = core/net/NetCommunicator.h; sourceTree = "<group>"; };
@@ -287,6 +291,8 @@
 				BA381E6214FCC2C100FBA134 /* TcmNotReachableException.m */,
 				BAC469031500C99800BA5BE4 /* AssertException.h */,
 				BAC469041500C99800BA5BE4 /* AssertException.m */,
+				BA283D0D1532B9180055981A /* NoSuchStepException.h */,
+				BA283D0E1532B9180055981A /* NoSuchStepException.m */,
 			);
 			name = exception;
 			sourceTree = "<group>";
@@ -590,6 +596,7 @@
 				BAC469091500C9D000BA5BE4 /* QAAssert.h in Headers */,
 				BAA80765150D96A6003A94E9 /* StepMethod.h in Headers */,
 				BA5218F4150E04C2002F02B3 /* StepDefinition.h in Headers */,
+				BA283D0F1532B9180055981A /* NoSuchStepException.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -734,6 +741,7 @@
 				BAC4690A1500C9D000BA5BE4 /* QAAssert.m in Sources */,
 				BAA80766150D96A6003A94E9 /* StepMethod.m in Sources */,
 				BA5218F5150E04C2002F02B3 /* StepDefinition.m in Sources */,
+				BA283D101532B9180055981A /* NoSuchStepException.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
