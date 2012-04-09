@@ -10,6 +10,9 @@
 #import "StringUtil.h"
 #import "CommandUtil.h"
 #import "StepParser.h"
+#import "NoSuchStepException.h"
+#import "Constant.h"
+#import "QALog.h"
 
 @implementation FileCaseBuilder
 
@@ -51,11 +54,25 @@
     
     NSArray* rawSteps = [StringUtil extractStepsFrom:rawCase];
     // transfer String[] to Step[]
-    NSArray* solidSteps = [stepParser parseSteps:rawSteps];
     
-    TestCase* tc = [[[TestCase alloc] initWithId:@"1"
-                                          title:@"debug case from debugCase.txt"
-                                          steps:solidSteps] autorelease];
+    
+    TestCase* tc = [[TestCase alloc] initWithId:@"1"
+                                           title:@"debug case from debugCase.txt"];
+    
+    @try {
+        NSArray* solidSteps = [stepParser parseSteps:rawSteps];
+        // build test case object
+        [tc setSteps:solidSteps];
+        
+    }
+    @catch (NoSuchStepException *exception) {
+        // no step found in
+        QALog(@"no full steps defined for case [%@]", [rawCase valueForKey:@"title"]);
+        [tc setIsExecuted:true];
+        [tc setResult:[Constant FAILED]];
+        [tc setResultComment:@"probably one or two step is not defined"];
+    }
+    
     return tc;
 }
 
