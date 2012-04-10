@@ -8,6 +8,8 @@
 
 #import "StringUtil.h"
 #import "CommandUtil.h"
+#import "NoCommandMatchException.h"
+#import "QALog.h"
 
 @implementation StringUtil
 
@@ -42,11 +44,17 @@ static NSString* TCM_LINE_SPLITER = @"\r\n";
         if ([s hasPrefix:[CommandUtil GIVEN_FILTER]] 
             || [s hasPrefix:[CommandUtil WHEN_FILTER]] 
             || [s hasPrefix:[CommandUtil THEN_FILTER]]
-            || [s hasPrefix:[CommandUtil AND_FILTER]]) {
+            || [s hasPrefix:[CommandUtil AND_FILTER]]
+            || [s hasPrefix:[CommandUtil BEFORE_FILTER]]
+            || [s hasPrefix:[CommandUtil AFTER_FILTER]]) {
             i++;
             continue; 
         }else{
-            [unfilteredRawCase removeObjectAtIndex:i];
+            //[unfilteredRawCase removeObjectAtIndex:i];
+            // raise NoCommandMatchException directly if line doesnt start with keyword
+            QALog(@"[%@] doesnt start with reserved keyword", s);
+            [NoCommandMatchException raise:@"line doesnt started with keywords" 
+                                    format:@"line doesnt started with keywords"];
         }
     }
     
@@ -60,15 +68,19 @@ static NSString* TCM_LINE_SPLITER = @"\r\n";
 }
 
 + (NSRegularExpression*) methodNameToRegexp:(NSString*) methodName{
+    // add command to method name
     NSString* s0 = [NSString stringWithFormat:@"%@_%@", @"PARAM:", methodName];
     
     NSString* s1 = [s0 stringByReplacingOccurrencesOfString:@"_" 
                                                  withString:@" "];
-    
+    // parse string
     NSString* s2 = [s1 stringByReplacingOccurrencesOfString:@"PARAM:" 
                                                  withString:@"(.*)"];
+    // parse number
+    NSString* s3 = [s2 stringByReplacingOccurrencesOfString:@"PARAMINT:" 
+                                                 withString:@"(\\d+)"];
     
-    NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:s2 
+    NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:s3 
                                                                            options:NSRegularExpressionCaseInsensitive 
                                                                              error:NULL];
     return regex;

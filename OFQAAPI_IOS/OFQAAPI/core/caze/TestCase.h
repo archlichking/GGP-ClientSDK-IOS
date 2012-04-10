@@ -30,6 +30,8 @@
 - (id)initWithId:(NSString*) cId 
            title:(NSString*) cTitle 
            steps:(NSArray*) steps;
+- (id)initWithId:(NSString*) cId 
+           title:(NSString*) cTitle;
 - (void) execute;
 
 @end

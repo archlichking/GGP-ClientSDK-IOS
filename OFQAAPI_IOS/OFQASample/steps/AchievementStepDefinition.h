@@ -28,7 +28,7 @@
                          _should_be_PARAM:(NSString*) status;
 
 - (void) my_score_should_be_PARAM:(NSString*) increment
-                             _by_PARAM:(NSString*) time;
+                             _by_PARAMINT:(NSString*) time;
 
 
 @end

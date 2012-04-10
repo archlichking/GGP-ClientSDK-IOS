@@ -36,6 +36,18 @@
     return self;
 }
 
+- (id)initWithId:(NSString*) cId 
+           title:(NSString*) cTitle{
+    if (self = [super init]) {
+        [self setCaseId:cId];
+        [self setTitle:cTitle];
+        [self setResult:[Constant PASSED]];
+        [self setResultComment:@""];
+        [self setIsExecuted:false];
+    }
+    return self;
+}
+
 - (void) execute{
     QALog(@"launching case with [id: %@, title: %@]", [self caseId], [self title]);
     if(steps.count == 0){

@@ -56,9 +56,10 @@
 
 }
 
-- (void) I_should_have_total_leaderboards_PARAM:(NSString*) amount{
+- (void) I_should_have_total_leaderboards_PARAMINT:(NSString*) amount{
     [QAAssert assertEqualsExpected:amount 
                             Actual:[NSString stringWithFormat:@"%i", [[self blockActual] count]]];
+
 }
 
 - (void) I_should_have_leaderboard_of_name_PARAM:(NSString*) ld_name 
