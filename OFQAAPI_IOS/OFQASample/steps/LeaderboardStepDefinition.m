@@ -47,6 +47,7 @@
     }
 }
 
+// step definition : I load list of leaderboard
 - (void) I_load_list_of_leaderboard{
     [self setBlockSentinal:[StepDefinition WAITING]];
     [GreeLeaderboard loadLeaderboardsWithBlock:^(NSArray* leaderboards, NSError* error) {
@@ -71,12 +72,14 @@
 
 }
 
+// step definition : I should have total leaderboards NUMBER
 - (void) I_should_have_total_leaderboards_PARAMINT:(NSString*) amount{
     [QAAssert assertEqualsExpected:amount 
                             Actual:[NSString stringWithFormat:@"%i", [[self blockActual] count]]];
 
 }
 
+// step definition : I should have leaderboard of name LB_NAME with allowWorseScore NO and secret NO and order asc NO
 - (void) I_should_have_leaderboard_of_name_PARAM:(NSString*) ld_name 
                      _with_allowWorseScore_PARAM:(NSString*) aws
                                _and_secret_PARAM:(NSString*) secret
@@ -95,6 +98,7 @@
     }
 }
 
+// step definition : I make sure my score NOTEXISTS in leaderboard LB_NAME
 - (void) I_make_sure_my_score_PARAM:(NSString*) exist
               _in_leaderboard_PARAM:(NSString*) ld_name{
     NSArray* lds = [self blockActual];
@@ -124,6 +128,7 @@
     }
 }
 
+// step definition : I add score to leaderboard LB_NAME with score SCORE
 - (void) I_add_score_to_leaderboard_PARAM:(NSString*) ld_name
                      _with_score_PARAMINT:(NSString*) score{
     // initialized for submit to a non-existed leaderboard
@@ -145,6 +150,7 @@
     return;
 }
 
+// step definition : my score SCORE should be updated in leaderboard LB_NAME
 - (void) my_score_PARAMINT:(NSString*) score _should_be_updated_in_leaderboard_PARAM:(NSString*) ld_name{
     NSArray* lds = [self blockActual];
     // initialized for submit to a non-existed leaderboard
@@ -179,6 +185,7 @@
 
 }
 
+// step definition : my DAILY score ranking of leaderboard LB_NAME should be RANK
 - (void) my_PARAM:(NSString*) period _score_ranking_of_leaderboard_PARAM:(NSString*) ld_name _should_be_PARAMINT:(NSString*) rank{
     NSArray* lds = [self blockActual];
     for (GreeLeaderboard* ld in lds) {
@@ -186,7 +193,7 @@
             __block int d = 1;
             __block int64_t r = 0;
             [GreeScore loadMyScoreForLeaderboard:[ld identifier] 
-                                      timePeriod:GreeScoreTimePeriodAlltime
+                                      timePeriod:[LeaderboardStepDefinition StringToPeriod:period]
                                            block:^(GreeScore *score, NSError *error) {
                                                if(!error){
                                                    r = [score rank];
@@ -205,6 +212,7 @@
     }
 }
 
+// step definition : I delete my score in leaderboard LB_NAME
 - (void) I_delete_my_score_in_leaderboard_PARAM:(NSString*) ld_name{
     // initialized for submit to a non-existed leaderboard
     NSString* identi = [[NSString alloc] initWithString:ld_name];
