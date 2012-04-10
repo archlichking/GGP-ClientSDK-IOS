@@ -25,6 +25,7 @@
 #import "CommenStepDefinition.h"
 #import "AchievementStepDefinition.h"
 #import "LeaderboardStepDefinition.h"
+#import "ModerationStepDefinition.h"
 
 
 
@@ -46,12 +47,14 @@
         id p = class_createInstance([CommenStepDefinition class], 0);
         id p2 = class_createInstance([AchievementStepDefinition class], 0);
         id p3 = class_createInstance([LeaderboardStepDefinition class], 0);
+        id p4 = class_createInstance([ModerationStepDefinition class], 0);
         
         StepHolder* holder = [[StepHolder alloc] init];
         
         [holder addStepObj:p];
         [holder addStepObj:p2];
         [holder addStepObj:p3];
+        [holder addStepObj:p4];
         
         [self setCb:[CaseBuilderFactory makeBuilderByType:t 
                                                raw:rawData
