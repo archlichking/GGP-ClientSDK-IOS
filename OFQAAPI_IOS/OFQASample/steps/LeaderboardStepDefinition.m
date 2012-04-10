@@ -126,45 +126,56 @@
 
 - (void) I_add_score_to_leaderboard_PARAM:(NSString*) ld_name
                      _with_score_PARAMINT:(NSString*) score{
+    // initialized for submit to a non-existed leaderboard
+    NSString* identi = [[NSString alloc] initWithString:ld_name];
     NSArray* lds = [self blockActual];
     for (GreeLeaderboard* ld in lds) {
         if([[ld name] isEqualToString:ld_name]){
-            GreeScore* s = [[GreeScore alloc] initWithLeaderboard:[ld identifier] 
-                                                                score:[score integerValue]];
-            [s submit];
-            // have to wait for 1 sec since no async callback here to handle
-            [NSThread sleepForTimeInterval:2];
-            [s release];
-
+            identi = [ld identifier];
+            break;
         }
     }
-
+    // for submit to a non-existed leaderboard
+    GreeScore* s = [[GreeScore alloc] initWithLeaderboard:identi 
+                                                    score:[score integerValue]];
+    [s submit];
+    // have to wait for 1 sec since no async callback here to handle
+    [NSThread sleepForTimeInterval:2];
+    [s release];
+    return;
 }
 
 - (void) my_score_PARAMINT:(NSString*) score _should_be_updated_in_leaderboard_PARAM:(NSString*) ld_name{
     NSArray* lds = [self blockActual];
+    // initialized for submit to a non-existed leaderboard
+    NSString* identi = [[NSString alloc] initWithString:ld_name];
     for (GreeLeaderboard* ld in lds) {
         if([[ld name] isEqualToString:ld_name]){
-            __block int d = 1;
-            __block int64_t s = 0;
-            [GreeScore loadMyScoreForLeaderboard:[ld identifier] 
-                                      timePeriod:GreeScoreTimePeriodAlltime
-                                           block:^(GreeScore *score, NSError *error) {
-                                               if(!error){
-                                                   s = [score score];
-                                               }
-                                               d = 0;
-                                           }];
-            // has to wait for async call finished
-            while (d == 1) {
-                [NSThread sleepForTimeInterval:1];
-            }
-            
-            [QAAssert assertEqualsExpected:score 
-                                    Actual:[NSString stringWithFormat:@"%i", s]];
-            return;
+            identi = [ld identifier];
+            break;
         }
     }
+   
+    __block int d = 1;
+    __block int64_t s = 0;
+    [GreeScore loadMyScoreForLeaderboard:identi 
+                              timePeriod:GreeScoreTimePeriodAlltime
+                                   block:^(GreeScore *score, NSError *error) {
+                                       if(!error){
+                                           s = [score score];
+                                       }
+                                       d = 0;
+                                   }];
+    // has to wait for async call finished
+    while (d == 1) {
+        [NSThread sleepForTimeInterval:1];
+    }
+    
+    [QAAssert assertEqualsExpected:score 
+                            Actual:[NSString stringWithFormat:@"%i", s]];
+    [identi release];
+    return;
+
 
 }
 
@@ -192,6 +203,28 @@
             return;
         }
     }
+}
+
+- (void) I_delete_my_score_in_leaderboard_PARAM:(NSString*) ld_name{
+    // initialized for submit to a non-existed leaderboard
+    NSString* identi = [[NSString alloc] initWithString:ld_name];
+    NSArray* lds = [self blockActual];
+    for (GreeLeaderboard* ld in lds) {
+        if([[ld name] isEqualToString:ld_name]){
+            identi = [ld identifier];
+            break;
+        }
+    }
+    __block int d = 1;
+    [GreeScore deleteMyScoreForLeaderboard:identi 
+                                 withBlock:^(NSError *error) {
+                                     d = 0;
+                                 }];
+    while (d == 1) {
+        [NSThread sleepForTimeInterval:1];
+    }
+    [identi release];
+    return;
 }
 
 @end
