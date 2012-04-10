@@ -19,4 +19,13 @@
                                _and_secret_PARAM:(NSString*) secret
                             _and_order_asc_PARAM:(NSString*) order;
 
+- (void) I_make_sure_my_score_PARAM:(NSString*) exist
+              _in_leaderboard_PARAM:(NSString*) ld_name;
+
+- (void) I_add_score_to_leaderboard_PARAM:(NSString*) ld_name
+                     _with_score_PARAMINT:(NSString*) score;
+
+- (void) my_score_PARAMINT:(NSString*) score _should_be_updated_in_leaderboard_PARAM:(NSString*) ld_name;
+
+- (void) my_PARAM:(NSString*) period _score_ranking_of_leaderboard_PARAM:(NSString*) ld_name _should_be_PARAMINT:(NSString*) rank;
 @end
