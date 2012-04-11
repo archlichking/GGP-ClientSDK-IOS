@@ -60,24 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OFQASample/steps/ModerationStepDefinition.m"
-         timestampString = "355744930.047459"
+         timestampString = "355804720.542346"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "85"
-         endingLineNumber = "85"
-         landmarkName = "-I_send_to_moderation_server_with_text_PARAM:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/ModerationStepDefinition.m"
-         timestampString = "355744933.285334"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "103"
-         endingLineNumber = "103"
+         startingLineNumber = "104"
+         endingLineNumber = "104"
          landmarkName = "-status_of_text_PARAM:in_server_should_be_PARAM:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,12 +73,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OFQASample/steps/ModerationStepDefinition.m"
-         timestampString = "355744935.227674"
+         timestampString = "355804724.047783"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "101"
-         endingLineNumber = "101"
-         landmarkName = "-status_of_text_PARAM:in_server_should_be_PARAM:"
+         startingLineNumber = "115"
+         endingLineNumber = "115"
+         landmarkName = "-I_update_text_PARAM:_with_new_text_PARAM:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -99,12 +86,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OFQASample/steps/ModerationStepDefinition.m"
-         timestampString = "355744935.878774"
+         timestampString = "355804725.700446"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "102"
-         endingLineNumber = "102"
-         landmarkName = "-status_of_text_PARAM:in_server_should_be_PARAM:"
+         startingLineNumber = "117"
+         endingLineNumber = "117"
+         landmarkName = "-I_update_text_PARAM:_with_new_text_PARAM:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -112,52 +99,39 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OFQASample/steps/ModerationStepDefinition.m"
-         timestampString = "355745143.766968"
+         timestampString = "355806156.262243"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "57"
-         endingLineNumber = "57"
-         landmarkName = "-I_make_sure_moderation_server_PARAM:_text_PARAM:"
+         startingLineNumber = "131"
+         endingLineNumber = "131"
+         landmarkName = "-I_delete_from_moderation_server_with_text_PARAM:"
          landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/ModerationStepDefinition.m"
-         timestampString = "355745150.162262"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "67"
-         endingLineNumber = "67"
-         landmarkName = "-I_make_sure_moderation_server_PARAM:_text_PARAM:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/ModerationStepDefinition.m"
-         timestampString = "355745152.249703"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "68"
-         endingLineNumber = "68"
-         landmarkName = "-I_make_sure_moderation_server_PARAM:_text_PARAM:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/ModerationStepDefinition.m"
-         timestampString = "355745535.345231"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "53"
-         endingLineNumber = "53"
-         landmarkName = "-I_make_sure_moderation_server_PARAM:_text_PARAM:"
-         landmarkType = "5">
+         <Locations>
+            <Location
+               shouldBeEnabled = "Yes"
+               ignoreCount = "0"
+               continueAfterRunningActions = "No"
+               symbolName = "-[ModerationStepDefinition I_delete_from_moderation_server_with_text_PARAM:]"
+               urlString = "file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/ModerationStepDefinition.m"
+               timestampString = "355806156.277728"
+               startingColumnNumber = "9223372036854775807"
+               endingColumnNumber = "9223372036854775807"
+               startingLineNumber = "131"
+               endingLineNumber = "131">
+            </Location>
+            <Location
+               shouldBeEnabled = "Yes"
+               ignoreCount = "0"
+               continueAfterRunningActions = "No"
+               symbolName = "__76-[ModerationStepDefinition I_delete_from_moderation_server_with_text_PARAM:]_block_invoke_0"
+               urlString = "file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/ModerationStepDefinition.m"
+               timestampString = "355806156.277965"
+               startingColumnNumber = "9223372036854775807"
+               endingColumnNumber = "9223372036854775807"
+               startingLineNumber = "131"
+               endingLineNumber = "131">
+            </Location>
+         </Locations>
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
