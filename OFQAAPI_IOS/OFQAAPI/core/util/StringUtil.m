@@ -78,7 +78,7 @@ static NSString* TCM_LINE_SPLITER = @"\r\n";
                                                  withString:@"(.*)"];
     // parse number
     NSString* s3 = [s2 stringByReplacingOccurrencesOfString:@"PARAMINT:" 
-                                                 withString:@"(\\d+)"];
+                                                 withString:@"([-]?\\d+)"];
     
     NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:s3 
                                                                            options:NSRegularExpressionCaseInsensitive 
