@@ -36,46 +36,32 @@
 }
 
 + (GreeScoreTimePeriod) StringToPeriod:(NSString*) str{
+    GreeScoreTimePeriod k = GreeScoreTimePeriodAlltime;
     if ([str isEqualToString:@"TOTAL"]) {
-        return GreeScoreTimePeriodAlltime;
+        k =  GreeScoreTimePeriodAlltime;
     }
     if([str isEqualToString:@"WEEKLY"]){
-        return GreeScoreTimePeriodWeekly;
+        k = GreeScoreTimePeriodWeekly;
     }
     if([str isEqualToString:@"DAILY"]){
-        return GreeScoreTimePeriodDaily;
+        k = GreeScoreTimePeriodDaily;
     }
+    return k;
 }
 
 // step definition : I load list of leaderboard
 - (void) I_load_list_of_leaderboard{
-    [self setBlockSentinal:[StepDefinition WAITING]];
+//    [self wait];
     [GreeLeaderboard loadLeaderboardsWithBlock:^(NSArray* leaderboards, NSError* error) {
-        if(error) {
-            [self setBlockSentinal: [StepDefinition FAILED]];
-            [self setBlockActual:[error description]];
-            return;
-        }
-        if(![leaderboards count]) {
-            [self setBlockSentinal:[StepDefinition FAILED]];
-            [self setBlockActual:@"no leaderboard returned"];
-            return;
-        }
-        [self setBlockSentinal:[StepDefinition PASSED]];
-        // use actual to store achievement result
-        [self setBlockActual:leaderboards];
+        [[self blockRepo] setObject:leaderboards forKey:@"leaderboards"];
+        [self notify];
     }];
-    
-    while ([self blockSentinal] == [StepDefinition WAITING]) {
-        [NSThread sleepForTimeInterval:1];
-    }
-
 }
 
 // step definition : I should have total leaderboards NUMBER
 - (void) I_should_have_total_leaderboards_PARAMINT:(NSString*) amount{
     [QAAssert assertEqualsExpected:amount 
-                            Actual:[NSString stringWithFormat:@"%i", [[self blockActual] count]]];
+                            Actual:[NSString stringWithFormat:@"%i", [[[self blockRepo] objectForKey:@"leaderboards"] count]]];
 
 }
 
@@ -84,7 +70,7 @@
                      _with_allowWorseScore_PARAM:(NSString*) aws
                                _and_secret_PARAM:(NSString*) secret
                             _and_order_asc_PARAM:(NSString*) order{
-    NSArray* lds = [self blockActual];
+    NSArray* lds = [[self blockRepo] objectForKey:@"leaderboards"];
     for (GreeLeaderboard* ld in lds) {
         if([[ld name] isEqualToString:ld_name]){
             [QAAssert assertEqualsExpected:aws 
@@ -101,7 +87,7 @@
 // step definition : I make sure my score NOTEXISTS in leaderboard LB_NAME
 - (void) I_make_sure_my_score_PARAM:(NSString*) exist
               _in_leaderboard_PARAM:(NSString*) ld_name{
-    NSArray* lds = [self blockActual];
+    NSArray* lds = [[self blockRepo] objectForKey:@"leaderboards"];
     for (GreeLeaderboard* ld in lds) {
         if([[ld name] isEqualToString:ld_name]){
             if ([LeaderboardStepDefinition StringToBool:exist]) {
@@ -113,15 +99,12 @@
                 [NSThread sleepForTimeInterval:2];
                 [score release];
             }else{
-                 __block int d = 1;
+//                [self wait];
                 // need to delete existed score
                 [GreeScore deleteMyScoreForLeaderboard:[ld identifier] 
                                              withBlock:^(NSError *error){
-                                                 d = 0;
+                                                 [self notify];
                                              }];
-                while (d != 0) {
-                    [NSThread sleepForTimeInterval:1];
-                }
             }
             return;
         }
@@ -133,7 +116,7 @@
                      _with_score_PARAMINT:(NSString*) score{
     // initialized for submit to a non-existed leaderboard
     NSString* identi = [[NSString alloc] initWithString:ld_name];
-    NSArray* lds = [self blockActual];
+    NSArray* lds = [[self blockRepo] objectForKey:@"leaderboards"];
     for (GreeLeaderboard* ld in lds) {
         if([[ld name] isEqualToString:ld_name]){
             identi = [ld identifier];
@@ -152,7 +135,7 @@
 
 // step definition : my score SCORE should be updated in leaderboard LB_NAME
 - (void) my_score_PARAMINT:(NSString*) score _should_be_updated_in_leaderboard_PARAM:(NSString*) ld_name{
-    NSArray* lds = [self blockActual];
+    NSArray* lds = [[self blockRepo] objectForKey:@"leaderboards"];
     // initialized for submit to a non-existed leaderboard
     NSString* identi = [[NSString alloc] initWithString:ld_name];
     for (GreeLeaderboard* ld in lds) {
@@ -162,21 +145,16 @@
         }
     }
    
-    __block int d = 1;
-    __block int64_t s = 0;
+//    [self wait];
+    __block int64_t s = -1;
     [GreeScore loadMyScoreForLeaderboard:identi 
                               timePeriod:GreeScoreTimePeriodAlltime
                                    block:^(GreeScore *score, NSError *error) {
                                        if(!error){
                                            s = [score score];
                                        }
-                                       d = 0;
+                                       [self notify];
                                    }];
-    // has to wait for async call finished
-    while (d == 1) {
-        [NSThread sleepForTimeInterval:1];
-    }
-    
     [QAAssert assertEqualsExpected:score 
                             Actual:[NSString stringWithFormat:@"%i", s]];
     [identi release];
@@ -187,24 +165,20 @@
 
 // step definition : my DAILY score ranking of leaderboard LB_NAME should be RANK
 - (void) my_PARAM:(NSString*) period _score_ranking_of_leaderboard_PARAM:(NSString*) ld_name _should_be_PARAMINT:(NSString*) rank{
-    NSArray* lds = [self blockActual];
+    NSArray* lds = [[self blockRepo] objectForKey:@"leaderboards"];
     for (GreeLeaderboard* ld in lds) {
         if([[ld name] isEqualToString:ld_name]){
-            __block int d = 1;
-            __block int64_t r = 0;
+//            [self wait];
+            __block int64_t r = -1;
             [GreeScore loadMyScoreForLeaderboard:[ld identifier] 
                                       timePeriod:[LeaderboardStepDefinition StringToPeriod:period]
                                            block:^(GreeScore *score, NSError *error) {
                                                if(!error){
                                                    r = [score rank];
                                                }
-                                               d = 0;
+                                               [self notify];
                                            }];
-            // has to wait for async call finished
-            while (d == 1) {
-                [NSThread sleepForTimeInterval:1];
-            }
-            
+                        
             [QAAssert assertEqualsExpected:rank 
                                     Actual:[NSString stringWithFormat:@"%i", r]];
             return;
@@ -216,21 +190,18 @@
 - (void) I_delete_my_score_in_leaderboard_PARAM:(NSString*) ld_name{
     // initialized for submit to a non-existed leaderboard
     NSString* identi = [[NSString alloc] initWithString:ld_name];
-    NSArray* lds = [self blockActual];
+    NSArray* lds = [[self blockRepo] objectForKey:@"leaderboards"];
     for (GreeLeaderboard* ld in lds) {
         if([[ld name] isEqualToString:ld_name]){
             identi = [ld identifier];
             break;
         }
     }
-    __block int d = 1;
+//    [self wait];
     [GreeScore deleteMyScoreForLeaderboard:identi 
                                  withBlock:^(NSError *error) {
-                                     d = 0;
+                                     [self notify];
                                  }];
-    while (d == 1) {
-        [NSThread sleepForTimeInterval:1];
-    }
     [identi release];
     return;
 }

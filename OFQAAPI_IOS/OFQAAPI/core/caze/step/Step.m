@@ -18,6 +18,7 @@
 @synthesize refObj;
 @synthesize refMethodInvocation;
 @synthesize refMethodParams;
+@synthesize w;
 
 - (id)init{
     if (self=[super init]){
@@ -25,11 +26,26 @@
         [self setRefObj:nil];
         [self setRefMethodParams:nil];
         [self setRefMethodInvocation:nil];
+        [self setW:FALSE];
+        
+        // add notification
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(notify:)
+                                                     name:@"notify" 
+                                                   object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(wait:)
+                                                     name:@"wait" 
+                                                   object:nil];
+        
     }
     return self;
 }
 
 - (StepResult*) invoke{
+    // set wait mark for notification
+    [self setW:TRUE];
     int result = [Constant FAILED];
     NSString* resultComment = @"";
     @try {
@@ -46,7 +62,18 @@
         // step 3: invoke 
         QALog(@"invoking [%@]", [self command]);
         [[self refMethodInvocation] invoke];
-        // step 4: set result
+        NSObject* o = nil;
+        [[self refMethodInvocation] getReturnValue:&o];
+        
+        if (!o) {
+            [self setW:FALSE];
+        }
+        
+        // step 4: wait for notification to wake up
+        while ([self w]) {
+            [NSThread sleepForTimeInterval:1];
+        }
+        // step 5: set result
         result = [Constant PASSED];
     }
     @catch (AssertException *exception) {
@@ -59,6 +86,18 @@
     }
     
     
+}
+
+- (void) notify:(NSNotification*) notification{
+    @synchronized(self){
+        [self setW:FALSE];
+    }
+}
+
+- (void) wait:(NSNotification*) notification{
+    @synchronized(self){
+        [self setW:TRUE];
+    }
 }
 
 //- (void)dealloc{

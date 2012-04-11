@@ -13,39 +13,14 @@
 
 @implementation StepDefinition
 
-static int FAILED = 1;
-static int WAITING = 0;
-static int PASSED = 2;
+@synthesize blockRepo;
 
-+ (int) WAITING{
-    return WAITING;
+- (void) notify{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"notify" object:nil];
 }
 
-+ (int) FAILED{
-    return FAILED;
-}
-
-+ (int) PASSED{
-    return PASSED;
-}
-
-
-@synthesize blockSentinal;
-@synthesize blockActual;
-@synthesize blockExpected;
-
-- (void) assertWithBlockSentinal:(void(^)(id expected, id result))block{
-    switch ([self blockSentinal]) {
-        case 1:
-            [AssertException raise:@"assert failed" 
-                            format:@"message would be []", [self blockActual]];
-            break;
-        case 2:
-            block([self blockExpected], [self blockActual]);        
-            break;
-        default:
-            break;
-    }
+- (void) wait{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"wait" object:nil];
 }
 
 @end

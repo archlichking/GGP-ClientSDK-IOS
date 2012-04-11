@@ -37,66 +37,6 @@
 //    NSLog(@"sample then i sleep");
 //}
 //
-- (void) I_try_to_load_out_all_achievements_for_current_user{
-    
-}
-- (void) all_achievements_I_have_should_be_return{
-    [self setBlockSentinal:[StepDefinition WAITING]];
-    [GreeAchievement loadAchievementsWithBlock:^(NSArray* achievements, NSError* error) {
-        if(error) {
-            [self setBlockSentinal: [StepDefinition FAILED]];
-            [self setBlockActual:[error description]];
-            return;
-        }
-        if(![achievements count]) {
-            [self setBlockSentinal:[StepDefinition FAILED]];
-            [self setBlockActual:@"no achievement returned"];
-            return;
-        }
-        [self setBlockSentinal:[StepDefinition PASSED]];
-        [self setBlockExpected:[NSString stringWithFormat:@"%i", 5]];
-        [self setBlockActual:[NSString stringWithFormat:@"%i", [achievements count]]];
-    }];
-    
-    while ([self blockSentinal] == [StepDefinition WAITING]) {
-        [NSThread sleepForTimeInterval:1];
-    }
-    
-    [self assertWithBlockSentinal:^(id expected, id result){
-        [QAAssert assertEqualsExpected:expected Actual:result];
-    }];
-}
-
-- (void) I_try_to_load_out_all_leaderboards_for_current_user{
-    
-}
-
-- (void) all_leaderboards_I_have_should_be_return{
-    [GreeLeaderboard loadLeaderboardsWithBlock:^(NSArray *leaderboards, NSError *error) {
-        if(error) {
-            [self setBlockSentinal: [StepDefinition FAILED]];
-            [self setBlockActual:[error description]];
-            return;
-        }
-        if(![leaderboards count]) {
-            [self setBlockSentinal:[StepDefinition FAILED]];
-            [self setBlockActual:@"no leaderboard returned"];
-            return;
-        }
-        [self setBlockSentinal:[StepDefinition PASSED]];
-        // set to 3 to make case fail by purpose
-        [self setBlockExpected:[NSString stringWithFormat:@"%i", 3]];
-        [self setBlockActual:[NSString stringWithFormat:@"%i", [leaderboards count]]];
-    }];
-    
-    while ([self blockSentinal] == [StepDefinition WAITING]) {
-        [NSThread sleepForTimeInterval:1];
-    }
-    
-    [self assertWithBlockSentinal:^(id expected, id result){
-        [QAAssert assertEqualsExpected:expected Actual:result];
-    }];
-}
 
 //
 //- (void) Given_I_want_to_do_another_thing{
@@ -118,5 +58,14 @@
 //    [OFAssert assertEqualsExpected:@"30" Actual:@"40"];
 //}
 
+- (void) i_get_achievement{
+    [GreeLeaderboard loadLeaderboardsWithBlock:^(NSArray *leaderboards, NSError *error) {
+        [self notify];
+    }];
+}
+
+- (void) i_set_achievement{
+    // should do nothing
+}
 
 @end

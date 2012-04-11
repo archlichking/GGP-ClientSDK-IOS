@@ -26,9 +26,9 @@
 {
     // Override point for customization after application launch.
     
-    NSData* raw = [self loadSettings];
+    NSData* raw = [self loadDebugCase];
     runnerWrapper = [[TestRunnerWrapper alloc] initWithRawData:raw 
-                                                   builderType:[CaseBuilderFactory TCM_BUILDER]];
+                                                   builderType:[CaseBuilderFactory FILE_BUILDER]];
     
     
     // --------- GREE Platform initialization
