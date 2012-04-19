@@ -104,6 +104,7 @@
 		BAB8182914FC759100AF18CD /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = BAB8182714FC759100AF18CD /* settings.json */; };
 		BAB8183014FC890900AF18CD /* TestRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = BAB8182E14FC890900AF18CD /* TestRunner.h */; };
 		BAB8183114FC890900AF18CD /* TestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB8182F14FC890900AF18CD /* TestRunner.m */; };
+		BAC432C3153FF6AC00C07E21 /* PeopleStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC432C2153FF6AC00C07E21 /* PeopleStepDefinition.m */; };
 		BAC468DA1500716F00BA5BE4 /* StepResult.h in Headers */ = {isa = PBXBuildFile; fileRef = BAC468D81500716F00BA5BE4 /* StepResult.h */; };
 		BAC468DB1500716F00BA5BE4 /* StepResult.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC468D91500716F00BA5BE4 /* StepResult.m */; };
 		BAC468DF1500732200BA5BE4 /* Constant.h in Headers */ = {isa = PBXBuildFile; fileRef = BAC468DD1500732200BA5BE4 /* Constant.h */; };
@@ -240,6 +241,8 @@
 		BAB8182714FC759100AF18CD /* settings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = settings.json; path = Config/settings.json; sourceTree = "<group>"; };
 		BAB8182E14FC890900AF18CD /* TestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestRunner.h; path = core/caze/TestRunner.h; sourceTree = "<group>"; };
 		BAB8182F14FC890900AF18CD /* TestRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestRunner.m; path = core/caze/TestRunner.m; sourceTree = "<group>"; };
+		BAC432C1153FF6AC00C07E21 /* PeopleStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleStepDefinition.h; path = steps/PeopleStepDefinition.h; sourceTree = "<group>"; };
+		BAC432C2153FF6AC00C07E21 /* PeopleStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleStepDefinition.m; path = steps/PeopleStepDefinition.m; sourceTree = "<group>"; };
 		BAC468D81500716F00BA5BE4 /* StepResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StepResult.h; path = core/caze/step/StepResult.h; sourceTree = "<group>"; };
 		BAC468D91500716F00BA5BE4 /* StepResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StepResult.m; path = core/caze/step/StepResult.m; sourceTree = "<group>"; };
 		BAC468DD1500732200BA5BE4 /* Constant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constant.h; path = core/util/Constant.h; sourceTree = "<group>"; };
@@ -319,6 +322,8 @@
 				BA894EC8152EE00A0010B6A1 /* LeaderboardStepDefinition.m */,
 				BA283D471534075A0055981A /* IgnorelistStepDefinition.h */,
 				BA283D481534075A0055981A /* IgnorelistStepDefinition.m */,
+				BAC432C1153FF6AC00C07E21 /* PeopleStepDefinition.h */,
+				BAC432C2153FF6AC00C07E21 /* PeopleStepDefinition.m */,
 			);
 			name = steps;
 			sourceTree = "<group>";
@@ -714,6 +719,7 @@
 				BA894EC5152EDFAC0010B6A1 /* CommenStepDefinition.m in Sources */,
 				BA894EC9152EE00B0010B6A1 /* LeaderboardStepDefinition.m in Sources */,
 				BA283D491534075A0055981A /* IgnorelistStepDefinition.m in Sources */,
+				BAC432C3153FF6AC00C07E21 /* PeopleStepDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
