@@ -1,5 +1,5 @@
 1. you need the whole folder of GGP_SDK/release and put it in somewhere  
-redirect to OFQAAPI_IOS folder and type
+redirect to OFQAAPI_IOS folder and type in console with
 `open OFQAAPI.xcodeproj`
 2. add necessary bundles to your xcode project  
 find OFQASample in your targets, click on "Build Phases" and "Copy Bundle Resources". click on + icon, find all *.bundle files in GGP_SDK/release/resources and add them here
