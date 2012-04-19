@@ -16,4 +16,6 @@
 
 - (void) my_PARAM:(NSString*) key _should_be_PARAM:(NSString*) value;
 
+- (void) I_check_my_friend_list;
+
 @end

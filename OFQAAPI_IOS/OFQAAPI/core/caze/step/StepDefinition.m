@@ -13,39 +13,6 @@
 
 @implementation StepDefinition
 
-static int FAILED = 1;
-static int WAITING = 0;
-static int PASSED = 2;
-
-+ (int) WAITING{
-    return WAITING;
-}
-
-+ (int) FAILED{
-    return FAILED;
-}
-
-+ (int) PASSED{
-    return PASSED;
-}
-
-
-@synthesize blockSentinal;
-@synthesize blockActual;
-@synthesize blockExpected;
-
-- (void) assertWithBlockSentinal:(void(^)(id expected, id result))block{
-    switch ([self blockSentinal]) {
-        case 1:
-            [AssertException raise:@"assert failed" 
-                            format:@"message would be []", [self blockActual]];
-            break;
-        case 2:
-            block([self blockExpected], [self blockActual]);        
-            break;
-        default:
-            break;
-    }
-}
+@synthesize blockRepo = __blockRepo;
 
 @end
