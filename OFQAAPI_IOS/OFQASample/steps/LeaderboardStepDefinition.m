@@ -36,37 +36,30 @@
 }
 
 + (GreeScoreTimePeriod) StringToPeriod:(NSString*) str{
+    GreeScoreTimePeriod ret = GreeScoreTimePeriodAlltime;
     if ([str isEqualToString:@"TOTAL"]) {
-        return GreeScoreTimePeriodAlltime;
+        ret =  GreeScoreTimePeriodAlltime;
     }
-    if([str isEqualToString:@"WEEKLY"]){
-        return GreeScoreTimePeriodWeekly;
+    else if([str isEqualToString:@"WEEKLY"]){
+        ret =  GreeScoreTimePeriodWeekly;
     }
-    if([str isEqualToString:@"DAILY"]){
-        return GreeScoreTimePeriodDaily;
+    else if([str isEqualToString:@"DAILY"]){
+        ret = GreeScoreTimePeriodDaily;
     }
+    return ret;
 }
 
 // step definition : I load list of leaderboard
 - (void) I_load_list_of_leaderboard{
-    [self setBlockSentinal:[StepDefinition WAITING]];
+    __block int d = 1;
     [GreeLeaderboard loadLeaderboardsWithBlock:^(NSArray* leaderboards, NSError* error) {
-        if(error) {
-            [self setBlockSentinal: [StepDefinition FAILED]];
-            [self setBlockActual:[error description]];
-            return;
+        if(!error) {
+            [[self getBlockRepo] setObject:leaderboards forKey:@"leaderboards"];
         }
-        if(![leaderboards count]) {
-            [self setBlockSentinal:[StepDefinition FAILED]];
-            [self setBlockActual:@"no leaderboard returned"];
-            return;
-        }
-        [self setBlockSentinal:[StepDefinition PASSED]];
-        // use actual to store achievement result
-        [self setBlockActual:leaderboards];
+        d = 0;
     }];
     
-    while ([self blockSentinal] == [StepDefinition WAITING]) {
+    while (d != 0) {
         [NSThread sleepForTimeInterval:1];
     }
 
@@ -75,7 +68,8 @@
 // step definition : I should have total leaderboards NUMBER
 - (void) I_should_have_total_leaderboards_PARAMINT:(NSString*) amount{
     [QAAssert assertEqualsExpected:amount 
-                            Actual:[NSString stringWithFormat:@"%i", [[self blockActual] count]]];
+                            Actual:[NSString stringWithFormat:@"%i", 
+                                    [[[self getBlockRepo] objectForKey:@"leaderboards"] count]]];
 
 }
 
@@ -84,7 +78,7 @@
                      _with_allowWorseScore_PARAM:(NSString*) aws
                                _and_secret_PARAM:(NSString*) secret
                             _and_order_asc_PARAM:(NSString*) order{
-    NSArray* lds = [self blockActual];
+    NSArray* lds = [[self getBlockRepo] objectForKey:@"leaderboards"];
     for (GreeLeaderboard* ld in lds) {
         if([[ld name] isEqualToString:ld_name]){
             [QAAssert assertEqualsExpected:aws 
@@ -101,7 +95,7 @@
 // step definition : I make sure my score NOTEXISTS in leaderboard LB_NAME
 - (void) I_make_sure_my_score_PARAM:(NSString*) exist
               _in_leaderboard_PARAM:(NSString*) ld_name{
-    NSArray* lds = [self blockActual];
+    NSArray* lds = [[self getBlockRepo] objectForKey:@"leaderboards"];
     for (GreeLeaderboard* ld in lds) {
         if([[ld name] isEqualToString:ld_name]){
             if ([LeaderboardStepDefinition StringToBool:exist]) {
@@ -133,7 +127,7 @@
                      _with_score_PARAMINT:(NSString*) score{
     // initialized for submit to a non-existed leaderboard
     NSString* identi = [[NSString alloc] initWithString:ld_name];
-    NSArray* lds = [self blockActual];
+    NSArray* lds = [[self getBlockRepo] objectForKey:@"leaderboards"];
     for (GreeLeaderboard* ld in lds) {
         if([[ld name] isEqualToString:ld_name]){
             identi = [ld identifier];
@@ -152,7 +146,7 @@
 
 // step definition : my score SCORE should be updated in leaderboard LB_NAME
 - (void) my_score_PARAMINT:(NSString*) score _should_be_updated_in_leaderboard_PARAM:(NSString*) ld_name{
-    NSArray* lds = [self blockActual];
+    NSArray* lds = [[self getBlockRepo] objectForKey:@"leaderboards"];
     // initialized for submit to a non-existed leaderboard
     NSString* identi = [[NSString alloc] initWithString:ld_name];
     for (GreeLeaderboard* ld in lds) {
@@ -187,7 +181,7 @@
 
 // step definition : my DAILY score ranking of leaderboard LB_NAME should be RANK
 - (void) my_PARAM:(NSString*) period _score_ranking_of_leaderboard_PARAM:(NSString*) ld_name _should_be_PARAMINT:(NSString*) rank{
-    NSArray* lds = [self blockActual];
+    NSArray* lds = [[self getBlockRepo] objectForKey:@"leaderboards"];
     for (GreeLeaderboard* ld in lds) {
         if([[ld name] isEqualToString:ld_name]){
             __block int d = 1;
@@ -216,7 +210,7 @@
 - (void) I_delete_my_score_in_leaderboard_PARAM:(NSString*) ld_name{
     // initialized for submit to a non-existed leaderboard
     NSString* identi = [[NSString alloc] initWithString:ld_name];
-    NSArray* lds = [self blockActual];
+    NSArray* lds = [[self getBlockRepo] objectForKey:@"leaderboards"];
     for (GreeLeaderboard* ld in lds) {
         if([[ld name] isEqualToString:ld_name]){
             identi = [ld identifier];

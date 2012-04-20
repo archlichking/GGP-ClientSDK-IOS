@@ -12,6 +12,7 @@
     @protected
     __block NSMutableDictionary* blockRepo;
 }
-@property (retain) NSMutableDictionary* blockRepo;
+
+- (NSMutableDictionary*) getBlockRepo;
 
 @end

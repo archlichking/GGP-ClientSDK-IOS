@@ -41,30 +41,17 @@
     
 }
 - (void) all_achievements_I_have_should_be_return{
-    [self setBlockSentinal:[StepDefinition WAITING]];
+    __block int d =1;
     [GreeAchievement loadAchievementsWithBlock:^(NSArray* achievements, NSError* error) {
-        if(error) {
-            [self setBlockSentinal: [StepDefinition FAILED]];
-            [self setBlockActual:[error description]];
-            return;
+        if(!error) {
+            [[self getBlockRepo] setObject:achievements forKey:@"achievements"];
         }
-        if(![achievements count]) {
-            [self setBlockSentinal:[StepDefinition FAILED]];
-            [self setBlockActual:@"no achievement returned"];
-            return;
-        }
-        [self setBlockSentinal:[StepDefinition PASSED]];
-        [self setBlockExpected:[NSString stringWithFormat:@"%i", 5]];
-        [self setBlockActual:[NSString stringWithFormat:@"%i", [achievements count]]];
+        d = 0;
     }];
     
-    while ([self blockSentinal] == [StepDefinition WAITING]) {
+    while (d != 0) {
         [NSThread sleepForTimeInterval:1];
     }
-    
-    [self assertWithBlockSentinal:^(id expected, id result){
-        [QAAssert assertEqualsExpected:expected Actual:result];
-    }];
 }
 
 - (void) I_try_to_load_out_all_leaderboards_for_current_user{
@@ -72,31 +59,16 @@
 }
 
 - (void) all_leaderboards_I_have_should_be_return{
+    __block int d =1;
     [GreeLeaderboard loadLeaderboardsWithBlock:^(NSArray *leaderboards, NSError *error) {
-        if(error) {
-            [self setBlockSentinal: [StepDefinition FAILED]];
-            [self setBlockActual:[error description]];
-            return;
+        if(!error) {
+            [[self getBlockRepo] setObject:leaderboards forKey:@"leaderboards"];
         }
-        if(![leaderboards count]) {
-            [self setBlockSentinal:[StepDefinition FAILED]];
-            [self setBlockActual:@"no leaderboard returned"];
-            return;
-        }
-        [self setBlockSentinal:[StepDefinition PASSED]];
-        // set to 3 to make case fail by purpose
-        [self setBlockExpected:[NSString stringWithFormat:@"%i", 3]];
-        [self setBlockActual:[NSString stringWithFormat:@"%i", [leaderboards count]]];
+        d = 0;    
     }];
-    
-    while ([self blockSentinal] == [StepDefinition WAITING]) {
+    while (d != 0) {
         [NSThread sleepForTimeInterval:1];
-    }
-    
-    [self assertWithBlockSentinal:^(id expected, id result){
-        [QAAssert assertEqualsExpected:expected Actual:result];
-    }];
-}
+    }}
 
 //
 //- (void) Given_I_want_to_do_another_thing{

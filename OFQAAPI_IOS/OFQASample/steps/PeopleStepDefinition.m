@@ -17,12 +17,11 @@
 
 // step definition : i see my info from server
 - (void) I_see_my_info_from_server{
-    [self setBlockRepo:[[[NSMutableDictionary alloc] init] autorelease]];
      __block int d = 1;
     [GreeUser loadUserWithId:@"57574" block:^(GreeUser *user, NSError *error){
         if(!error) {
            // use actual to store achievement result
-            [[self blockRepo] setObject:user forKey:@"user"];
+            [[self getBlockRepo] setObject:user forKey:@"user"];
         }
         d = 0;
     }];
@@ -34,14 +33,13 @@
 
 // step definition : i see my info from native cache
 - (void) I_see_my_info_from_native_cache{
-    [self setBlockRepo:[[[NSMutableDictionary alloc] init] autorelease]];
     GreeUser* user = [GreePlatform sharedInstance].localUser;
-    [[self blockRepo] setObject:user forKey:@"user"];
+    [[self getBlockRepo] setObject:user forKey:@"user"];
 }
 
 // step definition : my displayName should be PLAYER_NAME
 - (void) my_PARAM:(NSString*) key _should_be_PARAM:(NSString*) value{
-    GreeUser* user = [[self blockRepo] objectForKey:@"user"];
+    GreeUser* user = [[self getBlockRepo] objectForKey:@"user"];
     
     if (user) {
         if ([key isEqualToString:@"displayName"]) {
@@ -72,12 +70,12 @@
 
 // step definition : I check my friend list
 - (void) I_check_my_friend_list{
-    GreeUser* user = [[self blockRepo] objectForKey:@"user"];
+    GreeUser* user = [[self getBlockRepo] objectForKey:@"user"];
     if (user) {
          __block int d = 1;
         [user loadFriendsWithBlock:^(NSArray *friends, NSError *error) {
             if(!error){
-                [[self blockRepo] setObject:friends forKey:@"friends"];
+                [[self getBlockRepo] setObject:friends forKey:@"friends"];
             }
             d = 0;
         }];
