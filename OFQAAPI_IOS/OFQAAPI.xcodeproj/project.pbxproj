@@ -23,6 +23,7 @@
 		BA283D141532D0BE0055981A /* NoCommandMatchException.h in Headers */ = {isa = PBXBuildFile; fileRef = BA283D121532D0BE0055981A /* NoCommandMatchException.h */; };
 		BA283D151532D0BE0055981A /* NoCommandMatchException.m in Sources */ = {isa = PBXBuildFile; fileRef = BA283D131532D0BE0055981A /* NoCommandMatchException.m */; };
 		BA283D491534075A0055981A /* IgnorelistStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA283D481534075A0055981A /* IgnorelistStepDefinition.m */; };
+		BA283D4C15341D960055981A /* ModerationStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA283D4B15341D960055981A /* ModerationStepDefinition.m */; };
 		BA381E5614FCA03D00FBA134 /* TcmCaseBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = BA381E5414FCA03D00FBA134 /* TcmCaseBuilder.h */; };
 		BA381E5714FCA03D00FBA134 /* TcmCaseBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = BA381E5514FCA03D00FBA134 /* TcmCaseBuilder.m */; };
 		BA381E5A14FCAFD600FBA134 /* NetCommunicator.h in Headers */ = {isa = PBXBuildFile; fileRef = BA381E5914FCAFD600FBA134 /* NetCommunicator.h */; };
@@ -148,6 +149,8 @@
 		BA283D131532D0BE0055981A /* NoCommandMatchException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoCommandMatchException.m; path = core/exception/NoCommandMatchException.m; sourceTree = "<group>"; };
 		BA283D471534075A0055981A /* IgnorelistStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IgnorelistStepDefinition.h; path = steps/IgnorelistStepDefinition.h; sourceTree = "<group>"; };
 		BA283D481534075A0055981A /* IgnorelistStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IgnorelistStepDefinition.m; path = steps/IgnorelistStepDefinition.m; sourceTree = "<group>"; };
+		BA283D4A15341D960055981A /* ModerationStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModerationStepDefinition.h; path = steps/ModerationStepDefinition.h; sourceTree = "<group>"; };
+		BA283D4B15341D960055981A /* ModerationStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModerationStepDefinition.m; path = steps/ModerationStepDefinition.m; sourceTree = "<group>"; };
 		BA381E5414FCA03D00FBA134 /* TcmCaseBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TcmCaseBuilder.h; path = core/caze/builder/TcmCaseBuilder.h; sourceTree = "<group>"; };
 		BA381E5514FCA03D00FBA134 /* TcmCaseBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TcmCaseBuilder.m; path = core/caze/builder/TcmCaseBuilder.m; sourceTree = "<group>"; };
 		BA381E5914FCAFD600FBA134 /* NetCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetCommunicator.h; path = core/net/NetCommunicator.h; sourceTree = "<group>"; };
@@ -324,6 +327,8 @@
 				BA283D481534075A0055981A /* IgnorelistStepDefinition.m */,
 				BAC432C1153FF6AC00C07E21 /* PeopleStepDefinition.h */,
 				BAC432C2153FF6AC00C07E21 /* PeopleStepDefinition.m */,
+				BA283D4A15341D960055981A /* ModerationStepDefinition.h */,
+				BA283D4B15341D960055981A /* ModerationStepDefinition.m */,
 			);
 			name = steps;
 			sourceTree = "<group>";
@@ -720,6 +725,7 @@
 				BA894EC9152EE00B0010B6A1 /* LeaderboardStepDefinition.m in Sources */,
 				BA283D491534075A0055981A /* IgnorelistStepDefinition.m in Sources */,
 				BAC432C3153FF6AC00C07E21 /* PeopleStepDefinition.m in Sources */,
+				BA283D4C15341D960055981A /* ModerationStepDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
