@@ -61,8 +61,9 @@
             [QAAssert assertEqualsExpected:value 
                                     Actual:[user region]];
             
+        }else{
+            
         }
-        return;
     }
     [QAAssert assertEqualsExpected:value
                             Actual:nil];
