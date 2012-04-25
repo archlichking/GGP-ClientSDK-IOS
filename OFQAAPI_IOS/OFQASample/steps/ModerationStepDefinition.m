@@ -23,7 +23,7 @@
 }
 
 + (NSString*) StatusToString:(GreeModerationStatus) status{
-    NSString* ret = @"CHECKED";
+    NSString* ret = @"NOTHING";
     if (status == GreeModerationStatusBeingChecked) {
         ret = @"CHECKED";
     }
