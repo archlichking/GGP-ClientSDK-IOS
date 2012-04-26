@@ -83,8 +83,6 @@ static NSString* TCM_LINE_SPLITER = @"\r\n";
     NSString* s4 = [s3 stringByReplacingOccurrencesOfString:@"PARAM:" 
                                                  withString:@"(.*)"];
     
-    QALog(@"%@", s4);
-    
     NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:s4
                                                                            options:NSRegularExpressionCaseInsensitive 
                                                                              error:NULL];

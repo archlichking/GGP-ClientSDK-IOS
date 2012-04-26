@@ -38,7 +38,7 @@
         // step 0: get method by rawStep
         StepMethod* mInvo = [holder getMethodByStep:rawStep];
         if(mInvo == nil){
-            QALog(@"no defined for step [%@]", rawStep);
+            QALog(@"no defininition for step [%@]", rawStep);
             // throw exception directly if no step found for current test case
             [NoSuchStepException raise:@"No Step Found"
                                 format:@"no such step [%@] defined in StepDefinition", rawStep];

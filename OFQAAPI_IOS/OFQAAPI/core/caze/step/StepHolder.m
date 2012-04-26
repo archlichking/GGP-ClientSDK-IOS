@@ -82,7 +82,6 @@ static StepHolder* stepHolder = nil;
                 NSMutableArray* params = [[[NSMutableArray alloc] init] autorelease];
                 // we need to omit first two params, because we also match GIVEN WHEN THEN in param 1
                 
-                NSLog(@"%@ ------> %@", stepString, key);
                 for (int i =2; i<[[ns objectAtIndex:0] numberOfRanges]; i++) {
                     // have to make type conversion here
                     // todo
