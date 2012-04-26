@@ -61,11 +61,12 @@
     
 }
 
-//- (void)dealloc{
-//    command = nil;
-//    [refMethodParams release];
-//    [refMethodParams release];
-//    [super dealloc];
-//}
+- (void)dealloc{
+    [command release];
+    [refObj release];
+    [refMethodParams release];
+    [refMethodInvocation release];
+    [super dealloc];
+}
 
 @end

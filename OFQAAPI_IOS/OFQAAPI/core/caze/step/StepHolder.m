@@ -98,7 +98,7 @@ static StepHolder* stepHolder = nil;
 }
 
 //- (void)dealloc{
-////    [stepHolder release];
+//    [stepHolder release];
 //    [stepCage release];
 //    [super dealloc];
 //}

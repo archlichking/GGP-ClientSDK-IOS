@@ -26,22 +26,22 @@
 - (id)initWithRawValue:(NSData*)rawCaze
                 holder:(StepHolder*) holder{
     if (self = [super init]) {
-        StepParser* sp = [[StepParser alloc] initWithHolder:holder];
+        StepParser* sp = [[[StepParser alloc] initWithHolder:holder] autorelease];
         [self setStepParser:sp];
         // rawCase should be NSData* containing settings.json content
-        SBJsonParser* sb = [[SBJsonParser alloc] init];
+        SBJsonParser* sb = [[[SBJsonParser alloc] init] autorelease];
         [self setJsonParser: sb];
         NSDictionary* tempSettings = [jsonParser objectWithData:rawCaze];
         
-        TcmCommunicator* tm = [[TcmCommunicator alloc] initWithKey:[tempSettings valueForKey:@"tcmKey"]
+        TcmCommunicator* tm = [[[TcmCommunicator alloc] initWithKey:[tempSettings valueForKey:@"tcmKey"]
                                                           submitUrl:[tempSettings valueForKey:@"tcmSubmitUrl"] 
-                                                       retrievalUrl:[tempSettings valueForKey:@"tcmRetrievalUrl"]];
+                                                       retrievalUrl:[tempSettings valueForKey:@"tcmRetrievalUrl"]] autorelease];
         
         [self setTcmComm:tm];
         
-        [sb release];
-        [sp release];
-        [tm release];
+//        [sb release];
+//        [sp release];
+//        [tm release];
     }
     return self;
 }
@@ -76,8 +76,8 @@
                                                     by:[StringUtil TCM_LINE_SPLITER]];
         
         NSString* tid= [[rawCase valueForKey:@"id"] stringValue];
-        TestCase* tc = [[TestCase alloc] initWithId:tid 
-                                              title: [rawCase valueForKey:@"title"]];
+        TestCase* tc = [[[TestCase alloc] initWithId:tid 
+                                              title: [rawCase valueForKey:@"title"]] autorelease];
         
         @try {
             // clean raw steps within filters "when", "then", "given"
@@ -105,7 +105,7 @@
         }
         @finally {
             [resultCases addObject:tc];
-            [tc release];
+//            [tc release];
         }
     }
     

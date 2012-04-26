@@ -23,9 +23,9 @@
     return self;
 }
 
-//- (void)dealloc{
-//    [comment release];
-//    [super dealloc];
-//}
+- (void)dealloc{
+    [comment release];
+    [super dealloc];
+}
 
 @end

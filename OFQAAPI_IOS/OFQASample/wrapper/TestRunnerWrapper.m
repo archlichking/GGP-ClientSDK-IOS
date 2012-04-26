@@ -91,7 +91,10 @@
     while (i<caseWrappers.count) {
         TestCaseWrapper* tcw = [caseWrappers objectAtIndex:i];
         if ([tcw isSelected]) {
-            [runner addCase:[tcw tc]];
+            TestCase* t = [tcw tc];
+            [t setIsExecuted:NO];
+            [t setResultComment:@""];
+            [runner addCase:t];
             [caseWrappers removeObject:tcw];
         }else{
             i++;
