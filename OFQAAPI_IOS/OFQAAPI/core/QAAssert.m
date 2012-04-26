@@ -25,7 +25,7 @@
                   WithMessage:(NSString*) message{
     if (![expected isEqualToString:result]) {
         [AssertException raise:@"assertEquals failed" 
-                        format:@"expected:<%@> but was:<%@> with message [@%]", expected, result, message];
+                        format:@"expected:<%@> but was:<%@> with message [%@]", expected, result, message];
     }
 }
 @end

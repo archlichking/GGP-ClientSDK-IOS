@@ -111,11 +111,11 @@
     NSArray* executedCases = [runner getAllCases];
     for (int j=0; j<executedCases.count; j++) {
         TestCase* tc = [executedCases objectAtIndex:j];
-        TestCaseWrapper* tcw = [[TestCaseWrapper alloc] initWithTestCase:tc 
+        TestCaseWrapper* tcw = [[[TestCaseWrapper alloc] initWithTestCase:tc 
                                                                 selected:true
-                                                                  result:[tc result]]; 
+                                                                  result:[tc result]] autorelease]; 
         [caseWrappers addObject:tcw];
-        [tcw release];
+        //[tcw release];
     }
 }
 

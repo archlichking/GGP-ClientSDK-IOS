@@ -85,13 +85,13 @@
 }
 
 // step definition : status of text TEXT in native cache should be STATUS
-- (void) status_of_text_PARAM:(NSString*) text in_native_cache_should_be_PARAM:(NSString*) status{
+- (void) status_of_text_PARAM:(NSString*) text _in_native_cache_should_be_PARAM:(NSString*) status{
     
 }
 
 // step definition : status of text TEXT in server should be STATUS
 - (void) status_of_text_PARAM:(NSString*) text 
-    in_server_should_be_PARAM:(NSString*) status{
+    _in_server_should_be_PARAM:(NSString*) status{
     GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
     [QAAssert assertEqualsExpected:status 
                             Actual:[ModerationStepDefinition StatusToString:[t status]]];

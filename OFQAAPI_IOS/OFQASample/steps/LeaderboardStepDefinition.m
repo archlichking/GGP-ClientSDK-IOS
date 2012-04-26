@@ -87,9 +87,12 @@
                                     Actual:[LeaderboardStepDefinition BoolToString:[ld isSecret]]];
             [QAAssert assertEqualsExpected:order 
                                     Actual:[LeaderboardStepDefinition BoolToString:[ld sortOrder]]];
-            break;
+            return;
         }
     }
+    [QAAssert assertEqualsExpected:ld_name
+                            Actual:nil
+                       WithMessage:@"no leaderboard matches"];
 }
 
 // step definition : I make sure my score NOTEXISTS in leaderboard LB_NAME
@@ -120,6 +123,7 @@
             return;
         }
     }
+    
 }
 
 // step definition : I add score to leaderboard LB_NAME with score SCORE
@@ -204,6 +208,9 @@
             return;
         }
     }
+    [QAAssert assertEqualsExpected:ld_name
+                            Actual:nil
+                       WithMessage:@"no leaderboard matches"];
 }
 
 // step definition : I delete my score in leaderboard LB_NAME

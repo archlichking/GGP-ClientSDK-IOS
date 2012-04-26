@@ -62,8 +62,11 @@
                                     Actual:[user region]];
             
         }else{
-            
+            [QAAssert assertEqualsExpected:nil 
+                                    Actual:key
+                               WithMessage:@"no key matched"];
         }
+        return;
     }
     [QAAssert assertEqualsExpected:value
                             Actual:nil];
@@ -105,7 +108,8 @@
         }
     }
     [QAAssert assertEqualsExpected:person
-                            Actual:nil];
+                            Actual:nil
+                       WithMessage:@"no person matches"];
     
 }
 
@@ -122,6 +126,9 @@
             return;
         }
     }
+    [QAAssert assertEqualsExpected:person
+                            Actual:nil
+                       WithMessage:@"no person matches"];
 }
 
 

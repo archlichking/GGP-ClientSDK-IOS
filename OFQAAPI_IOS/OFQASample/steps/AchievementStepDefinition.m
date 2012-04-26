@@ -33,14 +33,6 @@
     }
 }
 
-- (id)init{
-    if (self=[super init])
-    {
-        
-    }
-    return self;
-}
-
 // step definition :  I load list of achievement
 - (void) I_load_list_of_achievement{
     __block int d = 1;
@@ -77,7 +69,8 @@
         }
     }
     [QAAssert assertEqualsExpected:ach_name
-                            Actual:@"nil"];
+                            Actual:@"nil"
+                       WithMessage:@"no achieveiemt matches"];
 }
 
 // step definition :  I make sure status of achievement ACH_NAME is LOCK
@@ -100,7 +93,8 @@
         }
     }
     [QAAssert assertEqualsExpected:ach_name
-                            Actual:@"nil"];
+                            Actual:@"nil"
+                       WithMessage:@"no achieveiemt matches"];
 }
 
 // step definition : I update status of achievement ACH_NAME to UNLOCK
@@ -118,7 +112,8 @@
         }
     }
     [QAAssert assertEqualsExpected:ach_name
-                            Actual:@"nil"];
+                            Actual:@"nil"
+                       WithMessage:@"no achieveiemt matches"];
 }
 
 // step definition : status of achievement ACH_NAME should be UNLOCK
@@ -133,7 +128,8 @@
         }
     }
     [QAAssert assertEqualsExpected:ach_name
-                            Actual:@"nil"];
+                            Actual:@"nil"
+                       WithMessage:@"no achieveiemt matches"];
 }
 
 // step definition : my score should be DECREASED by SCORE
