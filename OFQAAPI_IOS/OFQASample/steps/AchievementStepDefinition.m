@@ -88,6 +88,7 @@
                 }else{
                     [ach unlock];
                 }
+                [NSThread sleepForTimeInterval:2];
             }
             return;
         }

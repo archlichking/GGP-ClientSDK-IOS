@@ -11,6 +11,7 @@
 #import "QAAssert.h"
 #import "QALog.h"
 #import "GreeLeaderboard.h"
+#import "GreeEnumerator.h"
 
 #import "GreeScore.h"
 
@@ -45,6 +46,18 @@
     }
     else if([str isEqualToString:@"DAILY"]){
         ret = GreeScoreTimePeriodDaily;
+    }
+    return ret;
+}
+
++ (GreePeopleScope) StringToRange:(NSString*) str{
+    GreePeopleScope ret = GreePeopleScopeSelf;
+    if ([str isEqualToString:@"FRIENDS"]) {
+        ret = GreePeopleScopeFriends;
+    }else if ([str isEqualToString:@"ALL"]) {
+        ret = GreePeopleScopeAll;
+    }else if ([str isEqualToString:@"MINE"]) {
+        ret = GreePeopleScopeSelf;
     }
     return ret;
 }
@@ -152,7 +165,7 @@
 - (void) my_score_PARAMINT:(NSString*) score _should_be_updated_in_leaderboard_PARAM:(NSString*) ld_name{
     NSArray* lds = [[self getBlockRepo] objectForKey:@"leaderboards"];
     // initialized for submit to a non-existed leaderboard
-    NSString* identi = [[NSString alloc] initWithString:ld_name];
+    NSString* identi = [[[NSString alloc] initWithString:ld_name] autorelease];
     for (GreeLeaderboard* ld in lds) {
         if([[ld name] isEqualToString:ld_name]){
             identi = [ld identifier];
@@ -177,14 +190,13 @@
     
     [QAAssert assertEqualsExpected:score 
                             Actual:[NSString stringWithFormat:@"%i", s]];
-    [identi release];
+//    [identi release];
     return;
 
 
 }
-
 // step definition : my DAILY score ranking of leaderboard LB_NAME should be RANK
-- (void) my_PARAM:(NSString*) period _score_ranking_of_leaderboard_PARAM:(NSString*) ld_name _should_be_PARAMINT:(NSString*) rank{
+- (void) my_PARAM:(NSString*) period _score_ranking_of_leaderboard_PARAM:(NSString*) ld_name _should_be_PARAMINT:(NSString*) rank;{
     NSArray* lds = [[self getBlockRepo] objectForKey:@"leaderboards"];
     for (GreeLeaderboard* ld in lds) {
         if([[ld name] isEqualToString:ld_name]){
@@ -213,10 +225,11 @@
                        WithMessage:@"no leaderboard matches"];
 }
 
+
 // step definition : I delete my score in leaderboard LB_NAME
 - (void) I_delete_my_score_in_leaderboard_PARAM:(NSString*) ld_name{
     // initialized for submit to a non-existed leaderboard
-    NSString* identi = [[NSString alloc] initWithString:ld_name];
+    NSString* identi = [[[NSString alloc] initWithString:ld_name] autorelease];
     NSArray* lds = [[self getBlockRepo] objectForKey:@"leaderboards"];
     for (GreeLeaderboard* ld in lds) {
         if([[ld name] isEqualToString:ld_name]){
@@ -232,7 +245,7 @@
     while (d == 1) {
         [NSThread sleepForTimeInterval:1];
     }
-    [identi release];
+   // [identi release];
     return;
 }
 

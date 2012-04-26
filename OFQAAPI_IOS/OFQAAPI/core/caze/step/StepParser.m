@@ -47,7 +47,7 @@
             // step 1: get class obj from
 
             // step 2: build step
-            Step* step = [[Step alloc] init];
+            Step* step = [[[Step alloc] init] autorelease];
             // 2.1 set step ref obj
             [step setRefObj:[mInvo refObj]];
             // 2.2 set step method invocation
@@ -58,16 +58,16 @@
             [step setCommand:rawStep];
             // step 3: add step into resultArray
             [resultArray addObject:step];
-            [step release];
+            //[step release];
         }
     }
    
     return resultArray;
 }
 //
-//- (void)dealloc{
-//    [holder release];
-//    [super dealloc];
-//}
+- (void)dealloc{
+    [holder release];
+    [super dealloc];
+}
 
 @end

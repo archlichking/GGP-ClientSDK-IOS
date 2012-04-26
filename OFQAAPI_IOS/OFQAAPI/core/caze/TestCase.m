@@ -49,7 +49,7 @@
 }
 
 - (void) execute{
-    QALog(@"launching case with [id: %@, title: %@]", [self caseId], [self title]);
+    QALog(@"============= launching case of [id: %@, title: %@] =============", [self caseId], [self title]);
     if(steps.count == 0){
         //no steps
         [self setResult:[Constant RETESTED]];
@@ -69,15 +69,14 @@
     }
     [self setResultComment:resultComment];
     [self setIsExecuted:true];
-    QALog(@"=======================");
 }
 
-//- (void)dealloc{
-//    [caseId release];
-//    [title release];
-//    [steps release];
-//    [resultComment release];
-//    [super dealloc];
-//}
+- (void)dealloc{
+    [caseId release];
+    [title release];
+    [steps release];
+    [resultComment release];
+    [super dealloc];
+}
 
 @end
