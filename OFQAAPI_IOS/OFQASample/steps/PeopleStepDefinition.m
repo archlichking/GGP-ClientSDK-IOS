@@ -76,18 +76,37 @@
 // step definition : I check my friend list
 - (void) I_check_my_friend_list{
     GreeUser* user = [GreePlatform sharedInstance].localUser;
+    // temperary save for friends list
+    NSMutableArray* array = [[[NSMutableArray alloc] init] autorelease];
+    
+    id<GreeEnumerator> enumerator = nil;
     if (user) {
-         __block int d = 1;
-        [user loadFriendsWithBlock:^(NSArray *friends, NSError *error) {
-            if(!error){
-                [[self getBlockRepo] setObject:friends forKey:@"friends"];
+        __block int d = 1;
+        enumerator = [user loadFriendsWithBlock:^(NSArray *friends, NSError *error) {
+            // first 10 friends could only be retrieved this way
+            if (!error) {
+                [array addObjectsFromArray:friends];
             }
             d = 0;
         }];
         while (d != 0) {
             [NSThread sleepForTimeInterval:1];
         }
+        while ([enumerator canLoadNext]) {
+            d = 1;
+            [enumerator loadNext:^(NSArray *items, NSError *error) {
+                if(!error){
+                    [array addObjectsFromArray:items];
+                }
+                d = 0;
+            }];
+            
+            while (d != 0) {
+                [NSThread sleepForTimeInterval:1];
+            }
+        }
     }
+    [[self getBlockRepo] setObject:array forKey:@"friends"];
 }
 
 // step definition : friend list should be size of NUMBER
