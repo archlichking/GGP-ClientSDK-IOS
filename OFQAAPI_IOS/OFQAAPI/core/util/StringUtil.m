@@ -69,18 +69,21 @@ static NSString* TCM_LINE_SPLITER = @"\r\n";
 
 + (NSRegularExpression*) methodNameToRegexp:(NSString*) methodName{
     // add command to method name
-    NSString* s0 = [NSString stringWithFormat:@"%@_%@", @"PARAM:", methodName];
+    NSString* s0 = [NSString stringWithFormat:@"%@_%@", @"PARAMSTART:", methodName];
     
     NSString* s1 = [s0 stringByReplacingOccurrencesOfString:@"_" 
                                                  withString:@" "];
     // parse string
-    NSString* s2 = [s1 stringByReplacingOccurrencesOfString:@"PARAM:" 
-                                                 withString:@"(.*)"];
+    NSString* s2 = [s1 stringByReplacingOccurrencesOfString:@"PARAMSTART:" 
+                                                 withString:@"([A-Za-z]+)"];
     // parse number
     NSString* s3 = [s2 stringByReplacingOccurrencesOfString:@"PARAMINT:" 
                                                  withString:@"([-]?\\d+)"];
+    // parse string
+    NSString* s4 = [s3 stringByReplacingOccurrencesOfString:@"PARAM:" 
+                                                 withString:@"(.*)"];
     
-    NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:s3 
+    NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:s4
                                                                            options:NSRegularExpressionCaseInsensitive 
                                                                              error:NULL];
     return regex;

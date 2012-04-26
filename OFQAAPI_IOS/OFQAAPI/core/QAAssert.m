@@ -11,15 +11,21 @@
 
 @implementation QAAssert
 
-+ (void) that:(BOOL) expr{
-
-}
 
 + (void) assertEqualsExpected:(id)expected 
                        Actual:(id)result{
     if (![expected isEqualToString:result]) {
         [AssertException raise:@"assertEquals failed" 
                         format:@"expected:<%@> but was:<%@>", expected, result];
+    }
+}
+
++ (void) assertEqualsExpected:(id)expected 
+                       Actual:(id)result 
+                  WithMessage:(NSString*) message{
+    if (![expected isEqualToString:result]) {
+        [AssertException raise:@"assertEquals failed" 
+                        format:@"expected:<%@> but was:<%@> with message [%@]", expected, result, message];
     }
 }
 @end

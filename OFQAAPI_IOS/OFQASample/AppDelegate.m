@@ -35,7 +35,7 @@
     
     NSDictionary* settings = [NSDictionary dictionaryWithObjectsAndKeys: 
                               @"sandbox", GreeSettingDevelopmentMode, 
-                              @"stg1",@"serverUrlSuffix", 
+//                              @"stg1",@"serverUrlSuffix", 
                               @"true",@"useWallet", 
                               nil]; 
     

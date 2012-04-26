@@ -23,7 +23,7 @@
 }
 
 + (NSString*) StatusToString:(GreeModerationStatus) status{
-    NSString* ret = @"CHECKED";
+    NSString* ret = @"NOTHING";
     if (status == GreeModerationStatusBeingChecked) {
         ret = @"CHECKED";
     }
@@ -42,27 +42,23 @@
 // step definition :  I make sure moderation server INCLUDES text TEXT
 - (void) I_make_sure_moderation_server_PARAM:(NSString*) contain 
                                  _text_PARAM:(NSString*) text{
-    [self setBlockSentinal:[StepDefinition WAITING]];
+    __block int d = 1;
     [GreeModeratedText createWithString:text
                                   block:^(GreeModeratedText *createdUserText, NSError *error) {
-                                      if(error) {
-                                          [self setBlockSentinal: [StepDefinition FAILED]];
-                                          [self setBlockActual:[error description]];
-                                          return;
+                                      if(!error) {
+                                          [[self getBlockRepo] setObject:createdUserText forKey:@"text"];
                                       }
-                                      [self setBlockSentinal:[StepDefinition PASSED]];
-                                      // use actual to store achievement result
-                                      [self setBlockActual:createdUserText];
-                                  }];
+                                      d = 0;
+    }];
     
-    while ([self blockSentinal] == [StepDefinition WAITING]) {
+    while (d!=0) {
         [NSThread sleepForTimeInterval:1];
     }
 
     if (![ModerationStepDefinition StringToBool:contain]) {
         // need to delete one
         __block int d = 1;
-        GreeModeratedText* t = [self blockActual];
+        GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
         [t deleteWithBlock:^(NSError *error) {
             d = 0;
         }];
@@ -74,33 +70,29 @@
 
 // step definition : I send to moderation server with text TEXT
 - (void) I_send_to_moderation_server_with_text_PARAM:(NSString*) text{
-    [self setBlockSentinal:[StepDefinition WAITING]];
+    __block int d = 1;
     [GreeModeratedText createWithString:text
                                   block:^(GreeModeratedText *createdUserText, NSError *error) {
-        if(error) {
-            [self setBlockSentinal: [StepDefinition FAILED]];
-            [self setBlockActual:[error description]];
-            return;
+        if(!error) {
+            [[self getBlockRepo] setObject:createdUserText forKey:@"text"];
         }
-        [self setBlockSentinal:[StepDefinition PASSED]];
-        // use actual to store achievement result
-        [self setBlockActual:createdUserText];
+        d = 0;
     }];
     
-    while ([self blockSentinal] == [StepDefinition WAITING]) {
+    while (d != 0) {
         [NSThread sleepForTimeInterval:1];
     }
 }
 
 // step definition : status of text TEXT in native cache should be STATUS
-- (void) status_of_text_PARAM:(NSString*) text in_native_cache_should_be_PARAM:(NSString*) status{
+- (void) status_of_text_PARAM:(NSString*) text _in_native_cache_should_be_PARAM:(NSString*) status{
     
 }
 
 // step definition : status of text TEXT in server should be STATUS
 - (void) status_of_text_PARAM:(NSString*) text 
-    in_server_should_be_PARAM:(NSString*) status{
-    GreeModeratedText* t = [self blockActual];
+    _in_server_should_be_PARAM:(NSString*) status{
+    GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
     [QAAssert assertEqualsExpected:status 
                             Actual:[ModerationStepDefinition StatusToString:[t status]]];
 }
@@ -110,7 +102,7 @@
 - (void) I_update_text_PARAM:(NSString*) text 
         _with_new_text_PARAM:(NSString*) text2{
     __block int d = 1;
-    GreeModeratedText* t = [self blockActual];
+    GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
     [t updateWithString:text2 block:^(NSError *error) {
         d = 0;    
     }];
@@ -127,7 +119,7 @@
 // step definition : I delete from moderation server with text TEXT
 - (void) I_delete_from_moderation_server_with_text_PARAM:(NSString*) text{
     __block int d = 1;
-    GreeModeratedText* t = [self blockActual];
+    GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
     [t deleteWithBlock:^(NSError *error) {
         d = 0;
     }];

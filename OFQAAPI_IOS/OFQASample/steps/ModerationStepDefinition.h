@@ -16,10 +16,10 @@
 
 - (void) I_send_to_moderation_server_with_text_PARAM:(NSString*) text;
 
-- (void) status_of_text_PARAM:(NSString*) text in_native_cache_should_be_PARAM:(NSString*) status;
+- (void) status_of_text_PARAM:(NSString*) text _in_native_cache_should_be_PARAM:(NSString*) status;
 
 - (void) status_of_text_PARAM:(NSString*) text 
-    in_server_should_be_PARAM:(NSString*) status;
+    _in_server_should_be_PARAM:(NSString*) status;
 
 - (void) I_update_text_PARAM:(NSString*) text 
         _with_new_text_PARAM:(NSString*) text2;

@@ -10,20 +10,9 @@
 
 @interface StepDefinition : NSObject{
     @protected
-    __block int blockSentinal;
-    __block id blockExpected;
-    __block id blockActual;
+    __block NSMutableDictionary* blockRepo;
 }
 
-@property int blockSentinal;
-@property (retain) id blockActual;
-@property (retain) id blockExpected;
-
-
-+ (int) WAITING;
-+ (int) FAILED;
-+ (int) PASSED;
-
-- (void) assertWithBlockSentinal:(void(^)(id expected, id result))block;
+- (NSMutableDictionary*) getBlockRepo;
 
 @end
