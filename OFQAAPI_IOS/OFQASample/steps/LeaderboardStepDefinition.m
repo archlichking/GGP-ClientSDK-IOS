@@ -10,9 +10,9 @@
 
 #import "QAAssert.h"
 #import "QALog.h"
+
 #import "GreeLeaderboard.h"
 #import "GreeEnumerator.h"
-
 #import "GreeScore.h"
 
 @implementation LeaderboardStepDefinition
@@ -50,16 +50,16 @@
     return ret;
 }
 
-+ (GreePeopleScope) StringToRange:(NSString*) str{
-    GreePeopleScope ret = GreePeopleScopeSelf;
++ (GreePeopleScope) StringToScope:(NSString*) str{
+    GreePeopleScope ret1 = GreePeopleScopeSelf;
     if ([str isEqualToString:@"FRIENDS"]) {
-        ret = GreePeopleScopeFriends;
-    }else if ([str isEqualToString:@"ALL"]) {
-        ret = GreePeopleScopeAll;
+        ret1 = GreePeopleScopeFriends;
+    }else if ([str isEqualToString:@"EVERYONE"]) {
+        ret1 = GreePeopleScopeAll;
     }else if ([str isEqualToString:@"MINE"]) {
-        ret = GreePeopleScopeSelf;
+        ret1 = GreePeopleScopeSelf;
     }
-    return ret;
+    return ret1;
 }
 
 // step definition : I load list of leaderboard
@@ -247,6 +247,144 @@
     }
    // [identi release];
     return;
+}
+
+// step definition : I load score list of EVERYONE section for leaderboard LB_NAME for period PERIOD
+- (void) I_load_score_list_of_PARAM:(NSString*) scope 
+     _section_for_leaderboard_PARAM:(NSString*) ld_name 
+                  _for_period_PARAM:(NSString*) period{
+    NSArray* lds = [[self getBlockRepo] objectForKey:@"leaderboards"];
+    __block NSMutableArray* array = [[[NSMutableArray alloc] init] autorelease];
+    for (GreeLeaderboard* ld in lds) {
+        if([[ld name] isEqualToString:ld_name]){
+            
+            id<GreeEnumerator> enumerator = nil;
+            enumerator = [GreeScore scoreEnumeratorForLeaderboard:[ld identifier] 
+                                                       timePeriod:[LeaderboardStepDefinition StringToPeriod:period]
+                                                      peopleScope:[LeaderboardStepDefinition StringToScope:scope]];
+            // in case of size of array is less than 10
+            __block int d = 1;
+            [enumerator loadNext:^(NSArray *items, NSError *error) {
+                if(!error){
+                    [array addObjectsFromArray:items];
+                }
+                d = 0;
+            }];
+                    
+            while (d != 0) {
+                [NSThread sleepForTimeInterval:1];
+            }
+            while ([enumerator canLoadNext]) {
+                d = 1;
+                [enumerator loadNext:^(NSArray *items, NSError *error) {
+                    if(!error){
+                        [array addObjectsFromArray:items];
+                    }
+                    d = 0;
+                }];
+                while (d != 0) {
+                    [NSThread sleepForTimeInterval:1];
+                }
+            }
+            break;
+        }
+    }
+    [[self getBlockRepo] setObject:array forKey:@"scores"];
+}
+
+// step definition : list should have score SCORE of player P_NAME with rank RANK
+- (void) list_should_have_score_PARAMINT:(NSString*) score 
+                        _of_player_PARAM:(NSString*) p_name 
+                     _with_rank_PARAMINT:(NSString*) rank{
+    NSArray* srcs = [[self getBlockRepo] objectForKey:@"scores"];
+    for(GreeScore* gs in srcs){
+        if ([[[gs user] nickname] isEqual:p_name]) {
+            [QAAssert assertEqualsExpected:rank
+                                    Actual:[NSString stringWithFormat:@"%i", [gs rank]]];
+            [QAAssert assertEqualsExpected:score 
+                                    Actual:[NSString stringWithFormat:@"%i", [gs score]]];
+            return;
+        }
+    }
+    [QAAssert assertEqualsExpected:p_name
+                            Actual:nil
+                       WithMessage:@"no player score matches"];
+}
+
+// step definition : I load top MARK score list for leaderboard LB_NAME for period PERIOD
+- (void) I_load_top_score_list_for_leaderboard_PARAM:(NSString*) ld_name _for_period_PARAM:(NSString*) period{
+    NSArray* lds = [[self getBlockRepo] objectForKey:@"leaderboards"];
+    __block NSMutableArray* array = [[[NSMutableArray alloc] init] autorelease];
+    for (GreeLeaderboard* ld in lds) {
+        if([[ld name] isEqualToString:ld_name]){
+            id<GreeEnumerator> enumerator = nil;
+            // in case of size of array is less than 10
+            __block int d = 1;
+            enumerator = [GreeScore loadTopScoresForLeaderboard:[ld identifier]
+                                                     timePeriod:[LeaderboardStepDefinition StringToPeriod:period] 
+                                                          block:^(NSArray *scoreList, NSError *error) {
+                                                              if(!error){
+                                                                  [array addObjectsFromArray:scoreList];
+                                                              }
+                                                              d = 0;
+                                                          }];
+            while (d != 0) {
+                [NSThread sleepForTimeInterval:1];
+            }
+            while ([enumerator canLoadNext]) {
+                d = 1;
+                [enumerator loadNext:^(NSArray *items, NSError *error) {
+                    if(!error){
+                        [array addObjectsFromArray:items];
+                    }
+                    d = 0;
+                }];
+                while (d != 0) {
+                    [NSThread sleepForTimeInterval:1];
+                }
+            }
+            break;
+        }
+    }
+    [[self getBlockRepo] setObject:array forKey:@"scores"];
+}
+
+// step definition : I load top MARK score list for leaderboard LB_NAME for period PERIOD
+- (void) I_load_top_friend_score_list_for_leaderboard_PARAM:(NSString*) ld_name _for_period_PARAM:(NSString*) period{
+    NSArray* lds = [[self getBlockRepo] objectForKey:@"leaderboards"];
+    __block NSMutableArray* array = [[[NSMutableArray alloc] init] autorelease];
+    for (GreeLeaderboard* ld in lds) {
+        if([[ld name] isEqualToString:ld_name]){
+            id<GreeEnumerator> enumerator = nil;
+            // in case of size of array is less than 10
+            __block int d = 1;
+            enumerator = [GreeScore loadTopFriendScoresForLeaderboard:[ld identifier]
+                                                     timePeriod:[LeaderboardStepDefinition StringToPeriod:period] 
+                                                          block:^(NSArray *scoreList, NSError *error) {
+                                                              if(!error){
+                                                                  [array addObjectsFromArray:scoreList];
+                                                              }
+                                                              d = 0;
+                                                          }];
+            while (d != 0) {
+                [NSThread sleepForTimeInterval:1];
+            }
+            while ([enumerator canLoadNext]) {
+                d = 1;
+                [enumerator loadNext:^(NSArray *items, NSError *error) {
+                    if(!error){
+                        [array addObjectsFromArray:items];
+                    }
+                    d = 0;
+                }];
+                while (d != 0) {
+                    [NSThread sleepForTimeInterval:1];
+                }
+            }
+            break;
+        }
+    }
+    [[self getBlockRepo] setObject:array forKey:@"scores"];
 }
 
 @end
