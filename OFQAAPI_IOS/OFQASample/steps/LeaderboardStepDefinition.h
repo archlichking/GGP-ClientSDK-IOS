@@ -31,4 +31,14 @@
 
 - (void) my_PARAM:(NSString*) period _score_ranking_of_leaderboard_PARAM:(NSString*) ld_name _should_be_PARAMINT:(NSString*) rank;
 
+- (void) I_load_score_list_of_PARAM:(NSString*) range 
+     _section_for_leaderboard_PARAM:(NSString*) ld_name 
+                  _for_period_PARAM:(NSString*) period;
+
+- (void) list_should_have_score_PARAMINT:(NSString*) score 
+                        _of_player_PARAM:(NSString*) p_name 
+                     _with_rank_PARAMINT:(NSString*) rank;
+
+- (void) I_load_top_score_list_for_leaderboard_PARAM:(NSString*) ld_name _for_period_PARAM:(NSString*) period;
+
 @end
