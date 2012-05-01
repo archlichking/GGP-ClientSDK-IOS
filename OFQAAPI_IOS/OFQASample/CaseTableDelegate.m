@@ -67,12 +67,6 @@ titleForHeaderInSection:(NSInteger)section {
 	return [[[NSString alloc] initWithFormat:@"Total %i Cases", [tableItems count]] autorelease];
 }
 
-
-- (UITableViewCellAccessoryType)tableView:(UITableView *)tableView 
-         accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath {
-	return UITableViewCellAccessoryNone;
-}
-
 - (void)tableView:(UITableView *)tableView 
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 //    NSLog(@"%i", indexPath.row);

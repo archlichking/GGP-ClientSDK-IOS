@@ -61,7 +61,33 @@
             [QAAssert assertEqualsExpected:value 
                                     Actual:[user region]];
             
-        }else{
+        }
+        else if([key isEqualToString:@"birthday"]){
+            [QAAssert assertEqualsExpected:value 
+                                    Actual:[NSString stringWithFormat:@"%i", [user birthday]]];
+            
+        }
+        else if([key isEqualToString:@"aboutme"]){
+            [QAAssert assertEqualsExpected:value 
+                                    Actual:[NSString stringWithFormat:@"%i", [user aboutMe]]];
+            
+        }
+        else if([key isEqualToString:@"language"]){
+            [QAAssert assertEqualsExpected:value 
+                                    Actual:[NSString stringWithFormat:@"%i", [user language]]];
+            
+        }
+        else if([key isEqualToString:@"bloodType"]){
+            [QAAssert assertEqualsExpected:value 
+                                    Actual:[NSString stringWithFormat:@"%i", [user bloodType]]];
+            
+        }
+        else if([key isEqualToString:@"age"]){
+            [QAAssert assertEqualsExpected:value 
+                                    Actual:[NSString stringWithFormat:@"%i", [user age]]];
+            
+        }
+        else{
             [QAAssert assertEqualsExpected:nil 
                                     Actual:key
                                WithMessage:@"no key matched"];

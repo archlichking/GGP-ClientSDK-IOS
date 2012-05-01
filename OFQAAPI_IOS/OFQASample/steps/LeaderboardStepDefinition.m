@@ -14,6 +14,7 @@
 #import "GreeLeaderboard.h"
 #import "GreeEnumerator.h"
 #import "GreeScore.h"
+#import "GreeUser.h"
 
 @implementation LeaderboardStepDefinition
 
