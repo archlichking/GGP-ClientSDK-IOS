@@ -186,19 +186,4 @@
                       cancelButtonTitle:nil
                       otherButtonTitles:@"OK", nil] show];
 }
-
-- (void)greePlatformParamsReceived:(NSDictionary*)params
-{
-    NSLog(@"%s", __FUNCTION__);
-    NSLog(@"params: %@", params.description);
-    
-    // Show result in UIAlertVIew
-    NSString *aMessage = [NSString stringWithFormat:@"%@", params];
-    [[[UIAlertView alloc] initWithTitle:@"Received Launch Params"
-                                message:aMessage
-                               delegate:nil
-                      cancelButtonTitle:nil
-                      otherButtonTitles:@"OK", nil] show];
-}
-
 @end
