@@ -31,7 +31,7 @@ static int UNTESTED = 0;
     return UNTESTED;
 }
 
-+ (NSString*) getReadableResule:(int) res{
++ (NSString*) getReadableResult:(int) res{
     NSString* ret;
     switch (res) {
         case 5:

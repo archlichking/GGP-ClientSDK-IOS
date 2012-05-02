@@ -15,6 +15,6 @@
 + (int) PASSED;
 + (int) UNTESTED;
 
-+ (NSString*) getReadableResule:(int) res;
++ (NSString*) getReadableResult:(int) res;
 
 @end
