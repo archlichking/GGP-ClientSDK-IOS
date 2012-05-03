@@ -19,7 +19,8 @@
 - (void) I_see_my_info_from_server{
      __block int d = 1;
     
-    [GreeUser loadUserWithId:[[GreePlatform sharedInstance].localUser userId] block:^(GreeUser *user, NSError *error){
+    [GreeUser loadUserWithId:[[GreePlatform sharedInstance].localUser userId] 
+                       block:^(GreeUser *user, NSError *error){
         if(!error) {
            // use actual to store achievement result
             [[self getBlockRepo] setObject:user forKey:@"user"];
@@ -62,29 +63,39 @@
                                     Actual:[user region]];
             
         }
-        else if([key isEqualToString:@"birthday"]){
+        else if([key isEqualToString:@"subregion"]){
             [QAAssert assertEqualsExpected:value 
-                                    Actual:[NSString stringWithFormat:@"%i", [user birthday]]];
+                                    Actual:[user subRegion]];
             
         }
-        else if([key isEqualToString:@"aboutme"]){
+        else if([key isEqualToString:@"birthday"]){
             [QAAssert assertEqualsExpected:value 
-                                    Actual:[NSString stringWithFormat:@"%i", [user aboutMe]]];
+                                    Actual:[user birthday]];
+            
+        }
+        else if([key isEqualToString:@"aboutMe"]){
+            [QAAssert assertEqualsExpected:value 
+                                    Actual:[user aboutMe]];
             
         }
         else if([key isEqualToString:@"language"]){
             [QAAssert assertEqualsExpected:value 
-                                    Actual:[NSString stringWithFormat:@"%i", [user language]]];
+                                    Actual:[user language]];
+            
+        }
+        else if([key isEqualToString:@"timezone"]){
+            [QAAssert assertEqualsExpected:value 
+                                    Actual:[user timeZone]];
             
         }
         else if([key isEqualToString:@"bloodType"]){
             [QAAssert assertEqualsExpected:value 
-                                    Actual:[NSString stringWithFormat:@"%i", [user bloodType]]];
+                                    Actual:[user bloodType]];
             
         }
         else if([key isEqualToString:@"age"]){
             [QAAssert assertEqualsExpected:value 
-                                    Actual:[NSString stringWithFormat:@"%i", [user age]]];
+                                    Actual:[user age]];
             
         }
         else{
