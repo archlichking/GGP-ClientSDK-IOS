@@ -35,17 +35,14 @@
 
 // step definition :  I load list of achievement
 - (void) I_load_list_of_achievement{
-    __block int d = 1;
     [GreeAchievement loadAchievementsWithBlock:^(NSArray* achievements, NSError* error) {
         if(!error) {
             [[self getBlockRepo] setObject:achievements forKey:@"achievements"];
         }
-        d = 0;
+        [self notifyInStep];
     }];
     
-    while (d != 0) {
-        [NSThread sleepForTimeInterval:1];
-    }
+    [self waitForInStep];
 }
 
 // step definition :  I should have total NUMBER achievements

@@ -115,7 +115,7 @@
     
     id<GreeEnumerator> enumerator = nil;
     if (user) {
-
+        [self setTimeout:1];
         enumerator = [user loadFriendsWithBlock:^(NSArray *friends, NSError *error) {
             // first 10 friends could only be retrieved this way
             if (!error) {
