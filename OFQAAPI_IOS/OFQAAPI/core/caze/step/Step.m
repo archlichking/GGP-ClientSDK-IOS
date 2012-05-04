@@ -88,23 +88,12 @@
     
 }
 
-- (void) notify:(NSNotification*) notification{
-    @synchronized(self){
-        [self setW:FALSE];
-    }
+- (void)dealloc{
+    [command release];
+    [refObj release];
+    [refMethodParams release];
+    [refMethodInvocation release];
+    [super dealloc];
 }
-
-- (void) wait:(NSNotification*) notification{
-    @synchronized(self){
-        [self setW:TRUE];
-    }
-}
-
-//- (void)dealloc{
-//    command = nil;
-//    [refMethodParams release];
-//    [refMethodParams release];
-//    [super dealloc];
-//}
 
 @end

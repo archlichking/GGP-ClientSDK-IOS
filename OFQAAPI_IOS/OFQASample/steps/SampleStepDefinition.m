@@ -37,6 +37,38 @@
 //    NSLog(@"sample then i sleep");
 //}
 //
+- (void) I_try_to_load_out_all_achievements_for_current_user{
+    
+}
+- (void) all_achievements_I_have_should_be_return{
+    __block int d =1;
+    [GreeAchievement loadAchievementsWithBlock:^(NSArray* achievements, NSError* error) {
+        if(!error) {
+            [[self getBlockRepo] setObject:achievements forKey:@"achievements"];
+        }
+        d = 0;
+    }];
+    
+    while (d != 0) {
+        [NSThread sleepForTimeInterval:1];
+    }
+}
+
+- (void) I_try_to_load_out_all_leaderboards_for_current_user{
+    
+}
+
+- (void) all_leaderboards_I_have_should_be_return{
+    __block int d =1;
+    [GreeLeaderboard loadLeaderboardsWithBlock:^(NSArray *leaderboards, NSError *error) {
+        if(!error) {
+            [[self getBlockRepo] setObject:leaderboards forKey:@"leaderboards"];
+        }
+        d = 0;    
+    }];
+    while (d != 0) {
+        [NSThread sleepForTimeInterval:1];
+    }}
 
 //
 //- (void) Given_I_want_to_do_another_thing{

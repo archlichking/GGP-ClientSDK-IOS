@@ -36,24 +36,27 @@
 // step definition :  I load list of achievement
 - (void) I_load_list_of_achievement{
     [GreeAchievement loadAchievementsWithBlock:^(NSArray* achievements, NSError* error) {
-        [[self blockRepo] setObject:achievements forKey:@"achievements"];
-        [self notify];
+        if(!error) {
+            [[self getBlockRepo] setObject:achievements forKey:@"achievements"];
+        }
+        [self notifyInStep];
     }];
+    
+    [self waitForInStep];
 }
 
 // step definition :  I should have total NUMBER achievements
 - (void) I_should_have_total_achievements_PARAM:(NSString*) amount{
     [self notify];
     [QAAssert assertEqualsExpected:amount 
-                            Actual:[NSString stringWithFormat:@"%i", [[[self blockRepo] objectForKey:@"achievements"] count]]];
+                            Actual:[NSString stringWithFormat:@"%i", [[[self getBlockRepo] objectForKey:@"achievements"] count]]];
 }
 
 // step definition : I should have achievement of name ACH_NAME with status LOCK and score SCORE
 - (void) I_should_have_achievement_of_name_PARAM:(NSString*) ach_name 
                                     _with_status_PARAM:(NSString*) status 
                                       _and_score_PARAM:(NSString*) score{
-    [self notify];
-    NSArray* achs = [[self blockRepo] objectForKey:@"achievements"];
+    NSArray* achs = [[self getBlockRepo] objectForKey:@"achievements"];
     for (GreeAchievement* ach in achs) {
         if([[ach name] isEqualToString:ach_name]){
             [QAAssert assertEqualsExpected:status
@@ -64,15 +67,14 @@
         }
     }
     [QAAssert assertEqualsExpected:ach_name
-                            Actual:@"nil"];
+                            Actual:@"nil"
+                       WithMessage:@"no achieveiemt matches"];
 }
 
 // step definition :  I make sure status of achievement ACH_NAME is LOCK
 - (void) I_make_sure_status_of_achievement_PARAM:(NSString*) ach_name 
                                              _is_PARAM:(NSString*) status{
-    
-    [self notify];
-    NSArray* achs = [[self blockRepo] objectForKey:@"achievements"];
+    NSArray* achs = [[self getBlockRepo] objectForKey:@"achievements"];
     for (GreeAchievement* ach in achs) {
         if([[ach name] isEqualToString:ach_name]){
             if ([[AchievementStepDefinition lockToString:[ach isUnlocked]] isEqualToString:status]) {
@@ -84,20 +86,20 @@
                 }else{
                     [ach unlock];
                 }
+                [NSThread sleepForTimeInterval:2];
             }
             return;
         }
     }
     [QAAssert assertEqualsExpected:ach_name
-                            Actual:@"nil"];
+                            Actual:@"nil"
+                       WithMessage:@"no achieveiemt matches"];
 }
 
 // step definition : I update status of achievement ACH_NAME to UNLOCK
 - (void) I_update_status_of_achievement_PARAM:(NSString*) ach_name 
                                           _to_PARAM:(NSString*) status{
-    
-    [self notify];
-    NSArray* achs = [[self blockRepo] objectForKey:@"achievements"];
+    NSArray* achs = [[self getBlockRepo] objectForKey:@"achievements"];
     for (GreeAchievement* ach in achs) {
         if([[ach name] isEqualToString:ach_name]){
             if ([AchievementStepDefinition lockToBool:status]) {
@@ -109,15 +111,14 @@
         }
     }
     [QAAssert assertEqualsExpected:ach_name
-                            Actual:@"nil"];
+                            Actual:@"nil"
+                       WithMessage:@"no achieveiemt matches"];
 }
 
 // step definition : status of achievement ACH_NAME should be UNLOCK
 - (void) status_of_achievement_PARAM:(NSString*) ach_name 
                          _should_be_PARAM:(NSString*) status{
-    
-    [self notify];
-    NSArray* achs = [[self blockRepo] objectForKey:@"achievements"];
+    NSArray* achs = [[self getBlockRepo] objectForKey:@"achievements"];
     for (GreeAchievement* ach in achs) {
         if([[ach name] isEqualToString:ach_name]){
             [QAAssert assertEqualsExpected:status
@@ -126,7 +127,8 @@
         }
     }
     [QAAssert assertEqualsExpected:ach_name
-                            Actual:@"nil"];
+                            Actual:@"nil"
+                       WithMessage:@"no achieveiemt matches"];
 }
 
 // step definition : my score should be DECREASED by SCORE

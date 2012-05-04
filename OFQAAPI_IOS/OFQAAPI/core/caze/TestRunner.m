@@ -15,9 +15,9 @@
 
 - (id) init{
     if (self = [super init]) {
-        NSMutableArray* mt = [[NSMutableArray alloc] init];
+        NSMutableArray* mt = [[[NSMutableArray alloc] init] autorelease];
         [self setCases:mt];
-        [mt release];
+//        [mt release];
     }
     return self;
 }

@@ -10,9 +10,11 @@
 
 @interface QAAssert : NSObject
 
-+ (void) that:(BOOL) expr;
-
 + (void) assertEqualsExpected:(id)expected 
                        Actual:(id)result;
+
++ (void) assertEqualsExpected:(id)expected 
+                       Actual:(id)result 
+                      WithMessage:(NSString*) message;
 
 @end

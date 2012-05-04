@@ -25,6 +25,8 @@
 #import "CommenStepDefinition.h"
 #import "AchievementStepDefinition.h"
 #import "LeaderboardStepDefinition.h"
+#import "PeopleStepDefinition.h"
+#import "ModerationStepDefinition.h"
 
 
 
@@ -46,13 +48,15 @@
         id p = class_createInstance([CommenStepDefinition class], 0);
         id p2 = class_createInstance([AchievementStepDefinition class], 0);
         id p3 = class_createInstance([LeaderboardStepDefinition class], 0);
-        id p4 = class_createInstance([SampleStepDefinition class], 0);
+        id p5 = class_createInstance([PeopleStepDefinition class], 0);        
+        id p4 = class_createInstance([ModerationStepDefinition class], 0);
         
         StepHolder* holder = [[StepHolder alloc] init];
         
         [holder addStepObj:p];
         [holder addStepObj:p2];
         [holder addStepObj:p3];
+        [holder addStepObj:p5];
         [holder addStepObj:p4];
         
         [self setCb:[CaseBuilderFactory makeBuilderByType:t 
@@ -87,7 +91,10 @@
     while (i<caseWrappers.count) {
         TestCaseWrapper* tcw = [caseWrappers objectAtIndex:i];
         if ([tcw isSelected]) {
-            [runner addCase:[tcw tc]];
+            TestCase* t = [tcw tc];
+            [t setIsExecuted:NO];
+            [t setResultComment:@""];
+            [runner addCase:t];
             [caseWrappers removeObject:tcw];
         }else{
             i++;
@@ -107,11 +114,11 @@
     NSArray* executedCases = [runner getAllCases];
     for (int j=0; j<executedCases.count; j++) {
         TestCase* tc = [executedCases objectAtIndex:j];
-        TestCaseWrapper* tcw = [[TestCaseWrapper alloc] initWithTestCase:tc 
+        TestCaseWrapper* tcw = [[[TestCaseWrapper alloc] initWithTestCase:tc 
                                                                 selected:true
-                                                                  result:[tc result]]; 
+                                                                  result:[tc result]] autorelease]; 
         [caseWrappers addObject:tcw];
-        [tcw release];
+        //[tcw release];
     }
 }
 

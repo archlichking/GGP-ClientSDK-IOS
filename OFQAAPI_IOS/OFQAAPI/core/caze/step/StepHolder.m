@@ -75,11 +75,13 @@ static StepHolder* stepHolder = nil;
                                          range:NSMakeRange(0, [stepString length])];
             // should be at least 1 if matched
             if (ns != nil && [ns count]>0) {
+                
                 StepMethod* sm = [[[StepMethod alloc] init] autorelease];
                 [sm setMethodInvo:[dd objectForKey:key]];
                 //pull params if any
                 NSMutableArray* params = [[[NSMutableArray alloc] init] autorelease];
                 // we need to omit first two params, because we also match GIVEN WHEN THEN in param 1
+                
                 for (int i =2; i<[[ns objectAtIndex:0] numberOfRanges]; i++) {
                     // have to make type conversion here
                     // todo
@@ -96,7 +98,7 @@ static StepHolder* stepHolder = nil;
 }
 
 //- (void)dealloc{
-////    [stepHolder release];
+//    [stepHolder release];
 //    [stepCage release];
 //    [super dealloc];
 //}

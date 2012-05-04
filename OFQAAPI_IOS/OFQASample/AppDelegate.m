@@ -34,11 +34,14 @@
     // --------- GREE Platform initialization
     
     NSDictionary* settings = [NSDictionary dictionaryWithObjectsAndKeys: 
-                              @"sandbox", GreeSettingDevelopmentMode, 
-                              @"stg1",@"serverUrlSuffix", 
+                              @"sandbox", GreeSettingDevelopmentMode,
+                              [NSNumber numberWithBool:YES], GreeSettingUseWallet,
                               @"true",@"useWallet", 
                               nil]; 
     
+    if ([NSClassFromString(@"WebView") respondsToSelector:@selector(_enableRemoteInspector)]) {
+        [NSClassFromString(@"WebView") performSelector:@selector(_enableRemoteInspector)];
+    }
     
     [GreePlatform initializeWithApplicationId:@"12697" 
                                   consumerKey:@"3c47b530df23" 
@@ -52,7 +55,7 @@
     [[httpClient valueForKey:@"defaultHeaders"] setObject:@"x" forKey:@"x_gree_sample_app"];
     // init user
     [GreePlatform authorize];
-    
+    [GreePlatform handleLaunchOptions:launchOptions application:application];
     
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert];
 
@@ -161,11 +164,26 @@
 }
 
 - (void)greePlatform:(GreePlatform*)platform didLoginUser:(GreeUser*)localUser{
-    
+    NSLog(@"%s", __FUNCTION__);
+    NSLog(@"Local User: %@", localUser);
+
 }
 //#indoc "GreePlatformDelegate#greePlatform:didLogoutUser:"
 - (void)greePlatform:(GreePlatform*)platform didLogoutUser:(GreeUser*)localUser{
-    
+    NSLog(@"%s", __FUNCTION__);
 }
 
+- (void)greePlatformParamsReceived:(NSDictionary*)params
+{
+    NSLog(@"%s", __FUNCTION__);
+    NSLog(@"params: %@", params.description);
+    
+    // Show result in UIAlertVIew
+    NSString *aMessage = [NSString stringWithFormat:@"%@", params];
+    [[[UIAlertView alloc] initWithTitle:@"Received Launch Params"
+                                message:aMessage
+                               delegate:nil
+                      cancelButtonTitle:nil
+                      otherButtonTitles:@"OK", nil] show];
+}
 @end
