@@ -17,7 +17,6 @@
 
 // step definition : i see my info from server
 - (void) I_see_my_info_from_server{
-     __block int d = 1;
     
     [GreeUser loadUserWithId:[[GreePlatform sharedInstance].localUser userId] 
                        block:^(GreeUser *user, NSError *error){
@@ -25,12 +24,10 @@
            // use actual to store achievement result
             [[self getBlockRepo] setObject:user forKey:@"user"];
         }
-        d = 0;
+        [self notifyInStep];
     }];
     
-    while (d != 0) {
-        [NSThread sleepForTimeInterval:1];
-    }
+    [self waitForInStep];
 }
 
 // step definition : i see my info from native cache
@@ -118,29 +115,25 @@
     
     id<GreeEnumerator> enumerator = nil;
     if (user) {
-        __block int d = 1;
+        [self setTimeout:1];
         enumerator = [user loadFriendsWithBlock:^(NSArray *friends, NSError *error) {
             // first 10 friends could only be retrieved this way
             if (!error) {
                 [array addObjectsFromArray:friends];
             }
-            d = 0;
+
+            [self notifyInStep];
         }];
-        while (d != 0) {
-            [NSThread sleepForTimeInterval:1];
-        }
+        [self waitForInStep];
         while ([enumerator canLoadNext]) {
-            d = 1;
             [enumerator loadNext:^(NSArray *items, NSError *error) {
                 if(!error){
                     [array addObjectsFromArray:items];
                 }
-                d = 0;
+                [self notifyInStep];
             }];
             
-            while (d != 0) {
-                [NSThread sleepForTimeInterval:1];
-            }
+            [self waitForInStep];
         }
     }
     [[self getBlockRepo] setObject:array forKey:@"friends"];

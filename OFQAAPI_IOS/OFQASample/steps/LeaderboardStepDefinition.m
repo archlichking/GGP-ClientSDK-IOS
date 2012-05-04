@@ -65,17 +65,14 @@
 
 // step definition : I load list of leaderboard
 - (void) I_load_list_of_leaderboard{
-    __block int d = 1;
     [GreeLeaderboard loadLeaderboardsWithBlock:^(NSArray* leaderboards, NSError* error) {
         if(!error) {
             [[self getBlockRepo] setObject:leaderboards forKey:@"leaderboards"];
         }
-        d = 0;
+        [self notifyInStep];
     }];
     
-    while (d != 0) {
-        [NSThread sleepForTimeInterval:1];
-    }
+    [self waitForInStep];
 
 }
 
@@ -124,15 +121,12 @@
                 [NSThread sleepForTimeInterval:2];
                 [score release];
             }else{
-                 __block int d = 1;
                 // need to delete existed score
                 [GreeScore deleteMyScoreForLeaderboard:[ld identifier] 
                                              withBlock:^(NSError *error){
-                                                 d = 0;
+                                                 [self notifyInStep];
                                              }];
-                while (d != 0) {
-                    [NSThread sleepForTimeInterval:1];
-                }
+                [self waitForInStep];
             }
             return;
         }
@@ -174,7 +168,6 @@
         }
     }
    
-    __block int d = 1;
     __block int64_t s = 0;
     [GreeScore loadMyScoreForLeaderboard:identi 
                               timePeriod:GreeScoreTimePeriodAlltime
@@ -182,12 +175,10 @@
                                        if(!error){
                                            s = [score score];
                                        }
-                                       d = 0;
+                                       [self notifyInStep];
                                    }];
     // has to wait for async call finished
-    while (d == 1) {
-        [NSThread sleepForTimeInterval:1];
-    }
+    [self waitForInStep];
     
     [QAAssert assertEqualsExpected:score 
                             Actual:[NSString stringWithFormat:@"%i", s]];
@@ -201,7 +192,6 @@
     NSArray* lds = [[self getBlockRepo] objectForKey:@"leaderboards"];
     for (GreeLeaderboard* ld in lds) {
         if([[ld name] isEqualToString:ld_name]){
-            __block int d = 1;
             __block int64_t r = 0;
             [GreeScore loadMyScoreForLeaderboard:[ld identifier] 
                                       timePeriod:[LeaderboardStepDefinition StringToPeriod:period]
@@ -209,12 +199,10 @@
                                                if(!error){
                                                    r = [score rank];
                                                }
-                                               d = 0;
+                                               [self notifyInStep];
                                            }];
             // has to wait for async call finished
-            while (d == 1) {
-                [NSThread sleepForTimeInterval:1];
-            }
+            [self waitForInStep];
             
             [QAAssert assertEqualsExpected:rank 
                                     Actual:[NSString stringWithFormat:@"%i", r]];
@@ -238,14 +226,11 @@
             break;
         }
     }
-    __block int d = 1;
     [GreeScore deleteMyScoreForLeaderboard:identi 
                                  withBlock:^(NSError *error) {
-                                     d = 0;
+                                     [self notifyInStep];
                                  }];
-    while (d == 1) {
-        [NSThread sleepForTimeInterval:1];
-    }
+    [self waitForInStep];
    // [identi release];
     return;
 }
@@ -264,28 +249,24 @@
                                                        timePeriod:[LeaderboardStepDefinition StringToPeriod:period]
                                                       peopleScope:[LeaderboardStepDefinition StringToScope:scope]];
             // in case of size of array is less than 10
-            __block int d = 1;
+            
             [enumerator loadNext:^(NSArray *items, NSError *error) {
                 if(!error){
                     [array addObjectsFromArray:items];
                 }
-                d = 0;
+                [self notifyInStep];
             }];
                     
-            while (d != 0) {
-                [NSThread sleepForTimeInterval:1];
-            }
+            [self waitForInStep];
             while ([enumerator canLoadNext]) {
-                d = 1;
+                
                 [enumerator loadNext:^(NSArray *items, NSError *error) {
                     if(!error){
                         [array addObjectsFromArray:items];
                     }
-                    d = 0;
+                    [self notifyInStep];
                 }];
-                while (d != 0) {
-                    [NSThread sleepForTimeInterval:1];
-                }
+                [self waitForInStep];
             }
             break;
         }
@@ -320,29 +301,25 @@
         if([[ld name] isEqualToString:ld_name]){
             id<GreeEnumerator> enumerator = nil;
             // in case of size of array is less than 10
-            __block int d = 1;
+            
             enumerator = [GreeScore loadTopScoresForLeaderboard:[ld identifier]
                                                      timePeriod:[LeaderboardStepDefinition StringToPeriod:period] 
                                                           block:^(NSArray *scoreList, NSError *error) {
                                                               if(!error){
                                                                   [array addObjectsFromArray:scoreList];
                                                               }
-                                                              d = 0;
+                                                              [self notifyInStep];
                                                           }];
-            while (d != 0) {
-                [NSThread sleepForTimeInterval:1];
-            }
+            [self waitForInStep];
             while ([enumerator canLoadNext]) {
-                d = 1;
+               
                 [enumerator loadNext:^(NSArray *items, NSError *error) {
                     if(!error){
                         [array addObjectsFromArray:items];
                     }
-                    d = 0;
+                    [self notifyInStep];
                 }];
-                while (d != 0) {
-                    [NSThread sleepForTimeInterval:1];
-                }
+                [self waitForInStep];
             }
             break;
         }
@@ -358,29 +335,23 @@
         if([[ld name] isEqualToString:ld_name]){
             id<GreeEnumerator> enumerator = nil;
             // in case of size of array is less than 10
-            __block int d = 1;
             enumerator = [GreeScore loadTopFriendScoresForLeaderboard:[ld identifier]
                                                      timePeriod:[LeaderboardStepDefinition StringToPeriod:period] 
                                                           block:^(NSArray *scoreList, NSError *error) {
                                                               if(!error){
                                                                   [array addObjectsFromArray:scoreList];
                                                               }
-                                                              d = 0;
+                                                              [self notifyInStep];
                                                           }];
-            while (d != 0) {
-                [NSThread sleepForTimeInterval:1];
-            }
+            [self waitForInStep];
             while ([enumerator canLoadNext]) {
-                d = 1;
                 [enumerator loadNext:^(NSArray *items, NSError *error) {
                     if(!error){
                         [array addObjectsFromArray:items];
                     }
-                    d = 0;
+                    [self notifyInStep];
                 }];
-                while (d != 0) {
-                    [NSThread sleepForTimeInterval:1];
-                }
+                [self waitForInStep];
             }
             break;
         }
