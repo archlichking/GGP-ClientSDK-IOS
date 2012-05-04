@@ -20,4 +20,32 @@
     return blockRepo;
 }
 
+
+- (void) waitForInStep{
+    if (!inStepLock) {
+        inStepLock = [[NSConditionLock alloc] initWithCondition:0];
+    }
+    if(!TIMEOUT || TIMEOUT == 0){
+        TIMEOUT = 5;
+    }
+    [inStepLock lockWhenCondition:1 
+                       beforeDate:[NSDate dateWithTimeIntervalSinceNow:TIMEOUT]];
+    [inStepLock unlock];
+    // reset timeout and condition
+    [inStepLock release];
+    inStepLock = [[NSConditionLock alloc] initWithCondition:0];
+    TIMEOUT = 0;
+    
+}
+
+- (void) notifyInStep{
+    [inStepLock lock];
+    [inStepLock unlockWithCondition:1];
+    
+}
+
+-(void) setTimeout:(int) timeout{
+    TIMEOUT = timeout;
+}
+
 @end
