@@ -90,5 +90,14 @@
 //    [OFAssert assertEqualsExpected:@"30" Actual:@"40"];
 //}
 
+- (void) i_get_achievement{
+    [GreeLeaderboard loadLeaderboardsWithBlock:^(NSArray *leaderboards, NSError *error) {
+        [self notify];
+    }];
+}
+
+- (void) i_set_achievement{
+    // should do nothing
+}
 
 @end

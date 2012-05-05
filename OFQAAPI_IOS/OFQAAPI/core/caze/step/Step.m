@@ -25,11 +25,24 @@
         [self setRefObj:nil];
         [self setRefMethodParams:nil];
         [self setRefMethodInvocation:nil];
+        
+        // add notification
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(notify:)
+                                                     name:@"notify" 
+                                                   object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(wait:)
+                                                     name:@"wait" 
+                                                   object:nil];
+        
     }
     return self;
 }
 
 - (StepResult*) invoke{
+    // set wait mark for notification
     int result = [Constant FAILED];
     NSString* resultComment = @"";
     @try {

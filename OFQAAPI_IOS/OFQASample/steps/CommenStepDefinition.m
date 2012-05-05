@@ -14,6 +14,7 @@
 - (void) I_logged_in_with_email_PARAM:(NSString*) email
                   _and_password_PARAM:(NSString*) password{
     // do nothing here
+    //[self notify];
 }
 
 @end

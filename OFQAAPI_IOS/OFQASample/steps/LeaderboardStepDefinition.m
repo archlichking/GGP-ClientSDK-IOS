@@ -73,7 +73,6 @@
     }];
     
     [self waitForInStep];
-
 }
 
 // step definition : I should have total leaderboards NUMBER
@@ -131,7 +130,6 @@
             return;
         }
     }
-    
 }
 
 // step definition : I add score to leaderboard LB_NAME with score SCORE

@@ -133,7 +133,6 @@
 // step definition : my score should be DECREASED by SCORE
 - (void) my_score_should_be_PARAM:(NSString*) increment
                              _by_PARAMINT:(NSString*) time{
-    // do nothing
 }
 
 @end
