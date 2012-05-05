@@ -130,7 +130,6 @@
             return;
         }
     }
-    
 }
 
 // step definition : I add score to leaderboard LB_NAME with score SCORE

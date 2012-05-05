@@ -22,7 +22,6 @@
 @property (retain) id refObj;
 @property (retain) NSInvocation* refMethodInvocation;
 @property (retain) NSArray* refMethodParams;
-@property BOOL w;
 
 - (StepResult*) invoke;
 

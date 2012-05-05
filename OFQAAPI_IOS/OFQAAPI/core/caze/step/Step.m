@@ -18,7 +18,6 @@
 @synthesize refObj;
 @synthesize refMethodInvocation;
 @synthesize refMethodParams;
-@synthesize w;
 
 - (id)init{
     if (self=[super init]){
@@ -26,7 +25,6 @@
         [self setRefObj:nil];
         [self setRefMethodParams:nil];
         [self setRefMethodInvocation:nil];
-        [self setW:FALSE];
         
         // add notification
         [[NSNotificationCenter defaultCenter] addObserver:self
@@ -45,7 +43,6 @@
 
 - (StepResult*) invoke{
     // set wait mark for notification
-    [self setW:TRUE];
     int result = [Constant FAILED];
     NSString* resultComment = @"";
     @try {
@@ -62,18 +59,7 @@
         // step 3: invoke 
         QALog(@"invoking [%@]", [self command]);
         [[self refMethodInvocation] invoke];
-        NSObject* o = nil;
-        [[self refMethodInvocation] getReturnValue:&o];
-        
-        if (!o) {
-            [self setW:FALSE];
-        }
-        
-        // step 4: wait for notification to wake up
-        while ([self w]) {
-            [NSThread sleepForTimeInterval:1];
-        }
-        // step 5: set result
+        // step 4: set result
         result = [Constant PASSED];
     }
     @catch (AssertException *exception) {

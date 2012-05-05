@@ -47,7 +47,6 @@
 
 // step definition :  I should have total NUMBER achievements
 - (void) I_should_have_total_achievements_PARAM:(NSString*) amount{
-    [self notify];
     [QAAssert assertEqualsExpected:amount 
                             Actual:[NSString stringWithFormat:@"%i", [[[self getBlockRepo] objectForKey:@"achievements"] count]]];
 }
@@ -134,9 +133,6 @@
 // step definition : my score should be DECREASED by SCORE
 - (void) my_score_should_be_PARAM:(NSString*) increment
                              _by_PARAMINT:(NSString*) time{
-    // do nothing
-    
-    [self notify];
 }
 
 @end

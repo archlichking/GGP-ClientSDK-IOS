@@ -13,8 +13,6 @@
 
 @implementation StepDefinition
 
-@synthesize blockRepo;
-
 - (NSMutableDictionary*) getBlockRepo{
     if (!blockRepo) {
         blockRepo = [[NSMutableDictionary alloc] init];
