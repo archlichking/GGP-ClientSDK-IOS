@@ -22,7 +22,6 @@
 		BA283D101532B9180055981A /* NoSuchStepException.m in Sources */ = {isa = PBXBuildFile; fileRef = BA283D0E1532B9180055981A /* NoSuchStepException.m */; };
 		BA283D141532D0BE0055981A /* NoCommandMatchException.h in Headers */ = {isa = PBXBuildFile; fileRef = BA283D121532D0BE0055981A /* NoCommandMatchException.h */; };
 		BA283D151532D0BE0055981A /* NoCommandMatchException.m in Sources */ = {isa = PBXBuildFile; fileRef = BA283D131532D0BE0055981A /* NoCommandMatchException.m */; };
-		BA283D491534075A0055981A /* IgnorelistStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA283D481534075A0055981A /* IgnorelistStepDefinition.m */; };
 		BA283D4C15341D960055981A /* ModerationStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA283D4B15341D960055981A /* ModerationStepDefinition.m */; };
 		BA381E5614FCA03D00FBA134 /* TcmCaseBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = BA381E5414FCA03D00FBA134 /* TcmCaseBuilder.h */; };
 		BA381E5714FCA03D00FBA134 /* TcmCaseBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = BA381E5514FCA03D00FBA134 /* TcmCaseBuilder.m */; };
@@ -147,8 +146,6 @@
 		BA283D0E1532B9180055981A /* NoSuchStepException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoSuchStepException.m; path = core/exception/NoSuchStepException.m; sourceTree = "<group>"; };
 		BA283D121532D0BE0055981A /* NoCommandMatchException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoCommandMatchException.h; path = core/exception/NoCommandMatchException.h; sourceTree = "<group>"; };
 		BA283D131532D0BE0055981A /* NoCommandMatchException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoCommandMatchException.m; path = core/exception/NoCommandMatchException.m; sourceTree = "<group>"; };
-		BA283D471534075A0055981A /* IgnorelistStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IgnorelistStepDefinition.h; path = steps/IgnorelistStepDefinition.h; sourceTree = "<group>"; };
-		BA283D481534075A0055981A /* IgnorelistStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IgnorelistStepDefinition.m; path = steps/IgnorelistStepDefinition.m; sourceTree = "<group>"; };
 		BA283D4A15341D960055981A /* ModerationStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModerationStepDefinition.h; path = steps/ModerationStepDefinition.h; sourceTree = "<group>"; };
 		BA283D4B15341D960055981A /* ModerationStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModerationStepDefinition.m; path = steps/ModerationStepDefinition.m; sourceTree = "<group>"; };
 		BA381E5414FCA03D00FBA134 /* TcmCaseBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TcmCaseBuilder.h; path = core/caze/builder/TcmCaseBuilder.h; sourceTree = "<group>"; };
@@ -323,8 +320,6 @@
 				BA894EC4152EDFAC0010B6A1 /* CommenStepDefinition.m */,
 				BA894EC7152EE00A0010B6A1 /* LeaderboardStepDefinition.h */,
 				BA894EC8152EE00A0010B6A1 /* LeaderboardStepDefinition.m */,
-				BA283D471534075A0055981A /* IgnorelistStepDefinition.h */,
-				BA283D481534075A0055981A /* IgnorelistStepDefinition.m */,
 				BAC432C1153FF6AC00C07E21 /* PeopleStepDefinition.h */,
 				BAC432C2153FF6AC00C07E21 /* PeopleStepDefinition.m */,
 				BA283D4A15341D960055981A /* ModerationStepDefinition.h */,
@@ -723,7 +718,6 @@
 				BAB21032152D4FC700177141 /* AchievementStepDefinition.m in Sources */,
 				BA894EC5152EDFAC0010B6A1 /* CommenStepDefinition.m in Sources */,
 				BA894EC9152EE00B0010B6A1 /* LeaderboardStepDefinition.m in Sources */,
-				BA283D491534075A0055981A /* IgnorelistStepDefinition.m in Sources */,
 				BAC432C3153FF6AC00C07E21 /* PeopleStepDefinition.m in Sources */,
 				BA283D4C15341D960055981A /* ModerationStepDefinition.m in Sources */,
 			);
