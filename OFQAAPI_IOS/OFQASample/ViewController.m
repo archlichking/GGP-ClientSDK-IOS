@@ -117,8 +117,8 @@
     NSArray* tmp = [[appDelegate runnerWrapper] getCaseWrappers];
     [(CaseTableDelegate*)[tableView dataSource] setTableItems:tmp];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" object:nil];
     [progressIndicator stopAnimating];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" object:nil];
 }
 
 - (void) runCasesInAnotherThread{
@@ -132,9 +132,9 @@
     NSArray* tmp = [[appDelegate runnerWrapper] getCaseWrappers];
     [(CaseTableDelegate*)[tableView dataSource] setTableItems:tmp];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" object:nil];
-
+    
     [progressIndicator stopAnimating];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" object:nil];
 }
 
 

@@ -25,7 +25,7 @@
 + (NSString*) StatusToString:(GreeModerationStatus) status{
     NSString* ret = @"NOTHING";
     if (status == GreeModerationStatusBeingChecked) {
-        ret = @"CHECKED";
+        ret = @"CHECKING";
     }
     if (status == GreeModerationStatusResultApproved) {
         ret = @"APPROVED";
@@ -42,30 +42,26 @@
 // step definition :  I make sure moderation server INCLUDES text TEXT
 - (void) I_make_sure_moderation_server_PARAM:(NSString*) contain 
                                  _text_PARAM:(NSString*) text{
-    __block int d = 1;
+    
     [GreeModeratedText createWithString:text
                                   block:^(GreeModeratedText *createdUserText, NSError *error) {
                                       if(!error) {
                                           [[self getBlockRepo] setObject:createdUserText forKey:@"text"];
                                       }
-                                      d = 0;
+                                      [self notifyInStep];
     }];
     
-    while (d!=0) {
-        [NSThread sleepForTimeInterval:1];
-    }
+    [self waitForInStep];
 
-    if (![ModerationStepDefinition StringToBool:contain]) {
-        // need to delete one
-        __block int d = 1;
-        GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
-        [t deleteWithBlock:^(NSError *error) {
-            d = 0;
-        }];
-        while (d == 1) {
-            [NSThread sleepForTimeInterval:1];
-        }
-    }
+//    if (![ModerationStepDefinition StringToBool:contain]) {
+//        // need to delete one
+//        GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
+//        
+//        [t deleteWithBlock:^(NSError *error) {
+//            [self notifyInStep];
+//        }];
+//        [self waitForInStep];
+//    }
 }
 
 // step definition : I send to moderation server with text TEXT
@@ -81,14 +77,9 @@
     [self waitForInStep];
 }
 
-// step definition : status of text TEXT in native cache should be STATUS
-- (void) status_of_text_PARAM:(NSString*) text _in_native_cache_should_be_PARAM:(NSString*) status{
-    
-}
-
 // step definition : status of text TEXT in server should be STATUS
 - (void) status_of_text_PARAM:(NSString*) text 
-    _in_server_should_be_PARAM:(NSString*) status{
+    _should_be_PARAM:(NSString*) status{
     GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
     [QAAssert assertEqualsExpected:status 
                             Actual:[ModerationStepDefinition StatusToString:[t status]]];
@@ -101,9 +92,30 @@
     
     GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
     [t updateWithString:text2 block:^(NSError *error) {
+        if(!error) {
+            [[self getBlockRepo] setObject:t forKey:@"text"];
+        }
         [self notifyInStep];    
     }];
     [self waitForInStep];
+    
+    [[self getBlockRepo] setObject:[self fetchModerationFromServerById:[t textId]] forKey:@"text"];
+    
+}
+
+- (GreeModeratedText*) fetchModerationFromServerById:(NSString*) di{
+    NSArray* ids =  [[[NSArray alloc] initWithObjects:di, nil] autorelease];
+    
+    __block NSMutableArray* retArray = [[[NSMutableArray alloc] init] autorelease];
+    [GreeModeratedText loadFromIds:ids
+                             block:^(NSArray *userTexts, NSError *error) {
+                                 if(!error){
+                                     [retArray addObjectsFromArray:userTexts];
+                                 }
+                                 [self notifyInStep];
+                             }];
+    [self waitForInStep];
+    return [retArray objectAtIndex:0];
 }
 
 // step definition : I check from server with status of text TEXT
@@ -111,14 +123,23 @@
 
 }
 
+// step definition : I check from server with status of text TEXT
+- (void) I_check_from_native_cache_with_status_of_text_PARAM:(NSString*) text{
+    
+}
+
 // step definition : I delete from moderation server with text TEXT
 - (void) I_delete_from_moderation_server_with_text_PARAM:(NSString*) text{
    
     GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
     [t deleteWithBlock:^(NSError *error) {
-        [self notifyInStep];
+        if(!error){
+            [self notifyInStep];
+        }
     }];
     [self waitForInStep];
+    
+    [[self getBlockRepo] setObject:[self fetchModerationFromServerById:[t textId]] forKey:@"text"];
 }
 
 @end
