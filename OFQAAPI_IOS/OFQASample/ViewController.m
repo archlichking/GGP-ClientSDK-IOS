@@ -133,7 +133,6 @@
     [(CaseTableDelegate*)[tableView dataSource] setTableItems:tmp];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" object:nil];
-
     [progressIndicator stopAnimating];
 }
 

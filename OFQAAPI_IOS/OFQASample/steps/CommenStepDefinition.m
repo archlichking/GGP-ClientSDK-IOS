@@ -17,4 +17,13 @@
     //[self notify];
 }
 
+- (void) as_server_automation_PARAM:(NSString*) anything{
+    
+}
+
+- (void) as_android_automation_PARAM:(NSString*) anything{
+    
+}
+
+
 @end

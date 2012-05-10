@@ -130,6 +130,9 @@
             return;
         }
     }
+    [QAAssert assertEqualsExpected:ld_name
+                            Actual:nil
+                       WithMessage:@"no leaderboard matches"];
 }
 
 // step definition : I add score to leaderboard LB_NAME with score SCORE

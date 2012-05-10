@@ -37,7 +37,7 @@
 }
 
 // step definition : my displayName should be PLAYER_NAME
-- (void) my_PARAM:(NSString*) key _should_be_PARAM:(NSString*) value{
+- (void) my_info_PARAM:(NSString*) key _should_be_PARAM:(NSString*) value{
     GreeUser* user = [[self getBlockRepo] objectForKey:@"user"];
     
     if (user) {

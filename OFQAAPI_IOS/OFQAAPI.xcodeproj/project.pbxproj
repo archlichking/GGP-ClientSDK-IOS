@@ -22,7 +22,6 @@
 		BA283D101532B9180055981A /* NoSuchStepException.m in Sources */ = {isa = PBXBuildFile; fileRef = BA283D0E1532B9180055981A /* NoSuchStepException.m */; };
 		BA283D141532D0BE0055981A /* NoCommandMatchException.h in Headers */ = {isa = PBXBuildFile; fileRef = BA283D121532D0BE0055981A /* NoCommandMatchException.h */; };
 		BA283D151532D0BE0055981A /* NoCommandMatchException.m in Sources */ = {isa = PBXBuildFile; fileRef = BA283D131532D0BE0055981A /* NoCommandMatchException.m */; };
-		BA283D491534075A0055981A /* IgnorelistStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA283D481534075A0055981A /* IgnorelistStepDefinition.m */; };
 		BA283D4C15341D960055981A /* ModerationStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA283D4B15341D960055981A /* ModerationStepDefinition.m */; };
 		BA381E5614FCA03D00FBA134 /* TcmCaseBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = BA381E5414FCA03D00FBA134 /* TcmCaseBuilder.h */; };
 		BA381E5714FCA03D00FBA134 /* TcmCaseBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = BA381E5514FCA03D00FBA134 /* TcmCaseBuilder.m */; };
@@ -85,6 +84,7 @@
 		BA894EC9152EE00B0010B6A1 /* LeaderboardStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA894EC8152EE00A0010B6A1 /* LeaderboardStepDefinition.m */; };
 		BA96EC37150EFA5C00214FAD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA64CB70150DDF9200E8A9EE /* libz.dylib */; };
 		BA97ED0E15070014000D2E63 /* TestRunnerWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BA97ED0D15070014000D2E63 /* TestRunnerWrapper.m */; };
+		BAA2F5FE1559E886003AFF55 /* libGreeWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA2F5FD1559E886003AFF55 /* libGreeWallet.a */; };
 		BAA80765150D96A6003A94E9 /* StepMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = BAA80763150D96A6003A94E9 /* StepMethod.h */; };
 		BAA80766150D96A6003A94E9 /* StepMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA80764150D96A6003A94E9 /* StepMethod.m */; };
 		BAA80775150DACF3003A94E9 /* failed_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA80774150DACF3003A94E9 /* failed_checked.png */; };
@@ -147,8 +147,6 @@
 		BA283D0E1532B9180055981A /* NoSuchStepException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoSuchStepException.m; path = core/exception/NoSuchStepException.m; sourceTree = "<group>"; };
 		BA283D121532D0BE0055981A /* NoCommandMatchException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoCommandMatchException.h; path = core/exception/NoCommandMatchException.h; sourceTree = "<group>"; };
 		BA283D131532D0BE0055981A /* NoCommandMatchException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoCommandMatchException.m; path = core/exception/NoCommandMatchException.m; sourceTree = "<group>"; };
-		BA283D471534075A0055981A /* IgnorelistStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IgnorelistStepDefinition.h; path = steps/IgnorelistStepDefinition.h; sourceTree = "<group>"; };
-		BA283D481534075A0055981A /* IgnorelistStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IgnorelistStepDefinition.m; path = steps/IgnorelistStepDefinition.m; sourceTree = "<group>"; };
 		BA283D4A15341D960055981A /* ModerationStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModerationStepDefinition.h; path = steps/ModerationStepDefinition.h; sourceTree = "<group>"; };
 		BA283D4B15341D960055981A /* ModerationStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModerationStepDefinition.m; path = steps/ModerationStepDefinition.m; sourceTree = "<group>"; };
 		BA381E5414FCA03D00FBA134 /* TcmCaseBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TcmCaseBuilder.h; path = core/caze/builder/TcmCaseBuilder.h; sourceTree = "<group>"; };
@@ -223,6 +221,7 @@
 		BA894EC8152EE00A0010B6A1 /* LeaderboardStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaderboardStepDefinition.m; path = steps/LeaderboardStepDefinition.m; sourceTree = "<group>"; };
 		BA97ED0C15070014000D2E63 /* TestRunnerWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestRunnerWrapper.h; path = wrapper/TestRunnerWrapper.h; sourceTree = "<group>"; };
 		BA97ED0D15070014000D2E63 /* TestRunnerWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestRunnerWrapper.m; path = wrapper/TestRunnerWrapper.m; sourceTree = "<group>"; };
+		BAA2F5FD1559E886003AFF55 /* libGreeWallet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGreeWallet.a; path = ../../../ggplib_ios/release/libGreeWallet.a; sourceTree = "<group>"; };
 		BAA80763150D96A6003A94E9 /* StepMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StepMethod.h; path = core/caze/step/StepMethod.h; sourceTree = "<group>"; };
 		BAA80764150D96A6003A94E9 /* StepMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StepMethod.m; path = core/caze/step/StepMethod.m; sourceTree = "<group>"; };
 		BAA80774150DACF3003A94E9 /* failed_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failed_checked.png; sourceTree = "<group>"; };
@@ -267,6 +266,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAA2F5FE1559E886003AFF55 /* libGreeWallet.a in Frameworks */,
 				BAB2102F152D4CA600177141 /* libGreePlatform.a in Frameworks */,
 				BA96EC37150EFA5C00214FAD /* libz.dylib in Frameworks */,
 				BA64CB73150DE03000E8A9EE /* StoreKit.framework in Frameworks */,
@@ -323,8 +323,6 @@
 				BA894EC4152EDFAC0010B6A1 /* CommenStepDefinition.m */,
 				BA894EC7152EE00A0010B6A1 /* LeaderboardStepDefinition.h */,
 				BA894EC8152EE00A0010B6A1 /* LeaderboardStepDefinition.m */,
-				BA283D471534075A0055981A /* IgnorelistStepDefinition.h */,
-				BA283D481534075A0055981A /* IgnorelistStepDefinition.m */,
 				BAC432C1153FF6AC00C07E21 /* PeopleStepDefinition.h */,
 				BAC432C2153FF6AC00C07E21 /* PeopleStepDefinition.m */,
 				BA283D4A15341D960055981A /* ModerationStepDefinition.h */,
@@ -482,6 +480,7 @@
 		BA89094014F75D6100018B0F = {
 			isa = PBXGroup;
 			children = (
+				BAA2F5FD1559E886003AFF55 /* libGreeWallet.a */,
 				BAB2102E152D4CA600177141 /* libGreePlatform.a */,
 				BAB21028152D4C8A00177141 /* GreePlatformCoreResources.bundle */,
 				BAB21029152D4C8A00177141 /* GreePlatformLandscapeResources.bundle */,
@@ -723,7 +722,6 @@
 				BAB21032152D4FC700177141 /* AchievementStepDefinition.m in Sources */,
 				BA894EC5152EDFAC0010B6A1 /* CommenStepDefinition.m in Sources */,
 				BA894EC9152EE00B0010B6A1 /* LeaderboardStepDefinition.m in Sources */,
-				BA283D491534075A0055981A /* IgnorelistStepDefinition.m in Sources */,
 				BAC432C3153FF6AC00C07E21 /* PeopleStepDefinition.m in Sources */,
 				BA283D4C15341D960055981A /* ModerationStepDefinition.m in Sources */,
 			);
