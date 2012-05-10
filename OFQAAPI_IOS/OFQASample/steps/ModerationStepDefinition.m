@@ -103,8 +103,8 @@
     
 }
 
-// step definition : I check from server with status of text TEXT
-- (void) I_check_from_server_with_status_of_text_PARAM:(NSString*) text{
+// step definition : I check from SERVER with status of text TEXT
+- (void) I_load_from_PARAM:(NSString*) position _with_moderation_text_PARAM:(NSString*) text{
     GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
     
     NSMutableArray* ids = [[NSMutableArray alloc] initWithObjects:[t textId], nil];
@@ -144,5 +144,6 @@
     
 //    [[self getBlockRepo] setObject:[self fetchModerationFromServerById:[t textId]] forKey:@"text"];
 }
+
 
 @end

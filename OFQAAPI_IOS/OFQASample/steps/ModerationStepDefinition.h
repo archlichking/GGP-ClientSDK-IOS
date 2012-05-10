@@ -21,7 +21,7 @@
 - (void) I_update_text_PARAM:(NSString*) text 
         _with_new_text_PARAM:(NSString*) text2;
 
-- (void) I_check_from_server_with_status_of_text_PARAM:(NSString*) text;
+- (void) I_load_from_PARAM:(NSString*) position _with_moderation_text_PARAM:(NSString*) text;
 - (void) I_check_from_native_cache_with_status_of_text_PARAM:(NSString*) text;
 
 - (void) I_delete_from_moderation_server_with_text_PARAM:(NSString*) text;
