@@ -32,7 +32,7 @@
     [self waitForInStep];
 }
 
-- (void) I_should_have_a_purchase_id_looks_PARAM:(NSString*) valid{
+- (void) I_should_have_a_purchase_id_as_PARAM:(NSString*) valid{
     NSString* paymentid = [[self getBlockRepo] objectForKey:@"paymentid"];
     if ([valid isEqualToString:@"VALID"]) {
         NSString* isNull = paymentid == nil?@"YES":@"NO";

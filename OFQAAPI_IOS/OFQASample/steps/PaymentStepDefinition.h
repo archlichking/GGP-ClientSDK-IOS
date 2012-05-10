@@ -13,7 +13,7 @@
 
 - (void) I_purchase_PARAM:(NSString*) item;
 
-- (void) I_should_have_a_purchase_id_looks_PARAM:(NSString*) valid;
+- (void) I_should_have_a_purchase_id_as_PARAM:(NSString*) valid;
 
 - (void) I_make_sure_purchase_list_PARAM:(NSString*) include 
                              _item_PARAM:(NSString*) item;
