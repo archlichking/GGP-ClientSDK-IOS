@@ -27,7 +27,7 @@
 #import "LeaderboardStepDefinition.h"
 #import "PeopleStepDefinition.h"
 #import "ModerationStepDefinition.h"
-#import "PaymentStepDefinition.h"
+//#import "PaymentStepDefinition.h"
 
 
 @implementation TestRunnerWrapper
@@ -50,7 +50,7 @@
         id p3 = class_createInstance([LeaderboardStepDefinition class], 0);
         id p5 = class_createInstance([PeopleStepDefinition class], 0);        
         id p4 = class_createInstance([ModerationStepDefinition class], 0);
-        id p6 = class_createInstance([PaymentStepDefinition class], 0);
+//        id p6 = class_createInstance([PaymentStepDefinition class], 0);
         
         StepHolder* holder = [[StepHolder alloc] init];
         
@@ -59,7 +59,7 @@
         [holder addStepObj:p3];
         [holder addStepObj:p5];
         [holder addStepObj:p4];
-        [holder addStepObj:p6];
+//        [holder addStepObj:p6];
         
         [self setCb:[CaseBuilderFactory makeBuilderByType:t 
                                                raw:rawData

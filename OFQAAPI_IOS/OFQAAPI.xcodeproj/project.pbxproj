@@ -84,7 +84,6 @@
 		BA894EC9152EE00B0010B6A1 /* LeaderboardStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA894EC8152EE00A0010B6A1 /* LeaderboardStepDefinition.m */; };
 		BA96EC37150EFA5C00214FAD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA64CB70150DDF9200E8A9EE /* libz.dylib */; };
 		BA97ED0E15070014000D2E63 /* TestRunnerWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BA97ED0D15070014000D2E63 /* TestRunnerWrapper.m */; };
-		BAA2F5D01559DB26003AFF55 /* PaymentStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA2F5CF1559DB26003AFF55 /* PaymentStepDefinition.m */; };
 		BAA2F5FE1559E886003AFF55 /* libGreeWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA2F5FD1559E886003AFF55 /* libGreeWallet.a */; };
 		BAA80765150D96A6003A94E9 /* StepMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = BAA80763150D96A6003A94E9 /* StepMethod.h */; };
 		BAA80766150D96A6003A94E9 /* StepMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA80764150D96A6003A94E9 /* StepMethod.m */; };
@@ -222,8 +221,6 @@
 		BA894EC8152EE00A0010B6A1 /* LeaderboardStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaderboardStepDefinition.m; path = steps/LeaderboardStepDefinition.m; sourceTree = "<group>"; };
 		BA97ED0C15070014000D2E63 /* TestRunnerWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestRunnerWrapper.h; path = wrapper/TestRunnerWrapper.h; sourceTree = "<group>"; };
 		BA97ED0D15070014000D2E63 /* TestRunnerWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestRunnerWrapper.m; path = wrapper/TestRunnerWrapper.m; sourceTree = "<group>"; };
-		BAA2F5CE1559DB26003AFF55 /* PaymentStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaymentStepDefinition.h; path = steps/PaymentStepDefinition.h; sourceTree = "<group>"; };
-		BAA2F5CF1559DB26003AFF55 /* PaymentStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaymentStepDefinition.m; path = steps/PaymentStepDefinition.m; sourceTree = "<group>"; };
 		BAA2F5FD1559E886003AFF55 /* libGreeWallet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGreeWallet.a; path = ../../../ggplib_ios/release/libGreeWallet.a; sourceTree = "<group>"; };
 		BAA80763150D96A6003A94E9 /* StepMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StepMethod.h; path = core/caze/step/StepMethod.h; sourceTree = "<group>"; };
 		BAA80764150D96A6003A94E9 /* StepMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StepMethod.m; path = core/caze/step/StepMethod.m; sourceTree = "<group>"; };
@@ -330,8 +327,6 @@
 				BAC432C2153FF6AC00C07E21 /* PeopleStepDefinition.m */,
 				BA283D4A15341D960055981A /* ModerationStepDefinition.h */,
 				BA283D4B15341D960055981A /* ModerationStepDefinition.m */,
-				BAA2F5CE1559DB26003AFF55 /* PaymentStepDefinition.h */,
-				BAA2F5CF1559DB26003AFF55 /* PaymentStepDefinition.m */,
 			);
 			name = steps;
 			sourceTree = "<group>";
@@ -729,7 +724,6 @@
 				BA894EC9152EE00B0010B6A1 /* LeaderboardStepDefinition.m in Sources */,
 				BAC432C3153FF6AC00C07E21 /* PeopleStepDefinition.m in Sources */,
 				BA283D4C15341D960055981A /* ModerationStepDefinition.m in Sources */,
-				BAA2F5D01559DB26003AFF55 /* PaymentStepDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
