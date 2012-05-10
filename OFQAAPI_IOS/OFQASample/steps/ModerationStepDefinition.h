@@ -26,4 +26,6 @@
 
 - (void) I_delete_from_moderation_server_with_text_PARAM:(NSString*) text;
 
+- (void) new_text_should_be_PARAM:(NSString*) text;
+
 @end

@@ -99,33 +99,36 @@
     }];
     [self waitForInStep];
     
-    [[self getBlockRepo] setObject:[self fetchModerationFromServerById:[t textId]] forKey:@"text"];
+//    [[self getBlockRepo] setObject:[self fetchModerationFromServerById:[t textId]] forKey:@"text"];
     
-}
-
-- (GreeModeratedText*) fetchModerationFromServerById:(NSString*) di{
-    NSArray* ids =  [[[NSArray alloc] initWithObjects:di, nil] autorelease];
-    
-    __block NSMutableArray* retArray = [[[NSMutableArray alloc] init] autorelease];
-    [GreeModeratedText loadFromIds:ids
-                             block:^(NSArray *userTexts, NSError *error) {
-                                 if(!error){
-                                     [retArray addObjectsFromArray:userTexts];
-                                 }
-                                 [self notifyInStep];
-                             }];
-    [self waitForInStep];
-    return [retArray objectAtIndex:0];
 }
 
 // step definition : I check from server with status of text TEXT
 - (void) I_check_from_server_with_status_of_text_PARAM:(NSString*) text{
-
+    GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
+    
+    NSMutableArray* ids = [[NSMutableArray alloc] initWithObjects:[t textId], nil];
+    [GreeModeratedText loadFromIds:ids
+                             block:^(NSArray *userTexts, NSError *error) {
+                                 if(!error){
+                                     [[self getBlockRepo] setObject:[userTexts objectAtIndex:0] 
+                                                             forKey:@"text"];
+                                 }
+                                 [self notifyInStep];
+                             }];
+    [self waitForInStep];
 }
 
 // step definition : I check from server with status of text TEXT
 - (void) I_check_from_native_cache_with_status_of_text_PARAM:(NSString*) text{
     
+}
+
+// step definition : new text should be TEXT
+- (void) new_text_should_be_PARAM:(NSString*) text{
+    GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
+    [QAAssert assertEqualsExpected:text 
+                            Actual:[t content]];
 }
 
 // step definition : I delete from moderation server with text TEXT
@@ -139,7 +142,7 @@
     }];
     [self waitForInStep];
     
-    [[self getBlockRepo] setObject:[self fetchModerationFromServerById:[t textId]] forKey:@"text"];
+//    [[self getBlockRepo] setObject:[self fetchModerationFromServerById:[t textId]] forKey:@"text"];
 }
 
 @end
