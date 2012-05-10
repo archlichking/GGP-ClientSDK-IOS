@@ -54,7 +54,6 @@
     
     cell.textLabel.text = [[tw tc] title];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"# %@ %@", [[tw tc] caseId], [tw result]];
-    NSLog(@"%@", [[tw tc] caseId]);
     return cell;
 }
 
