@@ -17,21 +17,27 @@
 - (void) I_make_sure_my_friend_code_is_PARAM:(NSString*) isExist{
     if ([isExist isEqualToString:@"NOTEXIST"]) {
         [self I_delete_my_friend_code];
-    }else{
+    }else if([isExist isEqualToString:@"EXIST"]){
         [self I_request_friend_code_with_expire_time_PARAM:@""];
+    }else{
+        [QAAssert assertEqualsExpected:@"" 
+                                Actual:nil 
+                           WithMessage:@"no param matches"];
     }
 }
 
 + (NSString*) stringFromDate:(NSDate*) date{
     NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
-    [formatter setLocale:[NSLocale systemLocale]];
+    [formatter setLocale:[[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"] autorelease]];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
     [formatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ssZ"];
     return  [formatter stringFromDate:date];
 }
 
 + (NSDate*) dateFromString:(NSString*) dateString{
     NSDateFormatter* formatter = [[[NSDateFormatter alloc] init] autorelease];
-    [formatter setLocale:[NSLocale systemLocale]];
+    [formatter setLocale:[[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"] autorelease]];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
     [formatter setDateFormat:@"yyyy'-'MM'-'dd'T'HH':'mm':'ssZ"];
     return [formatter dateFromString:dateString];
 }
@@ -104,10 +110,11 @@
 // step definition : my friend code expire time should be DATE
 - (void) my_friend_code_expire_time_should_be_PARAM:(NSString*) time{
     if ([time rangeOfString:@"days"].location != NSNotFound) {
-        
+        // to be 
     }else{
-        //NSDate* date = [[self getBlockRepo] objectForKey:@"date"];
-        
+        NSDate* date = [[self getBlockRepo] objectForKey:@"expiretime"];
+        [QAAssert assertEqualsExpected:time
+                                Actual:[FriendCodeStepDefinition stringFromDate:date]];
     }
 }
 
