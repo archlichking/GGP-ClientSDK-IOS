@@ -18,7 +18,8 @@
     if ([isExist isEqualToString:@"NOTEXIST"]) {
         [self I_delete_my_friend_code];
     }else if([isExist isEqualToString:@"EXIST"]){
-        [self I_request_friend_code_with_expire_time_PARAM:@""];
+        [self I_delete_my_friend_code];
+        [self I_request_friend_code_with_expire_time_PARAM:@"2013-01-01T23:00:00-0800"];
     }else{
         [QAAssert assertEqualsExpected:@"" 
                                 Actual:nil 
@@ -60,6 +61,7 @@
                                                  if(!error){
                                                      [[self getBlockRepo] setObject:code 
                                                                              forKey:@"code"];
+                                                     NSLog(@"%@", code);
                                                  }
                                                  [self notifyInStep];
                                              }];
@@ -70,6 +72,7 @@
 // step definition : I load my friend code
 - (void) I_load_my_friend_code{
     [GreeFriendCodes loadCodeWithBlock:^(NSString *code, NSDate *expiration, NSError *error) {
+        NSLog(@"%@", code);
         if(!error){
             [[self getBlockRepo] setObject:code 
                                     forKey:@"code"];
@@ -85,6 +88,24 @@
         }
         [self notifyInStep];
     }];
+    [self waitForInStep];
+}
+
+// step definition : I verify my friend code
+- (void) I_verify_my_friend_code{
+    NSString* code = [[self getBlockRepo] objectForKey:@"code"];
+    [GreeFriendCodes verifyCode:code 
+                      withBlock:^(NSError *error) {
+                          if(!error){
+                              
+                          }else if(error.code == GreeFriendCodeAlreadyEntered){
+                              [[self getBlockRepo] setObject:@"ALREADYUSED" 
+                                                      forKey:@"code"];
+                              [[self getBlockRepo] setObject:[FriendCodeStepDefinition dateFromString:@"2012-01-01T23:00:00-0800"]
+                                                      forKey:@"expiretime"];
+                          }
+                          [self notifyInStep];
+                      }];
     [self waitForInStep];
 }
 
@@ -146,6 +167,13 @@
                             Actual:code];
     [QAAssert assertEqualsExpected:@"2012-01-01T23:00:00-0800"
                             Actual:[FriendCodeStepDefinition stringFromDate:date]];
+}
+
+// step definition : my friend code should be valid
+- (void) my_friend_code_should_be_valid{
+    NSString* code = [[self getBlockRepo] objectForKey:@"code"];
+    [QAAssert assertNotEqualsExpected:@"ALREADYUSED"
+                            Actual:code];
 }
 
 @end

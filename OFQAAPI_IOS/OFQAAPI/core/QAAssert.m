@@ -28,4 +28,22 @@
                         format:@"expected:<%@> but was:<%@> with message [%@]", expected, result, message];
     }
 }
+
++ (void) assertNotEqualsExpected:(id)expected 
+                          Actual:(id)result{
+    if ([expected isEqualToString:result]) {
+        [AssertException raise:@"assertEquals failed" 
+                        format:@"expected:<%@> but was:<%@>", expected, result];
+    }
+}
+
++ (void) assertNotEqualsExpected:(id)expected 
+                          Actual:(id)result 
+                     WithMessage:(NSString*) message{
+    if ([expected isEqualToString:result]) {
+        [AssertException raise:@"assertEquals failed" 
+                        format:@"expected:<%@> but was:<%@> with message [%@]", expected, result, message];
+    }
+}
+
 @end

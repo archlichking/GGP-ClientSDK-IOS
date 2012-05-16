@@ -17,4 +17,11 @@
                        Actual:(id)result 
                       WithMessage:(NSString*) message;
 
++ (void) assertNotEqualsExpected:(id)expected 
+                       Actual:(id)result;
+
++ (void) assertNotEqualsExpected:(id)expected 
+                       Actual:(id)result 
+                  WithMessage:(NSString*) message;
+
 @end

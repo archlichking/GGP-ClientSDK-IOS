@@ -25,8 +25,12 @@
 
 - (void) I_delete_my_friend_code;
 
+- (void) I_verify_my_friend_code;
+
 - (void) I_load_my_friend_code;
 
 - (void) my_friend_code_should_be_deleted;
+
+- (void) my_friend_code_should_be_valid;
 
 @end
