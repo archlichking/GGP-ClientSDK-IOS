@@ -27,6 +27,7 @@
 #import "LeaderboardStepDefinition.h"
 #import "PeopleStepDefinition.h"
 #import "ModerationStepDefinition.h"
+#import "FriendCodeStepDefinition.h"
 //#import "PaymentStepDefinition.h"
 
 
@@ -51,6 +52,7 @@
         id p5 = class_createInstance([PeopleStepDefinition class], 0);        
         id p4 = class_createInstance([ModerationStepDefinition class], 0);
 //        id p6 = class_createInstance([PaymentStepDefinition class], 0);
+        id p7 = class_createInstance([FriendCodeStepDefinition class], 0);
         
         StepHolder* holder = [[StepHolder alloc] init];
         
@@ -59,6 +61,7 @@
         [holder addStepObj:p3];
         [holder addStepObj:p5];
         [holder addStepObj:p4];
+        [holder addStepObj:p7];
 //        [holder addStepObj:p6];
         
         [self setCb:[CaseBuilderFactory makeBuilderByType:t 
