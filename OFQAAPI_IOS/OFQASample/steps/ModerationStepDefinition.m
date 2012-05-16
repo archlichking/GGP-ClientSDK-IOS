@@ -93,12 +93,12 @@
     GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
     [t updateWithString:text2 block:^(NSError *error) {
         if(!error) {
-            [[self getBlockRepo] setObject:t forKey:@"text"];
+            
         }
         [self notifyInStep];    
     }];
     [self waitForInStep];
-    
+    [[self getBlockRepo] setObject:t forKey:@"text"];
 //    [[self getBlockRepo] setObject:[self fetchModerationFromServerById:[t textId]] forKey:@"text"];
     
 }
@@ -106,7 +106,6 @@
 // step definition : I check from SERVER with status of text TEXT
 - (void) I_load_from_PARAM:(NSString*) position _with_moderation_text_PARAM:(NSString*) text{
     GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
-    
     NSMutableArray* ids = [[NSMutableArray alloc] initWithObjects:[t textId], nil];
     [GreeModeratedText loadFromIds:ids
                              block:^(NSArray *userTexts, NSError *error) {

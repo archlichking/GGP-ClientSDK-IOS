@@ -115,9 +115,10 @@
                 // need to add score if no score in current leaderboard
                 GreeScore* score = [[GreeScore alloc] initWithLeaderboard:[ld identifier] 
                                                                     score:3000];
-                [score submit];
-                // have to wait for 1 sec since no async callback here to handle
-                [NSThread sleepForTimeInterval:2];
+                [score submitWithBlock:^{
+                    [self notifyInStep];
+                }];
+                [self waitForInStep];
                 [score release];
             }else{
                 // need to delete existed score
@@ -150,10 +151,12 @@
     // for submit to a non-existed leaderboard
     GreeScore* s = [[GreeScore alloc] initWithLeaderboard:identi 
                                                     score:[score integerValue]];
-    [s submit];
-    // have to wait for 1 sec since no async callback here to handle
-    [NSThread sleepForTimeInterval:2];
+    [s submitWithBlock:^{
+        [self notifyInStep];
+    }];
+    [self waitForInStep];
     [s release];
+
     return;
 }
 

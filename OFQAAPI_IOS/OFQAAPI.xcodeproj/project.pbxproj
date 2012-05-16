@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA09131C155C98D900EEFD4B /* FriendCodeStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA09131B155C98D900EEFD4B /* FriendCodeStepDefinition.m */; };
 		BA20766F14FB58E800293C3C /* FileCaseBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = BA20766D14FB58E800293C3C /* FileCaseBuilder.h */; };
 		BA20767014FB58E800293C3C /* FileCaseBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = BA20766E14FB58E800293C3C /* FileCaseBuilder.m */; };
 		BA20767414FB5A5500293C3C /* StringUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = BA20767214FB5A5500293C3C /* StringUtil.h */; };
@@ -132,6 +133,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA09131A155C98D900EEFD4B /* FriendCodeStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendCodeStepDefinition.h; path = steps/FriendCodeStepDefinition.h; sourceTree = "<group>"; };
+		BA09131B155C98D900EEFD4B /* FriendCodeStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendCodeStepDefinition.m; path = steps/FriendCodeStepDefinition.m; sourceTree = "<group>"; };
 		BA20766D14FB58E800293C3C /* FileCaseBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileCaseBuilder.h; path = core/caze/builder/FileCaseBuilder.h; sourceTree = "<group>"; };
 		BA20766E14FB58E800293C3C /* FileCaseBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileCaseBuilder.m; path = core/caze/builder/FileCaseBuilder.m; sourceTree = "<group>"; };
 		BA20767214FB5A5500293C3C /* StringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StringUtil.h; path = core/util/StringUtil.h; sourceTree = "<group>"; };
@@ -327,6 +330,8 @@
 				BAC432C2153FF6AC00C07E21 /* PeopleStepDefinition.m */,
 				BA283D4A15341D960055981A /* ModerationStepDefinition.h */,
 				BA283D4B15341D960055981A /* ModerationStepDefinition.m */,
+				BA09131A155C98D900EEFD4B /* FriendCodeStepDefinition.h */,
+				BA09131B155C98D900EEFD4B /* FriendCodeStepDefinition.m */,
 			);
 			name = steps;
 			sourceTree = "<group>";
@@ -724,6 +729,7 @@
 				BA894EC9152EE00B0010B6A1 /* LeaderboardStepDefinition.m in Sources */,
 				BAC432C3153FF6AC00C07E21 /* PeopleStepDefinition.m in Sources */,
 				BA283D4C15341D960055981A /* ModerationStepDefinition.m in Sources */,
+				BA09131C155C98D900EEFD4B /* FriendCodeStepDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -81,11 +81,15 @@
             }else{
                 // reset status of achievement
                 if ([ach isUnlocked]) {
-                    [ach relock];
+                    [ach relockWithBlock:^{
+                        [self notifyInStep];
+                    }];
                 }else{
-                    [ach unlock];
+                    [ach unlockWithBlock:^{
+                        [self notifyInStep];
+                    }];
                 }
-                [NSThread sleepForTimeInterval:2];
+                [self waitForInStep];
             }
             return;
         }
@@ -102,10 +106,15 @@
     for (GreeAchievement* ach in achs) {
         if([[ach name] isEqualToString:ach_name]){
             if ([AchievementStepDefinition lockToBool:status]) {
-                [ach relock];
+                [ach relockWithBlock:^{
+                    [self notifyInStep];
+                }];
             }else{
-                [ach unlock];
+                [ach unlockWithBlock:^{
+                    [self notifyInStep];
+                }];
             }
+            [self waitForInStep];
             return;
         }
     }
