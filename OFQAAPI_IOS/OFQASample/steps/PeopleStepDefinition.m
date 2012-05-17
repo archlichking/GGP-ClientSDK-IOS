@@ -30,6 +30,23 @@
     [self waitForInStep];
 }
 
+// step definition : I check my friend list first page
+- (void) I_check_my_friend_list_first_page{
+    GreeUser* user = [GreePlatform sharedInstance].localUser;
+        
+    if (user) {
+        [user loadFriendsWithBlock:^(NSArray *friends, NSError *error) {
+            // first 10 friends could only be retrieved this way
+            if (!error) {
+                [[self getBlockRepo] setObject:friends 
+                                        forKey:@"friends"];
+            }
+            [self notifyInStep];
+        }];
+        [self waitForInStep];
+    }
+}
+
 // step definition : i see my info from native cache
 - (void) I_see_my_info_from_native_cache{
     GreeUser* user = [GreePlatform sharedInstance].localUser;
@@ -159,6 +176,20 @@
                             Actual:nil
                        WithMessage:@"no person matches"];
     
+}
+
+- (void) friend_list_should_not_have_PARAM:(NSString*) person{
+    NSArray* friends = [[self getBlockRepo] objectForKey:@"friends"];
+    for (GreeUser* f in friends) {
+        if ([[f displayName] isEqualToString:person]) {
+            [QAAssert assertEqualsExpected:@"FALSE" 
+                                    Actual:@"TRUE"
+                               WithMessage:@"Friend found!!!"];
+            return;
+        }
+    }
+    [QAAssert assertEqualsExpected:@"TRUE"
+                            Actual:@"TRUE"];
 }
 
 // step definition : userid of USER_1 should be USER_ID and grade should be GRADE

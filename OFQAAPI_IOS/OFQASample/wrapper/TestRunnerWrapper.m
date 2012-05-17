@@ -28,6 +28,7 @@
 #import "PeopleStepDefinition.h"
 #import "ModerationStepDefinition.h"
 #import "FriendCodeStepDefinition.h"
+#import "IgnorelistStepDefinition.h"
 //#import "PaymentStepDefinition.h"
 
 
@@ -46,22 +47,37 @@
         
         [self setCaseWrappers:[[[NSMutableArray alloc] init] autorelease]];
         
-        id p = class_createInstance([CommenStepDefinition class], 0);
-        id p2 = class_createInstance([AchievementStepDefinition class], 0);
-        id p3 = class_createInstance([LeaderboardStepDefinition class], 0);
-        id p5 = class_createInstance([PeopleStepDefinition class], 0);        
-        id p4 = class_createInstance([ModerationStepDefinition class], 0);
-//        id p6 = class_createInstance([PaymentStepDefinition class], 0);
-        id p7 = class_createInstance([FriendCodeStepDefinition class], 0);
+        NSArray* classArray = [[NSArray alloc] initWithObjects:
+                               class_createInstance([CommenStepDefinition class], 0), 
+                               class_createInstance([AchievementStepDefinition class], 0),
+                               class_createInstance([LeaderboardStepDefinition class], 0), 
+                               class_createInstance([PeopleStepDefinition class], 0),
+                               class_createInstance([ModerationStepDefinition class], 0),
+                               class_createInstance([FriendCodeStepDefinition class], 0),
+                               class_createInstance([IgnorelistStepDefinition class], 0),
+                               nil];
+        
+        
+//        id p = class_createInstance([CommenStepDefinition class], 0);
+//        id p2 = class_createInstance([AchievementStepDefinition class], 0);
+//        id p3 = class_createInstance([LeaderboardStepDefinition class], 0);
+//        id p5 = class_createInstance([PeopleStepDefinition class], 0);        
+//        id p4 = class_createInstance([ModerationStepDefinition class], 0);
+////        id p6 = class_createInstance([PaymentStepDefinition class], 0);
+//        id p7 = class_createInstance([FriendCodeStepDefinition class], 0);
         
         StepHolder* holder = [[StepHolder alloc] init];
         
-        [holder addStepObj:p];
-        [holder addStepObj:p2];
-        [holder addStepObj:p3];
-        [holder addStepObj:p5];
-        [holder addStepObj:p4];
-        [holder addStepObj:p7];
+        for (id p in classArray) {
+            [holder addStepObj:p];
+        }
+//        
+//        [holder addStepObj:p];
+//        [holder addStepObj:p2];
+//        [holder addStepObj:p3];
+//        [holder addStepObj:p5];
+//        [holder addStepObj:p4];
+//        [holder addStepObj:p7];
 //        [holder addStepObj:p6];
         
         [self setCb:[CaseBuilderFactory makeBuilderByType:t 
