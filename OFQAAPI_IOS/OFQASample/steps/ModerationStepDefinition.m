@@ -93,12 +93,12 @@
     GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
     [t updateWithString:text2 block:^(NSError *error) {
         if(!error) {
-            
+            [[self getBlockRepo] setObject:t forKey:@"text"];
         }
         [self notifyInStep];    
     }];
     [self waitForInStep];
-    [[self getBlockRepo] setObject:t forKey:@"text"];
+    
 //    [[self getBlockRepo] setObject:[self fetchModerationFromServerById:[t textId]] forKey:@"text"];
     
 }

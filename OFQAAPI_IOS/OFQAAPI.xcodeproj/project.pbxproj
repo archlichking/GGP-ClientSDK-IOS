@@ -43,6 +43,7 @@
 		BA6D88CD14FDED51009D93CB /* StepHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6D88CB14FDED51009D93CB /* StepHolder.m */; };
 		BA6F025A14FB246F008D82BC /* Step.h in Headers */ = {isa = PBXBuildFile; fileRef = BA6F025814FB246F008D82BC /* Step.h */; };
 		BA6F025B14FB246F008D82BC /* Step.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6F025914FB246F008D82BC /* Step.m */; };
+		BA72F4901564572500DCB9B1 /* IgnorelistStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA72F48F1564572500DCB9B1 /* IgnorelistStepDefinition.m */; };
 		BA78B5BF14F766B800C4D6FB /* NSObject+SBJson.h in Headers */ = {isa = PBXBuildFile; fileRef = BA78B5A614F766B800C4D6FB /* NSObject+SBJson.h */; };
 		BA78B5C014F766B800C4D6FB /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = BA78B5A714F766B800C4D6FB /* NSObject+SBJson.m */; };
 		BA78B5C114F766B800C4D6FB /* SBJson.h in Headers */ = {isa = PBXBuildFile; fileRef = BA78B5A814F766B800C4D6FB /* SBJson.h */; };
@@ -174,6 +175,8 @@
 		BA6D88CB14FDED51009D93CB /* StepHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StepHolder.m; path = core/caze/step/StepHolder.m; sourceTree = "<group>"; };
 		BA6F025814FB246F008D82BC /* Step.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Step.h; path = core/caze/step/Step.h; sourceTree = "<group>"; };
 		BA6F025914FB246F008D82BC /* Step.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Step.m; path = core/caze/step/Step.m; sourceTree = "<group>"; };
+		BA72F48E1564572500DCB9B1 /* IgnorelistStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IgnorelistStepDefinition.h; path = steps/IgnorelistStepDefinition.h; sourceTree = "<group>"; };
+		BA72F48F1564572500DCB9B1 /* IgnorelistStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IgnorelistStepDefinition.m; path = steps/IgnorelistStepDefinition.m; sourceTree = "<group>"; };
 		BA78B5A614F766B800C4D6FB /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SBJson.h"; path = "core/util/json/NSObject+SBJson.h"; sourceTree = "<group>"; };
 		BA78B5A714F766B800C4D6FB /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SBJson.m"; path = "core/util/json/NSObject+SBJson.m"; sourceTree = "<group>"; };
 		BA78B5A814F766B800C4D6FB /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJson.h; path = core/util/json/SBJson.h; sourceTree = "<group>"; };
@@ -332,6 +335,8 @@
 				BA283D4B15341D960055981A /* ModerationStepDefinition.m */,
 				BA09131A155C98D900EEFD4B /* FriendCodeStepDefinition.h */,
 				BA09131B155C98D900EEFD4B /* FriendCodeStepDefinition.m */,
+				BA72F48E1564572500DCB9B1 /* IgnorelistStepDefinition.h */,
+				BA72F48F1564572500DCB9B1 /* IgnorelistStepDefinition.m */,
 			);
 			name = steps;
 			sourceTree = "<group>";
@@ -730,6 +735,7 @@
 				BAC432C3153FF6AC00C07E21 /* PeopleStepDefinition.m in Sources */,
 				BA283D4C15341D960055981A /* ModerationStepDefinition.m in Sources */,
 				BA09131C155C98D900EEFD4B /* FriendCodeStepDefinition.m in Sources */,
+				BA72F4901564572500DCB9B1 /* IgnorelistStepDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
