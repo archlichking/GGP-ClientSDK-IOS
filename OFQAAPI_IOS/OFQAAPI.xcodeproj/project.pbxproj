@@ -19,6 +19,8 @@
 		BA20767F14FB5FBC00293C3C /* TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = BA20767D14FB5FBC00293C3C /* TestCase.m */; };
 		BA20768214FB62DD00293C3C /* CommandUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = BA20768014FB62DC00293C3C /* CommandUtil.h */; };
 		BA20768314FB62DD00293C3C /* CommandUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = BA20768114FB62DC00293C3C /* CommandUtil.m */; };
+		BA2648C915670F2900D6C6D9 /* libGreePlatform.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2648C715670F2900D6C6D9 /* libGreePlatform.a */; };
+		BA2648CA15670F2900D6C6D9 /* libGreeWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2648C815670F2900D6C6D9 /* libGreeWallet.a */; };
 		BA283D0F1532B9180055981A /* NoSuchStepException.h in Headers */ = {isa = PBXBuildFile; fileRef = BA283D0D1532B9180055981A /* NoSuchStepException.h */; };
 		BA283D101532B9180055981A /* NoSuchStepException.m in Sources */ = {isa = PBXBuildFile; fileRef = BA283D0E1532B9180055981A /* NoSuchStepException.m */; };
 		BA283D141532D0BE0055981A /* NoCommandMatchException.h in Headers */ = {isa = PBXBuildFile; fileRef = BA283D121532D0BE0055981A /* NoCommandMatchException.h */; };
@@ -32,6 +34,7 @@
 		BA381E6D14FCC6D700FBA134 /* SampleStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA381E6C14FCC6D700FBA134 /* SampleStepDefinition.m */; };
 		BA5218F4150E04C2002F02B3 /* StepDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = BA5218F2150E04C2002F02B3 /* StepDefinition.h */; };
 		BA5218F5150E04C2002F02B3 /* StepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5218F3150E04C2002F02B3 /* StepDefinition.m */; };
+		BA52DE081566E59300F87A66 /* libOFQAAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA89094B14F75D6100018B0F /* libOFQAAPI.a */; };
 		BA56CAD81505A3CC001ECED4 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = BA56CAD71505A3CC001ECED4 /* checked.png */; };
 		BA56CADA1505A3FC001ECED4 /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = BA56CAD91505A3FC001ECED4 /* unchecked.png */; };
 		BA56CADE1505A7C1001ECED4 /* TestCaseWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BA56CADD1505A7C1001ECED4 /* TestCaseWrapper.m */; };
@@ -77,7 +80,6 @@
 		BA78B60E14F792A200C4D6FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA78B60D14F792A200C4D6FB /* AppDelegate.m */; };
 		BA78B61114F792A200C4D6FB /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA78B60F14F792A200C4D6FB /* MainStoryboard.storyboard */; };
 		BA78B61414F792A200C4D6FB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA78B61314F792A200C4D6FB /* ViewController.m */; };
-		BA78B61A14F7983B00C4D6FB /* libOFQAAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA89094B14F75D6100018B0F /* libOFQAAPI.a */; };
 		BA89094F14F75D6100018B0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA89094E14F75D6100018B0F /* Foundation.framework */; };
 		BA89095514F75D6100018B0F /* OFQAAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BA89095414F75D6100018B0F /* OFQAAPI.m */; };
 		BA89095F14F75E6E00018B0F /* TcmCommunicator.h in Headers */ = {isa = PBXBuildFile; fileRef = BA89095D14F75E6E00018B0F /* TcmCommunicator.h */; };
@@ -86,7 +88,6 @@
 		BA894EC9152EE00B0010B6A1 /* LeaderboardStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA894EC8152EE00A0010B6A1 /* LeaderboardStepDefinition.m */; };
 		BA96EC37150EFA5C00214FAD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA64CB70150DDF9200E8A9EE /* libz.dylib */; };
 		BA97ED0E15070014000D2E63 /* TestRunnerWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BA97ED0D15070014000D2E63 /* TestRunnerWrapper.m */; };
-		BAA2F5FE1559E886003AFF55 /* libGreeWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA2F5FD1559E886003AFF55 /* libGreeWallet.a */; };
 		BAA80765150D96A6003A94E9 /* StepMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = BAA80763150D96A6003A94E9 /* StepMethod.h */; };
 		BAA80766150D96A6003A94E9 /* StepMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA80764150D96A6003A94E9 /* StepMethod.m */; };
 		BAA80775150DACF3003A94E9 /* failed_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA80774150DACF3003A94E9 /* failed_checked.png */; };
@@ -101,7 +102,6 @@
 		BAB2102B152D4C8A00177141 /* GreePlatformCoreResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAB21028152D4C8A00177141 /* GreePlatformCoreResources.bundle */; };
 		BAB2102C152D4C8A00177141 /* GreePlatformLandscapeResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAB21029152D4C8A00177141 /* GreePlatformLandscapeResources.bundle */; };
 		BAB2102D152D4C8A00177141 /* GreePlatformPortraitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAB2102A152D4C8A00177141 /* GreePlatformPortraitResources.bundle */; };
-		BAB2102F152D4CA600177141 /* libGreePlatform.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB2102E152D4CA600177141 /* libGreePlatform.a */; };
 		BAB21032152D4FC700177141 /* AchievementStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB21031152D4FC700177141 /* AchievementStepDefinition.m */; };
 		BAB8182814FC759100AF18CD /* debugCase.txt in Resources */ = {isa = PBXBuildFile; fileRef = BAB8182614FC759100AF18CD /* debugCase.txt */; };
 		BAB8182914FC759100AF18CD /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = BAB8182714FC759100AF18CD /* settings.json */; };
@@ -147,6 +147,8 @@
 		BA20767D14FB5FBC00293C3C /* TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestCase.m; path = core/caze/TestCase.m; sourceTree = "<group>"; };
 		BA20768014FB62DC00293C3C /* CommandUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommandUtil.h; path = core/util/CommandUtil.h; sourceTree = "<group>"; };
 		BA20768114FB62DC00293C3C /* CommandUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommandUtil.m; path = core/util/CommandUtil.m; sourceTree = "<group>"; };
+		BA2648C715670F2900D6C6D9 /* libGreePlatform.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGreePlatform.a; path = ../../../ggplib_ios/release/libGreePlatform.a; sourceTree = "<group>"; };
+		BA2648C815670F2900D6C6D9 /* libGreeWallet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGreeWallet.a; path = ../../../ggplib_ios/release/libGreeWallet.a; sourceTree = "<group>"; };
 		BA283D0D1532B9180055981A /* NoSuchStepException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoSuchStepException.h; path = core/exception/NoSuchStepException.h; sourceTree = "<group>"; };
 		BA283D0E1532B9180055981A /* NoSuchStepException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoSuchStepException.m; path = core/exception/NoSuchStepException.m; sourceTree = "<group>"; };
 		BA283D121532D0BE0055981A /* NoCommandMatchException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoCommandMatchException.h; path = core/exception/NoCommandMatchException.h; sourceTree = "<group>"; };
@@ -227,7 +229,6 @@
 		BA894EC8152EE00A0010B6A1 /* LeaderboardStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaderboardStepDefinition.m; path = steps/LeaderboardStepDefinition.m; sourceTree = "<group>"; };
 		BA97ED0C15070014000D2E63 /* TestRunnerWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestRunnerWrapper.h; path = wrapper/TestRunnerWrapper.h; sourceTree = "<group>"; };
 		BA97ED0D15070014000D2E63 /* TestRunnerWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestRunnerWrapper.m; path = wrapper/TestRunnerWrapper.m; sourceTree = "<group>"; };
-		BAA2F5FD1559E886003AFF55 /* libGreeWallet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGreeWallet.a; path = ../../../ggplib_ios/release/libGreeWallet.a; sourceTree = "<group>"; };
 		BAA80763150D96A6003A94E9 /* StepMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StepMethod.h; path = core/caze/step/StepMethod.h; sourceTree = "<group>"; };
 		BAA80764150D96A6003A94E9 /* StepMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StepMethod.m; path = core/caze/step/StepMethod.m; sourceTree = "<group>"; };
 		BAA80774150DACF3003A94E9 /* failed_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failed_checked.png; sourceTree = "<group>"; };
@@ -242,7 +243,6 @@
 		BAB21028152D4C8A00177141 /* GreePlatformCoreResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformCoreResources.bundle; path = ../../../ggplib_ios/release/resources/GreePlatformCoreResources.bundle; sourceTree = "<group>"; };
 		BAB21029152D4C8A00177141 /* GreePlatformLandscapeResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformLandscapeResources.bundle; path = ../../../ggplib_ios/release/resources/GreePlatformLandscapeResources.bundle; sourceTree = "<group>"; };
 		BAB2102A152D4C8A00177141 /* GreePlatformPortraitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformPortraitResources.bundle; path = ../../../ggplib_ios/release/resources/GreePlatformPortraitResources.bundle; sourceTree = "<group>"; };
-		BAB2102E152D4CA600177141 /* libGreePlatform.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGreePlatform.a; path = ../../../ggplib_ios/release/libGreePlatform.a; sourceTree = "<group>"; };
 		BAB21030152D4FC700177141 /* AchievementStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AchievementStepDefinition.h; path = steps/AchievementStepDefinition.h; sourceTree = "<group>"; };
 		BAB21031152D4FC700177141 /* AchievementStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AchievementStepDefinition.m; path = steps/AchievementStepDefinition.m; sourceTree = "<group>"; };
 		BAB8182614FC759100AF18CD /* debugCase.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = debugCase.txt; path = Config/debugCase.txt; sourceTree = "<group>"; };
@@ -272,8 +272,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAA2F5FE1559E886003AFF55 /* libGreeWallet.a in Frameworks */,
-				BAB2102F152D4CA600177141 /* libGreePlatform.a in Frameworks */,
+				BA2648C915670F2900D6C6D9 /* libGreePlatform.a in Frameworks */,
+				BA2648CA15670F2900D6C6D9 /* libGreeWallet.a in Frameworks */,
+				BA52DE081566E59300F87A66 /* libOFQAAPI.a in Frameworks */,
 				BA96EC37150EFA5C00214FAD /* libz.dylib in Frameworks */,
 				BA64CB73150DE03000E8A9EE /* StoreKit.framework in Frameworks */,
 				BA64CB6F150DDF8900E8A9EE /* libsqlite3.dylib in Frameworks */,
@@ -288,7 +289,6 @@
 				BAA80B79150DCF97003A94E9 /* MessageUI.framework in Frameworks */,
 				BAA80B77150DCF8E003A94E9 /* CoreTelephony.framework in Frameworks */,
 				BAA80B75150DCF83003A94E9 /* MediaPlayer.framework in Frameworks */,
-				BA78B61A14F7983B00C4D6FB /* libOFQAAPI.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,8 +490,8 @@
 		BA89094014F75D6100018B0F = {
 			isa = PBXGroup;
 			children = (
-				BAA2F5FD1559E886003AFF55 /* libGreeWallet.a */,
-				BAB2102E152D4CA600177141 /* libGreePlatform.a */,
+				BA2648C715670F2900D6C6D9 /* libGreePlatform.a */,
+				BA2648C815670F2900D6C6D9 /* libGreeWallet.a */,
 				BAB21028152D4C8A00177141 /* GreePlatformCoreResources.bundle */,
 				BAB21029152D4C8A00177141 /* GreePlatformLandscapeResources.bundle */,
 				BAB2102A152D4C8A00177141 /* GreePlatformPortraitResources.bundle */,
