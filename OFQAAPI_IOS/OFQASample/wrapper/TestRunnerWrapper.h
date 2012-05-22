@@ -38,6 +38,6 @@
 
 - (void) buildRunner:(NSString*) suiteId;
 
-- (void) markCaseWrappers:(BOOL) isSelected;
+- (void) markCaseWrappers:(int) selectType;
 
 @end

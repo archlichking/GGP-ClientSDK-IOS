@@ -38,7 +38,8 @@
                               [NSNumber numberWithBool:YES], GreeSettingUseWallet,
                               @"true",@"useWallet", 
                               nil]; 
-    
+
+      
     if ([NSClassFromString(@"WebView") respondsToSelector:@selector(_enableRemoteInspector)]) {
         [NSClassFromString(@"WebView") performSelector:@selector(_enableRemoteInspector)];
     }
@@ -48,6 +49,11 @@
                                consumerSecret:@"c6958d092a3db174de86678f31d86d01" 
                                      settings:settings
                                      delegate:self];
+//    [GreePlatform initializeWithApplicationId:@"11787" 
+//                                  consumerKey:@"97f61d7b8f43" 
+//                               consumerSecret:@"38a4325e76d9b66fb5cd2bda5a2eaa59" 
+//                                     settings:settings
+//                                     delegate:self];
 
     
     id httpClient = [[GreePlatform sharedInstance] valueForKey:@"httpClient"];

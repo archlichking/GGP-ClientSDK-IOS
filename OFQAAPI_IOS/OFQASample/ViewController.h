@@ -10,12 +10,13 @@
 @class AppDelegate;
 @class CaseTableDelegate;
 
-@interface ViewController : UIViewController<UITextFieldDelegate>{
+@interface ViewController : UIViewController<UITextFieldDelegate, UIAlertViewDelegate>{
     UIButton* loadTestCasesButton;
     UIButton* runTestCasesButton;
     UITextField* suiteIdText;
     UITextField* runIdText;
-    UISwitch* selectAllSwitch;
+    
+    UIButton* selectExecuteButton;
     
     UIActivityIndicatorView* progressIndicator;
     
@@ -24,23 +25,24 @@
     
     UITableView* tableView;
     
+    UIAlertView* selectView;
     
     NSOperationQueue* operationQueue;
 }
 
 @property (nonatomic, retain) IBOutlet UIButton* loadTestCasesButton;
 @property (nonatomic, retain) IBOutlet UIButton* runTestCasesButton;
+@property (nonatomic, retain) IBOutlet UIButton* selectExecuteButton;
 @property (nonatomic, retain) IBOutlet UITextField* suiteIdText;
 @property (nonatomic, retain) IBOutlet UITextField* runIdText;
-@property (nonatomic, retain) IBOutlet UISwitch* selectAllSwitch;
 
 @property (nonatomic, retain) IBOutlet UITableView* tableView;
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView* progressIndicator;
+@property (nonatomic, retain) IBOutlet UIAlertView* selectView;
 
 @property (retain) CaseTableDelegate* caseTableDelegate;
 
 - (IBAction) loadCases;
 - (IBAction) runCases;
-- (IBAction) markAll;
 
 @end

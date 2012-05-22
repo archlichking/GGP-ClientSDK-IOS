@@ -27,4 +27,8 @@
               selected:(BOOL) select 
                 result:(int) r;
 
++ (int) All;
++ (int) Failed;
++ (int) UnAll;
+
 @end

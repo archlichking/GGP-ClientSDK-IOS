@@ -23,9 +23,10 @@
 @synthesize runIdText;
 @synthesize runTestCasesButton;
 @synthesize loadTestCasesButton;
-@synthesize selectAllSwitch;
 @synthesize progressIndicator;
 @synthesize tableView;
+@synthesize selectView;
+@synthesize selectExecuteButton;
 
 @synthesize caseTableDelegate;
 
@@ -64,6 +65,17 @@
     [self suiteIdText].delegate = self;
     [self runIdText].delegate = self;
     
+    // init select popup dialog
+    selectView = [[UIAlertView alloc] initWithTitle:@"select" 
+                                            message:@"" 
+                                           delegate:self 
+                                  cancelButtonTitle:nil 
+                                  otherButtonTitles:nil];
+    
+    [selectView addButtonWithTitle:@"All"];
+    [selectView addButtonWithTitle:@"Failed"];
+    [selectView addButtonWithTitle:@"Un All"];
+    
 }
 
 - (void)viewDidUnload
@@ -72,6 +84,19 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSString* title = [alertView buttonTitleAtIndex:buttonIndex];
+    if ([title isEqualToString:@"All"]) {
+        [[appDelegate runnerWrapper] markCaseWrappers:[TestCaseWrapper All]];
+    }else if ([title isEqualToString:@"Failed"]) {
+        [[appDelegate runnerWrapper] markCaseWrappers:[TestCaseWrapper Failed]];
+    }else if ([title isEqualToString:@"Un All"]) {
+        [[appDelegate runnerWrapper] markCaseWrappers:[TestCaseWrapper UnAll]];
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" object:nil];
+}
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -137,6 +162,10 @@
 }
 
 
+- (IBAction) chooseSelection{
+    [selectView show];
+}
+
 - (IBAction) loadCases
 {
     [progressIndicator startAnimating];
@@ -152,11 +181,6 @@
                                                                          selector:@selector(runCasesInAnotherThread) 
                                                                            object:nil] autorelease];
     [operationQueue addOperation:theOp];
-}
-
-- (IBAction) markAll{
-    [[appDelegate runnerWrapper] markCaseWrappers:[selectAllSwitch isOn]];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" object:nil];
 }
 
 @end
