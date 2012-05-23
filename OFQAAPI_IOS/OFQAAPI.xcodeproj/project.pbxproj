@@ -461,6 +461,7 @@
 		BA78B60314F792A200C4D6FB /* OFQASample */ = {
 			isa = PBXGroup;
 			children = (
+				BA8B5949156D806800DA14D9 /* delegate */,
 				BA56CADB1505A738001ECED4 /* wrapper */,
 				BA56CAD51505A338001ECED4 /* icon */,
 				BA381E6714FCC3B900FBA134 /* steps */,
@@ -470,8 +471,6 @@
 				BA78B61214F792A200C4D6FB /* ViewController.h */,
 				BA78B61314F792A200C4D6FB /* ViewController.m */,
 				BA78B60414F792A200C4D6FB /* Supporting Files */,
-				BADF04CC15049054006FC3B4 /* CaseTableDelegate.h */,
-				BADF04CD15049054006FC3B4 /* CaseTableDelegate.m */,
 			);
 			path = OFQASample;
 			sourceTree = "<group>";
@@ -582,6 +581,15 @@
 				BAB8182714FC759100AF18CD /* settings.json */,
 			);
 			name = Config;
+			sourceTree = "<group>";
+		};
+		BA8B5949156D806800DA14D9 /* delegate */ = {
+			isa = PBXGroup;
+			children = (
+				BADF04CC15049054006FC3B4 /* CaseTableDelegate.h */,
+				BADF04CD15049054006FC3B4 /* CaseTableDelegate.m */,
+			);
+			name = delegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
