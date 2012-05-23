@@ -15,6 +15,7 @@
     UIButton* runTestCasesButton;
     UITextField* suiteIdText;
     UITextField* runIdText;
+    UILabel* doingLabel;
     
     UIButton* selectExecuteButton;
     
@@ -26,6 +27,7 @@
     UITableView* tableView;
     
     UIAlertView* selectView;
+    UIProgressView* progressView;
     
     NSOperationQueue* operationQueue;
 }
@@ -39,10 +41,14 @@
 @property (nonatomic, retain) IBOutlet UITableView* tableView;
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView* progressIndicator;
 @property (nonatomic, retain) IBOutlet UIAlertView* selectView;
+@property (nonatomic, retain) IBOutlet UIProgressView* progressView;
+@property (nonatomic, retain) IBOutlet UILabel* doingLabel;
 
 @property (retain) CaseTableDelegate* caseTableDelegate;
 
 - (IBAction) loadCases;
 - (IBAction) runCases;
+
+- (void) updateProgressViewWithRunning:(NSArray*) objs;
 
 @end

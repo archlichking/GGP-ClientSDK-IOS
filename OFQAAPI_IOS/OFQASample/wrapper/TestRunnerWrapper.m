@@ -87,9 +87,13 @@
 }
 
 - (void) executeSelectedCasesWithSubmit:(NSString*) runId 
-                                  block:(void(^)(TcmCommunicator* tcmC, NSString* rId, NSArray* cs))block{
+                                  block:(void(^)(NSArray* objs))block{
     // empty runner first
     [runner emptyCases];
+    
+    int alreadyDoneNumber = 0;
+    NSString* doing = @"";
+    
     
     // build runner secretly
     int i=0;
@@ -106,23 +110,41 @@
         }
     }
     
+    int all = [[runner getAllCases] count];
     // run cases
-    [runner runAllcases];
+    //[runner runAllcases];
+    for (int i=0; i<all; i++) {
+        TestCase* tc = [[runner getAllCases] objectAtIndex:i];
+        [tc execute];
+        alreadyDoneNumber ++;
+        
+        doing = [NSString stringWithFormat:@"executing %d/%d", alreadyDoneNumber, all];
+        block([[[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%0.1f", (float)alreadyDoneNumber/all], doing, nil] autorelease]);
+    }
     
+    alreadyDoneNumber = 0.;
     // submit to tcm if needed
     if ([self type] == [CaseBuilderFactory TCM_BUILDER] && block) {
         TcmCommunicator* tcmComm = [[self cb] tcmComm];
-        block(tcmComm, runId, [runner getAllCases]);
+        for (int i=0; i<all; i++) {
+            TestCase* tc = [[runner getAllCases] objectAtIndex:i];
+            [tcmComm postCasesResultByRunId:runId AndCase:tc];
+            alreadyDoneNumber ++;
+            doing = [NSString stringWithFormat:@"submitting %d/%d", alreadyDoneNumber, all];
+            block([[[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%0.1f", (float)alreadyDoneNumber/all], doing, nil] autorelease]);
+        }    
     }
-       
+    
     // get case result and rebuilt case wrappers
     NSArray* executedCases = [runner getAllCases];
     for (int j=0; j<executedCases.count; j++) {
+        
         TestCase* tc = [executedCases objectAtIndex:j];
         TestCaseWrapper* tcw = [[[TestCaseWrapper alloc] initWithTestCase:tc 
                                                                 selected:true
                                                                   result:[tc result]] autorelease]; 
         [caseWrappers addObject:tcw];
+        
         //[tcw release];
     }
 }
