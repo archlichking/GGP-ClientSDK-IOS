@@ -76,7 +76,12 @@
        [user loadIgnoredUserIdsWithBlock:^(NSArray *ignoreUserIds, NSError *error) {
             // first 10 friends could only be retrieved this way
             if (!error) {
-                [[self getBlockRepo] setObject:ignoreUserIds forKey:@"ignorelist"];
+                if (!ignoreUserIds) {
+                    [[self getBlockRepo] setObject:[[NSArray alloc] init] forKey:@"ignorelist"];
+                }else{
+                    [[self getBlockRepo] setObject:ignoreUserIds forKey:@"ignorelist"];
+                }
+                
             }
             
             [self notifyInStep];

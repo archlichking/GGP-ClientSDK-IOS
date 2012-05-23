@@ -11,13 +11,15 @@
 @class CaseTableDelegate;
 
 @interface ViewController : UIViewController<UITextFieldDelegate, UIAlertViewDelegate>{
-    UIButton* loadTestCasesButton;
-    UIButton* runTestCasesButton;
+    UIBarButtonItem* loadTestCasesButton;
+    UIBarButtonItem* runTestCasesButton;
+    
     UITextField* suiteIdText;
     UITextField* runIdText;
+    
     UILabel* doingLabel;
     
-    UIButton* selectExecuteButton;
+    UIBarButtonItem* selectExecuteButton;
     
     UIActivityIndicatorView* progressIndicator;
     
@@ -27,26 +29,30 @@
     UITableView* tableView;
     
     UIAlertView* selectView;
+    UIAlertView* suiteAndRunView;
+    
     UIProgressView* progressView;
     
     NSOperationQueue* operationQueue;
 }
 
-@property (nonatomic, retain) IBOutlet UIButton* loadTestCasesButton;
-@property (nonatomic, retain) IBOutlet UIButton* runTestCasesButton;
-@property (nonatomic, retain) IBOutlet UIButton* selectExecuteButton;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem* loadTestCasesButton;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem* runTestCasesButton;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem* selectExecuteButton;
 @property (nonatomic, retain) IBOutlet UITextField* suiteIdText;
 @property (nonatomic, retain) IBOutlet UITextField* runIdText;
 
 @property (nonatomic, retain) IBOutlet UITableView* tableView;
-@property (nonatomic, retain) IBOutlet UIActivityIndicatorView* progressIndicator;
 @property (nonatomic, retain) IBOutlet UIAlertView* selectView;
+@property (nonatomic, retain) IBOutlet UIAlertView* suiteAndRunView;
 @property (nonatomic, retain) IBOutlet UIProgressView* progressView;
+
+@property (nonatomic, retain) IBOutlet UIActivityIndicatorView* progressIndicator;
 @property (nonatomic, retain) IBOutlet UILabel* doingLabel;
 
 @property (retain) CaseTableDelegate* caseTableDelegate;
 
-- (IBAction) loadCases;
+- (void) loadCases;
 - (IBAction) runCases;
 
 - (void) updateProgressViewWithRunning:(NSArray*) objs;

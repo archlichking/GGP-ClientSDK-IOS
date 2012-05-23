@@ -11,11 +11,12 @@
 #import "objc/runtime.h"
 #import "SBJson.h"
 #import "AppDelegate.h"
-#import "CaseTableDelegate.h"
 #import "TestCaseWrapper.h"
 #import "TestRunnerWrapper.h"
 #import "TcmCommunicator.h"
 
+
+#import "CaseTableDelegate.h"
 
 @implementation ViewController
 
@@ -26,6 +27,7 @@
 @synthesize progressIndicator;
 @synthesize tableView;
 @synthesize selectView;
+@synthesize suiteAndRunView;
 @synthesize selectExecuteButton;
 @synthesize progressView;
 @synthesize doingLabel;
@@ -47,6 +49,7 @@
     
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     caseTableDelegate = [[CaseTableDelegate alloc] init];
+    
     [tableView setDataSource:caseTableDelegate];
     [tableView setDelegate:caseTableDelegate];
     
@@ -74,12 +77,41 @@
                                   cancelButtonTitle:nil 
                                   otherButtonTitles:nil];
     
+    [selectView setTag:2];
     [selectView addButtonWithTitle:@"All"];
     [selectView addButtonWithTitle:@"Failed"];
     [selectView addButtonWithTitle:@"Un All"];
     
-    [progressView setHidden:TRUE];
     
+    suiteAndRunView = [[UIAlertView alloc] initWithTitle:@"Suite and Run" 
+                                                 message:@"" 
+                                                delegate:self 
+                                       cancelButtonTitle:@"Cancel" 
+                                       otherButtonTitles:@"Load", nil];
+    
+    [suiteAndRunView setTag:1];
+    
+    UILabel* suiteIdLabel = [[UILabel alloc] initWithFrame:CGRectMake(12.0, 40.0, 60.0, 18.0)];
+//    [suiteIdLabel setTextColor:[UIColor whiteColor]];
+    [suiteIdLabel setText:@"Suite ID"];
+    [suiteAndRunView addSubview:suiteIdLabel];
+    
+    suiteIdText = [[UITextField alloc] initWithFrame:CGRectMake(82.0, 40.0, 40.0, 19.0)];
+    [suiteIdText setText:@"185"];
+    [suiteIdText setBackgroundColor:[UIColor whiteColor]];
+    [suiteAndRunView addSubview:suiteIdText];
+    
+    UILabel* runIdLabel = [[UILabel alloc] initWithFrame:CGRectMake(152.0, 40.0, 60.0, 18.0)];
+    //    [suiteIdLabel setTextColor:[UIColor whiteColor]];
+    [runIdLabel setText:@"Run ID"];
+    [suiteAndRunView addSubview:runIdLabel];
+    
+    runIdText = [[UITextField alloc] initWithFrame:CGRectMake(222.0, 40.0, 40.0, 18.0)];
+    [runIdText setText:@"432"];
+    [runIdText setBackgroundColor:[UIColor whiteColor]];
+    [suiteAndRunView addSubview:runIdText];
+    
+    [progressView setHidden:TRUE];
     [doingLabel setHidden:TRUE];
 }
 
@@ -92,14 +124,28 @@
 
 - (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     NSString* title = [alertView buttonTitleAtIndex:buttonIndex];
-    if ([title isEqualToString:@"All"]) {
-        [[appDelegate runnerWrapper] markCaseWrappers:[TestCaseWrapper All]];
-    }else if ([title isEqualToString:@"Failed"]) {
-        [[appDelegate runnerWrapper] markCaseWrappers:[TestCaseWrapper Failed]];
-    }else if ([title isEqualToString:@"Un All"]) {
-        [[appDelegate runnerWrapper] markCaseWrappers:[TestCaseWrapper UnAll]];
+    switch ([alertView tag]) {
+        case 1:
+            // suite and run select alert
+            if ([title isEqualToString:@"Load"]) {
+                [self loadCases];
+            }
+            break;
+        case 2:
+            // case select alert
+            if ([title isEqualToString:@"All"]) {
+                [[appDelegate runnerWrapper] markCaseWrappers:[TestCaseWrapper All]];
+            }else if ([title isEqualToString:@"Failed"]) {
+                [[appDelegate runnerWrapper] markCaseWrappers:[TestCaseWrapper Failed]];
+            }else if ([title isEqualToString:@"Un All"]) {
+                [[appDelegate runnerWrapper] markCaseWrappers:[TestCaseWrapper UnAll]];
+            }
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" object:nil];
+            break;
+        default:
+            break;
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" object:nil];
+    
 }
 
 
@@ -181,7 +227,11 @@
     [selectView show];
 }
 
-- (IBAction) loadCases
+- (IBAction) chooseSuiteAndRun{
+    [suiteAndRunView show];
+}
+
+- (void) loadCases
 {
     [progressIndicator startAnimating];
     NSInvocationOperation* theOp = [[[NSInvocationOperation alloc] initWithTarget:self

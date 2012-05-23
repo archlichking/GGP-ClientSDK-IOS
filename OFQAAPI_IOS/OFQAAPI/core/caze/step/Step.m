@@ -66,6 +66,10 @@
         resultComment = [resultComment stringByAppendingFormat:@"%@ ==> %@", [self command], [exception reason]];
         QALog(@"oooooops, [%@]", resultComment);
     }
+    @catch (NSException* exception) {
+        resultComment = [resultComment stringByAppendingFormat:@"%@ ==> %@", [self command], [exception reason]];
+        QALog(@"oooooops, [%@]", resultComment);
+    }
     @finally {
         return [[StepResult alloc] initWithResult:result 
                                           comment:resultComment];
