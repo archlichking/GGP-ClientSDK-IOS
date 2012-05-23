@@ -33,11 +33,11 @@
 - (NSArray*) getCaseWrappers;
 
 - (void) executeSelectedCasesWithSubmit:(NSString*) runId 
-                                  block:(void(^)(TcmCommunicator* tcmComm, NSString* rId, NSArray* cases))block;
+                                  block:(void(^)(NSArray* objs))block;
 - (void) emptyCaseWrappers;
 
 - (void) buildRunner:(NSString*) suiteId;
 
-- (void) markCaseWrappers:(BOOL) isSelected;
+- (void) markCaseWrappers:(int) selectType;
 
 @end

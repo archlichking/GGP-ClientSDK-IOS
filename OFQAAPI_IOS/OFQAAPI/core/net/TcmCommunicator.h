@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "NetCommunicator.h"
+#import "TestCase.h"
 
 @interface TcmCommunicator : NSObject <NetCommunicator>{
     @private
@@ -31,5 +32,7 @@
 - (NSData*) requestCasesBySuiteId:(NSString*) suiteId;
 - (void) postCasesResultByRunId:(NSString*)runId 
                              cases:(NSArray*)cases;
+
+- (void) postCasesResultByRunId:(NSString *)runId AndCase:(TestCase *) caze;
 
 @end

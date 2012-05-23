@@ -23,9 +23,12 @@
 @synthesize runIdText;
 @synthesize runTestCasesButton;
 @synthesize loadTestCasesButton;
-@synthesize selectAllSwitch;
 @synthesize progressIndicator;
 @synthesize tableView;
+@synthesize selectView;
+@synthesize selectExecuteButton;
+@synthesize progressView;
+@synthesize doingLabel;
 
 @synthesize caseTableDelegate;
 
@@ -50,7 +53,7 @@
     progressIndicator = [[UIActivityIndicatorView alloc] init];
     [progressIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
     progressIndicator.hidden = YES;
-    progressIndicator.center = [[self tableView] center];
+    progressIndicator.center = [self.view center];
     
     [self.view addSubview:progressIndicator];
     
@@ -64,6 +67,20 @@
     [self suiteIdText].delegate = self;
     [self runIdText].delegate = self;
     
+    // init select popup dialog
+    selectView = [[UIAlertView alloc] initWithTitle:@"select" 
+                                            message:@"" 
+                                           delegate:self 
+                                  cancelButtonTitle:nil 
+                                  otherButtonTitles:nil];
+    
+    [selectView addButtonWithTitle:@"All"];
+    [selectView addButtonWithTitle:@"Failed"];
+    [selectView addButtonWithTitle:@"Un All"];
+    
+    [progressView setHidden:TRUE];
+    
+    [doingLabel setHidden:TRUE];
 }
 
 - (void)viewDidUnload
@@ -72,6 +89,19 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSString* title = [alertView buttonTitleAtIndex:buttonIndex];
+    if ([title isEqualToString:@"All"]) {
+        [[appDelegate runnerWrapper] markCaseWrappers:[TestCaseWrapper All]];
+    }else if ([title isEqualToString:@"Failed"]) {
+        [[appDelegate runnerWrapper] markCaseWrappers:[TestCaseWrapper Failed]];
+    }else if ([title isEqualToString:@"Un All"]) {
+        [[appDelegate runnerWrapper] markCaseWrappers:[TestCaseWrapper UnAll]];
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" object:nil];
+}
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -118,6 +148,10 @@
     [(CaseTableDelegate*)[tableView dataSource] setTableItems:tmp];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" object:nil];
+    
+    [self performSelectorOnMainThread:@selector(dismissAllProgressDisplay)
+                           withObject:nil
+                        waitUntilDone:YES];
     [progressIndicator stopAnimating];
 }
 
@@ -125,17 +159,27 @@
 //    [[appDelegate runnerWrapper] executeSelectedCases];
     // replace this line to not submit 
     [[appDelegate runnerWrapper] executeSelectedCasesWithSubmit:[runIdText text] 
-                                                          block:^(TcmCommunicator* tcmC, NSString* runId, NSArray* cases){
-                                                              [tcmC postCasesResultByRunId:runId cases:cases];
+                                                          block:^(NSArray* objs){
+                                                              [self performSelectorOnMainThread:@selector(updateProgressViewWithRunning:)
+                                                                                     withObject:objs 
+                                                                                  waitUntilDone:YES];
                                                           }];
     
     NSArray* tmp = [[appDelegate runnerWrapper] getCaseWrappers];
     [(CaseTableDelegate*)[tableView dataSource] setTableItems:tmp];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" object:nil];
+    
+    [self performSelectorOnMainThread:@selector(dismissAllProgressDisplay)
+                           withObject:nil
+                        waitUntilDone:YES];
     [progressIndicator stopAnimating];
 }
 
+
+- (IBAction) chooseSelection{
+    [selectView show];
+}
 
 - (IBAction) loadCases
 {
@@ -144,19 +188,33 @@
                                                                         selector:@selector(loadCasesInAnotherThread) 
                                                                           object:nil] autorelease];
     [operationQueue addOperation:theOp]; 
+    
 }
 
 - (IBAction) runCases{
     [progressIndicator startAnimating];
+    
+    [progressView setProgress:0.];
+    [progressView setHidden:NO];
+    
+    [doingLabel setHidden:NO];
     NSInvocationOperation* theOp = [[[NSInvocationOperation alloc] initWithTarget:self
                                                                          selector:@selector(runCasesInAnotherThread) 
                                                                            object:nil] autorelease];
     [operationQueue addOperation:theOp];
 }
 
-- (IBAction) markAll{
-    [[appDelegate runnerWrapper] markCaseWrappers:[selectAllSwitch isOn]];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" object:nil];
+- (void) updateProgressViewWithRunning:(NSArray*) objs{
+    NSLog(@"%@", objs);
+    [progressView setProgress:[[objs objectAtIndex:0] floatValue]
+                     animated:YES];
+    
+    [doingLabel setText:[objs objectAtIndex:1]];
+}
+
+- (void) dismissAllProgressDisplay{
+    [progressView setHidden:YES];
+    [doingLabel setHidden:YES];
 }
 
 @end

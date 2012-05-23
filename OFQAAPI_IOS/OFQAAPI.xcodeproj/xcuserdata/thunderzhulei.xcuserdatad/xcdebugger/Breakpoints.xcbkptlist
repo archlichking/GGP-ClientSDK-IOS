@@ -4,55 +4,55 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/IgnorelistStepDefinition.m"
-         timestampString = "359078082.582273"
+         filePath = "OFQASample/ViewController.m"
+         timestampString = "359427270.754623"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "164"
+         endingLineNumber = "164"
+         landmarkName = "-runCasesInAnotherThread"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/wrapper/TestRunnerWrapper.m"
+         timestampString = "359429348.037066"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "121"
+         endingLineNumber = "121"
+         landmarkName = "-executeSelectedCasesWithSubmit:block:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/wrapper/TestRunnerWrapper.m"
+         timestampString = "359429348.037066"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "116"
          endingLineNumber = "116"
-         landmarkName = "-I_check_user_from_my_ignore_list_with_id_PARAMINT:"
+         landmarkName = "-executeSelectedCasesWithSubmit:block:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/IgnorelistStepDefinition.m"
-         timestampString = "359078082.582273"
+         filePath = "OFQASample/wrapper/TestRunnerWrapper.m"
+         timestampString = "359429348.037066"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "127"
-         endingLineNumber = "127"
-         landmarkName = "-status_of_PARAM:_in_my_ignore_list_should_be_PARAM:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/IgnorelistStepDefinition.m"
-         timestampString = "359077179.083496"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "79"
-         endingLineNumber = "79"
-         landmarkName = "-I_load_first_page_of_my_ignore_list"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/IgnorelistStepDefinition.m"
-         timestampString = "359078082.582273"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "99"
-         endingLineNumber = "99"
-         landmarkName = "-my_ignore_list_should_PARAM:_user_PARAM:"
+         startingLineNumber = "122"
+         endingLineNumber = "122"
+         landmarkName = "-executeSelectedCasesWithSubmit:block:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

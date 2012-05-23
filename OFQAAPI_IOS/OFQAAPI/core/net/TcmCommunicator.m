@@ -87,6 +87,20 @@
         [mud release];
     }
 }
+
+- (void) postCasesResultByRunId:(NSString *)runId 
+                        AndCase:(TestCase *) tc{
+    NSString* url = [[self tcmSubmitUrl] stringByAppendingFormat:@"%@/%@&key=%@", runId, [tc caseId], [self tcmKey]];
+    NSMutableDictionary* mud = [[NSMutableDictionary alloc] init];
+    [mud setValue: [NSString stringWithFormat:@"%d", [tc result]]
+           forKey:@"status_id"];
+    [mud setValue:[tc resultComment] 
+           forKey:@"comment"];
+    
+    [self doHttpPost:url params:mud];
+    [mud release];
+}
+
 //
 //- (void)dealloc{
 //    [tcmKey release];

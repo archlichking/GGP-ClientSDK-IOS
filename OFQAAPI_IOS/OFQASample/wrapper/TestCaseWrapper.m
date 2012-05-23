@@ -41,4 +41,16 @@
     [super dealloc];
 }
 
++ (int) All{
+    return 1;
+}
+
++ (int) Failed{
+    return 2;
+}
+
++ (int) UnAll{
+    return 10;
+}
+
 @end
