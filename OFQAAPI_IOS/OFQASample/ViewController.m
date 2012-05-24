@@ -15,6 +15,8 @@
 #import "TestRunnerWrapper.h"
 #import "TcmCommunicator.h"
 
+#import "MAlertView.h"
+
 
 #import "CaseTableDelegate.h"
 
@@ -24,13 +26,13 @@
 @synthesize runIdText;
 @synthesize runTestCasesButton;
 @synthesize loadTestCasesButton;
-@synthesize progressIndicator;
 @synthesize tableView;
 @synthesize selectView;
 @synthesize suiteAndRunView;
 @synthesize selectExecuteButton;
 @synthesize progressView;
 @synthesize doingLabel;
+@synthesize userBlockView;
 
 @synthesize caseTableDelegate;
 
@@ -52,13 +54,6 @@
     
     [tableView setDataSource:caseTableDelegate];
     [tableView setDelegate:caseTableDelegate];
-    
-    progressIndicator = [[UIActivityIndicatorView alloc] init];
-    [progressIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    progressIndicator.hidden = YES;
-    progressIndicator.center = [self.view center];
-    
-    [self.view addSubview:progressIndicator];
     
     operationQueue = [[NSOperationQueue alloc] init];
     [operationQueue setMaxConcurrentOperationCount:1];
@@ -83,7 +78,7 @@
     [selectView addButtonWithTitle:@"Un All"];
     
     
-    suiteAndRunView = [[UIAlertView alloc] initWithTitle:@"Suite and Run" 
+    suiteAndRunView = [[MAlertView alloc] initWithTitle:@"Suite and Run" 
                                                  message:@"" 
                                                 delegate:self 
                                        cancelButtonTitle:@"Cancel" 
@@ -91,27 +86,19 @@
     
     [suiteAndRunView setTag:1];
     
-    UILabel* suiteIdLabel = [[UILabel alloc] initWithFrame:CGRectMake(12.0, 40.0, 60.0, 18.0)];
-//    [suiteIdLabel setTextColor:[UIColor whiteColor]];
-    [suiteIdLabel setText:@"Suite ID"];
-    [suiteAndRunView addSubview:suiteIdLabel];
+    suiteIdText = [[UITextField alloc] init];
+    [suiteAndRunView addTextField:suiteIdText placeHolder:@"Suite ID : 185"];    
     
-    suiteIdText = [[UITextField alloc] initWithFrame:CGRectMake(82.0, 40.0, 40.0, 19.0)];
-    [suiteIdText setText:@"185"];
-    [suiteIdText setBackgroundColor:[UIColor whiteColor]];
-    [suiteAndRunView addSubview:suiteIdText];
+    runIdText = [[UITextField alloc] init];
+    [suiteAndRunView addTextField:runIdText placeHolder:@"Run ID : 432"];
     
-    UILabel* runIdLabel = [[UILabel alloc] initWithFrame:CGRectMake(152.0, 40.0, 60.0, 18.0)];
-    //    [suiteIdLabel setTextColor:[UIColor whiteColor]];
-    [runIdLabel setText:@"Run ID"];
-    [suiteAndRunView addSubview:runIdLabel];
-    
-    runIdText = [[UITextField alloc] initWithFrame:CGRectMake(222.0, 40.0, 40.0, 18.0)];
-    [runIdText setText:@"432"];
-    [runIdText setBackgroundColor:[UIColor whiteColor]];
-    [suiteAndRunView addSubview:runIdText];
     
     [progressView setHidden:TRUE];
+    [userBlockView setHidden:TRUE];
+    [userBlockView addSubview:progressView];
+    [userBlockView addSubview:doingLabel];
+    
+    
     [doingLabel setHidden:TRUE];
 }
 
@@ -188,7 +175,7 @@
 
 - (void) loadCasesInAnotherThread{
     [[appDelegate runnerWrapper] emptyCaseWrappers];
-    [[appDelegate runnerWrapper] buildRunner:[suiteIdText text]];
+    [[appDelegate runnerWrapper] buildRunner:[suiteIdText text] == nil?@"185":[suiteIdText text]];
     
     NSArray* tmp = [[appDelegate runnerWrapper] getCaseWrappers];
     [(CaseTableDelegate*)[tableView dataSource] setTableItems:tmp];
@@ -198,13 +185,12 @@
     [self performSelectorOnMainThread:@selector(dismissAllProgressDisplay)
                            withObject:nil
                         waitUntilDone:YES];
-    [progressIndicator stopAnimating];
 }
 
 - (void) runCasesInAnotherThread{
 //    [[appDelegate runnerWrapper] executeSelectedCases];
     // replace this line to not submit 
-    [[appDelegate runnerWrapper] executeSelectedCasesWithSubmit:[runIdText text] 
+    [[appDelegate runnerWrapper] executeSelectedCasesWithSubmit:[runIdText text] == nil?@"432":[runIdText text]
                                                           block:^(NSArray* objs){
                                                               [self performSelectorOnMainThread:@selector(updateProgressViewWithRunning:)
                                                                                      withObject:objs 
@@ -219,7 +205,6 @@
     [self performSelectorOnMainThread:@selector(dismissAllProgressDisplay)
                            withObject:nil
                         waitUntilDone:YES];
-    [progressIndicator stopAnimating];
 }
 
 
@@ -233,7 +218,7 @@
 
 - (void) loadCases
 {
-    [progressIndicator startAnimating];
+    [userBlockView setHidden:NO];
     NSInvocationOperation* theOp = [[[NSInvocationOperation alloc] initWithTarget:self
                                                                         selector:@selector(loadCasesInAnotherThread) 
                                                                           object:nil] autorelease];
@@ -242,12 +227,14 @@
 }
 
 - (IBAction) runCases{
-    [progressIndicator startAnimating];
-    
+    [userBlockView setHidden:NO];
     [progressView setProgress:0.];
     [progressView setHidden:NO];
-    
+    [doingLabel setText:@""];
     [doingLabel setHidden:NO];
+    
+    [[self view] setUserInteractionEnabled:NO];
+    
     NSInvocationOperation* theOp = [[[NSInvocationOperation alloc] initWithTarget:self
                                                                          selector:@selector(runCasesInAnotherThread) 
                                                                            object:nil] autorelease];
@@ -255,7 +242,6 @@
 }
 
 - (void) updateProgressViewWithRunning:(NSArray*) objs{
-    NSLog(@"%@", objs);
     [progressView setProgress:[[objs objectAtIndex:0] floatValue]
                      animated:YES];
     
@@ -263,8 +249,10 @@
 }
 
 - (void) dismissAllProgressDisplay{
+    [userBlockView setHidden:YES];
     [progressView setHidden:YES];
     [doingLabel setHidden:YES];
+    [[self view] setUserInteractionEnabled:YES];
 }
 
 @end

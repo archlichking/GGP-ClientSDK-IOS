@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @class AppDelegate;
 @class CaseTableDelegate;
+@class MAlertView;
 
 @interface ViewController : UIViewController<UITextFieldDelegate, UIAlertViewDelegate>{
     UIBarButtonItem* loadTestCasesButton;
@@ -21,15 +22,15 @@
     
     UIBarButtonItem* selectExecuteButton;
     
-    UIActivityIndicatorView* progressIndicator;
-    
     AppDelegate* appDelegate;
     CaseTableDelegate* caseTableDelegate;
     
     UITableView* tableView;
     
     UIAlertView* selectView;
-    UIAlertView* suiteAndRunView;
+    MAlertView* suiteAndRunView;
+    
+    UIView* userBlockView;
     
     UIProgressView* progressView;
     
@@ -44,10 +45,10 @@
 
 @property (nonatomic, retain) IBOutlet UITableView* tableView;
 @property (nonatomic, retain) IBOutlet UIAlertView* selectView;
-@property (nonatomic, retain) IBOutlet UIAlertView* suiteAndRunView;
+@property (nonatomic, retain) IBOutlet MAlertView* suiteAndRunView;
 @property (nonatomic, retain) IBOutlet UIProgressView* progressView;
 
-@property (nonatomic, retain) IBOutlet UIActivityIndicatorView* progressIndicator;
+@property (nonatomic, retain) IBOutlet UIView* userBlockView;
 @property (nonatomic, retain) IBOutlet UILabel* doingLabel;
 
 @property (retain) CaseTableDelegate* caseTableDelegate;
