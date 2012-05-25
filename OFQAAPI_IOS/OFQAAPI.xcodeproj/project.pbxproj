@@ -80,6 +80,7 @@
 		BA78B60E14F792A200C4D6FB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA78B60D14F792A200C4D6FB /* AppDelegate.m */; };
 		BA78B61114F792A200C4D6FB /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA78B60F14F792A200C4D6FB /* MainStoryboard.storyboard */; };
 		BA78B61414F792A200C4D6FB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA78B61314F792A200C4D6FB /* ViewController.m */; };
+		BA835B21156EE107006A60EF /* MAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BA835B20156EE107006A60EF /* MAlertView.m */; };
 		BA89094F14F75D6100018B0F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA89094E14F75D6100018B0F /* Foundation.framework */; };
 		BA89095514F75D6100018B0F /* OFQAAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = BA89095414F75D6100018B0F /* OFQAAPI.m */; };
 		BA89095F14F75E6E00018B0F /* TcmCommunicator.h in Headers */ = {isa = PBXBuildFile; fileRef = BA89095D14F75E6E00018B0F /* TcmCommunicator.h */; };
@@ -216,6 +217,8 @@
 		BA78B61014F792A200C4D6FB /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		BA78B61214F792A200C4D6FB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		BA78B61314F792A200C4D6FB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BA835B1F156EE107006A60EF /* MAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAlertView.h; sourceTree = "<group>"; };
+		BA835B20156EE107006A60EF /* MAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAlertView.m; sourceTree = "<group>"; };
 		BA89094B14F75D6100018B0F /* libOFQAAPI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libOFQAAPI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA89094E14F75D6100018B0F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BA89095214F75D6100018B0F /* OFQAAPI-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OFQAAPI-Prefix.pch"; sourceTree = "<group>"; };
@@ -471,6 +474,8 @@
 				BA78B61214F792A200C4D6FB /* ViewController.h */,
 				BA78B61314F792A200C4D6FB /* ViewController.m */,
 				BA78B60414F792A200C4D6FB /* Supporting Files */,
+				BA835B1F156EE107006A60EF /* MAlertView.h */,
+				BA835B20156EE107006A60EF /* MAlertView.m */,
 			);
 			path = OFQASample;
 			sourceTree = "<group>";
@@ -744,6 +749,7 @@
 				BA283D4C15341D960055981A /* ModerationStepDefinition.m in Sources */,
 				BA09131C155C98D900EEFD4B /* FriendCodeStepDefinition.m in Sources */,
 				BA72F4901564572500DCB9B1 /* IgnorelistStepDefinition.m in Sources */,
+				BA835B21156EE107006A60EF /* MAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

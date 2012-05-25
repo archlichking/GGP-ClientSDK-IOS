@@ -61,7 +61,6 @@
                                                  if(!error){
                                                      [[self getBlockRepo] setObject:code 
                                                                              forKey:@"code"];
-                                                     NSLog(@"%@", code);
                                                  }
                                                  [self notifyInStep];
                                              }];
@@ -72,7 +71,6 @@
 // step definition : I load my friend code
 - (void) I_load_my_friend_code{
     [GreeFriendCodes loadCodeWithBlock:^(NSString *code, NSDate *expiration, NSError *error) {
-        NSLog(@"%@", code);
         if(!error){
             [[self getBlockRepo] setObject:code 
                                     forKey:@"code"];
@@ -165,7 +163,7 @@
     
     [QAAssert assertEqualsExpected:@"NOTFOUND" 
                             Actual:code];
-    [QAAssert assertEqualsExpected:@"2012-01-01T23:00:00-0800"
+    [QAAssert assertEqualsExpected:[FriendCodeStepDefinition stringFromDate:[FriendCodeStepDefinition dateFromString:@"2012-01-01T23:00:00-0800"]]
                             Actual:[FriendCodeStepDefinition stringFromDate:date]];
 }
 
