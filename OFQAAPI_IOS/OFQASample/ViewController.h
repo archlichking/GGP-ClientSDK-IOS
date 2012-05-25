@@ -35,6 +35,8 @@
     UIProgressView* progressView;
     
     NSOperationQueue* operationQueue;
+    
+    UISearchBar* tableSearchBar;
 }
 
 @property (nonatomic, retain) IBOutlet UIBarButtonItem* loadTestCasesButton;
@@ -50,6 +52,7 @@
 
 @property (nonatomic, retain) IBOutlet UIView* userBlockView;
 @property (nonatomic, retain) IBOutlet UILabel* doingLabel;
+@property (nonatomic, retain) IBOutlet UISearchBar* tableSearchBar;
 
 @property (retain) CaseTableDelegate* caseTableDelegate;
 

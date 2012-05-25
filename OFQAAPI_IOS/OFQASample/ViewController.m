@@ -33,6 +33,7 @@
 @synthesize progressView;
 @synthesize doingLabel;
 @synthesize userBlockView;
+@synthesize tableSearchBar;
 
 @synthesize caseTableDelegate;
 
@@ -98,7 +99,7 @@
     [userBlockView addSubview:progressView];
     [userBlockView addSubview:doingLabel];
     
-    
+    [tableView setContentOffset:CGPointMake(0, 44)];
     [doingLabel setHidden:TRUE];
 }
 
@@ -171,6 +172,7 @@
 
 - (void) refreshCases:(NSNotification*) notification{
     [tableView reloadData];
+    [tableView setContentOffset:CGPointMake(0, 44)];
 }
 
 - (void) loadCasesInAnotherThread{
