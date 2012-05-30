@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2182" systemVersion="11D50b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2182" systemVersion="11E53" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="2">
     <dependencies>
         <deployment defaultVersion="1296" identifier="iOS"/>
         <development version="4300" defaultVersion="4200" identifier="xcode"/>
@@ -60,17 +60,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem title="1.load" id="pc0-rT-9hP">
+                                    <barButtonItem title="1.load" id="pc0-rT-9hP" userLabel="load">
                                         <connections>
                                             <action selector="chooseSuiteAndRun" destination="2" id="I2R-dC-GZj"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="2.select" id="Qwl-jF-6Di">
+                                    <barButtonItem title="2.select" id="Qwl-jF-6Di" userLabel="select">
                                         <connections>
                                             <action selector="chooseSelection" destination="2" id="wpP-qT-dkQ"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem title="3.run" id="fpp-SC-3vV">
+                                    <barButtonItem title="3.run" id="fpp-SC-3vV" userLabel="run">
                                         <connections>
                                             <action selector="runCases" destination="2" id="V88-8C-BYL"/>
                                         </connections>

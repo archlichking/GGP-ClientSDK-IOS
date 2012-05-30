@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GreePlatform.h"
+#import "TestCaseWrapper.h"
 @class TestRunnerWrapper;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, GreePlatformDelegate>{

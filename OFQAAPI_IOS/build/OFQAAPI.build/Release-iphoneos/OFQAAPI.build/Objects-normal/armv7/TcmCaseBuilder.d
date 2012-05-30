@@ -1,0 +1,21 @@
+dependencies: \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/caze/builder/TcmCaseBuilder.m \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/caze/builder/TcmCaseBuilder.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/caze/builder/CaseBuilder.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/caze/TestCase.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/caze/step/StepHolder.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/net/TcmCommunicator.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/net/NetCommunicator.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/util/json/SBJson.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/util/json/SBJsonParser.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/util/json/SBJsonWriter.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/util/json/SBJsonStreamParser.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/util/json/SBJsonStreamParserAdapter.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/util/json/SBJsonStreamWriter.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/util/json/NSObject+SBJson.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/util/StringUtil.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/caze/step/StepParser.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/util/QALog.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/util/Constant.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/exception/NoSuchStepException.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/exception/NoCommandMatchException.h

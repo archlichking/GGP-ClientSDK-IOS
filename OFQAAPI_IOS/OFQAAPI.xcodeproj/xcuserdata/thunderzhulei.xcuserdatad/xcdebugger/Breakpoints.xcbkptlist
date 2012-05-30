@@ -4,81 +4,16 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/ViewController.m"
-         timestampString = "359589964.225177"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "198"
-         endingLineNumber = "198"
-         landmarkName = "-runCasesInAnotherThread"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/wrapper/TestRunnerWrapper.m"
-         timestampString = "359429348.037066"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "121"
-         endingLineNumber = "121"
-         landmarkName = "-executeSelectedCasesWithSubmit:block:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/wrapper/TestRunnerWrapper.m"
-         timestampString = "359429348.037066"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "116"
-         endingLineNumber = "116"
-         landmarkName = "-executeSelectedCasesWithSubmit:block:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/wrapper/TestRunnerWrapper.m"
-         timestampString = "359429348.037066"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "122"
-         endingLineNumber = "122"
-         landmarkName = "-executeSelectedCasesWithSubmit:block:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQAAPI/core/caze/step/Step.m"
-         timestampString = "359487518.99105"
+         filePath = "OFQASample/steps/IgnorelistStepDefinition.m"
+         timestampString = "360095989.930817"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "70"
-         endingLineNumber = "70"
-         landmarkName = "-invoke"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQAAPI/core/caze/step/Step.m"
-         timestampString = "359487523.477121"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "61"
-         endingLineNumber = "61"
-         landmarkName = "-invoke"
+         startingLineNumber = "67"
+         endingLineNumber = "67"
+         landmarkName = "-I_load_my_ignore_list"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -86,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OFQASample/steps/IgnorelistStepDefinition.m"
-         timestampString = "359487699.049057"
+         timestampString = "360095994.113631"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "76"
-         endingLineNumber = "76"
+         startingLineNumber = "78"
+         endingLineNumber = "78"
          landmarkName = "-I_load_first_page_of_my_ignore_list"
          landmarkType = "5">
       </FileBreakpoint>
@@ -98,26 +33,13 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/FriendCodeStepDefinition.m"
-         timestampString = "359585308.928079"
+         filePath = "OFQAJenkins/AppDelegate.m"
+         timestampString = "360105353.659157"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "74"
-         endingLineNumber = "74"
-         landmarkName = "-I_load_my_friend_code"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/FriendCodeStepDefinition.m"
-         timestampString = "359585308.928079"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "164"
-         endingLineNumber = "164"
-         landmarkName = "-my_friend_code_should_be_deleted"
+         startingLineNumber = "34"
+         endingLineNumber = "34"
+         landmarkName = "-application:didFinishLaunchingWithOptions:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
