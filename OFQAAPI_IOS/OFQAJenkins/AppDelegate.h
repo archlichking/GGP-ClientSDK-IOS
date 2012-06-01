@@ -9,12 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "GreePlatform.h"
 @class TestRunnerWrapper;
+@class SBJsonParser;
 
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, GreePlatformDelegate>{
 @private
     TestRunnerWrapper* runnerWrapper;
     NSOperationQueue* operationQueue;
+    SBJsonParser* jsonParser;
 }
 
 @property (strong, nonatomic) UIWindow *window;

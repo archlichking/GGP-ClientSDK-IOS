@@ -1,0 +1,23 @@
+dependencies: \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/wrapper/TestRunnerWrapper.m \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/wrapper/TestRunnerWrapper.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/caze/builder/CaseBuilder.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/caze/TestCase.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/caze/step/StepHolder.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/caze/builder/TcmCaseBuilder.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/caze/builder/FileCaseBuilder.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/caze/TestRunner.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/caze/builder/CaseBuilderFactory.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/net/TcmCommunicator.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/net/NetCommunicator.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/wrapper/TestCaseWrapper.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/util/Constant.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/SampleStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAAPI/core/caze/step/StepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/CommenStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/AchievementStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/LeaderboardStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/PeopleStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/ModerationStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/FriendCodeStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/IgnorelistStepDefinition.h

@@ -11,7 +11,8 @@
 #import "TestCaseWrapper.h"
 #import "TestRunnerWrapper.h"
 #import "CaseBuilderFactory.h"
-
+#import "TcmCommunicator.h"
+#import "SBJson.h"
 
 #import "GreePlatformSettings.h"
 #import "GreeUser.h"
@@ -72,6 +73,8 @@
     
     operationQueue = [[NSOperationQueue alloc] init];
     [operationQueue setMaxConcurrentOperationCount:1];
+    
+    jsonParser = [[[SBJsonParser alloc] init] autorelease];
     
     return YES;
 }
@@ -136,17 +139,35 @@
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
+    NSLog(@"======================== read run config from server ======");
+    NSString* configUrl = @"http://localhost:3000/config";
+    
+    TcmCommunicator* tcmComm = [[TcmCommunicator alloc] initWithKey:@"" 
+                                                          submitUrl:@"" 
+                                                       retrievalUrl:configUrl];
+    NSData* resp = [tcmComm doHttpGet:configUrl];
+    
+    NSString *rawConfigJson = [[[NSString alloc] initWithData:resp 
+                                                      encoding:NSUTF8StringEncoding] autorelease];
+    NSDictionary* configSettings = [[jsonParser objectWithString:rawConfigJson] valueForKey:@"auto_config"];
+    // suite id 178 by default
+    NSString* suiteId = [configSettings valueForKey:@"suite_id"]?[configSettings valueForKey:@"suite_id"]: @"178"; 
+    
+    // run id 402 by default
+    NSString* runId = [configSettings valueForKey:@"run_id"]?[configSettings valueForKey:@"run_id"]: @"402"; 
+    
+    
     NSLog(@"======================== load cases from Suite %@ ======", @"185");
     [runnerWrapper emptyCaseWrappers];
-    [runnerWrapper buildRunner:@"185"];
+    [runnerWrapper buildRunner:suiteId];
     
     
     [runnerWrapper markCaseWrappers:[TestCaseWrapper All]];
     NSLog(@"======================== executing cases ======");
     
     NSInvocationOperation* theOp = [[[NSInvocationOperation alloc] initWithTarget:self
-                                                                         selector:@selector(runCasesInAnotherThread) 
-                                                                           object:nil] autorelease];
+                                                                         selector:@selector(runCasesInAnotherThreadWithId:) 
+                                                                           object:runId] autorelease];
     [operationQueue addOperation:theOp];
     
     NSLog(@"======================== update result for Run %@ ======", @"432");
@@ -154,10 +175,10 @@
     
 }
 
-- (void) runCasesInAnotherThread{
+- (void) runCasesInAnotherThreadWithId:(NSString*) runId{
     //    [[appDelegate runnerWrapper] executeSelectedCases];
     // replace this line to not submit 
-    [runnerWrapper executeSelectedCasesWithSubmit:@"432"
+    [runnerWrapper executeSelectedCasesWithSubmit:runId
                                             block:^(NSArray* objs){
                                                 [self performSelectorOnMainThread:@selector(updateProgressViewWithRunning:)
                                                                        withObject:objs 

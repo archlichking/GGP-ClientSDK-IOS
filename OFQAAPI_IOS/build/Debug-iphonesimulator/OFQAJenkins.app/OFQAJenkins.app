@@ -1,0 +1,1 @@
+/Users/thunderzhulei/Library/Application Support/iPhone Simulator/5.1/Applications/OFQAJenkins.app
