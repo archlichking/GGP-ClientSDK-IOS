@@ -1,622 +1,0 @@
-TOFQAJenkins
-v5
-r1
-cCheck dependencies
-cProcessInfoPlistFile /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/Info.plist OFQAJenkins/OFQAJenkins-Info.plist
-cProcessPCH /var/folders/z4/_5960lb16vn37xr3zdjfz60w0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OFQAJenkins-Prefix-fgtytjdejxkvexfpswpaawovsblr/OFQAJenkins-Prefix.pch.pth OFQAJenkins/OFQAJenkins-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/TestCaseWrapper.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/wrapper/TestCaseWrapper.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/SampleStepDefinition.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/SampleStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/TestRunnerWrapper.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/wrapper/TestRunnerWrapper.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/AchievementStepDefinition.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/AchievementStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/CommenStepDefinition.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/CommenStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/LeaderboardStepDefinition.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/LeaderboardStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/PeopleStepDefinition.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/PeopleStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/ModerationStepDefinition.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/ModerationStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/FriendCodeStepDefinition.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/FriendCodeStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/IgnorelistStepDefinition.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/IgnorelistStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/main.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/AppDelegate.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/ViewController.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/ViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-cLd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/OFQAJenkins normal i386
-cGenerateDSYMFile /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app.dSYM /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/OFQAJenkins
-cCpResource ../../../ggplib_ios/release/resources/GreePlatformCoreResources.bundle build/Debug-iphonesimulator/OFQAJenkins.app/GreePlatformCoreResources.bundle
-cCpResource ../../../ggplib_ios/release/resources/GreePlatformLandscapeResources.bundle build/Debug-iphonesimulator/OFQAJenkins.app/GreePlatformLandscapeResources.bundle
-cCpResource Config/settings.json build/Debug-iphonesimulator/OFQAJenkins.app/settings.json
-cCpResource ../../../ggplib_ios/release/resources/GreePlatformPortraitResources.bundle build/Debug-iphonesimulator/OFQAJenkins.app/GreePlatformPortraitResources.bundle
-cCopyStringsFile /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/en.lproj/InfoPlist.strings OFQAJenkins/en.lproj/InfoPlist.strings
-cCompileStoryboard /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/en.lproj/MainStoryboard_iPhone.storyboard
-cCompileStoryboard /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/en.lproj/MainStoryboard_iPad.storyboard
-cTouch /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk
-c000000004F453DF80000000000000110
-t1329937912
-s272
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk/System/Library/Frameworks/AddressBook.framework/AddressBook
-c000000004F68C4FA0000000000095860
-t1332266234
-s612448
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk/System/Library/Frameworks/CoreGraphics.framework/CoreGraphics
-c000000004F68C5090000000000244490
-t1332266249
-s2376848
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk/System/Library/Frameworks/CoreTelephony.framework/CoreTelephony
-c000000004F68C50C00000000000D6780
-t1332266252
-s878464
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk/System/Library/Frameworks/Foundation.framework/Foundation
-c000000004F68C5130000000000353830
-t1332266259
-s3487792
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk/System/Library/Frameworks/GameKit.framework/GameKit
-c000000004F68C5160000000000276250
-t1332266262
-s2581072
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk/System/Library/Frameworks/MediaPlayer.framework/MediaPlayer
-c000000004F68C5200000000000243A90
-t1332266272
-s2374288
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk/System/Library/Frameworks/MessageUI.framework/MessageUI
-c000000004F68C52300000000000CA7B0
-t1332266275
-s829360
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk/System/Library/Frameworks/QuartzCore.framework/QuartzCore
-c000000004F68C52400000000001AB190
-t1332266276
-s1749392
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk/System/Library/Frameworks/Security.framework/Security
-c000000004F68C5250000000000080D30
-t1332266277
-s527664
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk/System/Library/Frameworks/StoreKit.framework/StoreKit
-c000000004F68C5250000000000011E10
-t1332266277
-s73232
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk/System/Library/Frameworks/SystemConfiguration.framework/SystemConfiguration
-c000000004F68C526000000000006C8A0
-t1332266278
-s444576
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk/System/Library/Frameworks/UIKit.framework/UIKit
-c000000004F68C52C0000000000905E40
-t1332266284
-s9461312
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk/usr/lib/libsqlite3.dylib
-c000000004F68C5BD00000000000C0A00
-t1332266429
-s788992
-
-N/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk/usr/lib/libz.dylib
-c000000004F68C5BE0000000000013460
-t1332266430
-s78944
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/../../../ggplib_ios/release/libGreePlatform.a
-c000000004FBC12EA000000000178CC64
-t1337725674
-s24693860
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/../../../ggplib_ios/release/libGreeWallet.a
-c000000004FBC12EA0000000000341314
-t1337725674
-s3412756
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/../../../ggplib_ios/release/resources/GreePlatformCoreResources.bundle
-c000000004FBC12EA00000000000014FC
-t1337725674
-s5372
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/../../../ggplib_ios/release/resources/GreePlatformLandscapeResources.bundle
-c000000004FBC12EA0000000000000066
-t1337725674
-s102
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/../../../ggplib_ios/release/resources/GreePlatformPortraitResources.bundle
-c000000004FBC12EA0000000000000066
-t1337725674
-s102
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/Config/settings.json
-c000000004FA208A4000000000000012D
-t1336019108
-s301
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/AppDelegate.m
-c000000004FC68E96000000000000208C
-t1338412694
-s8332
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/OFQAJenkins-Prefix.pch
-c000000004FC5674C0000000000000145
-t1338337100
-s325
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/ViewController.m
-c000000004FC68AA90000000000000325
-t1338411689
-s805
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/en.lproj/InfoPlist.strings
-c000000004FC5674C000000000000002D
-t1338337100
-s45
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/en.lproj/MainStoryboard_iPad.storyboard
-c000000004FC569390000000000001445
-t1338337593
-s5189
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/en.lproj/MainStoryboard_iPhone.storyboard
-c000000004FC68917000000000000143E
-t1338411287
-s5182
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/main.m
-c000000004FC6B4DC0000000000000156
-t1338422492
-s342
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/AchievementStepDefinition.m
-c000000004FB41F5A00000000000013FD
-t1337204570
-s5117
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/CommenStepDefinition.m
-c000000004FAC45C5000000000000024B
-t1336690117
-s587
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/FriendCodeStepDefinition.m
-c000000004FBE9E240000000000001BC1
-t1337892388
-s7105
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/IgnorelistStepDefinition.m
-c000000004FBD24140000000000001178
-t1337795604
-s4472
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/LeaderboardStepDefinition.m
-c000000004FB41F5A0000000000003ADB
-t1337204570
-s15067
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/ModerationStepDefinition.m
-c000000004FBBD30300000000000014B6
-t1337709315
-s5302
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/PeopleStepDefinition.m
-c000000004FB442D40000000000001CA4
-t1337213652
-s7332
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/SampleStepDefinition.m
-c000000004FB6D81000000000000008FD
-t1337382928
-s2301
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/wrapper/TestCaseWrapper.m
-c000000004FC661820000000000000415
-t1338401154
-s1045
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/wrapper/TestRunnerWrapper.m
-c000000004FC6619500000000000019CE
-t1338401173
-s6606
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app.dSYM
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/GreePlatformCoreResources.bundle
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/GreePlatformLandscapeResources.bundle
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/GreePlatformPortraitResources.bundle
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/Info.plist
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/OFQAJenkins
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/PkgInfo
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/en.lproj/InfoPlist.strings
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/en.lproj/MainStoryboard_iPad.storyboardc
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/en.lproj/MainStoryboard_iPhone.storyboardc
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/settings.json
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/libOFQAAPI.a
-c000000004FC6C294000000000007E968
-t1338426004
-s518504
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/AchievementStepDefinition.o
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/AppDelegate.o
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/CommenStepDefinition.o
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/FriendCodeStepDefinition.o
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/IgnorelistStepDefinition.o
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/LeaderboardStepDefinition.o
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/ModerationStepDefinition.o
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/OFQAJenkins.LinkFileList
-c000000004FC6C2940000000000000773
-t1338426004
-s1907
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/PeopleStepDefinition.o
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/SampleStepDefinition.o
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/TestCaseWrapper.o
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/TestRunnerWrapper.o
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/ViewController.o
-t2
-s0
-
-N/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/main.o
-t2
-s0
-
-N/var/folders/z4/_5960lb16vn37xr3zdjfz60w0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OFQAJenkins-Prefix-fgtytjdejxkvexfpswpaawovsblr/OFQAJenkins-Prefix.pch.pth
-t2
-s0
-
-NOFQAJenkins/OFQAJenkins-Info.plist
-c000000004FC5674C0000000000000646
-t1338337100
-s1606
-
-CCheck dependencies
-r0
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies8dd16a14fa76b541^4fc9a514fa76b541^---0#1#0#--18"Check dependencies36"D494019E-20C4-456B-AF6C-2304B283F7BF-
-
-CCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/AchievementStepDefinition.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/AchievementStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s360118805.753976
-e360118806.273283
-r1
-xCompileC
-xbuild/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/AchievementStepDefinition.o
-x/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/AchievementStepDefinition.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection97"Compile /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/AchievementStepDefinition.m1139c115fa76b541^34f64516fa76b541^---0#0#0#-19%DVTDocumentLocation2@105"file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/AchievementStepDefinition.m0000000000000000^3651"CompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/AchievementStepDefinition.o OFQASample/steps/AchievementStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-conversion -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=50100 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/OFQAJenkins.hmap -I/Users/thunderzhulei/ggplib_ios/release/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources/i386 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources -F/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator -include /var/folders/z4/_5960lb16vn37xr3zdjfz60w0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OFQAJenkins-Prefix-fgtytjdejxkvexfpswpaawovsblr/OFQAJenkins-Prefix.pch -MMD -MT dependencies -MF /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/AchievementStepDefinition.d --serialize-diagnostics /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/AchievementStepDefinition.dia -c /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/AchievementStepDefinition.m -o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/AchievementStepDefinition.o36"A04BF6A9-8713-4A66-8359-EFCA2ED6F0E5-
-
-CCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/AppDelegate.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s360118806.274493
-e360118806.351583
-r1
-xCompileC
-xbuild/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/AppDelegate.o
-x/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/AppDelegate.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection78"Compile /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/AppDelegate.m776a4616fa76b541^ac015a16fa76b541^---0#0#0#-19%DVTDocumentLocation2@86"file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/AppDelegate.m0000000000000000^3557"CompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/AppDelegate.o OFQAJenkins/AppDelegate.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-conversion -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=50100 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/OFQAJenkins.hmap -I/Users/thunderzhulei/ggplib_ios/release/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources/i386 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources -F/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator -include /var/folders/z4/_5960lb16vn37xr3zdjfz60w0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OFQAJenkins-Prefix-fgtytjdejxkvexfpswpaawovsblr/OFQAJenkins-Prefix.pch -MMD -MT dependencies -MF /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/AppDelegate.d --serialize-diagnostics /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/AppDelegate.dia -c /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/AppDelegate.m -o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/AppDelegate.o36"FD4813F3-C044-46EB-A3B4-A16EB6F4904E-
-
-CCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/CommenStepDefinition.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/CommenStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s360118805.753980
-e360118806.149127
-r1
-xCompileC
-xbuild/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/CommenStepDefinition.o
-x/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/CommenStepDefinition.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection92"Compile /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/CommenStepDefinition.m062cc115fa76b541^512d2616fa76b541^---0#0#0#-19%DVTDocumentLocation2@100"file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/CommenStepDefinition.m0000000000000000^3621"CompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/CommenStepDefinition.o OFQASample/steps/CommenStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-conversion -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=50100 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/OFQAJenkins.hmap -I/Users/thunderzhulei/ggplib_ios/release/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources/i386 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources -F/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator -include /var/folders/z4/_5960lb16vn37xr3zdjfz60w0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OFQAJenkins-Prefix-fgtytjdejxkvexfpswpaawovsblr/OFQAJenkins-Prefix.pch -MMD -MT dependencies -MF /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/CommenStepDefinition.d --serialize-diagnostics /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/CommenStepDefinition.dia -c /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/CommenStepDefinition.m -o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/CommenStepDefinition.o36"74D051D3-844F-457A-8131-A89C0F811F53-
-
-CCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/FriendCodeStepDefinition.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/FriendCodeStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s360118805.973432
-e360118806.306507
-r1
-xCompileC
-xbuild/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/FriendCodeStepDefinition.o
-x/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/FriendCodeStepDefinition.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection96"Compile /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/FriendCodeStepDefinition.m3672f915fa76b541^fb764e16fa76b541^---0#0#0#-19%DVTDocumentLocation2@104"file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/FriendCodeStepDefinition.m0000000000000000^3645"CompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/FriendCodeStepDefinition.o OFQASample/steps/FriendCodeStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-conversion -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=50100 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/OFQAJenkins.hmap -I/Users/thunderzhulei/ggplib_ios/release/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources/i386 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources -F/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator -include /var/folders/z4/_5960lb16vn37xr3zdjfz60w0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OFQAJenkins-Prefix-fgtytjdejxkvexfpswpaawovsblr/OFQAJenkins-Prefix.pch -MMD -MT dependencies -MF /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/FriendCodeStepDefinition.d --serialize-diagnostics /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/FriendCodeStepDefinition.dia -c /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/FriendCodeStepDefinition.m -o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/FriendCodeStepDefinition.o36"8E0A9BE7-48D0-4EAA-B7E8-4D8C8F038303-
-
-CCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/IgnorelistStepDefinition.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/IgnorelistStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s360118806.150394
-e360118806.284712
-r1
-xCompileC
-xbuild/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/IgnorelistStepDefinition.o
-x/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/IgnorelistStepDefinition.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection96"Compile /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/IgnorelistStepDefinition.mf9a12616fa76b541^bceb4816fa76b541^---0#0#0#-19%DVTDocumentLocation2@104"file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/IgnorelistStepDefinition.m0000000000000000^3645"CompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/IgnorelistStepDefinition.o OFQASample/steps/IgnorelistStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-conversion -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=50100 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/OFQAJenkins.hmap -I/Users/thunderzhulei/ggplib_ios/release/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources/i386 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources -F/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator -include /var/folders/z4/_5960lb16vn37xr3zdjfz60w0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OFQAJenkins-Prefix-fgtytjdejxkvexfpswpaawovsblr/OFQAJenkins-Prefix.pch -MMD -MT dependencies -MF /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/IgnorelistStepDefinition.d --serialize-diagnostics /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/IgnorelistStepDefinition.dia -c /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/IgnorelistStepDefinition.m -o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/IgnorelistStepDefinition.o36"EAE11E43-3C37-4803-A18C-7AA6A13D9152-
-
-CCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/LeaderboardStepDefinition.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/LeaderboardStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s360118805.753998
-e360118806.338922
-r1
-xCompileC
-xbuild/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/LeaderboardStepDefinition.o
-x/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/LeaderboardStepDefinition.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection97"Compile /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/LeaderboardStepDefinition.mfc35c115fa76b541^ebc35616fa76b541^---0#0#0#-19%DVTDocumentLocation2@105"file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/LeaderboardStepDefinition.m0000000000000000^3651"CompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/LeaderboardStepDefinition.o OFQASample/steps/LeaderboardStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-conversion -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=50100 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/OFQAJenkins.hmap -I/Users/thunderzhulei/ggplib_ios/release/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources/i386 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources -F/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator -include /var/folders/z4/_5960lb16vn37xr3zdjfz60w0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OFQAJenkins-Prefix-fgtytjdejxkvexfpswpaawovsblr/OFQAJenkins-Prefix.pch -MMD -MT dependencies -MF /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/LeaderboardStepDefinition.d --serialize-diagnostics /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/LeaderboardStepDefinition.dia -c /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/LeaderboardStepDefinition.m -o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/LeaderboardStepDefinition.o36"71D301CA-44A9-4DC3-B0FD-DE8764EA1D77-
-
-CCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/ModerationStepDefinition.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/ModerationStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s360118805.754152
-e360118806.284636
-r1
-xCompileC
-xbuild/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/ModerationStepDefinition.o
-x/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/ModerationStepDefinition.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection96"Compile /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/ModerationStepDefinition.me23fc115fa76b541^d6e14816fa76b541^---0#0#0#-19%DVTDocumentLocation2@104"file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/ModerationStepDefinition.m0000000000000000^3645"CompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/ModerationStepDefinition.o OFQASample/steps/ModerationStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-conversion -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=50100 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/OFQAJenkins.hmap -I/Users/thunderzhulei/ggplib_ios/release/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources/i386 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources -F/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator -include /var/folders/z4/_5960lb16vn37xr3zdjfz60w0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OFQAJenkins-Prefix-fgtytjdejxkvexfpswpaawovsblr/OFQAJenkins-Prefix.pch -MMD -MT dependencies -MF /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/ModerationStepDefinition.d --serialize-diagnostics /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/ModerationStepDefinition.dia -c /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/ModerationStepDefinition.m -o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/ModerationStepDefinition.o36"33F316FC-9D07-4D4E-AFE5-08EA861AD37B-
-
-CCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/PeopleStepDefinition.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/PeopleStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s360118805.754009
-e360118806.282619
-r1
-xCompileC
-xbuild/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/PeopleStepDefinition.o
-x/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/PeopleStepDefinition.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection92"Compile /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/PeopleStepDefinition.m3738c115fa76b541^52654816fa76b541^---0#0#0#-19%DVTDocumentLocation2@100"file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/PeopleStepDefinition.m0000000000000000^3621"CompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/PeopleStepDefinition.o OFQASample/steps/PeopleStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-conversion -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=50100 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/OFQAJenkins.hmap -I/Users/thunderzhulei/ggplib_ios/release/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources/i386 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources -F/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator -include /var/folders/z4/_5960lb16vn37xr3zdjfz60w0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OFQAJenkins-Prefix-fgtytjdejxkvexfpswpaawovsblr/OFQAJenkins-Prefix.pch -MMD -MT dependencies -MF /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/PeopleStepDefinition.d --serialize-diagnostics /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/PeopleStepDefinition.dia -c /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/PeopleStepDefinition.m -o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/PeopleStepDefinition.o36"48B81199-407F-476B-BC5F-287BB498C4F3-
-
-CCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/SampleStepDefinition.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/SampleStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s360118805.753933
-e360118806.281650
-r1
-xCompileC
-xbuild/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/SampleStepDefinition.o
-x/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/SampleStepDefinition.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection92"Compile /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/SampleStepDefinition.m4834c115fa76b541^051a4816fa76b541^---0#0#0#-19%DVTDocumentLocation2@100"file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/SampleStepDefinition.m0000000000000000^3621"CompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/SampleStepDefinition.o OFQASample/steps/SampleStepDefinition.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-conversion -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=50100 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/OFQAJenkins.hmap -I/Users/thunderzhulei/ggplib_ios/release/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources/i386 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources -F/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator -include /var/folders/z4/_5960lb16vn37xr3zdjfz60w0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OFQAJenkins-Prefix-fgtytjdejxkvexfpswpaawovsblr/OFQAJenkins-Prefix.pch -MMD -MT dependencies -MF /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/SampleStepDefinition.d --serialize-diagnostics /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/SampleStepDefinition.dia -c /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/steps/SampleStepDefinition.m -o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/SampleStepDefinition.o36"CC314209-104F-43A1-84B1-C1C2A7D1F6CD-
-
-CCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/TestCaseWrapper.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/wrapper/TestCaseWrapper.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s360118805.753392
-e360118805.972028
-r1
-xCompileC
-xbuild/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/TestCaseWrapper.o
-x/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/wrapper/TestCaseWrapper.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection89"Compile /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/wrapper/TestCaseWrapper.mc504c115fa76b541^28d7f815fa76b541^---0#0#0#-19%DVTDocumentLocation2@97"file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/wrapper/TestCaseWrapper.m0000000000000000^3595"CompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/TestCaseWrapper.o OFQASample/wrapper/TestCaseWrapper.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-conversion -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=50100 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/OFQAJenkins.hmap -I/Users/thunderzhulei/ggplib_ios/release/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources/i386 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources -F/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator -include /var/folders/z4/_5960lb16vn37xr3zdjfz60w0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OFQAJenkins-Prefix-fgtytjdejxkvexfpswpaawovsblr/OFQAJenkins-Prefix.pch -MMD -MT dependencies -MF /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/TestCaseWrapper.d --serialize-diagnostics /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/TestCaseWrapper.dia -c /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/wrapper/TestCaseWrapper.m -o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/TestCaseWrapper.o36"8C8A3FEE-B332-40B6-A40A-30A473BB6D45-
-
-CCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/TestRunnerWrapper.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/wrapper/TestRunnerWrapper.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s360118805.753932
-e360118806.273848
-r1
-xCompileC
-xbuild/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/TestRunnerWrapper.o
-x/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/wrapper/TestRunnerWrapper.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection91"Compile /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/wrapper/TestRunnerWrapper.m4c37c115fa76b541^191b4616fa76b541^---0#0#0#-19%DVTDocumentLocation2@99"file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/wrapper/TestRunnerWrapper.m0000000000000000^3607"CompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/TestRunnerWrapper.o OFQASample/wrapper/TestRunnerWrapper.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-conversion -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=50100 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/OFQAJenkins.hmap -I/Users/thunderzhulei/ggplib_ios/release/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources/i386 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources -F/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator -include /var/folders/z4/_5960lb16vn37xr3zdjfz60w0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OFQAJenkins-Prefix-fgtytjdejxkvexfpswpaawovsblr/OFQAJenkins-Prefix.pch -MMD -MT dependencies -MF /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/TestRunnerWrapper.d --serialize-diagnostics /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/TestRunnerWrapper.dia -c /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQASample/wrapper/TestRunnerWrapper.m -o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/TestRunnerWrapper.o36"A9979965-6D35-4EBE-8205-A51F11ED662C-
-
-CCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/ViewController.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/ViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s360118806.282948
-e360118806.333100
-r1
-xCompileC
-xbuild/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/ViewController.o
-x/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/ViewController.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection81"Compile /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/ViewController.m17f24816fa76b541^99485516fa76b541^---0#0#0#-19%DVTDocumentLocation2@89"file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/ViewController.m0000000000000000^3575"CompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/ViewController.o OFQAJenkins/ViewController.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-conversion -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=50100 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/OFQAJenkins.hmap -I/Users/thunderzhulei/ggplib_ios/release/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources/i386 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources -F/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator -include /var/folders/z4/_5960lb16vn37xr3zdjfz60w0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OFQAJenkins-Prefix-fgtytjdejxkvexfpswpaawovsblr/OFQAJenkins-Prefix.pch -MMD -MT dependencies -MF /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/ViewController.d --serialize-diagnostics /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/ViewController.dia -c /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/ViewController.m -o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/ViewController.o36"2222CB4C-6416-4524-B0F4-3A2FB3ADC72A-
-
-CCompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/main.o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s360118806.274489
-e360118806.302232
-r1
-xCompileC
-xbuild/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/main.o
-x/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/main.m
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"Compile /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/main.mf5684616fa76b541^b3614d16fa76b541^---0#0#0#-19%DVTDocumentLocation2@79"file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/main.m0000000000000000^3515"CompileC build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/main.o OFQAJenkins/main.m normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-conversion -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=50100 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/OFQAJenkins.hmap -I/Users/thunderzhulei/ggplib_ios/release/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources/i386 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources -F/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator -include /var/folders/z4/_5960lb16vn37xr3zdjfz60w0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OFQAJenkins-Prefix-fgtytjdejxkvexfpswpaawovsblr/OFQAJenkins-Prefix.pch -MMD -MT dependencies -MF /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/main.d --serialize-diagnostics /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/main.dia -c /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/main.m -o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/main.o36"52A6ABE5-FA2D-4359-A4BA-F8FE8131F27F-
-
-CCompileStoryboard /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/en.lproj/MainStoryboard_iPad.storyboard
-s360118807.872517
-e360118809.341799
-r1
-xCompileStoryboard
-x/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/en.lproj/MainStoryboard_iPad.storyboard
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection69"CompileStoryboard OFQAJenkins/en.lproj/MainStoryboard_iPad.storyboard8f8adf17fa76b541^cb805719fa76b541^---0#0#0#-19%DVTDocumentLocation2@112"file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/en.lproj/MainStoryboard_iPad.storyboard0000000000000000^1534"CompileStoryboard OFQAJenkins/en.lproj/MainStoryboard_iPad.storyboard    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv IBSC_MINIMUM_COMPATIBILITY_VERSION 5.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/en.lproj/MainStoryboard_iPad.storyboardc /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/en.lproj/MainStoryboard_iPad.storyboard --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk36"72D66AB5-FFBA-4E10-B207-B8E5221E0A27-
-
-CCompileStoryboard /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/en.lproj/MainStoryboard_iPhone.storyboard
-s360118807.872491
-e360118809.341868
-r1
-xCompileStoryboard
-x/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/en.lproj/MainStoryboard_iPhone.storyboard
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection71"CompileStoryboard OFQAJenkins/en.lproj/MainStoryboard_iPhone.storyboard3b8adf17fa76b541^618d5719fa76b541^---0#0#0#-19%DVTDocumentLocation2@114"file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/en.lproj/MainStoryboard_iPhone.storyboard0000000000000000^1540"CompileStoryboard OFQAJenkins/en.lproj/MainStoryboard_iPhone.storyboard    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv IBSC_MINIMUM_COMPATIBILITY_VERSION 5.0    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    setenv XCODE_DEVELOPER_USR_PATH /Applications/Xcode.app/Contents/Developer/usr/bin/..    /Applications/Xcode.app/Contents/Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/en.lproj/MainStoryboard_iPhone.storyboardc /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/en.lproj/MainStoryboard_iPhone.storyboard --sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk36"02610DC8-16C7-4C18-A34D-36681FA96376-
-
-CCopyStringsFile /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/en.lproj/InfoPlist.strings OFQAJenkins/en.lproj/InfoPlist.strings
-s360118807.872459
-e360118807.935492
-r1
-xCopyStringsFile
-x/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/en.lproj/InfoPlist.strings
-xOFQAJenkins/en.lproj/InfoPlist.strings
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection43"Copy OFQAJenkins/en.lproj/InfoPlist.stringsbe87df17fa76b541^ee7cef17fa76b541^---0#0#0#-19%DVTDocumentLocation2@99"file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/en.lproj/InfoPlist.strings0000000000000000^1193"CopyStringsFile build/Debug-iphonesimulator/OFQAJenkins.app/en.lproj/InfoPlist.strings OFQAJenkins/en.lproj/InfoPlist.strings    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    builtin-copyStrings --validate --inputencoding utf-8 --outputencoding binary --outdir /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/en.lproj -- OFQAJenkins/en.lproj/InfoPlist.strings36"472AFC51-238A-4932-B465-351BBFD603F5-
-
-CCpResource ../../../ggplib_ios/release/resources/GreePlatformCoreResources.bundle build/Debug-iphonesimulator/OFQAJenkins.app/GreePlatformCoreResources.bundle
-s360118807.871721
-e360118808.043915
-r1
-xCpResource
-x../../../ggplib_ios/release/resources/GreePlatformCoreResources.bundle
-xbuild/Debug-iphonesimulator/OFQAJenkins.app/GreePlatformCoreResources.bundle
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection81"Copy build/Debug-iphonesimulator/OFQAJenkins.app/GreePlatformCoreResources.bundlebe4ddf17fa76b541^9a3e0b18fa76b541^---0#0#0#-19%DVTDocumentLocation2@137"file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/GreePlatformCoreResources.bundle000000000080d041^1418"CpResource ../../../ggplib_ios/release/resources/GreePlatformCoreResources.bundle build/Debug-iphonesimulator/OFQAJenkins.app/GreePlatformCoreResources.bundle    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/../../../ggplib_ios/release/resources/GreePlatformCoreResources.bundle /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app36"281370D5-0F84-4634-ABF0-E8558ECE4DFB-
-
-CCpResource ../../../ggplib_ios/release/resources/GreePlatformLandscapeResources.bundle build/Debug-iphonesimulator/OFQAJenkins.app/GreePlatformLandscapeResources.bundle
-s360118807.871747
-e360118807.875619
-r1
-xCpResource
-x../../../ggplib_ios/release/resources/GreePlatformLandscapeResources.bundle
-xbuild/Debug-iphonesimulator/OFQAJenkins.app/GreePlatformLandscapeResources.bundle
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection86"Copy build/Debug-iphonesimulator/OFQAJenkins.app/GreePlatformLandscapeResources.bundle1651df17fa76b541^3929e017fa76b541^---0#0#0#-19%DVTDocumentLocation2@142"file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/GreePlatformLandscapeResources.bundle000000000080d041^1433"CpResource ../../../ggplib_ios/release/resources/GreePlatformLandscapeResources.bundle build/Debug-iphonesimulator/OFQAJenkins.app/GreePlatformLandscapeResources.bundle    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/../../../ggplib_ios/release/resources/GreePlatformLandscapeResources.bundle /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app36"10A2E68C-83DE-45DE-A0EF-EC553A5E09BB-
-
-CCpResource ../../../ggplib_ios/release/resources/GreePlatformPortraitResources.bundle build/Debug-iphonesimulator/OFQAJenkins.app/GreePlatformPortraitResources.bundle
-s360118807.872441
-e360118807.878868
-r1
-xCpResource
-x../../../ggplib_ios/release/resources/GreePlatformPortraitResources.bundle
-xbuild/Debug-iphonesimulator/OFQAJenkins.app/GreePlatformPortraitResources.bundle
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection85"Copy build/Debug-iphonesimulator/OFQAJenkins.app/GreePlatformPortraitResources.bundleb685df17fa76b541^65ffe017fa76b541^---0#0#0#-19%DVTDocumentLocation2@141"file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/GreePlatformPortraitResources.bundle000000000080d041^1430"CpResource ../../../ggplib_ios/release/resources/GreePlatformPortraitResources.bundle build/Debug-iphonesimulator/OFQAJenkins.app/GreePlatformPortraitResources.bundle    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/../../../ggplib_ios/release/resources/GreePlatformPortraitResources.bundle /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app36"FA97B6F9-335A-46D5-954F-872AE000AA2D-
-
-CCpResource Config/settings.json build/Debug-iphonesimulator/OFQAJenkins.app/settings.json
-s360118807.872408
-e360118807.912165
-r1
-xCpResource
-xConfig/settings.json
-xbuild/Debug-iphonesimulator/OFQAJenkins.app/settings.json
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection62"Copy build/Debug-iphonesimulator/OFQAJenkins.app/settings.json2574df17fa76b541^5187e917fa76b541^---0#0#0#-19%DVTDocumentLocation2@118"file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/settings.json000000000080d041^1299"CpResource Config/settings.json build/Debug-iphonesimulator/OFQAJenkins.app/settings.json    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    builtin-copy -exclude .DS_Store -exclude CVS -exclude .svn -exclude .git -exclude .hg -resolve-src-symlinks -strip-tool /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/strip /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/Config/settings.json /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app36"5350BA98-2403-4C96-86C7-3AB923743642-
-
-CGenerateDSYMFile /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app.dSYM /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/OFQAJenkins
-s360118807.478463
-e360118807.863410
-r1
-xGenerateDSYMFile
-x/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app.dSYM
-x/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/OFQAJenkins
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection104"Generating /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app.dSYM30a17a17fa76b541^7d09dd17fa76b541^---0#0#0#-19%DVTDocumentLocation2@109"file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app.dSYM000000000080d041^1266"GenerateDSYMFile build/Debug-iphonesimulator/OFQAJenkins.app.dSYM build/Debug-iphonesimulator/OFQAJenkins.app/OFQAJenkins    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin/dsymutil /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/OFQAJenkins -o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app.dSYM36"410E9E7E-9754-4BA7-8544-F81B8A175B17-
-
-CLd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/OFQAJenkins normal i386
-s360118806.359119
-e360118807.471510
-r1
-xLd
-x/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/OFQAJenkins
-xnormal
-xi386
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection105"Link /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/OFQAJenkins390e5c16fa76b541^bfb87817fa76b541^---0#0#0#--2141"Ld build/Debug-iphonesimulator/OFQAJenkins.app/OFQAJenkins normal i386    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv MACOSX_DEPLOYMENT_TARGET 10.6    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -arch i386 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -L/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator -L/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/../../../ggplib_ios/release -F/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator -filelist /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/Objects-normal/i386/OFQAJenkins.LinkFileList -mmacosx-version-min=10.6 -Xlinker -objc_abi_version -Xlinker 2 -objc -all_load -Xlinker -no_implicit_dylibs -D__IPHONE_OS_VERSION_MIN_REQUIRED=50100 -framework MediaPlayer -framework CoreTelephony -framework MessageUI -framework GameKit -framework QuartzCore -framework AddressBook -framework Security -framework SystemConfiguration -framework StoreKit -lsqlite3 -lz -lOFQAAPI -lGreePlatform -lGreeWallet -framework UIKit -framework Foundation -framework CoreGraphics -o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/OFQAJenkins36"C550022A-CF0E-4F01-8586-6CA72D41DBFF-
-
-CProcessInfoPlistFile /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/Info.plist OFQAJenkins/OFQAJenkins-Info.plist
-s360118804.655495
-e360118804.664841
-r1
-xProcessInfoPlistFile
-x/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/Info.plist
-xOFQAJenkins/OFQAJenkins-Info.plist
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection42"Process OFQAJenkins/OFQAJenkins-Info.plistd861a814fa76b541^7235aa14fa76b541^---0#0#0#-19%DVTDocumentLocation2@95"file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/OFQAJenkins-Info.plist0000000000000000^1286"ProcessInfoPlistFile build/Debug-iphonesimulator/OFQAJenkins.app/Info.plist OFQAJenkins/OFQAJenkins-Info.plist    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    builtin-infoPlistUtility OFQAJenkins/OFQAJenkins-Info.plist -genpkginfo /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/PkgInfo -expandbuildsettings -format binary -platform iphonesimulator -o /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app/Info.plist36"2EECEB3A-138B-44B7-A4FF-75AF33656EA8-
-
-CProcessPCH /var/folders/z4/_5960lb16vn37xr3zdjfz60w0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OFQAJenkins-Prefix-fgtytjdejxkvexfpswpaawovsblr/OFQAJenkins-Prefix.pch.pth OFQAJenkins/OFQAJenkins-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler
-s360118804.672904
-e360118805.746481
-r1
-xProcessPCH
-x/var/folders/z4/_5960lb16vn37xr3zdjfz60w0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OFQAJenkins-Prefix-fgtytjdejxkvexfpswpaawovsblr/OFQAJenkins-Prefix.pch.pth
-xOFQAJenkins/OFQAJenkins-Prefix.pch
-xnormal
-xi386
-xobjective-c
-xcom.apple.compilers.llvm.clang.1_0.compiler
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection45"Precompile OFQAJenkins/OFQAJenkins-Prefix.pchb266ac14fa76b541^6119bf15fa76b541^---0#0#0#-19%DVTDocumentLocation2@95"file://localhost/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/OFQAJenkins-Prefix.pch0000000000000000^3571"ProcessPCH /var/folders/z4/_5960lb16vn37xr3zdjfz60w0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OFQAJenkins-Prefix-fgtytjdejxkvexfpswpaawovsblr/OFQAJenkins-Prefix.pch.pth OFQAJenkins/OFQAJenkins-Prefix.pch normal i386 objective-c com.apple.compilers.llvm.clang.1_0.compiler    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv LANG en_US.US-ASCII    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c-header -arch i386 -fmessage-length=0 -std=gnu99 -Wno-trigraphs -fpascal-strings -O0 -Wno-missing-field-initializers -Wmissing-prototypes -Wreturn-type -Wno-implicit-atomic-properties -Wformat -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wuninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-sign-compare -Wno-shorten-64-to-32 -Wpointer-sign -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -DDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator5.1.sdk -fexceptions -fasm-blocks -Wprotocol -Wdeprecated-declarations -mmacosx-version-min=10.6 -g -Wno-conversion -Wno-sign-conversion -fobjc-abi-version=2 -fobjc-legacy-dispatch "-DIBOutlet=__attribute__((iboutlet))" "-DIBOutletCollection(ClassName)=__attribute__((iboutletcollection(ClassName)))" "-DIBAction=void)__attribute__((ibaction)" -D__IPHONE_OS_VERSION_MIN_REQUIRED=50100 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/OFQAJenkins.hmap -I/Users/thunderzhulei/ggplib_ios/release/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/include -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources/i386 -I/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/OFQAAPI.build/Debug-iphonesimulator/OFQAJenkins.build/DerivedSources -F/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator --serialize-diagnostics /var/folders/z4/_5960lb16vn37xr3zdjfz60w0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OFQAJenkins-Prefix-fgtytjdejxkvexfpswpaawovsblr/OFQAJenkins-Prefix.pch.dia -c /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/OFQAJenkins/OFQAJenkins-Prefix.pch -o /var/folders/z4/_5960lb16vn37xr3zdjfz60w0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OFQAJenkins-Prefix-fgtytjdejxkvexfpswpaawovsblr/OFQAJenkins-Prefix.pch.pth -MMD -MT dependencies -MF /var/folders/z4/_5960lb16vn37xr3zdjfz60w0000gn/C/com.apple.Xcode.501/SharedPrecompiledHeaders/OFQAJenkins-Prefix-fgtytjdejxkvexfpswpaawovsblr/OFQAJenkins-Prefix.pch.d36"AC1B94EA-094C-4C04-A59B-0C083DB9E9D2-
-
-CTouch /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app
-s360118809.349932
-e360118809.355330
-r1
-xTouch
-x/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app
-lSLF05#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection94"Touch /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.appa3ae5919fa76b541^f9f65a19fa76b541^---0#0#0#--998"Touch build/Debug-iphonesimulator/OFQAJenkins.app    cd /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS    setenv PATH "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/usr/bin:/Applications/Xcode.app/Contents/Developer/usr/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/gems/ree-1.8.7-2010.02@global/bin:/Users/thunderzhulei/.rvm/rubies/ree-1.8.7-2010.02/bin:/Users/thunderzhulei/.rvm/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/Users/thunderzhulei/node_modules/coffee-script/bin:/Applications/Google Chrome.app/Contents/MacOS:/Users/thunderzhulei/phantomjs/bin/phantomjs.app/Contents/MacOS:/Users/thunderzhulei/Library/android-sdk-mac_x86/platform-tools:/Users/thunderzhulei/Library/android-sdk-mac_x86/tools:/usr/local/lib/node_modules/fibers/bin:/usr/local/Cellar/mongodb/2.0.2-x86_64/bin"    /usr/bin/touch -c /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/build/Debug-iphonesimulator/OFQAJenkins.app36"8E306670-09B2-4BBE-ACCB-51B95FD3A3B8-
-
