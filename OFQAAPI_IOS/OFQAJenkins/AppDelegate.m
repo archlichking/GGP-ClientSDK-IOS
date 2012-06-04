@@ -157,7 +157,7 @@
     NSString* runId = [configSettings valueForKey:@"run_id"]?[configSettings valueForKey:@"run_id"]: @"402"; 
     
     
-    NSLog(@"======================== load cases from Suite %@ ======", @"185");
+    NSLog(@"======================== load cases from Suite %@ ======", suiteId);
     [runnerWrapper emptyCaseWrappers];
     [runnerWrapper buildRunner:suiteId];
     
@@ -170,7 +170,7 @@
                                                                            object:runId] autorelease];
     [operationQueue addOperation:theOp];
     
-    NSLog(@"======================== update result for Run %@ ======", @"432");
+    NSLog(@"======================== update result for Run %@ ======", runId);
     
     
 }
