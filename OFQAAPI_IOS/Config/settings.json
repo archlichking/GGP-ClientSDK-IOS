@@ -1,7 +1,7 @@
 {
-    "tcmRetrievalUrl" : "http://tcm.openfeint.com/index.php?/miniapi/get_cases/",
+    "tcmRetrievalUrl" : "https://tcm.openfeint.com:443/index.php?/miniapi/get_cases/",
     "tcmKey" : "adfqet87983hiu783flkad09806g98adgk",
-    "tcmSubmitUrl": "http://tcm.openfeint.com/index.php?/miniapi/add_result_for_case/",
+    "tcmSubmitUrl": "https://tcm.openfeint.com:443/index.php?/miniapi/add_result_for_case/",
     
     "debugType": "file",
     "debugLocation": "",

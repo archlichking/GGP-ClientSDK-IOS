@@ -10,6 +10,9 @@
 #import "TestCase.h"
 #import "QALog.h"
 
+#import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
+
 @implementation TcmCommunicator
 
 @synthesize tcmKey;
@@ -28,40 +31,35 @@
 - (id) doHttpPost:(NSString*)url 
               params:(NSDictionary*)params{
     NSURL* rUrl = [NSURL URLWithString:url];
-    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:rUrl];
-    // set post params
-    [request setHTTPMethod:@"POST"];
-    NSData* postBody = [[NSString stringWithFormat:@"status_id=%@&comment=%@", [params objectForKey:@"status_id"], [params objectForKey:@"comment"]] dataUsingEncoding:NSUTF8StringEncoding];
-    [request setHTTPBody:postBody];
-    
-    NSHTTPURLResponse* response = [[[NSHTTPURLResponse alloc] init] autorelease];
-    NSError* error = [[[NSError alloc] init] autorelease];
-    NSData* result = [NSURLConnection sendSynchronousRequest:request 
-                                           returningResponse:&response 
-                                                       error:&error];
-    
-    if (response.statusCode < 200 || response.statusCode > 299) {
-        QALog(@"sb xcode, network error");
+
+    NSData* result = nil;
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:rUrl];
+    [request setPostValue:[params objectForKey:@"status_id"] forKey:@"status_id"];
+    [request setPostValue:[params objectForKey:@"comment"] forKey:@"comment"];
+    [request setValidatesSecureCertificate:NO];
+    [request startSynchronous];
+    NSError *error = [request error];
+    if (!error) {
+        result = [request responseData];
+    }else{
+        QALog(@"sb xcode, network error ===== %@", [error description]);
     }
+
     return result;
 }
 
 - (id) doHttpGet:(NSString*)url{
     NSURL* rUrl = [NSURL URLWithString:url];
-    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:rUrl];
+    NSData* result = nil;
     
-    [request setHTTPMethod:@"GET"];
-    
-    NSHTTPURLResponse* response = [[[NSHTTPURLResponse alloc] init] autorelease];
-    
-    NSError* error = [[[NSError alloc] init] autorelease];
-    
-    NSData* result = [NSURLConnection sendSynchronousRequest:request 
-                                           returningResponse:&response 
-                                                       error:&error];
-    
-    if (response.statusCode < 200 || response.statusCode > 299) {
-        QALog(@"sb xcode, network error");
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:rUrl];
+    [request setValidatesSecureCertificate:NO];
+    [request startSynchronous];
+    NSError *error = [request error];
+    if (!error) {
+        result = [request responseData];
+    }else{
+        QALog(@"sb xcode, network error ===== %@", [error description]);
     }
     return result;
 }
