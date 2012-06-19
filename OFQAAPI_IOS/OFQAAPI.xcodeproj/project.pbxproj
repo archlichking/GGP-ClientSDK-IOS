@@ -57,7 +57,7 @@
 		BA34F54615768F1C00EA1F50 /* ModerationStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA283D4B15341D960055981A /* ModerationStepDefinition.m */; };
 		BA34F54715768F1C00EA1F50 /* FriendCodeStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA09131B155C98D900EEFD4B /* FriendCodeStepDefinition.m */; };
 		BA34F54815768F1C00EA1F50 /* IgnorelistStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA72F48F1564572500DCB9B1 /* IgnorelistStepDefinition.m */; };
-		BA34F54F1576968100EA1F50 /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = BAB8182714FC759100AF18CD /* settings.json */; };
+		BA34F54F1576968100EA1F50 /* tcmsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BAB8182714FC759100AF18CD /* tcmsConfig.json */; };
 		BA34F55B1576996900EA1F50 /* TestCaseWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BA34F5531576986200EA1F50 /* TestCaseWrapper.m */; };
 		BA34F55D1576996900EA1F50 /* TestRunnerWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BA34F5571576989400EA1F50 /* TestRunnerWrapper.m */; };
 		BA34F56A15769B3400EA1F50 /* GreePlatformCoreResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA34F56715769B3400EA1F50 /* GreePlatformCoreResources.bundle */; };
@@ -150,6 +150,10 @@
 		BA894EC5152EDFAC0010B6A1 /* CommenStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA894EC4152EDFAC0010B6A1 /* CommenStepDefinition.m */; };
 		BA894EC9152EE00B0010B6A1 /* LeaderboardStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA894EC8152EE00A0010B6A1 /* LeaderboardStepDefinition.m */; };
 		BA96EC37150EFA5C00214FAD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA64CB70150DDF9200E8A9EE /* libz.dylib */; };
+		BA98F88C1590B83E00159287 /* 12697credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA98F88B1590B83E00159287 /* 12697credentialsConfig.json */; };
+		BA98F88D1590B83E00159287 /* 12697credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA98F88B1590B83E00159287 /* 12697credentialsConfig.json */; };
+		BA98F8921590C7D000159287 /* CredentialStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98F88F1590BB7400159287 /* CredentialStorage.m */; };
+		BA98F8931590C7EE00159287 /* CredentialStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = BA98F88E1590BB7400159287 /* CredentialStorage.h */; };
 		BAA80765150D96A6003A94E9 /* StepMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = BAA80763150D96A6003A94E9 /* StepMethod.h */; };
 		BAA80766150D96A6003A94E9 /* StepMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA80764150D96A6003A94E9 /* StepMethod.m */; };
 		BAA80775150DACF3003A94E9 /* failed_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA80774150DACF3003A94E9 /* failed_checked.png */; };
@@ -166,7 +170,7 @@
 		BAB2102D152D4C8A00177141 /* GreePlatformPortraitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAB2102A152D4C8A00177141 /* GreePlatformPortraitResources.bundle */; };
 		BAB21032152D4FC700177141 /* AchievementStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB21031152D4FC700177141 /* AchievementStepDefinition.m */; };
 		BAB8182814FC759100AF18CD /* debugCase.txt in Resources */ = {isa = PBXBuildFile; fileRef = BAB8182614FC759100AF18CD /* debugCase.txt */; };
-		BAB8182914FC759100AF18CD /* settings.json in Resources */ = {isa = PBXBuildFile; fileRef = BAB8182714FC759100AF18CD /* settings.json */; };
+		BAB8182914FC759100AF18CD /* tcmsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BAB8182714FC759100AF18CD /* tcmsConfig.json */; };
 		BAB8183014FC890900AF18CD /* TestRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = BAB8182E14FC890900AF18CD /* TestRunner.h */; };
 		BAB8183114FC890900AF18CD /* TestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB8182F14FC890900AF18CD /* TestRunner.m */; };
 		BAC432C3153FF6AC00C07E21 /* PeopleStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC432C2153FF6AC00C07E21 /* PeopleStepDefinition.m */; };
@@ -338,6 +342,9 @@
 		BA894EC4152EDFAC0010B6A1 /* CommenStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommenStepDefinition.m; path = steps/CommenStepDefinition.m; sourceTree = "<group>"; };
 		BA894EC7152EE00A0010B6A1 /* LeaderboardStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeaderboardStepDefinition.h; path = steps/LeaderboardStepDefinition.h; sourceTree = "<group>"; };
 		BA894EC8152EE00A0010B6A1 /* LeaderboardStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaderboardStepDefinition.m; path = steps/LeaderboardStepDefinition.m; sourceTree = "<group>"; };
+		BA98F88B1590B83E00159287 /* 12697credentialsConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = 12697credentialsConfig.json; path = Config/12697credentialsConfig.json; sourceTree = "<group>"; };
+		BA98F88E1590BB7400159287 /* CredentialStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CredentialStorage.h; path = core/util/CredentialStorage.h; sourceTree = "<group>"; };
+		BA98F88F1590BB7400159287 /* CredentialStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CredentialStorage.m; path = core/util/CredentialStorage.m; sourceTree = "<group>"; };
 		BAA80763150D96A6003A94E9 /* StepMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StepMethod.h; path = core/caze/step/StepMethod.h; sourceTree = "<group>"; };
 		BAA80764150D96A6003A94E9 /* StepMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StepMethod.m; path = core/caze/step/StepMethod.m; sourceTree = "<group>"; };
 		BAA80774150DACF3003A94E9 /* failed_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failed_checked.png; sourceTree = "<group>"; };
@@ -355,7 +362,7 @@
 		BAB21030152D4FC700177141 /* AchievementStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AchievementStepDefinition.h; path = steps/AchievementStepDefinition.h; sourceTree = "<group>"; };
 		BAB21031152D4FC700177141 /* AchievementStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AchievementStepDefinition.m; path = steps/AchievementStepDefinition.m; sourceTree = "<group>"; };
 		BAB8182614FC759100AF18CD /* debugCase.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = debugCase.txt; path = Config/debugCase.txt; sourceTree = "<group>"; };
-		BAB8182714FC759100AF18CD /* settings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = settings.json; path = Config/settings.json; sourceTree = "<group>"; };
+		BAB8182714FC759100AF18CD /* tcmsConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tcmsConfig.json; path = Config/tcmsConfig.json; sourceTree = "<group>"; };
 		BAB8182E14FC890900AF18CD /* TestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestRunner.h; path = core/caze/TestRunner.h; sourceTree = "<group>"; };
 		BAB8182F14FC890900AF18CD /* TestRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestRunner.m; path = core/caze/TestRunner.m; sourceTree = "<group>"; };
 		BAC432C1153FF6AC00C07E21 /* PeopleStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleStepDefinition.h; path = steps/PeopleStepDefinition.h; sourceTree = "<group>"; };
@@ -621,6 +628,8 @@
 				BAC468DE1500732200BA5BE4 /* Constant.m */,
 				BAC468E1150075A100BA5BE4 /* QALog.h */,
 				BAC468E2150075A100BA5BE4 /* QALog.m */,
+				BA98F88E1590BB7400159287 /* CredentialStorage.h */,
+				BA98F88F1590BB7400159287 /* CredentialStorage.m */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -786,7 +795,8 @@
 			isa = PBXGroup;
 			children = (
 				BAB8182614FC759100AF18CD /* debugCase.txt */,
-				BAB8182714FC759100AF18CD /* settings.json */,
+				BAB8182714FC759100AF18CD /* tcmsConfig.json */,
+				BA98F88B1590B83E00159287 /* 12697credentialsConfig.json */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -807,6 +817,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA98F8931590C7EE00159287 /* CredentialStorage.h in Headers */,
 				BA89095F14F75E6E00018B0F /* TcmCommunicator.h in Headers */,
 				BA78B5BF14F766B800C4D6FB /* NSObject+SBJson.h in Headers */,
 				BA78B5C114F766B800C4D6FB /* SBJson.h in Headers */,
@@ -953,10 +964,11 @@
 				BA34F56A15769B3400EA1F50 /* GreePlatformCoreResources.bundle in Resources */,
 				BA34F56B15769B3400EA1F50 /* GreePlatformLandscapeResources.bundle in Resources */,
 				BA34F56C15769B3400EA1F50 /* GreePlatformPortraitResources.bundle in Resources */,
-				BA34F54F1576968100EA1F50 /* settings.json in Resources */,
+				BA34F54F1576968100EA1F50 /* tcmsConfig.json in Resources */,
 				BA34F50015759ECC00EA1F50 /* InfoPlist.strings in Resources */,
 				BA34F50915759ECC00EA1F50 /* MainStoryboard_iPhone.storyboard in Resources */,
 				BA34F50C15759ECC00EA1F50 /* MainStoryboard_iPad.storyboard in Resources */,
+				BA98F88D1590B83E00159287 /* 12697credentialsConfig.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -970,10 +982,11 @@
 				BA78B60814F792A200C4D6FB /* InfoPlist.strings in Resources */,
 				BA78B61114F792A200C4D6FB /* MainStoryboard.storyboard in Resources */,
 				BAB8182814FC759100AF18CD /* debugCase.txt in Resources */,
-				BAB8182914FC759100AF18CD /* settings.json in Resources */,
+				BAB8182914FC759100AF18CD /* tcmsConfig.json in Resources */,
 				BA56CAD81505A3CC001ECED4 /* checked.png in Resources */,
 				BA56CADA1505A3FC001ECED4 /* unchecked.png in Resources */,
 				BAA80775150DACF3003A94E9 /* failed_checked.png in Resources */,
+				BA98F88C1590B83E00159287 /* 12697credentialsConfig.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1026,6 +1039,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA98F8921590C7D000159287 /* CredentialStorage.m in Sources */,
 				BA89095514F75D6100018B0F /* OFQAAPI.m in Sources */,
 				BA89096014F75E6E00018B0F /* TcmCommunicator.m in Sources */,
 				BA78B5C014F766B800C4D6FB /* NSObject+SBJson.m in Sources */,
@@ -1178,8 +1192,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OFQASample/OFQASample-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"/Users/thunderzhulei/ggplib_ios/sdk/source/core/authorization\"";
 				INFOPLIST_FILE = "OFQASample/OFQASample-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1198,8 +1214,10 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OFQASample/OFQASample-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"/Users/thunderzhulei/ggplib_ios/sdk/source/core/authorization\"";
 				INFOPLIST_FILE = "OFQASample/OFQASample-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

@@ -1,7 +1,2 @@
-Given I logged in with email auto3@163.com and password 123456
-Given I make sure my ignore list INCLUDE user 56994
-Given I make sure my ignore list INCLUDE user 56837
-When I load my ignore list
-Then my ignore list should be size of 2
-Then my ignore list should INCLUDE user 56994
-Then my ignore list should INCLUDE user 56837
+Given I switch to user auto3@163.com with password 123456
+Then print user

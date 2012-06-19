@@ -19,7 +19,6 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (retain) TestRunnerWrapper* runnerWrapper;
 
-- (NSData*) loadSettings;
-- (NSData*) loadDebugCase;
+- (NSData*) loadConfig:(NSString*) fname;
 
 @end
