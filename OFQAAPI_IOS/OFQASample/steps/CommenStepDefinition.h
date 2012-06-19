@@ -20,4 +20,9 @@
 
 - (void) as_android_automation_PARAM:(NSString*) anything;
 
+- (void) I_switch_to_user_PARAM:(NSString*) user 
+           _with_password_PARAM:(NSString*) pwd;
+
+- (void) print_user;
+
 @end

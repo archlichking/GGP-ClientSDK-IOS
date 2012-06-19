@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "TestRunnerWrapper.h"
 #import "CaseBuilderFactory.h"
+#import "CredentialStorage.h"
 
 
 #import "GreePlatformSettings.h"
@@ -25,10 +26,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    // to use debug case, switch to debugCase.txt
+    // to use tcm settings, switch to tcmConfig.txt
+    NSData* raw = [self loadConfig:@"debugCase.txt"];
     
-    NSData* raw = [self loadSettings];
+    NSData* rawCredential = [self loadConfig:@"12697credentialsconfig.json"];
+    [CredentialStorage initializeCredentialStorageWithAppid:@"12697" 
+                                                    andData:rawCredential];
+    
+    
+    
     runnerWrapper = [[TestRunnerWrapper alloc] initWithRawData:raw 
-                                                   builderType:[CaseBuilderFactory TCM_BUILDER]];
+                                                   builderType:[CaseBuilderFactory FILE_BUILDER]];
     
     
     // --------- GREE Platform initialization
@@ -44,9 +53,9 @@
         [NSClassFromString(@"WebView") performSelector:@selector(_enableRemoteInspector)];
     }
     
-    [GreePlatform initializeWithApplicationId:@"12697" 
-                                  consumerKey:@"3c47b530df23" 
-                               consumerSecret:@"c6958d092a3db174de86678f31d86d01" 
+    [GreePlatform initializeWithApplicationId:[[CredentialStorage sharedInstance] getValueForKey:CredentialStoredAppId] 
+                                  consumerKey:[[CredentialStorage sharedInstance] getValueForKey:CredentialStoredAppKey] 
+                               consumerSecret:[[CredentialStorage sharedInstance] getValueForKey:CredentialStoredAppSecret] 
                                      settings:settings
                                      delegate:self];
 //    [GreePlatform initializeWithApplicationId:@"11787" 
@@ -145,20 +154,10 @@
     // --------------
 }
 
-- (NSData*) loadSettings{
-    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"settings" ofType:@"json"];
-	if(![[NSFileManager defaultManager] fileExistsAtPath:filePath])
-	{
-		// OFLog(@"OFXmlReader: Expected xml file at path %@. Not Parsing.", filePath);
-        return nil;
-	}
-    NSFileHandle* file = [NSFileHandle fileHandleForReadingAtPath:filePath];
-    NSData* rawData = [file readDataToEndOfFile];
-    return rawData;
-}
-
-- (NSData*) loadDebugCase{
-    NSString* filePath = [[NSBundle mainBundle] pathForResource:@"debugCase" ofType:@"txt"];
+- (NSData*) loadConfig:(NSString*) fname{
+    NSArray* params = [fname componentsSeparatedByString:@"."];
+    NSString* filePath = [[NSBundle mainBundle] pathForResource:[params objectAtIndex:0]
+                                                         ofType:[params objectAtIndex:1]];
 	if(![[NSFileManager defaultManager] fileExistsAtPath:filePath])
 	{
 		// OFLog(@"OFXmlReader: Expected xml file at path %@. Not Parsing.", filePath);
