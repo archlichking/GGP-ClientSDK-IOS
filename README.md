@@ -6,6 +6,7 @@
    * Find OFQASample in your targets, click on "Build Settings" and search "Search Paths" in search box.
    * Set "Always Search User Paths" to "Yes".
    * Set GGP_SDK/release/includes in "User Header Search Paths".
+   * Set GGP_SDK/sdk/source/core/authorization in "Header Search Paths"
 4. Add linked library in Xcode:
    *Find OFQASample in your targets, click on "Build Phases" and "Link Binary With Libraries". 
    *Click on + icon, find libGreePlatform.a in GGP_SDK/release and add it here.
