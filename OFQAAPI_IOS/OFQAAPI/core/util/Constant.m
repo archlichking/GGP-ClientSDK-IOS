@@ -8,28 +8,12 @@
 
 #import "Constant.h"
 
+int const CaseResultFailed = 5;
+int const CaseResultRetested = 4;
+int const CaseResultPassed = 1;
+int const CaseResultUntested = 0;
+
 @implementation Constant
-
-static int FAILED = 5;
-static int RETESTED = 4;
-static int PASSED = 1;
-static int UNTESTED = 0;
-
-+ (int) FAILED{
-    return FAILED;
-}
-
-+ (int) RETESTED{
-    return RETESTED;
-}
-
-+ (int) PASSED{
-    return PASSED;
-}
-
-+ (int) UNTESTED{
-    return UNTESTED;
-}
 
 + (NSString*) getReadableResult:(int) res{
     NSString* ret;

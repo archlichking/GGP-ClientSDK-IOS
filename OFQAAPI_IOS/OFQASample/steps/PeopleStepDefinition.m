@@ -11,6 +11,7 @@
 #import "GreeUser.h"
 #import "GreePlatform.h"
 
+#import "StringUtil.h"
 #import "QAAssert.h"
 
 @implementation PeopleStepDefinition
@@ -54,73 +55,120 @@
 }
 
 // step definition : my displayName should be PLAYER_NAME
-- (void) my_info_PARAM:(NSString*) key _should_be_PARAM:(NSString*) value{
+- (NSString*) my_info_PARAM:(NSString*) key _should_be_PARAM:(NSString*) value{
     GreeUser* user = [[self getBlockRepo] objectForKey:@"user"];
-    
+    NSString* result = @"";
     if (user) {
         if ([key isEqualToString:@"displayName"]) {
             [QAAssert assertEqualsExpected:value 
                                     Actual:[user displayName]];
+            result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
+                      key, 
+                      value, 
+                      [user displayName], 
+                      SpliterTcmLine];
         }
         else if([key isEqualToString:@"id"]){
             [QAAssert assertEqualsExpected:value 
                                     Actual:[user userId]];
+            result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
+                      key, 
+                      value, 
+                      [user userId],
+                      SpliterTcmLine];
             
         }
         else if([key isEqualToString:@"userGrade"]){
             [QAAssert assertEqualsExpected:value 
                                     Actual:[NSString stringWithFormat:@"%i", [user userGrade]]];
-            
+            result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+                      key, 
+                      value, 
+                      [NSString stringWithFormat:@"%i", [user userGrade]],
+                      SpliterTcmLine];
         }
         else if([key isEqualToString:@"region"]){
             [QAAssert assertEqualsExpected:value 
                                     Actual:[user region]];
-            
+            result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+                      key, 
+                      value, 
+                      [user region],
+                      SpliterTcmLine];
         }
         else if([key isEqualToString:@"subregion"]){
             [QAAssert assertEqualsExpected:value 
                                     Actual:[user subRegion]];
-            
+            result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+                      key, 
+                      value, 
+                      [user subRegion],
+                      SpliterTcmLine];
         }
         else if([key isEqualToString:@"birthday"]){
             [QAAssert assertEqualsExpected:value 
                                     Actual:[user birthday]];
-            
+            result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+                      key, 
+                      value, 
+                      [user birthday],
+                      SpliterTcmLine];
         }
         else if([key isEqualToString:@"aboutMe"]){
             [QAAssert assertEqualsExpected:value 
                                     Actual:[user aboutMe]];
-            
+            result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+                      key, 
+                      value, 
+                      [user aboutMe],
+                      SpliterTcmLine];
         }
         else if([key isEqualToString:@"language"]){
             [QAAssert assertEqualsExpected:value 
                                     Actual:[user language]];
-            
+            result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+                      key, 
+                      value, 
+                      [user language],
+                      SpliterTcmLine];
         }
         else if([key isEqualToString:@"timezone"]){
             [QAAssert assertEqualsExpected:value 
                                     Actual:[user timeZone]];
-            
+            result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+                      key, 
+                      value, 
+                      [user timeZone],
+                      SpliterTcmLine];
         }
         else if([key isEqualToString:@"bloodType"]){
             [QAAssert assertEqualsExpected:value 
                                     Actual:[user bloodType]];
-            
+            result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+                      key, 
+                      value, 
+                      [user bloodType],
+                      SpliterTcmLine];
         }
         else if([key isEqualToString:@"age"]){
             [QAAssert assertEqualsExpected:value 
                                     Actual:[user age]];
-            
+            result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+                      key, 
+                      value, 
+                      [user age],
+                      SpliterTcmLine];
         }
         else{
             [QAAssert assertEqualsExpected:nil 
                                     Actual:key
                                WithMessage:@"no key matched"];
         }
-        return;
+        return result;
     }
     [QAAssert assertEqualsExpected:value
                             Actual:nil];
+    return nil;
     
 }
 
@@ -156,44 +204,47 @@
 }
 
 // step definition : friend list should be size of NUMBER
-- (void) friend_list_should_be_size_of_PARAMINT:(NSString*) size{
+- (NSString*) friend_list_should_be_size_of_PARAMINT:(NSString*) size{
     NSArray* friends = [[self getBlockRepo] objectForKey:@"friends"];
     [QAAssert assertEqualsExpected:size 
                             Actual:[NSString stringWithFormat:@"%i", [friends count]]];
+    return @"";
 }
 
 // step definition :  friend list should have USER_1
-- (void) friend_list_should_have_PARAM:(NSString*) person{
+- (NSString*) friend_list_should_have_PARAM:(NSString*) person{
     NSArray* friends = [[self getBlockRepo] objectForKey:@"friends"];
     for (GreeUser* f in friends) {
         if ([[f displayName] isEqualToString:person]) {
             [QAAssert assertEqualsExpected:@"TRUE" 
                                     Actual:@"TRUE"];
-            return;
+             return @"";
         }
     }
     [QAAssert assertEqualsExpected:person
                             Actual:nil
                        WithMessage:@"no person matches"];
+    return nil;
     
 }
 
-- (void) friend_list_should_not_have_PARAM:(NSString*) person{
+- (NSString*) friend_list_should_not_have_PARAM:(NSString*) person{
     NSArray* friends = [[self getBlockRepo] objectForKey:@"friends"];
     for (GreeUser* f in friends) {
         if ([[f displayName] isEqualToString:person]) {
             [QAAssert assertEqualsExpected:@"FALSE" 
                                     Actual:@"TRUE"
                                WithMessage:@"Friend found!!!"];
-            return;
+            return @"";
         }
     }
     [QAAssert assertEqualsExpected:@"TRUE"
                             Actual:@"TRUE"];
+    return nil;
 }
 
 // step definition : userid of USER_1 should be USER_ID and grade should be GRADE
-- (void) userid_of_PARAM:(NSString*) person
+- (NSString*) userid_of_PARAM:(NSString*) person
         _should_be_PARAM:(NSString*) userid _and_grade_should_be_PARAMINT:(NSString*) grade{
     NSArray* friends = [[self getBlockRepo] objectForKey:@"friends"];
     for (GreeUser* f in friends) {
@@ -202,12 +253,13 @@
                                     Actual:[f userId]];
             [QAAssert assertEqualsExpected:[NSString stringWithFormat:@"%i", [f userGrade]] 
                                     Actual:grade];
-            return;
+             return @"";
         }
     }
     [QAAssert assertEqualsExpected:person
                             Actual:nil
                        WithMessage:@"no person matches"];
+    return nil;
 }
 
 

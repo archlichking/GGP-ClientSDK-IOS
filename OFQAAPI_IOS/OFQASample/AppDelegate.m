@@ -27,8 +27,8 @@
 {
     // Override point for customization after application launch.
     // to use debug case, switch to debugCase.txt
-    // to use tcm settings, switch to tcmConfig.txt
-    NSData* raw = [self loadConfig:@"debugCase.txt"];
+    // to use tcm settings, switch to tcmsConfig.json
+    NSData* rawData = [self loadConfig:@"tcmsConfig.json"];
     
     NSData* rawCredential = [self loadConfig:@"12697credentialsconfig.json"];
     [CredentialStorage initializeCredentialStorageWithAppid:@"12697" 
@@ -36,8 +36,8 @@
     
     
     
-    runnerWrapper = [[TestRunnerWrapper alloc] initWithRawData:raw 
-                                                   builderType:[CaseBuilderFactory FILE_BUILDER]];
+    runnerWrapper = [[TestRunnerWrapper alloc] initWithRawData:rawData 
+                                                   builderType:[CaseBuilderFactory TCM_BUILDER]];
     
     
     // --------- GREE Platform initialization

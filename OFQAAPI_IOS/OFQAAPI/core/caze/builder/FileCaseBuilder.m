@@ -51,7 +51,7 @@
 
 - (TestCase*) buildFromDebugFile{
     NSArray* rawCase = [StringUtil splitStepsFrom:[self caseRaw] 
-                                               by:[StringUtil FILE_LINE_SPLITER]];
+                                               by:SpliterFileLine];
     
         // transfer String[] to Step[]
     
@@ -70,14 +70,14 @@
     @catch (NoCommandMatchException* exception) {
         QALog(@"one step doesnt begin with keyword for case [%@]", [rawCase valueForKey:@"title"]);
         [tc setIsExecuted:true];
-        [tc setResult:[Constant FAILED]];
+        [tc setResult:CaseResultFailed];
         [tc setResultComment:@"probably one or two step is not started with keywords"];
     }
     @catch (NoSuchStepException *exception) {
         // no step found in
         QALog(@"no full steps defined for case [%@]", [rawCase valueForKey:@"title"]);
         [tc setIsExecuted:true];
-        [tc setResult:[Constant FAILED]];
+        [tc setResult:CaseResultFailed];
         [tc setResultComment:@"probably one or two step is not defined"];
     }
     

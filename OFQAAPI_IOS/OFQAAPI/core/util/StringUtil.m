@@ -11,17 +11,10 @@
 #import "NoCommandMatchException.h"
 #import "QALog.h"
 
+NSString* const SpliterFileLine = @"\n";
+NSString* const SpliterTcmLine = @"\r\n";
+
 @implementation StringUtil
-
-static NSString* FILE_LINE_SPLITER = @"\n";
-static NSString* TCM_LINE_SPLITER = @"\r\n";
-
-+ (NSString*) FILE_LINE_SPLITER{
-    return FILE_LINE_SPLITER;
-}
-+ (NSString*) TCM_LINE_SPLITER{
-    return TCM_LINE_SPLITER;
-}
 
 + (NSArray*) splitStepsFrom:(NSString*) raw
                          by:(NSString*) spliter{
@@ -41,12 +34,12 @@ static NSString* TCM_LINE_SPLITER = @"\r\n";
     int i = 0;
     while(i<unfilteredRawCase.count) {
         NSString* s = [unfilteredRawCase objectAtIndex:i];
-        if ([s hasPrefix:[CommandUtil GIVEN_FILTER]] 
-            || [s hasPrefix:[CommandUtil WHEN_FILTER]] 
-            || [s hasPrefix:[CommandUtil THEN_FILTER]]
-            || [s hasPrefix:[CommandUtil AND_FILTER]]
-            || [s hasPrefix:[CommandUtil BEFORE_FILTER]]
-            || [s hasPrefix:[CommandUtil AFTER_FILTER]]) {
+        if ([s hasPrefix:CommandGiven] 
+            || [s hasPrefix:CommandWhen] 
+            || [s hasPrefix:CommandThen]
+            || [s hasPrefix:CommandAnd]
+            || [s hasPrefix:CommandBefore]
+            || [s hasPrefix:CommandAfter]) {
             i++;
             continue; 
         }else{

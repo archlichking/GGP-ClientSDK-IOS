@@ -8,13 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString* const CommandGiven;
+extern NSString* const CommandWhen;
+extern NSString* const CommandThen;
+extern NSString* const CommandAnd;
+extern NSString* const CommandAfter;
+extern NSString* const CommandBefore;
+
 @interface CommandUtil : NSObject
-
-+ (NSString*) GIVEN_FILTER;
-+ (NSString*) WHEN_FILTER;
-+ (NSString*) THEN_FILTER;
-+ (NSString*) AND_FILTER;
-+ (NSString*) AFTER_FILTER;
-+ (NSString*) BEFORE_FILTER;
-
 @end

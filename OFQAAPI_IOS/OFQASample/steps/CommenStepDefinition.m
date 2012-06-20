@@ -29,6 +29,7 @@
                   _and_password_PARAM:(NSString*) password{
     // do nothing here
     //[self notify];
+//    return @"";
 }
 
 - (void) as_server_automation_PARAM:(NSString*) anything{

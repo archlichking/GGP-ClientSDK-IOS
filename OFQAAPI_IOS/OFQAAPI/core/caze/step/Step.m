@@ -43,7 +43,7 @@
 
 - (StepResult*) invoke{
     // set wait mark for notification
-    int result = [Constant FAILED];
+    int result = CaseResultFailed;
     NSString* resultComment = @"";
     @try {
         // step 0: set target
@@ -60,7 +60,13 @@
         QALog(@"invoking [%@]", [self command]);
         [[self refMethodInvocation] invoke];
         // step 4: set result
-        result = [Constant PASSED];
+        NSString* returnType = [NSString stringWithCString:[[[self refMethodInvocation] methodSignature] methodReturnType] 
+                                                  encoding:NSUTF8StringEncoding];
+        if (![returnType isEqualToString:@"v"]) {
+            // has return value
+            [[self refMethodInvocation] getReturnValue:&resultComment];
+        }
+        result = CaseResultPassed;
     }
     @catch (AssertException *exception) {
         resultComment = [resultComment stringByAppendingFormat:@"%@ ==> %@", [self command], [exception reason]];

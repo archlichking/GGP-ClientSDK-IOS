@@ -20,7 +20,7 @@
 - (id)initWithTestCase:(TestCase*) testCase{
     [self setCId:[[testCase caseId] intValue]];
     [self setIsSelected:false];
-    [self setResult:[Constant getReadableResult: [Constant UNTESTED]]];
+    [self setResult:[Constant getReadableResult:CaseResultUntested]];
     [self setTc:testCase];
     return self;
 }

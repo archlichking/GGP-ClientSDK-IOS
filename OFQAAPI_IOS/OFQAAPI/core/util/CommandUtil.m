@@ -8,33 +8,12 @@
 
 #import "CommandUtil.h"
 
+NSString* const CommandGiven = @"Given";
+NSString* const CommandWhen = @"When";
+NSString* const CommandThen = @"Then";
+NSString* const CommandAnd = @"And";
+NSString* const CommandAfter = @"After";
+NSString* const CommandBefore = @"Before";
+
 @implementation CommandUtil
-
-static NSString* GIVEN_FILTER = @"Given";
-static NSString* WHEN_FILTER = @"When";
-static NSString* THEN_FILTER = @"Then";
-static NSString* AND_FILTER = @"And";
-static NSString* AFTER_FILTER = @"After";
-static NSString* BEFORE_FILTER = @"Before";
-
-+ (NSString*) GIVEN_FILTER{
-    return GIVEN_FILTER;
-}
-+ (NSString*) WHEN_FILTER{
-    return WHEN_FILTER;
-}
-+ (NSString*) THEN_FILTER{
-    return THEN_FILTER;
-}
-+ (NSString*) AND_FILTER{
-    return AND_FILTER;
-}
-
-+ (NSString*) AFTER_FILTER{
-    return AFTER_FILTER;
-}
-+ (NSString*) BEFORE_FILTER{
-    return BEFORE_FILTER;
-}
-
 @end

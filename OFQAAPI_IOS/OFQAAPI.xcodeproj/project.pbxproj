@@ -933,7 +933,7 @@
 		BA89094214F75D6100018B0F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = BA89094514F75D6100018B0F /* Build configuration list for PBXProject "OFQAAPI" */;
 			compatibilityVersion = "Xcode 3.2";
