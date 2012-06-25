@@ -18,7 +18,9 @@
 // private hacking to update local user
 @interface GreePlatform(PrivateUserHacking)
 - (void)updateLocalUser:(GreeUser*)user;
-- (void)authorizeDidUpdateUserId:(NSString*)userId withToken:(NSString*)token withSecret:(NSString*)secret;
+- (void)authorizeDidUpdateUserId:(NSString*)userId 
+                       withToken:(NSString*)token 
+                      withSecret:(NSString*)secret;
 @property (nonatomic, retain) GreeUser* localUser;
 @end
 
