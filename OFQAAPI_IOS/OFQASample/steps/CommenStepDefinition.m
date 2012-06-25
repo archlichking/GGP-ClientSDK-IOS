@@ -18,6 +18,7 @@
 // private hacking to update local user
 @interface GreePlatform(PrivateUserHacking)
 - (void)updateLocalUser:(GreeUser*)user;
+- (void)authorizeDidUpdateUserId:(NSString*)userId withToken:(NSString*)token withSecret:(NSString*)secret;
 @property (nonatomic, retain) GreeUser* localUser;
 @end
 
@@ -29,6 +30,7 @@
                   _and_password_PARAM:(NSString*) password{
     // do nothing here
     //[self notify];
+//    return @"";
 }
 
 - (void) as_server_automation_PARAM:(NSString*) anything{
@@ -57,6 +59,9 @@
         
     [GreeUser loadUserWithId:[credentialDic objectForKey:CredentialStoredUserid] block:^(GreeUser *user, NSError *error) {
         [[GreePlatform sharedInstance] updateLocalUser:user];
+        [[GreePlatform sharedInstance] authorizeDidUpdateUserId:[credentialDic objectForKey:CredentialStoredUserid] 
+                                                      withToken:[credentialDic objectForKey:CredentialStoredOauthKey] 
+                                                     withSecret:[credentialDic objectForKey:CredentialStoredOauthSecret]];
         [self notifyInStep];
     }];
     [self waitForInStep];
@@ -66,6 +71,11 @@
 
 - (void) print_user{
     NSLog(@"%@", [[GreePlatform sharedInstance] localUser]);
+    [GreeUser loadUserWithId:@"@me" block:^(GreeUser *user, NSError *error) {
+        if (!error) {
+            NSLog(@"%@", user);
+        }
+    }];
 }
 
 

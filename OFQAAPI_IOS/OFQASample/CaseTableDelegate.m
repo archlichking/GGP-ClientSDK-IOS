@@ -43,7 +43,7 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     if ([tw isSelected]) {
-        if ([[tw tc] result] == [Constant FAILED]) {
+        if ([[tw tc] result] == CaseResultFailed) {
             cell.imageView.image = failed_checked;
         }else{
             cell.imageView.image = checked;

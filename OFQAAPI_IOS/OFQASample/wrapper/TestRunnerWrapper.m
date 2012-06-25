@@ -181,7 +181,7 @@
             // select failed
             for (int i=0; i<caseWrappers.count; i++) {
                 TestCaseWrapper* tcw = [caseWrappers objectAtIndex:i];
-                if ([[tcw result] isEqualToString:[Constant getReadableResult:[Constant FAILED]]]) {
+                if ([[tcw result] isEqualToString:[Constant getReadableResult:CaseResultFailed]]) {
                     [[caseWrappers objectAtIndex:i] setIsSelected:true];
                 }else {
                      [[caseWrappers objectAtIndex:i] setIsSelected:false];

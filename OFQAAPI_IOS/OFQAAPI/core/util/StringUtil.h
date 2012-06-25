@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 
 
-@interface StringUtil : NSObject
+extern NSString* const SpliterFileLine;
+extern NSString* const SpliterTcmLine;
 
-+ (NSString*) FILE_LINE_SPLITER;
-+ (NSString*) TCM_LINE_SPLITER;
+@interface StringUtil : NSObject
 
 + (NSArray*) splitStepsFrom:(NSString*) raw by:(NSString*) spliter;
 + (NSArray*) extractStepsFrom:(NSArray*) rawCase;

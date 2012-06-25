@@ -73,7 +73,7 @@
         NSDictionary* rawCase = [rawCases objectAtIndex:i];
         
         NSArray* rawStepsJson = [StringUtil splitStepsFrom:[rawCase valueForKey:@"custom_steps"] 
-                                                    by:[StringUtil TCM_LINE_SPLITER]];
+                                                    by:SpliterTcmLine];
         
         NSString* tid= [[rawCase valueForKey:@"id"] stringValue];
         TestCase* tc = [[[TestCase alloc] initWithId:tid 
@@ -91,7 +91,7 @@
         @catch (NoCommandMatchException* exception) {
             QALog(@"one step doesnt begin with keyword for case [%@]", [rawCase valueForKey:@"title"]);
             [tc setIsExecuted:true];
-            [tc setResult:[Constant UNTESTED]];
+            [tc setResult:CaseResultUntested];
             [tc setResultComment:@"probably one or two step is not started with keywords"];
             continue;
         }
@@ -99,7 +99,7 @@
             // no step found in
             QALog(@"no full steps defined for case [%@]", [rawCase valueForKey:@"title"]);
             [tc setIsExecuted:true];
-            [tc setResult:[Constant UNTESTED]];
+            [tc setResult:CaseResultUntested];
             [tc setResultComment:@"probably one or two step is not defined"];
             continue;
         }

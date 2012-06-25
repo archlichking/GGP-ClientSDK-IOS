@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		BA09131C155C98D900EEFD4B /* FriendCodeStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA09131B155C98D900EEFD4B /* FriendCodeStepDefinition.m */; };
+		BA19E8BD15980E1000EDD94B /* 11787credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA19E8BC15980E1000EDD94B /* 11787credentialsConfig.json */; };
+		BA19E8BE15980E1000EDD94B /* 11787credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA19E8BC15980E1000EDD94B /* 11787credentialsConfig.json */; };
 		BA20766F14FB58E800293C3C /* FileCaseBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = BA20766D14FB58E800293C3C /* FileCaseBuilder.h */; };
 		BA20767014FB58E800293C3C /* FileCaseBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = BA20766E14FB58E800293C3C /* FileCaseBuilder.m */; };
 		BA20767414FB5A5500293C3C /* StringUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = BA20767214FB5A5500293C3C /* StringUtil.h */; };
@@ -209,6 +211,7 @@
 /* Begin PBXFileReference section */
 		BA09131A155C98D900EEFD4B /* FriendCodeStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendCodeStepDefinition.h; path = steps/FriendCodeStepDefinition.h; sourceTree = "<group>"; };
 		BA09131B155C98D900EEFD4B /* FriendCodeStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendCodeStepDefinition.m; path = steps/FriendCodeStepDefinition.m; sourceTree = "<group>"; };
+		BA19E8BC15980E1000EDD94B /* 11787credentialsConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = 11787credentialsConfig.json; path = Config/11787credentialsConfig.json; sourceTree = "<group>"; };
 		BA20766D14FB58E800293C3C /* FileCaseBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileCaseBuilder.h; path = core/caze/builder/FileCaseBuilder.h; sourceTree = "<group>"; };
 		BA20766E14FB58E800293C3C /* FileCaseBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileCaseBuilder.m; path = core/caze/builder/FileCaseBuilder.m; sourceTree = "<group>"; };
 		BA20767214FB5A5500293C3C /* StringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StringUtil.h; path = core/util/StringUtil.h; sourceTree = "<group>"; };
@@ -797,6 +800,7 @@
 				BAB8182614FC759100AF18CD /* debugCase.txt */,
 				BAB8182714FC759100AF18CD /* tcmsConfig.json */,
 				BA98F88B1590B83E00159287 /* 12697credentialsConfig.json */,
+				BA19E8BC15980E1000EDD94B /* 11787credentialsConfig.json */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -933,7 +937,7 @@
 		BA89094214F75D6100018B0F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 			};
 			buildConfigurationList = BA89094514F75D6100018B0F /* Build configuration list for PBXProject "OFQAAPI" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -969,6 +973,7 @@
 				BA34F50915759ECC00EA1F50 /* MainStoryboard_iPhone.storyboard in Resources */,
 				BA34F50C15759ECC00EA1F50 /* MainStoryboard_iPad.storyboard in Resources */,
 				BA98F88D1590B83E00159287 /* 12697credentialsConfig.json in Resources */,
+				BA19E8BE15980E1000EDD94B /* 11787credentialsConfig.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -987,6 +992,7 @@
 				BA56CADA1505A3FC001ECED4 /* unchecked.png in Resources */,
 				BAA80775150DACF3003A94E9 /* failed_checked.png in Resources */,
 				BA98F88C1590B83E00159287 /* 12697credentialsConfig.json in Resources */,
+				BA19E8BD15980E1000EDD94B /* 11787credentialsConfig.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -29,7 +29,7 @@
         [self setCaseId:cId];
         [self setTitle:cTitle];
         [self setSteps:cSteps];
-        [self setResult:[Constant PASSED]];
+        [self setResult:CaseResultPassed];
         [self setResultComment:@""];
         [self setIsExecuted:false];
     }
@@ -41,7 +41,7 @@
     if (self = [super init]) {
         [self setCaseId:cId];
         [self setTitle:cTitle];
-        [self setResult:[Constant PASSED]];
+        [self setResult:CaseResultPassed];
         [self setResultComment:@""];
         [self setIsExecuted:false];
     }
@@ -52,7 +52,7 @@
     QALog(@"============= launching case of [id: %@, title: %@] =============", [self caseId], [self title]);
     if(steps.count == 0){
         //no steps
-        [self setResult:[Constant RETESTED]];
+        [self setResult:CaseResultRetested];
         [self setResultComment: @"No Step Found for this case, maybe a parse error, need retested"];
         QALog(@"No Step Found for this case, maybe a parse error, need retested");
     }else{
@@ -63,7 +63,7 @@
             result = result | [r result];
             if (![[r comment] isEqualToString:@""]) {
                 // step invocation error occurs
-                [self setResultComment:[resultComment stringByAppendingFormat:@"%@ %@", [r comment], [StringUtil FILE_LINE_SPLITER]]];
+                [self setResultComment:[resultComment stringByAppendingFormat:@"%@ %@", [r comment], SpliterFileLine]];
             }
         }
     }

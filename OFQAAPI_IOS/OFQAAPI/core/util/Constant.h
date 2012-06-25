@@ -8,12 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Constant : NSObject
+extern int const CaseResultFailed;
+extern int const CaseResultRetested;
+extern int const CaseResultPassed;
+extern int const CaseResultUntested;
 
-+ (int) FAILED;
-+ (int) RETESTED;
-+ (int) PASSED;
-+ (int) UNTESTED;
+@interface Constant : NSObject
 
 + (NSString*) getReadableResult:(int) res;
 
