@@ -110,6 +110,8 @@
 		BA717A6215984A9E008DA307 /* ASIProgressDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = BA717A4C15984A9E008DA307 /* ASIProgressDelegate.h */; };
 		BA717A6315984A9E008DA307 /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = BA717A4D15984A9E008DA307 /* Reachability.h */; };
 		BA717A6415984A9E008DA307 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BA717A4E15984A9E008DA307 /* Reachability.m */; };
+		BA717A811598532D008DA307 /* 15199credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA717A801598532D008DA307 /* 15199credentialsConfig.json */; };
+		BA717A821598532D008DA307 /* 15199credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA717A801598532D008DA307 /* 15199credentialsConfig.json */; };
 		BA72F4901564572500DCB9B1 /* IgnorelistStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA72F48F1564572500DCB9B1 /* IgnorelistStepDefinition.m */; };
 		BA78B5BF14F766B800C4D6FB /* NSObject+SBJson.h in Headers */ = {isa = PBXBuildFile; fileRef = BA78B5A614F766B800C4D6FB /* NSObject+SBJson.h */; };
 		BA78B5C014F766B800C4D6FB /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = BA78B5A714F766B800C4D6FB /* NSObject+SBJson.m */; };
@@ -293,6 +295,7 @@
 		BA717A4C15984A9E008DA307 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIProgressDelegate.h; path = OFQAAPI/vendor/ASIProgressDelegate.h; sourceTree = "<group>"; };
 		BA717A4D15984A9E008DA307 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = OFQAAPI/vendor/Reachability.h; sourceTree = "<group>"; };
 		BA717A4E15984A9E008DA307 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = OFQAAPI/vendor/Reachability.m; sourceTree = "<group>"; };
+		BA717A801598532D008DA307 /* 15199credentialsConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = 15199credentialsConfig.json; path = Config/15199credentialsConfig.json; sourceTree = "<group>"; };
 		BA72F48E1564572500DCB9B1 /* IgnorelistStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IgnorelistStepDefinition.h; path = steps/IgnorelistStepDefinition.h; sourceTree = "<group>"; };
 		BA72F48F1564572500DCB9B1 /* IgnorelistStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IgnorelistStepDefinition.m; path = steps/IgnorelistStepDefinition.m; sourceTree = "<group>"; };
 		BA78B5A614F766B800C4D6FB /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SBJson.h"; path = "core/util/json/NSObject+SBJson.h"; sourceTree = "<group>"; };
@@ -801,6 +804,7 @@
 				BAB8182714FC759100AF18CD /* tcmsConfig.json */,
 				BA98F88B1590B83E00159287 /* 12697credentialsConfig.json */,
 				BA19E8BC15980E1000EDD94B /* 11787credentialsConfig.json */,
+				BA717A801598532D008DA307 /* 15199credentialsConfig.json */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -974,6 +978,7 @@
 				BA34F50C15759ECC00EA1F50 /* MainStoryboard_iPad.storyboard in Resources */,
 				BA98F88D1590B83E00159287 /* 12697credentialsConfig.json in Resources */,
 				BA19E8BE15980E1000EDD94B /* 11787credentialsConfig.json in Resources */,
+				BA717A821598532D008DA307 /* 15199credentialsConfig.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -993,6 +998,7 @@
 				BAA80775150DACF3003A94E9 /* failed_checked.png in Resources */,
 				BA98F88C1590B83E00159287 /* 12697credentialsConfig.json in Resources */,
 				BA19E8BD15980E1000EDD94B /* 11787credentialsConfig.json in Resources */,
+				BA717A811598532D008DA307 /* 15199credentialsConfig.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
