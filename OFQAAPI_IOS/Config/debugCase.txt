@@ -1,2 +1,2 @@
-Given I switch to user auto3@163.com with password 123456
+Given I switch to user auto4@136.com with password 123456
 Then print user
