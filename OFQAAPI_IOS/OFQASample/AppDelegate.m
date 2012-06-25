@@ -18,26 +18,36 @@
 #import "GreeAchievement.h"
 #import "GreePlatform.h"
 
+
+
 @implementation AppDelegate
 
 @synthesize window = _window;
 @synthesize runnerWrapper;
+
+static NSString* APPID = @"12697";
+//static NSString* APPID = @"11787";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     // to use debug case, switch to debugCase.txt
     // to use tcm settings, switch to tcmsConfig.json
-    NSData* rawData = [self loadConfig:@"tcmsConfig.json"];
+    NSData* rawData = [self loadConfig:@"debugCase.txt"];
     
-    NSData* rawCredential = [self loadConfig:@"12697credentialsconfig.json"];
-    [CredentialStorage initializeCredentialStorageWithAppid:@"12697" 
+    
+    // just change APPID
+    NSString* appconf = [NSString stringWithFormat:@"%@credentialsconfig.json", APPID];
+    
+    
+    NSData* rawCredential = [self loadConfig:appconf];
+    [CredentialStorage initializeCredentialStorageWithAppid:APPID 
                                                     andData:rawCredential];
     
     
     
     runnerWrapper = [[TestRunnerWrapper alloc] initWithRawData:rawData 
-                                                   builderType:[CaseBuilderFactory TCM_BUILDER]];
+                                                   builderType:[CaseBuilderFactory FILE_BUILDER]];
     
     
     // --------- GREE Platform initialization
