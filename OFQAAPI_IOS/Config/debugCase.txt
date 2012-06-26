@@ -1,3 +1,3 @@
 Given I logged in with email auto3@136.com and password 123456
-When I test network access to host http://www.baidu.com
-Then access should be OK
+When I check basic platform info
+Then platform info should be correct

@@ -34,7 +34,7 @@ static NSString* APPID = @"15199";
     // Override point for customization after application launch.
     // to use debug case, switch to debugCase.txt
     // to use tcm settings, switch to tcmsConfig.json
-    NSData* rawData = [self loadConfig:@"tcmsConfig.json"];
+    NSData* rawData = [self loadConfig:@"debugCase.txt"];
     
     
     // just change APPID
@@ -48,7 +48,7 @@ static NSString* APPID = @"15199";
     
     
     runnerWrapper = [[TestRunnerWrapper alloc] initWithRawData:rawData 
-                                                   builderType:[CaseBuilderFactory TCM_BUILDER]];
+                                                   builderType:[CaseBuilderFactory FILE_BUILDER]];
     
     
     // --------- GREE Platform initialization
