@@ -30,6 +30,7 @@
 #import "ModerationStepDefinition.h"
 #import "FriendCodeStepDefinition.h"
 #import "IgnorelistStepDefinition.h"
+#import "NetworkStepDefinition.h"
 //#import "PaymentStepDefinition.h"
 
 
@@ -56,6 +57,7 @@
                                class_createInstance([ModerationStepDefinition class], 0),
                                class_createInstance([FriendCodeStepDefinition class], 0),
                                class_createInstance([IgnorelistStepDefinition class], 0),
+                               class_createInstance([NetworkStepDefinition class], 0),
                                nil];
 
         StepHolder* holder = [[StepHolder alloc] init];

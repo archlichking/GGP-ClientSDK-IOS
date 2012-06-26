@@ -113,6 +113,8 @@
 		BA717A811598532D008DA307 /* 15199credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA717A801598532D008DA307 /* 15199credentialsConfig.json */; };
 		BA717A821598532D008DA307 /* 15199credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA717A801598532D008DA307 /* 15199credentialsConfig.json */; };
 		BA72F4901564572500DCB9B1 /* IgnorelistStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA72F48F1564572500DCB9B1 /* IgnorelistStepDefinition.m */; };
+		BA765684159992C80032120A /* NetworkStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA765683159992C80032120A /* NetworkStepDefinition.m */; };
+		BA765685159992C80032120A /* NetworkStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA765683159992C80032120A /* NetworkStepDefinition.m */; };
 		BA78B5BF14F766B800C4D6FB /* NSObject+SBJson.h in Headers */ = {isa = PBXBuildFile; fileRef = BA78B5A614F766B800C4D6FB /* NSObject+SBJson.h */; };
 		BA78B5C014F766B800C4D6FB /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = BA78B5A714F766B800C4D6FB /* NSObject+SBJson.m */; };
 		BA78B5C114F766B800C4D6FB /* SBJson.h in Headers */ = {isa = PBXBuildFile; fileRef = BA78B5A814F766B800C4D6FB /* SBJson.h */; };
@@ -298,6 +300,8 @@
 		BA717A801598532D008DA307 /* 15199credentialsConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = 15199credentialsConfig.json; path = Config/15199credentialsConfig.json; sourceTree = "<group>"; };
 		BA72F48E1564572500DCB9B1 /* IgnorelistStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IgnorelistStepDefinition.h; path = steps/IgnorelistStepDefinition.h; sourceTree = "<group>"; };
 		BA72F48F1564572500DCB9B1 /* IgnorelistStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IgnorelistStepDefinition.m; path = steps/IgnorelistStepDefinition.m; sourceTree = "<group>"; };
+		BA765682159992C80032120A /* NetworkStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkStepDefinition.h; path = steps/NetworkStepDefinition.h; sourceTree = "<group>"; };
+		BA765683159992C80032120A /* NetworkStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkStepDefinition.m; path = steps/NetworkStepDefinition.m; sourceTree = "<group>"; };
 		BA78B5A614F766B800C4D6FB /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+SBJson.h"; path = "core/util/json/NSObject+SBJson.h"; sourceTree = "<group>"; };
 		BA78B5A714F766B800C4D6FB /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+SBJson.m"; path = "core/util/json/NSObject+SBJson.m"; sourceTree = "<group>"; };
 		BA78B5A814F766B800C4D6FB /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJson.h; path = core/util/json/SBJson.h; sourceTree = "<group>"; };
@@ -511,6 +515,8 @@
 				BA09131B155C98D900EEFD4B /* FriendCodeStepDefinition.m */,
 				BA72F48E1564572500DCB9B1 /* IgnorelistStepDefinition.h */,
 				BA72F48F1564572500DCB9B1 /* IgnorelistStepDefinition.m */,
+				BA765682159992C80032120A /* NetworkStepDefinition.h */,
+				BA765683159992C80032120A /* NetworkStepDefinition.m */,
 			);
 			name = Steps;
 			path = OFQASample;
@@ -1022,6 +1028,7 @@
 				BA34F50215759ECC00EA1F50 /* main.m in Sources */,
 				BA34F50615759ECC00EA1F50 /* AppDelegate.m in Sources */,
 				BA34F50F15759ECC00EA1F50 /* ViewController.m in Sources */,
+				BA765685159992C80032120A /* NetworkStepDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1044,6 +1051,7 @@
 				BA09131C155C98D900EEFD4B /* FriendCodeStepDefinition.m in Sources */,
 				BA72F4901564572500DCB9B1 /* IgnorelistStepDefinition.m in Sources */,
 				BA835B21156EE107006A60EF /* MAlertView.m in Sources */,
+				BA765684159992C80032120A /* NetworkStepDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
