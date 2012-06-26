@@ -1,9 +1,3 @@
 Given I logged in with email auto3@136.com and password 123456
-And I make sure my friend code is NOTEXIST
-And I request friend code with expire time 2012-08-31T20:00:00+0000
-And I switch to user auto4@136.com with password 123456
-And I verify my friend code
-When I load the owner of friend code I verified
-Then the owner should be user 1000012455
-After I switch to user auto3@136.com with password 123456
-And I make sure my friend code is NOTEXIST
+When I test network access to host http://www.baidu.com
+Then access should be OK

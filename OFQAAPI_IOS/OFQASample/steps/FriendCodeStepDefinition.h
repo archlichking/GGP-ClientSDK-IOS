@@ -33,4 +33,10 @@
 
 - (void) my_friend_code_should_be_valid;
 
+- (void) I_load_friends_who_verifies_my_code;
+
+- (NSString*) friend_code_verified_list_should_be_size_of_PARAMINT:(NSString*) size;
+
+- (NSString*) friend_code_verified_list_should_have_PARAM:(NSString*) person;
+
 @end
