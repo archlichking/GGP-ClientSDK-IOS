@@ -9,7 +9,10 @@
 #import "FriendCodeStepDefinition.h"
 #import "GreeFriendCodes.h"
 #import "GreeError.h"
+
 #import "QAAssert.h"
+#import "StringUtil.h"
+
 
 @implementation FriendCodeStepDefinition
 
@@ -172,6 +175,67 @@
     NSString* code = [[self getBlockRepo] objectForKey:@"code"];
     [QAAssert assertNotEqualsExpected:@"ALREADYUSED"
                             Actual:code];
+}
+
+// step definition: I load friends whose code I verified
+- (void) I_load_friends_who_verifies_my_code{
+    NSMutableArray* array = [[[NSMutableArray alloc] init] autorelease];
+    
+    id<GreeEnumerator> enumerator = nil;
+    enumerator = [GreeFriendCodes loadFriendsWithBlock:^(NSArray *friends, NSError *error) {
+        if(!error){
+            [array addObjectsFromArray:friends];
+        }
+        [self notifyInStep];
+    }];
+    [self waitForInStep];
+    while ([enumerator canLoadNext]) {
+        [enumerator loadNext:^(NSArray *items, NSError *error) {
+            if(!error){
+                [array addObjectsFromArray:items];
+            }
+            [self notifyInStep];
+        }];
+            
+        [self waitForInStep];
+    }
+    
+    [[self getBlockRepo] setObject:array forKey:@"friends"];
+}
+
+- (NSString*) friend_code_verified_list_should_be_size_of_PARAMINT:(NSString*) size{
+    NSArray* friends = [[self getBlockRepo] objectForKey:@"friends"];
+    NSString* result = @"";
+    [QAAssert assertEqualsExpected:size 
+                            Actual:[NSString stringWithFormat:@"%i", [friends count]]];
+    result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
+              @"friend list size", 
+              size, 
+              [NSString stringWithFormat:@"%i", [friends count]], 
+              SpliterTcmLine];
+    return result;
+}
+
+- (NSString*) friend_code_verified_list_should_have_PARAM:(NSString*) person{
+    NSArray* friends = [[self getBlockRepo] objectForKey:@"friends"];
+    NSString* result = @"";
+
+    for (NSString* userid in friends) {
+        if ([userid isEqualToString:person]) {
+            [QAAssert assertEqualsExpected:@"TRUE"
+                                    Actual:@"TRUE"];
+            result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
+                      @"friend verified", 
+                      person, 
+                      userid, 
+                      SpliterTcmLine];
+            return result;
+        }
+    }
+    [QAAssert assertEqualsExpected:nil
+                            Actual:@"TRUE" 
+                       WithMessage:[NSString stringWithFormat:@"friends with id %@ not found", person]];
+    return nil;
 }
 
 @end
