@@ -75,4 +75,24 @@
     return result;
 }
 
+- (void) I_update_badge_value_to_latest_one{
+    [[GreePlatform sharedInstance] updateBadgeValuesWithBlock:^(GreeBadgeValues *badgeValues) {
+        [[self getBlockRepo] setObject:badgeValues forKey:@"badgeValues"];
+        [self notifyInStep];
+    }];
+    [self waitForInStep];
+}
+
+- (void) my_social_badge_value_should_be_PARAMINT:(NSString*) amount{
+    GreeBadgeValues *badgeValues = [[self getBlockRepo] objectForKey:@"badgeValues"];
+    [QAAssert assertEqualsExpected:[NSString stringWithFormat:@"%i", [badgeValues socialNetworkingServiceBadgeCount]] 
+                            Actual:amount];
+}
+
+- (void) my_in_game_badge_value_should_be_PARAMINT:(NSString*) amount{
+    GreeBadgeValues *badgeValues = [[self getBlockRepo] objectForKey:@"badgeValues"];
+    [QAAssert assertEqualsExpected:[NSString stringWithFormat:@"%i", [badgeValues applicationBadgeCount]] 
+                            Actual:amount];
+}
+
 @end
