@@ -1,4 +1,4 @@
 Given I logged in with email auto3@136.com and password 123456
-When I update badge value to latest one
-Then my social badge value should be 0
-Then my in game badge value should be 0
+When I test network access to host 123.123.123.123
+Then access should be NO
+Then connection method should be NONE

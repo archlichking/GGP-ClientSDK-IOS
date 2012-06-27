@@ -28,6 +28,8 @@
                             forKey:@"accessToken"];
     [[self getBlockRepo] setObject:[[GreePlatform sharedInstance] accessTokenSecret] 
                             forKey:@"accessTokenSecret"];
+    [[self getBlockRepo] setObject:[[GreePlatform sharedInstance] 
+                                    localUserId] forKey:@"userid"];
     [[self getBlockRepo] setObject:[GreePlatformStepDefinition boolToString:[GreePlatform isAuthorized]] 
                             forKey:@"isAuthorized"];
     [[self getBlockRepo] setObject:[GreePlatform greeApplicationURLScheme]
@@ -70,6 +72,14 @@
               @"appUrlSchema", 
               [NSString stringWithFormat:@"greeapp%@", [[CredentialStorage sharedInstance] getValueForKey:CredentialStoredAppId]] , 
               [[self getBlockRepo] objectForKey:@"appUrlSchema"] , 
+              SpliterTcmLine];
+    
+    [QAAssert assertEqualsExpected:[tempDic objectForKey:CredentialStoredUserid]
+                            Actual:[[self getBlockRepo] objectForKey:@"userid"]];
+    result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
+              @"localUserId", 
+              [tempDic objectForKey:CredentialStoredUserid] , 
+              [[self getBlockRepo] objectForKey:@"userid"] , 
               SpliterTcmLine];
     
     return result;

@@ -183,6 +183,8 @@
 		BAB8183014FC890900AF18CD /* TestRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = BAB8182E14FC890900AF18CD /* TestRunner.h */; };
 		BAB8183114FC890900AF18CD /* TestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB8182F14FC890900AF18CD /* TestRunner.m */; };
 		BABEA5E1159AD512001BBF43 /* libGreeWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2648C815670F2900D6C6D9 /* libGreeWallet.a */; };
+		BABEA602159AF4A1001BBF43 /* 15265credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BABEA601159AF4A1001BBF43 /* 15265credentialsConfig.json */; };
+		BABEA603159AF4A1001BBF43 /* 15265credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BABEA601159AF4A1001BBF43 /* 15265credentialsConfig.json */; };
 		BAC432C3153FF6AC00C07E21 /* PeopleStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC432C2153FF6AC00C07E21 /* PeopleStepDefinition.m */; };
 		BAC468DA1500716F00BA5BE4 /* StepResult.h in Headers */ = {isa = PBXBuildFile; fileRef = BAC468D81500716F00BA5BE4 /* StepResult.h */; };
 		BAC468DB1500716F00BA5BE4 /* StepResult.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC468D91500716F00BA5BE4 /* StepResult.m */; };
@@ -213,41 +215,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = BA89094A14F75D6100018B0F;
 			remoteInfo = OFQAAPI;
-		};
-		BABEA5F2159ADF72001BBF43 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BABEA5E2159ADF71001BBF43 /* GreePlatformSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1B1D82EC14644D9100F670CE;
-			remoteInfo = GreePlatformSDK;
-		};
-		BABEA5F4159ADF72001BBF43 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BABEA5E2159ADF71001BBF43 /* GreePlatformSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1B1D82FC14644D9100F670CE;
-			remoteInfo = GreePlatformSDKTests;
-		};
-		BABEA5F6159ADF72001BBF43 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BABEA5E2159ADF71001BBF43 /* GreePlatformSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1BE6347414E5E40D005F28C1;
-			remoteInfo = GreePlatformCoreResources;
-		};
-		BABEA5F8159ADF72001BBF43 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BABEA5E2159ADF71001BBF43 /* GreePlatformSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1BE6351F14E5E79A005F28C1;
-			remoteInfo = GreePlatformPortraitResources;
-		};
-		BABEA5FA159ADF72001BBF43 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BABEA5E2159ADF71001BBF43 /* GreePlatformSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1BE6352714E5E7D9005F28C1;
-			remoteInfo = GreePlatformLandscapeResources;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -418,7 +385,7 @@
 		BAB8182714FC759100AF18CD /* tcmsConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tcmsConfig.json; path = Config/tcmsConfig.json; sourceTree = "<group>"; };
 		BAB8182E14FC890900AF18CD /* TestRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestRunner.h; path = core/caze/TestRunner.h; sourceTree = "<group>"; };
 		BAB8182F14FC890900AF18CD /* TestRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestRunner.m; path = core/caze/TestRunner.m; sourceTree = "<group>"; };
-		BABEA5E2159ADF71001BBF43 /* GreePlatformSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GreePlatformSDK.xcodeproj; path = ../../../ggplib_ios/sdk/GreePlatformSDK.xcodeproj; sourceTree = "<group>"; };
+		BABEA601159AF4A1001BBF43 /* 15265credentialsConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = 15265credentialsConfig.json; path = Config/15265credentialsConfig.json; sourceTree = "<group>"; };
 		BAC432C1153FF6AC00C07E21 /* PeopleStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PeopleStepDefinition.h; path = steps/PeopleStepDefinition.h; sourceTree = "<group>"; };
 		BAC432C2153FF6AC00C07E21 /* PeopleStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PeopleStepDefinition.m; path = steps/PeopleStepDefinition.m; sourceTree = "<group>"; };
 		BAC468D81500716F00BA5BE4 /* StepResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StepResult.h; path = core/caze/step/StepResult.h; sourceTree = "<group>"; };
@@ -775,7 +742,6 @@
 				BA34F4FB15759ECC00EA1F50 /* OFQAJenkins */,
 				BA89094D14F75D6100018B0F /* Frameworks */,
 				BA89094C14F75D6100018B0F /* Products */,
-				BABEA5E2159ADF71001BBF43 /* GreePlatformSDK.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -860,6 +826,7 @@
 				BA98F88B1590B83E00159287 /* 12697credentialsConfig.json */,
 				BA19E8BC15980E1000EDD94B /* 11787credentialsConfig.json */,
 				BA717A801598532D008DA307 /* 15199credentialsConfig.json */,
+				BABEA601159AF4A1001BBF43 /* 15265credentialsConfig.json */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -871,18 +838,6 @@
 				BADF04CD15049054006FC3B4 /* CaseTableDelegate.m */,
 			);
 			name = delegate;
-			sourceTree = "<group>";
-		};
-		BABEA5E3159ADF71001BBF43 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BABEA5F3159ADF72001BBF43 /* libGreePlatform.a */,
-				BABEA5F5159ADF72001BBF43 /* GreePlatformSDKTests.octest */,
-				BABEA5F7159ADF72001BBF43 /* GreePlatformCoreResources.bundle */,
-				BABEA5F9159ADF72001BBF43 /* GreePlatformPortraitResources.bundle */,
-				BABEA5FB159ADF72001BBF43 /* GreePlatformLandscapeResources.bundle */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1022,12 +977,6 @@
 			mainGroup = BA89094014F75D6100018B0F;
 			productRefGroup = BA89094C14F75D6100018B0F /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = BABEA5E3159ADF71001BBF43 /* Products */;
-					ProjectRef = BABEA5E2159ADF71001BBF43 /* GreePlatformSDK.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				BA89094A14F75D6100018B0F /* OFQAAPI */,
@@ -1036,44 +985,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		BABEA5F3159ADF72001BBF43 /* libGreePlatform.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libGreePlatform.a;
-			remoteRef = BABEA5F2159ADF72001BBF43 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BABEA5F5159ADF72001BBF43 /* GreePlatformSDKTests.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = GreePlatformSDKTests.octest;
-			remoteRef = BABEA5F4159ADF72001BBF43 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BABEA5F7159ADF72001BBF43 /* GreePlatformCoreResources.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = GreePlatformCoreResources.bundle;
-			remoteRef = BABEA5F6159ADF72001BBF43 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BABEA5F9159ADF72001BBF43 /* GreePlatformPortraitResources.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = GreePlatformPortraitResources.bundle;
-			remoteRef = BABEA5F8159ADF72001BBF43 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		BABEA5FB159ADF72001BBF43 /* GreePlatformLandscapeResources.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = GreePlatformLandscapeResources.bundle;
-			remoteRef = BABEA5FA159ADF72001BBF43 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		BA34F4F415759ECC00EA1F50 /* Resources */ = {
@@ -1090,6 +1001,7 @@
 				BA98F88D1590B83E00159287 /* 12697credentialsConfig.json in Resources */,
 				BA19E8BE15980E1000EDD94B /* 11787credentialsConfig.json in Resources */,
 				BA717A821598532D008DA307 /* 15199credentialsConfig.json in Resources */,
+				BABEA603159AF4A1001BBF43 /* 15265credentialsConfig.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1110,6 +1022,7 @@
 				BA98F88C1590B83E00159287 /* 12697credentialsConfig.json in Resources */,
 				BA19E8BD15980E1000EDD94B /* 11787credentialsConfig.json in Resources */,
 				BA717A811598532D008DA307 /* 15199credentialsConfig.json in Resources */,
+				BABEA602159AF4A1001BBF43 /* 15265credentialsConfig.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

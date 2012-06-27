@@ -35,14 +35,26 @@
 
 - (void) I_test_network_access_to_host_PARAM:(NSString*) host{
     GreeNetworkReachability* accessTest = [[GreeNetworkReachability alloc] initWithHost:host];
-    [accessTest addObserverBlock:^(GreeNetworkReachabilityStatus previous, GreeNetworkReachabilityStatus current) {
-        [[self getBlockRepo] setObject:[NetworkStepDefinition boolToString:[accessTest isConnectedToInternet]]
-                                forKey:@"networkResult"];
-        [[self getBlockRepo] setObject:[NetworkStepDefinition methodToString:current] 
-                                forKey:@"networkMethod"];
-        [self notifyInStep];
-    }];
-    [self waitForInStep];    
+    [[self getBlockRepo] setObject:[NetworkStepDefinition boolToString:NO] 
+                            forKey:@"networkResult"];
+    [[self getBlockRepo] setObject:[NetworkStepDefinition methodToString:GreeNetworkReachabilityNotConnected] 
+                            forKey:@"networkMethod"];
+    if (accessTest == nil) {
+        // host name is not valid
+        
+    }else{
+        // valid host name
+        [accessTest addObserverBlock:^(GreeNetworkReachabilityStatus previous, GreeNetworkReachabilityStatus current) {
+            [[self getBlockRepo] setObject:[NetworkStepDefinition boolToString:[accessTest isConnectedToInternet]]
+                                    forKey:@"networkResult"];
+            [[self getBlockRepo] setObject:[NetworkStepDefinition methodToString:current] 
+                                    forKey:@"networkMethod"];
+            [self notifyInStep];
+        }];
+        [self waitForInStep];
+        // time out here indicates given host is not reachable
+        
+    }
 }
 
 - (NSString*) access_should_be_PARAM:(NSString*) status{
