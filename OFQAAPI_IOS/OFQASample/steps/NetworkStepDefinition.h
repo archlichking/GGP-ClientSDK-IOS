@@ -15,4 +15,6 @@
 
 - (NSString*) access_should_be_PARAM:(NSString*) status;
 
+- (NSString*) connection_method_should_be_PARAM:(NSString*) method;
+
 @end
