@@ -21,11 +21,28 @@
         return @"NO";
 }
 
+
++ (NSString*) methodToString:(int) method{
+    switch (method) {
+        case GreeNetworkReachabilityConnectedViaWiFi:
+            return @"WIFI";
+        case GreeNetworkReachabilityConnectedViaCarrier:
+            return @"CELL";
+        default:
+            return @"NONE";
+    }
+}
+
 - (void) I_test_network_access_to_host_PARAM:(NSString*) host{
     GreeNetworkReachability* accessTest = [[GreeNetworkReachability alloc] initWithHost:host];
-    Boolean b = [accessTest isConnectedToInternet];
-    [[self getBlockRepo] setObject:[NetworkStepDefinition boolToString:b] 
-                            forKey:@"networkResult"];
+    [accessTest addObserverBlock:^(GreeNetworkReachabilityStatus previous, GreeNetworkReachabilityStatus current) {
+        [[self getBlockRepo] setObject:[NetworkStepDefinition boolToString:[accessTest isConnectedToInternet]]
+                                forKey:@"networkResult"];
+        [[self getBlockRepo] setObject:[NetworkStepDefinition methodToString:current] 
+                                forKey:@"networkMethod"];
+        [self notifyInStep];
+    }];
+    [self waitForInStep];    
 }
 
 - (NSString*) access_should_be_PARAM:(NSString*) status{
@@ -37,6 +54,19 @@
               @"network reachability", 
               status, 
               b, 
+              SpliterTcmLine];
+    return result;
+}
+
+- (NSString*) connection_method_should_be_PARAM:(NSString*) method{
+    NSString* m  = [[self getBlockRepo] objectForKey:@"networkMethod"];
+    NSString* result = @"";
+    [QAAssert assertEqualsExpected:method 
+                            Actual:m];
+    result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
+              @"network connection method", 
+              method, 
+              m, 
               SpliterTcmLine];
     return result;
 }

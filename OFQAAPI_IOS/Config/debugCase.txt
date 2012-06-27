@@ -1,3 +1,4 @@
 Given I logged in with email auto3@136.com and password 123456
-When I test network access to host http://www.baidu.com
-Then access should be OK
+When I test network access to host http://www.google.com
+Then access should be YES
+Then connection method should be WIFI
