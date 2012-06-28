@@ -19,6 +19,7 @@
     UITextField* runIdText;
     
     UILabel* doingLabel;
+    UILabel* memLabel;
     
     UIBarButtonItem* selectExecuteButton;
     
@@ -52,6 +53,7 @@
 
 @property (nonatomic, retain) IBOutlet UIView* userBlockView;
 @property (nonatomic, retain) IBOutlet UILabel* doingLabel;
+@property (nonatomic, retain) IBOutlet UILabel* memLabel;
 @property (nonatomic, retain) IBOutlet UISearchBar* tableSearchBar;
 
 @property (retain) CaseTableDelegate* caseTableDelegate;

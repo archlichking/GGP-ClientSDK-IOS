@@ -58,11 +58,6 @@
       </BuildableProductRunnable>
       <EnvironmentVariables>
          <EnvironmentVariable
-            key = "NSZombiEnabled"
-            value = "YES"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
             key = "MallocStackLogging"
             value = "YES"
             isEnabled = "YES">

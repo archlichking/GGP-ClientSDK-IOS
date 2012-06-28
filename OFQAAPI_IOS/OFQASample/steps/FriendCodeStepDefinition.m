@@ -93,7 +93,7 @@
 }
 
 // step definition : I verify my friend code
-- (void) I_verify_my_friend_code{
+- (void) I_verify_friend_code_of_user_PARAM:(NSString*) user{
     NSString* code = [[self getBlockRepo] objectForKey:@"code"];
     [GreeFriendCodes verifyCode:code 
                       withBlock:^(NSError *error) {

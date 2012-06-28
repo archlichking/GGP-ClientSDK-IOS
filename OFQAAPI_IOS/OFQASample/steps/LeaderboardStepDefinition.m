@@ -140,7 +140,7 @@
 - (void) I_add_score_to_leaderboard_PARAM:(NSString*) ld_name
                      _with_score_PARAMINT:(NSString*) score{
     // initialized for submit to a non-existed leaderboard
-    NSString* identi = [[NSString alloc] initWithString:ld_name];
+    NSString* identi = [[[NSString alloc] initWithString:ld_name] autorelease];
     NSArray* lds = [[self getBlockRepo] objectForKey:@"leaderboards"];
     for (GreeLeaderboard* ld in lds) {
         if([[ld name] isEqualToString:ld_name]){
@@ -151,13 +151,13 @@
     // for submit to a non-existed leaderboard
     GreeScore* s = [[GreeScore alloc] initWithLeaderboard:identi 
                                                     score:[score integerValue]];
+  
     [s submitWithBlock:^{
         [self notifyInStep];
     }];
     [self waitForInStep];
     [s release];
-
-    return;
+    
 }
 
 // step definition : my score SCORE should be updated in leaderboard LB_NAME
@@ -186,11 +186,41 @@
     
     [QAAssert assertEqualsExpected:score 
                             Actual:[NSString stringWithFormat:@"%i", s]];
-//    [identi release];
-    return;
-
-
 }
+
+// step definition : my score SCORE should not be updated in leaderboard LB_NAME
+- (void) my_score_PARAMINT:(NSString*) score _should_not_be_updated_in_leaderboard_PARAM:(NSString*) ld_name{
+    NSArray* lds = [[self getBlockRepo] objectForKey:@"leaderboards"];
+    // initialized for submit to a non-existed leaderboard
+    NSString* identi = [[[NSString alloc] initWithString:ld_name] autorelease];
+    for (GreeLeaderboard* ld in lds) {
+        if([[ld name] isEqualToString:ld_name]){
+            identi = [ld identifier];
+            break;
+        }
+    }
+    
+    __block int64_t s = 0;
+    [GreeScore loadMyScoreForLeaderboard:identi 
+                              timePeriod:GreeScoreTimePeriodAlltime
+                                   block:^(GreeScore *score, NSError *error) {
+                                       if(!error){
+                                           s = [score score];
+                                       }
+                                       [self notifyInStep];
+                                   }];
+    // has to wait for async call finished
+    [self waitForInStep];
+    
+    [QAAssert assertNotEqualsExpected:score 
+                            Actual:[NSString stringWithFormat:@"%i", s]];
+    //    [identi release];
+    return;
+    
+    
+}
+
+
 // step definition : my DAILY score ranking of leaderboard LB_NAME should be RANK
 - (void) my_PARAM:(NSString*) period _score_ranking_of_leaderboard_PARAM:(NSString*) ld_name _should_be_PARAMINT:(NSString*) rank;{
     NSArray* lds = [[self getBlockRepo] objectForKey:@"leaderboards"];

@@ -32,6 +32,7 @@
 @synthesize selectExecuteButton;
 @synthesize progressView;
 @synthesize doingLabel;
+@synthesize memLabel;
 @synthesize userBlockView;
 @synthesize tableSearchBar;
 
@@ -88,19 +89,21 @@
     [suiteAndRunView setTag:1];
     
     suiteIdText = [[UITextField alloc] init];
-    [suiteAndRunView addTextField:suiteIdText placeHolder:@"Suite ID : 185"];    
+    [suiteAndRunView addTextField:suiteIdText placeHolder:@"Suite ID : 178"];    
     
     runIdText = [[UITextField alloc] init];
-    [suiteAndRunView addTextField:runIdText placeHolder:@"Run ID : 432"];
+    [suiteAndRunView addTextField:runIdText placeHolder:@"Run ID : 402"];
     
     
     [progressView setHidden:TRUE];
     [userBlockView setHidden:TRUE];
     [userBlockView addSubview:progressView];
     [userBlockView addSubview:doingLabel];
+    [userBlockView addSubview:memLabel];
     
     [tableView setContentOffset:CGPointMake(0, 44)];
     [doingLabel setHidden:TRUE];
+    [memLabel setHidden:TRUE];
 }
 
 - (void)viewDidUnload
@@ -177,7 +180,7 @@
 
 - (void) loadCasesInAnotherThread{
     [[appDelegate runnerWrapper] emptyCaseWrappers];
-    [[appDelegate runnerWrapper] buildRunner:[suiteIdText text] == nil?@"185":[suiteIdText text]];
+    [[appDelegate runnerWrapper] buildRunner:[suiteIdText text] == nil?@"178":[suiteIdText text]];
     
     NSArray* tmp = [[appDelegate runnerWrapper] getCaseWrappers];
     [(CaseTableDelegate*)[tableView dataSource] setTableItems:tmp];
@@ -192,7 +195,7 @@
 - (void) runCasesInAnotherThread{
 //    [[appDelegate runnerWrapper] executeSelectedCases];
     // replace this line to not submit 
-    [[appDelegate runnerWrapper] executeSelectedCasesWithSubmit:[runIdText text] == nil?@"432":[runIdText text]
+    [[appDelegate runnerWrapper] executeSelectedCasesWithSubmit:[runIdText text] == nil?@"402":[runIdText text]
                                                           block:^(NSArray* objs){
                                                               [self performSelectorOnMainThread:@selector(updateProgressViewWithRunning:)
                                                                                      withObject:objs 
@@ -233,7 +236,9 @@
     [progressView setProgress:0.];
     [progressView setHidden:NO];
     [doingLabel setText:@""];
+    [memLabel setText:@""];
     [doingLabel setHidden:NO];
+    [memLabel setHidden:NO];
     
     [[self view] setUserInteractionEnabled:NO];
     
@@ -248,12 +253,14 @@
                      animated:YES];
     
     [doingLabel setText:[objs objectAtIndex:1]];
+    [memLabel setText:[objs objectAtIndex:2]];
 }
 
 - (void) dismissAllProgressDisplay{
     [userBlockView setHidden:YES];
     [progressView setHidden:YES];
     [doingLabel setHidden:YES];
+    [memLabel setHidden:YES];
     [[self view] setUserInteractionEnabled:YES];
 }
 

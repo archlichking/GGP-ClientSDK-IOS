@@ -33,6 +33,7 @@
                     }];
     
     [self waitForInStep];
+    [temp release];
 }
 
 @end

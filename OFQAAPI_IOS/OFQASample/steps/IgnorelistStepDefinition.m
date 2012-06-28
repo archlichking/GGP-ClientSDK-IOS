@@ -77,7 +77,7 @@
             // first 10 friends could only be retrieved this way
             if (!error) {
                 if (!ignoreUserIds) {
-                    [[self getBlockRepo] setObject:[[NSArray alloc] init] forKey:@"ignorelist"];
+                    [[self getBlockRepo] setObject:[[[NSArray alloc] init] autorelease] forKey:@"ignorelist"] ;
                 }else{
                     [[self getBlockRepo] setObject:ignoreUserIds forKey:@"ignorelist"];
                 }

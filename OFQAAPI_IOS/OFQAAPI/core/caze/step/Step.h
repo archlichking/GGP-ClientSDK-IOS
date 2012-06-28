@@ -15,7 +15,6 @@
     id refObj;
     NSInvocation* refMethodInvocation;
     NSArray* refMethodParams;
-    BOOL w;
 }
 
 @property (copy) NSString* command;
