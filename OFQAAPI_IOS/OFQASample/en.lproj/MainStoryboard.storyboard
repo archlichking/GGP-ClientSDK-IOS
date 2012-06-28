@@ -92,6 +92,13 @@
                                         <rect key="frame" x="20" y="167" width="270" height="9"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </progressView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="rPE-Zq-9ey">
+                                        <rect key="frame" x="20" y="297" width="270" height="71"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -101,6 +108,7 @@
                     <connections>
                         <outlet property="doingLabel" destination="5tb-5h-Lwy" id="6EF-Xe-Yhy"/>
                         <outlet property="loadTestCasesButton" destination="pc0-rT-9hP" id="dCW-8y-I7o"/>
+                        <outlet property="memLabel" destination="rPE-Zq-9ey" id="iR1-R3-1e9"/>
                         <outlet property="progressView" destination="XEn-vR-zLc" id="xF6-El-dwO"/>
                         <outlet property="runTestCasesButton" destination="fpp-SC-3vV" id="fyt-Ug-QW1"/>
                         <outlet property="selectExecuteButton" destination="Qwl-jF-6Di" id="gAs-6Y-ZKp"/>
@@ -126,6 +134,7 @@
                 <relationship kind="action" name="runCases"/>
                 <relationship kind="outlet" name="doingLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="loadTestCasesButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="memLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="progressView" candidateClass="UIProgressView"/>
                 <relationship kind="outlet" name="runIdText" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="runTestCasesButton" candidateClass="UIBarButtonItem"/>

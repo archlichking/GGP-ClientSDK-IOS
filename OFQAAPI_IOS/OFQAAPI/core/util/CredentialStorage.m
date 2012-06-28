@@ -46,24 +46,23 @@ NSString* const CredentialStoredOauthSecret = @"oauthSecret";
     _cAppSecret = [tempCredentials objectForKey:CredentialStoredAppSecret];
     
         
-    NSMutableDictionary* tempCredDic = [[NSMutableDictionary alloc] init];
+    NSMutableDictionary* tempCredDic = [[[NSMutableDictionary alloc] init] autorelease];
     
     NSArray* tempCredArray = [tempCredentials valueForKey:@"credentials"];
     for (int i = 0; i<tempCredArray.count; i++) {
         
         NSDictionary* tempSingleCredDic = [tempCredArray objectAtIndex:i];
-        [tempCredDic setValue:[[NSMutableDictionary alloc] initWithObjectsAndKeys:
+        [tempCredDic setValue:[[[NSMutableDictionary alloc] initWithObjectsAndKeys:
                                [tempSingleCredDic valueForKey:CredentialStoredUserid], CredentialStoredUserid,
                                [tempSingleCredDic valueForKey:CredentialStoredOauthKey], CredentialStoredOauthKey,
                                [tempSingleCredDic valueForKey:CredentialStoredOauthSecret], CredentialStoredOauthSecret,
-                               nil] 
+                               nil] autorelease]
                         forKey:[NSString stringWithFormat:@"%@&%@", 
                                 [tempSingleCredDic valueForKey:CredentialStoredUsername], 
                                 [tempSingleCredDic valueForKey:CredentialStoredPassword]] ];
     }
     
     _cUserCredentials = [[NSDictionary alloc] initWithDictionary:tempCredDic];
-        
     
     return self;
 }
@@ -91,6 +90,5 @@ NSString* const CredentialStoredOauthSecret = @"oauthSecret";
         return [_cUserCredentials valueForKey:key];
     }
 }
-
 @end
 

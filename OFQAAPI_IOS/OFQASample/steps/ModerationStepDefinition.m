@@ -120,6 +120,7 @@
                                  [self notifyInStep];
                              }];
     [self waitForInStep];
+    [ids release];
 }
 
 // step definition : I check from server with status of text TEXT

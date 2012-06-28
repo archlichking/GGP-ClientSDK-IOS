@@ -20,6 +20,7 @@
 #import "Constant.h"
 
 #import "objc/runtime.h"
+#import <mach/mach.h>
 
 
 #import "SampleStepDefinition.h"
@@ -33,6 +34,8 @@
 #import "NetworkStepDefinition.h"
 #import "GreePlatformStepDefinition.h"
 #import "PaymentStepDefinition.h"
+
+#import "QALog.h"
 
 
 @implementation TestRunnerWrapper
@@ -50,7 +53,7 @@
         
         [self setCaseWrappers:[[[NSMutableArray alloc] init] autorelease]];
         
-        NSArray* classArray = [[NSArray alloc] initWithObjects:
+        NSArray* classArray = [[[NSArray alloc] initWithObjects:
                                class_createInstance([CommenStepDefinition class], 0), 
                                class_createInstance([AchievementStepDefinition class], 0),
                                class_createInstance([LeaderboardStepDefinition class], 0), 
@@ -61,7 +64,7 @@
                                class_createInstance([NetworkStepDefinition class], 0),
                                class_createInstance([GreePlatformStepDefinition class], 0),
                                class_createInstance([PaymentStepDefinition class], 0),
-                               nil];
+                               nil] autorelease];
 
         StepHolder* holder = [[StepHolder alloc] init];
         
@@ -98,6 +101,7 @@
     
     int alreadyDoneNumber = 0;
     NSString* doing = @"";
+    NSString* mem = @"";
     
     
     // build runner secretly
@@ -118,25 +122,69 @@
     int all = [[runner getAllCases] count];
     // run cases
     //[runner runAllcases];
+    
+    struct task_basic_info info;
+    // used for memory inspect
+    mach_msg_type_number_t size = sizeof(info);
+    
+    kern_return_t kerr = task_info(mach_task_self(),
+                                   TASK_BASIC_INFO,
+                                   (task_info_t)&info,
+                                   &size);
+    unsigned long baseMem = 1l;
+    
+    if( kerr == KERN_SUCCESS ) {
+        baseMem = info.resident_size;
+    }
+    
     for (int i=0; i<all; i++) {
         TestCase* tc = [[runner getAllCases] objectAtIndex:i];
         [tc execute];
         alreadyDoneNumber ++;
         
         doing = [NSString stringWithFormat:@"executing %d/%d", alreadyDoneNumber, all];
-        block([[[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%0.1f", (float)alreadyDoneNumber/all], doing, nil] autorelease]);
+        
+        kerr = task_info(mach_task_self(),
+                                       TASK_BASIC_INFO,
+                                       (task_info_t)&info,
+                                       &size);
+        if( kerr == KERN_SUCCESS ) {
+            mem = [NSString stringWithFormat:@"mem usage(MB):%0.3f, INC by:%0.2f", 
+                   (float)info.resident_size/(1024*1024), 
+                   (float)(info.resident_size-baseMem)*100/baseMem];
+        }
+        
+        block([[[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%0.1f", (float)alreadyDoneNumber/all], 
+                doing, 
+                mem,
+                nil] autorelease]);
     }
     
     alreadyDoneNumber = 0.;
     // submit to tcm if needed
     if ([self type] == [CaseBuilderFactory TCM_BUILDER] && block) {
         TcmCommunicator* tcmComm = [[self cb] tcmComm];
+        
+       
         for (int i=0; i<all; i++) {
             TestCase* tc = [[runner getAllCases] objectAtIndex:i];
             [tcmComm postCasesResultByRunId:runId AndCase:tc];
             alreadyDoneNumber ++;
             doing = [NSString stringWithFormat:@"submitting %d/%d", alreadyDoneNumber, all];
-            block([[[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%0.1f", (float)alreadyDoneNumber/all], doing, nil] autorelease]);
+            
+            kerr = task_info(mach_task_self(),
+                                           TASK_BASIC_INFO,
+                                           (task_info_t)&info,
+                                           &size);
+            if( kerr == KERN_SUCCESS ) {
+                mem = [NSString stringWithFormat:@"mem usage(MB):%0.3f, INC by:%0.2f", 
+                       (float)info.resident_size/(1024*1024), 
+                       (float)(info.resident_size-baseMem)*100/baseMem];
+            }
+            block([[[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%0.1f", (float)alreadyDoneNumber/all], 
+                    doing, 
+                    mem, 
+                    nil] autorelease]);
         }    
     }
     
@@ -151,6 +199,16 @@
         [caseWrappers addObject:tcw];
         
         //[tcw release];
+    }
+    
+    kerr = task_info(mach_task_self(),
+                               TASK_BASIC_INFO,
+                               (task_info_t)&info,
+                               &size);
+    if( kerr == KERN_SUCCESS ) {
+        QALog(@"total memory usage(MB) : %0.3f, increased by : %0.2f", 
+               (float)info.resident_size/(1024*1024), 
+               (float)(info.resident_size-baseMem)*100/baseMem);
     }
 }
 

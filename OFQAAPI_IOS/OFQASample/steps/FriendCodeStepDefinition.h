@@ -25,7 +25,7 @@
 
 - (void) I_delete_my_friend_code;
 
-- (void) I_verify_my_friend_code;
+- (void) I_verify_friend_code_of_user_PARAM:(NSString*) user;
 
 - (void) I_load_my_friend_code;
 

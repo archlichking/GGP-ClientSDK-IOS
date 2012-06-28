@@ -67,6 +67,7 @@
             }
         }
     }
+    
     [self setResultComment:resultComment];
     [self setIsExecuted:true];
 }
