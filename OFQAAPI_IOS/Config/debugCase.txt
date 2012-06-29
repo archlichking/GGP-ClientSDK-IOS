@@ -1,3 +1,4 @@
 Given I logged in with email auto3@136.com and password 123456
 When I open request popup
-And I execute command in request popup simple stupid js command
+And I execute command in request popup (function(){var STEP_TIMEOUT=250;function hl(e){var d=e.style.outline;e.style.outline='#FDFF47 solid';setTimeout(function(){e.style.outline=d},STEP_TIMEOUT)}function fid(id){return document.getElementById(id)}function click(e){var t=document.createEvent('HTMLEvents');t.initEvent('click',false,false);e.dispatchEvent(t)}return(hl(fid('btn-msg-choosed')))})()
+And I execute command in request popup (function(){var STEP_TIMEOUT=250;function fclass(clazz){return document.getElementsByClassName(clazz)[0]}function hl(e){var d=e.style.outline;e.style.outline='#FDFF47 solid';setTimeout(function(){e.style.outline=d},STEP_TIMEOUT)}function fid(id){return document.getElementById(id)}function click(e){var t=document.createEvent('HTMLEvents');t.initEvent('click',false,false);e.dispatchEvent(t)}return(click(fclass('button block large form-submit primary')))})()

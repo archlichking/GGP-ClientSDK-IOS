@@ -70,15 +70,16 @@
     GreeRequestServicePopup* requestPopup = [[self getBlockRepo] objectForKey:@"requestPopup"];
     
 //    NSString* com = @"(function(){function fid(id){return document.getElementById(id);}function click(e){var t=document.createEvent('HTMLEvents');t.initEvent('click',false,false);e.dispatchEvent(t);}return(click(fid('btn-msg-choosed')))})()";
-    NSString* com = @"(function(){var STEP_TIMEOUT=250;function hl(e){var d=e.style.outline;e.style.outline='#FDFF47 solid';setTimeout(function(){e.style.outline=d},STEP_TIMEOUT)}function fid(id){return document.getElementById(id)}function click(e){var t=document.createEvent('HTMLEvents');t.initEvent('click',false,false);e.dispatchEvent(t)}return(hl(fid('btn-msg-choosed')))})()";
+//    NSString* com = @"(function(){var STEP_TIMEOUT=250;function hl(e){var d=e.style.outline;e.style.outline='#FDFF47 solid';setTimeout(function(){e.style.outline=d},STEP_TIMEOUT)}function fid(id){return document.getElementById(id)}function click(e){var t=document.createEvent('HTMLEvents');t.initEvent('click',false,false);e.dispatchEvent(t)}return(hl(fid('btn-msg-choosed')))})()";
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                        com, CommandJSPopupCommand, 
+                                        command, CommandJSPopupCommand, 
                                         requestPopup, @"popup",
                                         nil];
     
     [self notifyMainUIWithCommand:CommandNotifyExecuteCommandInPopup 
                            object:userinfoDic];
+//    [StepDefinition waitForOutsideStep];
 }
 
 - (void) I_close_request_popup{

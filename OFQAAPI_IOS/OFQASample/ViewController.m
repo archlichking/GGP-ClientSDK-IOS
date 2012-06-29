@@ -15,6 +15,7 @@
 #import "TestRunnerWrapper.h"
 #import "TcmCommunicator.h"
 #import "Constant.h"
+#import "StepDefinition.h"
 
 #import "MAlertView.h"
 #import "GreePopup.h"
@@ -319,6 +320,7 @@
     [self performSelectorOnMainThread:@selector(executeJSInPopup:)
                            withObject:infoDic
                         waitUntilDone:YES];
+    [StepDefinition notifyOutsideStep];
 }
 
 @end
