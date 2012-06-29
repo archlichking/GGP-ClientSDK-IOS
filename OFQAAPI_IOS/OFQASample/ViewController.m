@@ -14,9 +14,10 @@
 #import "TestCaseWrapper.h"
 #import "TestRunnerWrapper.h"
 #import "TcmCommunicator.h"
+#import "Constant.h"
 
 #import "MAlertView.h"
-
+#import "GreePopup.h"
 
 #import "CaseTableDelegate.h"
 
@@ -64,6 +65,18 @@
                                              selector:@selector(refreshCases:)
                                                  name:@"RefreshCases" 
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(loadPopup:)
+                                                 name:CommandNotifyLoadPopup 
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(dismissPopup:)
+                                                 name:CommandNotifyDismissPopup 
+                                               object:nil];
+
+    
     [self suiteIdText].delegate = self;
     [self runIdText].delegate = self;
     
@@ -262,6 +275,29 @@
     [doingLabel setHidden:YES];
     [memLabel setHidden:YES];
     [[self view] setUserInteractionEnabled:YES];
+}
+
+- (void) loadPopup:(NSNotification*) notification{
+    
+    NSDictionary* infoDic = [notification userInfo];
+    
+    
+    GreePopup* popup = [infoDic objectForKey:@"popup"];
+    
+    [self performSelectorOnMainThread:@selector(showGreePopup:)
+                           withObject:popup
+                        waitUntilDone:YES];
+}
+
+- (void) dismissPopup:(NSNotification*) notification{
+    
+//    NSDictionary* infoDic = [notification userInfo];
+    
+//    GreePopup* popup = [infoDic objectForKey:@"popup"];
+    
+    [self performSelectorOnMainThread:@selector(dismissGreePopup)
+                           withObject:nil
+                        waitUntilDone:YES];
 }
 
 @end

@@ -10,6 +10,7 @@
 #import "QAAssert.h"
 #import "QALog.h"
 #import "AssertException.h"
+#import "Constant.h"
 
 @implementation StepDefinition
 
@@ -46,6 +47,13 @@
 
 -(void) setTimeout:(int) timeout{
     TIMEOUT = timeout;
+}
+
+- (void) notifyMainUIWithCommand:(NSString*) command 
+                          object:(id) obj{
+    [[NSNotificationCenter defaultCenter] postNotificationName:command 
+                                                        object:nil
+                                                      userInfo:obj];
 }
 
 @end

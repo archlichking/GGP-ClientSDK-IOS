@@ -1,4 +1,2 @@
 Given I logged in with email auto3@136.com and password 123456
-When I test network access to host invalidHostName
-Then access should be NO
-Then connection method should be NONE
+When I open request popup

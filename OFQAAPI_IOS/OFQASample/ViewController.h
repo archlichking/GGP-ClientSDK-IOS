@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <UIViewController+GreePlatform.h>
+
 @class AppDelegate;
 @class CaseTableDelegate;
 @class MAlertView;
+
+
 
 @interface ViewController : UIViewController<UITextFieldDelegate, UIAlertViewDelegate>{
     UIBarButtonItem* loadTestCasesButton;
@@ -62,5 +66,7 @@
 - (IBAction) runCases;
 
 - (void) updateProgressViewWithRunning:(NSArray*) objs;
+
+- (void) loadPopup:(GreePopup*) popup;
 
 @end

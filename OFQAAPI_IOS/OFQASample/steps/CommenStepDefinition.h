@@ -25,4 +25,10 @@
 
 - (void) print_user;
 
+- (void) I_open_request_popup;
+
+- (void) I_close_request_popup;
+
+
+
 @end

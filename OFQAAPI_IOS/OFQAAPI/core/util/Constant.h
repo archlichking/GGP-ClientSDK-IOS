@@ -13,6 +13,9 @@ extern int const CaseResultRetested;
 extern int const CaseResultPassed;
 extern int const CaseResultUntested;
 
+extern NSString* const CommandNotifyLoadPopup;
+extern NSString* const CommandNotifyDismissPopup;
+
 @interface Constant : NSObject
 
 + (NSString*) getReadableResult:(int) res;

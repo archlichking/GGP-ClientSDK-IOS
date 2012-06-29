@@ -10,10 +10,13 @@
 #import "GreeKeyChain.h"
 #import "GreePlatform.h"
 #import "GreeUser.h"
+#import "GreePopup.h"
 
+#import "AppDelegate.h"
 
 #import "CredentialStorage.h"
 #import "QAAssert.h"
+#import "Constant.h"
 
 // private hacking to update local user
 @interface GreePlatform(PrivateUserHacking)
@@ -102,69 +105,48 @@
     }];
 }
 
+- (void) I_open_request_popup{
+    // initialize request popup
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithObjectsAndKeys:
+                                       @"iMac rocks in Diablo3", GreeRequestServicePopupTitle, 
+                                       @"and Monk rules them all", GreeRequestServicePopupBody,
+                                       @"test type", GreeRequestServicePopupListType,
+                                       nil];
+    
+    GreeRequestServicePopup* requestPopup = [GreeRequestServicePopup popup];
+    [requestPopup setParameters:parameters];
+    requestPopup.didLaunchBlock = ^(id aSender) {
+        NSLog(@"page popup done");
+        UIWebView* view = [requestPopup.popupView valueForKeyPath:@"webView"];
+        NSString* pageC = [view stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
+        NSLog(@"%@", pageC);
+    };
+    requestPopup.didDismissBlock = ^(id aSender) {
+        NSLog(@"page dismissed");
+    };
+    requestPopup.completeBlock = ^(id aSender) {
+        NSLog(@"page content loaded");   
+    };
+    // save request popup
+    [[self getBlockRepo] setObject:requestPopup forKey:@"requestPopup"];
+    
+    NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:requestPopup, @"popup", nil];
+    
+    [self notifyMainUIWithCommand:CommandNotifyLoadPopup object:userinfoDic];
+    
+}
 
-
-//- (void) I_change_my_account_to_user_PARAM:(NSString*) user 
-//                      _with_password_PARAM:(NSString*) pwd{
-//    NSURL* url = [[NSURL alloc] initWithString:@"http://open-sb.gree.net"];
-//    GreeHTTPClient* client = [[GreeHTTPClient alloc] initWithBaseURL:url
-//                                                                 key:@"3c47b530df23" 
-//                                                              secret:@"c6958d092a3db174de86678f31d86d01"];
-//    __block NSString* oauth_request_token = nil;
-//    __block NSString* oauth_request_secret = nil;
-//    
-//    // oauth 2 legged request
-//    [client setOAuthVerifier:nil];
-//    [client setUserToken:nil secret:nil];
-//    [client rawRequestWithMethod:@"GET" 
-//                            path:@"/oauth/request_token" 
-//                      parameters:nil 
-//                         success:^(GreeAFHTTPRequestOperation *operation, id responseObject) {
-//                             NSString* responseBody = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]; 
-//                             NSArray *pairs = [responseBody componentsSeparatedByString:@"&"];  
-//                             
-//                             for (NSString *pair in pairs) {
-//                                 NSArray *elements = [pair componentsSeparatedByString:@"="];
-//                                 if ([[elements objectAtIndex:0] isEqualToString:@"oauth_token"]) {
-//                                     oauth_request_token = [[elements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//                                 } else if ([[elements objectAtIndex:0] isEqualToString:@"oauth_token_secret"]) {
-//                                     oauth_request_secret = [[elements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//                                 } 
-//                             }    
-//                             [responseBody release];   
-//                             [self notifyInStep];
-//                         } 
-//                         failure:^(GreeAFHTTPRequestOperation *operation, NSError *error) {
-//                             [self notifyInStep];
-//                         }];
-//    [self waitForInStep];
-//    
-//    // oauth 3 legged request
-//    [client setUserToken:oauth_request_token 
-//                  secret:oauth_request_secret];
-//    [client rawRequestWithMethod:@"GET" 
-//                            path:@"/oauth/access_token" 
-//                      parameters:nil 
-//                         success:^(GreeAFHTTPRequestOperation *operation, id responseObject) {
-//                             NSString* responseBody = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]; 
-//                             NSArray *pairs = [responseBody componentsSeparatedByString:@"&"];  
-//                             
-//                             for (NSString *pair in pairs) {
-//                                 NSArray *elements = [pair componentsSeparatedByString:@"="];
-//                                 if ([[elements objectAtIndex:0] isEqualToString:@"oauth_token"]) {
-//                                     oauth_request_token = [[elements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//                                 } else if ([[elements objectAtIndex:0] isEqualToString:@"oauth_token_secret"]) {
-//                                     oauth_request_secret = [[elements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-//                                 } 
-//                             }    
-//                             [responseBody release];   
-//                             [self notifyInStep];
-//                         } 
-//                         failure:^(GreeAFHTTPRequestOperation *operation, NSError *error) {
-//                             [self notifyInStep];
-//                         }];
-//    [self waitForInStep];
-//    return;
-//}
+- (void) I_close_request_popup{
+    GreeRequestServicePopup* requestPopup = [[self getBlockRepo] objectForKey:@"requestPopup"];
+//    id checkCloseButton = [requestPopup.popupView valueForKeyPath:@"closeButton"];
+    
+    NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:requestPopup, @"popup", nil];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"dismissPopup" 
+                                                        object:nil
+                                                      userInfo:userinfoDic];
+    
+    [self notifyMainUIWithCommand:CommandNotifyDismissPopup object:userinfoDic];
+}
 
 @end
