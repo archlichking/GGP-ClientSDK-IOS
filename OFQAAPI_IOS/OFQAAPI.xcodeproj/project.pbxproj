@@ -27,6 +27,8 @@
 		BA283D141532D0BE0055981A /* NoCommandMatchException.h in Headers */ = {isa = PBXBuildFile; fileRef = BA283D121532D0BE0055981A /* NoCommandMatchException.h */; };
 		BA283D151532D0BE0055981A /* NoCommandMatchException.m in Sources */ = {isa = PBXBuildFile; fileRef = BA283D131532D0BE0055981A /* NoCommandMatchException.m */; };
 		BA283D4C15341D960055981A /* ModerationStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA283D4B15341D960055981A /* ModerationStepDefinition.m */; };
+		BA286D9E159D9D05004C70C0 /* PopupStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA286D9D159D9D05004C70C0 /* PopupStepDefinition.m */; };
+		BA286D9F159D9D05004C70C0 /* PopupStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA286D9D159D9D05004C70C0 /* PopupStepDefinition.m */; };
 		BA34F4F815759ECC00EA1F50 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA78B5FE14F792A200C4D6FB /* UIKit.framework */; };
 		BA34F4F915759ECC00EA1F50 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA89094E14F75D6100018B0F /* Foundation.framework */; };
 		BA34F4FA15759ECC00EA1F50 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA78B60114F792A200C4D6FB /* CoreGraphics.framework */; };
@@ -241,6 +243,8 @@
 		BA283D131532D0BE0055981A /* NoCommandMatchException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoCommandMatchException.m; path = core/exception/NoCommandMatchException.m; sourceTree = "<group>"; };
 		BA283D4A15341D960055981A /* ModerationStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModerationStepDefinition.h; path = steps/ModerationStepDefinition.h; sourceTree = "<group>"; };
 		BA283D4B15341D960055981A /* ModerationStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModerationStepDefinition.m; path = steps/ModerationStepDefinition.m; sourceTree = "<group>"; };
+		BA286D9C159D9D05004C70C0 /* PopupStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopupStepDefinition.h; path = steps/PopupStepDefinition.h; sourceTree = "<group>"; };
+		BA286D9D159D9D05004C70C0 /* PopupStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopupStepDefinition.m; path = steps/PopupStepDefinition.m; sourceTree = "<group>"; };
 		BA34F4F615759ECC00EA1F50 /* OFQAJenkins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OFQAJenkins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA34F4FD15759ECC00EA1F50 /* OFQAJenkins-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OFQAJenkins-Info.plist"; sourceTree = "<group>"; };
 		BA34F4FF15759ECC00EA1F50 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -532,6 +536,8 @@
 				BA7656921599A81A0032120A /* GreePlatformStepDefinition.m */,
 				BA64A520159AD16E007527C2 /* PaymentStepDefinition.h */,
 				BA64A521159AD16E007527C2 /* PaymentStepDefinition.m */,
+				BA286D9C159D9D05004C70C0 /* PopupStepDefinition.h */,
+				BA286D9D159D9D05004C70C0 /* PopupStepDefinition.m */,
 			);
 			name = Steps;
 			path = OFQASample;
@@ -1049,6 +1055,7 @@
 				BA765685159992C80032120A /* NetworkStepDefinition.m in Sources */,
 				BA7656941599A81A0032120A /* GreePlatformStepDefinition.m in Sources */,
 				BA64A523159AD16E007527C2 /* PaymentStepDefinition.m in Sources */,
+				BA286D9F159D9D05004C70C0 /* PopupStepDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1074,6 +1081,7 @@
 				BA765684159992C80032120A /* NetworkStepDefinition.m in Sources */,
 				BA7656931599A81A0032120A /* GreePlatformStepDefinition.m in Sources */,
 				BA64A522159AD16E007527C2 /* PaymentStepDefinition.m in Sources */,
+				BA286D9E159D9D05004C70C0 /* PopupStepDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,6 +15,9 @@ int const CaseResultUntested = 0;
 
 NSString* const CommandNotifyLoadPopup = @"loadPopup";
 NSString* const CommandNotifyDismissPopup = @"dismissPopup";
+NSString* const CommandNotifyExecuteCommandInPopup = @"executeCommandInPopup";
+
+NSString* const CommandJSPopupCommand = @"jsCommand";
 
 @implementation Constant
 

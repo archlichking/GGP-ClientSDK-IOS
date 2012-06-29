@@ -10,7 +10,6 @@
 #import "GreeKeyChain.h"
 #import "GreePlatform.h"
 #import "GreeUser.h"
-#import "GreePopup.h"
 
 #import "AppDelegate.h"
 
@@ -103,50 +102,6 @@
             NSLog(@"%@", user);
         }
     }];
-}
-
-- (void) I_open_request_popup{
-    // initialize request popup
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithObjectsAndKeys:
-                                       @"iMac rocks in Diablo3", GreeRequestServicePopupTitle, 
-                                       @"and Monk rules them all", GreeRequestServicePopupBody,
-                                       @"test type", GreeRequestServicePopupListType,
-                                       nil];
-    
-    GreeRequestServicePopup* requestPopup = [GreeRequestServicePopup popup];
-    [requestPopup setParameters:parameters];
-    requestPopup.didLaunchBlock = ^(id aSender) {
-        NSLog(@"page popup done");
-        UIWebView* view = [requestPopup.popupView valueForKeyPath:@"webView"];
-        NSString* pageC = [view stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
-        NSLog(@"%@", pageC);
-    };
-    requestPopup.didDismissBlock = ^(id aSender) {
-        NSLog(@"page dismissed");
-    };
-    requestPopup.completeBlock = ^(id aSender) {
-        NSLog(@"page content loaded");   
-    };
-    // save request popup
-    [[self getBlockRepo] setObject:requestPopup forKey:@"requestPopup"];
-    
-    NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:requestPopup, @"popup", nil];
-    
-    [self notifyMainUIWithCommand:CommandNotifyLoadPopup object:userinfoDic];
-    
-}
-
-- (void) I_close_request_popup{
-    GreeRequestServicePopup* requestPopup = [[self getBlockRepo] objectForKey:@"requestPopup"];
-//    id checkCloseButton = [requestPopup.popupView valueForKeyPath:@"closeButton"];
-    
-    NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:requestPopup, @"popup", nil];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"dismissPopup" 
-                                                        object:nil
-                                                      userInfo:userinfoDic];
-    
-    [self notifyMainUIWithCommand:CommandNotifyDismissPopup object:userinfoDic];
 }
 
 @end

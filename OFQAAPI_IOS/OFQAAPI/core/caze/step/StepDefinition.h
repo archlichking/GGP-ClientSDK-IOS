@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+static NSConditionLock* outsideStepLock; // this is now only allowed in popup steps
+
 @interface StepDefinition : NSObject{
     @protected
     __block NSMutableDictionary* blockRepo;
@@ -27,5 +29,8 @@
 
 - (void) notifyMainUIWithCommand:(NSString*) command 
                           object:(id) obj;
+
++ (void) notifyOutsideStep;
++ (void) waitForOutsideStep;
 
 @end

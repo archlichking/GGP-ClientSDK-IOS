@@ -75,6 +75,11 @@
                                              selector:@selector(dismissPopup:)
                                                  name:CommandNotifyDismissPopup 
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(executeCommandInPopup:)
+                                                 name:CommandNotifyExecuteCommandInPopup 
+                                               object:nil];
 
     
     [self suiteIdText].delegate = self;
@@ -297,6 +302,22 @@
     
     [self performSelectorOnMainThread:@selector(dismissGreePopup)
                            withObject:nil
+                        waitUntilDone:YES];
+}
+
+- (void) executeJSInPopup:(NSDictionary*) paramDic{
+    NSString* command = [paramDic objectForKey:CommandJSPopupCommand];
+    GreePopup* popup = [paramDic objectForKey:@"popup"];
+    
+    NSString* result = [popup stringByEvaluatingJavaScriptFromString:command];
+    return;
+}
+
+- (void) executeCommandInPopup:(NSNotification*) notification{
+    NSDictionary* infoDic = [notification userInfo];
+    
+    [self performSelectorOnMainThread:@selector(executeJSInPopup:)
+                           withObject:infoDic
                         waitUntilDone:YES];
 }
 

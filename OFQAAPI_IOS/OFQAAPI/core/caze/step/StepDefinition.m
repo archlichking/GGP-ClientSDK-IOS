@@ -56,4 +56,21 @@
                                                       userInfo:obj];
 }
 
++ (void) notifyOutsideStep{
+    [outsideStepLock lock];
+    [outsideStepLock unlockWithCondition:1];
+}
+
++ (void) waitForOutsideStep{
+    if (!outsideStepLock) {
+        outsideStepLock = [[NSConditionLock alloc] initWithCondition:0];
+    }
+    [outsideStepLock lockWhenCondition:1 
+                       beforeDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+    [outsideStepLock unlock];
+    // reset timeout and condition
+    [outsideStepLock release];
+    outsideStepLock = [[NSConditionLock alloc] initWithCondition:0];
+}
+
 @end
