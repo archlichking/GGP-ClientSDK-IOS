@@ -160,6 +160,8 @@
 		BA89096014F75E6E00018B0F /* TcmCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = BA89095E14F75E6E00018B0F /* TcmCommunicator.m */; };
 		BA894EC5152EDFAC0010B6A1 /* CommenStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA894EC4152EDFAC0010B6A1 /* CommenStepDefinition.m */; };
 		BA894EC9152EE00B0010B6A1 /* LeaderboardStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA894EC8152EE00A0010B6A1 /* LeaderboardStepDefinition.m */; };
+		BA94C39715A14728006E3AC0 /* baseCommand.js in Resources */ = {isa = PBXBuildFile; fileRef = BA94C39615A14728006E3AC0 /* baseCommand.js */; };
+		BA94C39815A14728006E3AC0 /* baseCommand.js in Resources */ = {isa = PBXBuildFile; fileRef = BA94C39615A14728006E3AC0 /* baseCommand.js */; };
 		BA96EC37150EFA5C00214FAD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA64CB70150DDF9200E8A9EE /* libz.dylib */; };
 		BA98F88C1590B83E00159287 /* 12697credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA98F88B1590B83E00159287 /* 12697credentialsConfig.json */; };
 		BA98F88D1590B83E00159287 /* 12697credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA98F88B1590B83E00159287 /* 12697credentialsConfig.json */; };
@@ -366,6 +368,7 @@
 		BA894EC4152EDFAC0010B6A1 /* CommenStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommenStepDefinition.m; path = steps/CommenStepDefinition.m; sourceTree = "<group>"; };
 		BA894EC7152EE00A0010B6A1 /* LeaderboardStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeaderboardStepDefinition.h; path = steps/LeaderboardStepDefinition.h; sourceTree = "<group>"; };
 		BA894EC8152EE00A0010B6A1 /* LeaderboardStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaderboardStepDefinition.m; path = steps/LeaderboardStepDefinition.m; sourceTree = "<group>"; };
+		BA94C39615A14728006E3AC0 /* baseCommand.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = baseCommand.js; path = Config/baseCommand.js; sourceTree = "<group>"; };
 		BA98F88B1590B83E00159287 /* 12697credentialsConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = 12697credentialsConfig.json; path = Config/12697credentialsConfig.json; sourceTree = "<group>"; };
 		BA98F88E1590BB7400159287 /* CredentialStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CredentialStorage.h; path = core/util/CredentialStorage.h; sourceTree = "<group>"; };
 		BA98F88F1590BB7400159287 /* CredentialStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CredentialStorage.m; path = core/util/CredentialStorage.m; sourceTree = "<group>"; };
@@ -833,6 +836,7 @@
 				BA19E8BC15980E1000EDD94B /* 11787credentialsConfig.json */,
 				BA717A801598532D008DA307 /* 15199credentialsConfig.json */,
 				BABEA601159AF4A1001BBF43 /* 15265credentialsConfig.json */,
+				BA94C39615A14728006E3AC0 /* baseCommand.js */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -1008,6 +1012,7 @@
 				BA19E8BE15980E1000EDD94B /* 11787credentialsConfig.json in Resources */,
 				BA717A821598532D008DA307 /* 15199credentialsConfig.json in Resources */,
 				BABEA603159AF4A1001BBF43 /* 15265credentialsConfig.json in Resources */,
+				BA94C39815A14728006E3AC0 /* baseCommand.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1029,6 +1034,7 @@
 				BA19E8BD15980E1000EDD94B /* 11787credentialsConfig.json in Resources */,
 				BA717A811598532D008DA307 /* 15199credentialsConfig.json in Resources */,
 				BABEA602159AF4A1001BBF43 /* 15265credentialsConfig.json in Resources */,
+				BA94C39715A14728006E3AC0 /* baseCommand.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1337,8 +1343,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/OFQAAPI.dst;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OFQAAPI/OFQAAPI-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos5.1;
@@ -1350,8 +1358,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/OFQAAPI.dst;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OFQAAPI/OFQAAPI-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos5.1;

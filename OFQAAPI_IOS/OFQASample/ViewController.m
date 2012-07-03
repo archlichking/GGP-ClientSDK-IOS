@@ -286,24 +286,20 @@
 - (void) loadPopup:(NSNotification*) notification{
     
     NSDictionary* infoDic = [notification userInfo];
-    
-    
+        
     GreePopup* popup = [infoDic objectForKey:@"popup"];
     
     [self performSelectorOnMainThread:@selector(showGreePopup:)
                            withObject:popup
-                        waitUntilDone:YES];
+                        waitUntilDone:NO];
 }
 
 - (void) dismissPopup:(NSNotification*) notification{
     
-//    NSDictionary* infoDic = [notification userInfo];
-    
-//    GreePopup* popup = [infoDic objectForKey:@"popup"];
-    
     [self performSelectorOnMainThread:@selector(dismissGreePopup)
                            withObject:nil
                         waitUntilDone:YES];
+    [StepDefinition notifyOutsideStep];
 }
 
 - (void) executeJSInPopup:(NSDictionary*) paramDic{
@@ -311,7 +307,8 @@
     GreePopup* popup = [paramDic objectForKey:@"popup"];
     
     NSString* result = [popup stringByEvaluatingJavaScriptFromString:command];
-    return;
+    [StepDefinition notifyOutsideStep];
+    
 }
 
 - (void) executeCommandInPopup:(NSNotification*) notification{
