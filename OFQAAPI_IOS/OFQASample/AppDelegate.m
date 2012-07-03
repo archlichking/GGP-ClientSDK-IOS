@@ -38,7 +38,7 @@ static NSString* APPID = @"15265";
     NSData* rawData = [self loadConfig:@"tcmsConfig.json"];
     
     // just change APPID
-    NSString* appconf = [NSString stringWithFormat:@"%@credentialsconfig.json", APPID];
+    NSString* appconf = [NSString stringWithFormat:@"%@credentialsConfig.json", APPID];
     
     
     NSData* rawCredential = [self loadConfig:appconf];
