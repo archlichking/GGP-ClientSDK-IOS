@@ -7,7 +7,11 @@
 //
 
 #import "PopupStepDefinition.h"
+
+#import <QuartzCore/QuartzCore.h>
+
 #import "GreePopup.h"
+
 #import "Constant.h"
 #import "QAAssert.h"
 
@@ -17,6 +21,7 @@
 
 @implementation GreePopup(PrivatePopupHacking)
 - (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView{
+    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
     [StepDefinition notifyOutsideStep];
 }
 @end
@@ -26,12 +31,10 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
 @implementation PopupStepDefinition
 
 - (NSString*) wrapJsCommand:(NSString*) command{
-    return [NSString stringWithFormat:@"(function(){%@}return(%@)})()", JsBaseCommand, command];
+    return [NSString stringWithFormat:@"(function(){%@ return(%@)})()", JsBaseCommand, command];
 }
 
 - (void) I_execute_command_in_request_popup_PARAM:(NSString*) command{
-    [StepDefinition waitForOutsideStep];
-    
     NSLog(@"starting command %@", command);
     
     GreeRequestServicePopup* requestPopup = [[self getBlockRepo] objectForKey:@"requestPopup"];
@@ -39,13 +42,13 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     NSString* js = [self wrapJsCommand:command];
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                        command, CommandJSPopupCommand, 
+                                        js, CommandJSPopupCommand, 
                                         requestPopup, @"popup",
                                         nil];
     
     [self notifyMainUIWithCommand:CommandNotifyExecuteCommandInPopup 
                            object:userinfoDic];
-//    [StepDefinition waitForOutsideStep];
+    [StepDefinition waitForOutsideStep];
 }
 
 - (void) I_will_open_request_popup{
@@ -106,10 +109,50 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     
     [self notifyMainUIWithCommand:CommandNotifyLoadPopup
                            object:userinfoDic];
-    [StepDefinition waitForOutsideStep];
+    
     [self waitForInStep];
+    [StepDefinition waitForOutsideStep];
     
 }
+
+- (void) I_make_screenshot_of_current_popup{
+    GreeRequestServicePopup* requestPopup = [[self getBlockRepo] objectForKey:@"requestPopup"];
+    
+    UIView* viewForScreenShot = (UIView*)requestPopup.popupView;
+    UIGraphicsBeginImageContext(viewForScreenShot.layer.visibleRect.size);
+    [viewForScreenShot.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *actImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    [[self getBlockRepo] setObject:actImage 
+                            forKey:@"screenshot"];
+}
+
+- (void) screenshot_should_be_similar_to_expected_one{
+    NSString* imageName = [[NSBundle mainBundle] pathForResource:@"requestPopup" ofType:@"png"];
+    UIImage* expImage = [[UIImage alloc] initWithContentsOfFile:imageName];
+    
+    UIImage* actImage = [[self getBlockRepo] objectForKey:@"screenshot"];
+    
+    size_t width1  = CGImageGetWidth(expImage.CGImage);
+    size_t height1 = CGImageGetHeight(expImage.CGImage);
+    
+    size_t width  = CGImageGetWidth(actImage.CGImage);
+    size_t height = CGImageGetHeight(actImage.CGImage);
+    
+    NSLog(@"%i, %i, %i, %i", (int)width1, (int)width, (int)height1, (int)height);
+   
+//    for (int x = 0; x < width; x++) {
+//        for (int y = 0; y < height; y++) {
+//            int c1 = [self getPixelColorFromImage:expImage X:x Y:y];
+//            int c2 = [self getPixelColorFromImage:actImage X:x Y:y];
+////            NSLog(@"%f", fabs(c1-c2));
+//        }
+//    }
+//    
+    return;
+}
+
 - (void) I_will_dismiss_request_popup{
     GreeRequestServicePopup* requestPopup = [[self getBlockRepo] objectForKey:@"requestPopup"];
     
@@ -129,8 +172,9 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     [self notifyMainUIWithCommand:CommandNotifyDismissPopup 
                            object:userinfoDic];
     
-    [StepDefinition waitForOutsideStep];
+    
     [self waitForInStep];
+    [StepDefinition waitForOutsideStep];
     
 }
 - (void) I_did_dismiss_request_popup{
@@ -183,6 +227,29 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
                             Actual:mark];
 }
 
-
+- (int) getPixelColorFromImage:(UIImage*) image
+                             X:(int) x 
+                             Y:(int) y{
+    int color = 0;
+    
+    CGImageRef cgImage = [image CGImage];
+    size_t width = CGImageGetWidth(cgImage);
+    
+    CGDataProviderRef provider = CGImageGetDataProvider(cgImage);
+    CFDataRef bitmapData = CGDataProviderCopyData(provider);
+    const UInt8* data = CFDataGetBytePtr(bitmapData);
+    size_t offset = ((width * y) + x) * 4;
+    UInt8 red = data[offset];
+    UInt8 blue = data[offset+1];
+    UInt8 green = data[offset+2];
+    UInt8 alpha = data[offset+3];
+    CFRelease(bitmapData);
+    if (red+blue+green > 306) {
+        NSLog(@"%i", red+blue+green);
+    }
+    color = (int)(red*3/255+blue/255+green*6/255)/10;
+    
+    return color;
+}
 
 @end

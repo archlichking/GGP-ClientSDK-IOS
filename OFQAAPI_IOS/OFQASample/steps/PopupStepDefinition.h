@@ -19,6 +19,9 @@ extern NSString* const JsBaseCommand;
 - (void) I_did_dismiss_request_popup;
 - (void) I_execute_command_in_request_popup_PARAM:(NSString*) command;
 
+- (void) I_make_screenshot_of_current_popup;
+- (void) screenshot_should_be_similar_to_expected_one;
+
 - (void) popup_will_open_callback_should_be_fired_within_seconds_PARAMINT:(NSString*) seconds;
 - (void) popup_did_open_callback_should_be_fired_within_seconds_PARAMINT:(NSString*) seconds;
 - (void) popup_will_dismiss_callback_should_be_fired_within_seconds_PARAMINT:(NSString*) second;

@@ -66,6 +66,7 @@
                                class_createInstance([GreePlatformStepDefinition class], 0),
                                class_createInstance([PaymentStepDefinition class], 0),
                                class_createInstance([PopupStepDefinition class], 0),
+//                                 class_createInstance([SampleStepDefinition class], 0),
                                nil] autorelease];
 
         StepHolder* holder = [[StepHolder alloc] init];

@@ -1,4 +1,4 @@
 Given I logged in with email auto3@136.com and password 123456
-When I will open request popup
-Then popup will open callback should be fired within seconds 10
-After I did dismiss request popup
+Given I did open request popup
+When I execute command in request popup hl(fclass('button block large form-submit primary'))
+When I execute command in request popup click(fclass('button block large form-submit primary'))

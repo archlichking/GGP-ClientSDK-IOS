@@ -123,6 +123,8 @@
     [tableView setContentOffset:CGPointMake(0, 44)];
     [doingLabel setHidden:TRUE];
     [memLabel setHidden:TRUE];
+    
+//    [self showGreeWidgetWithDataSource:self];
 }
 
 - (void)viewDidUnload
@@ -306,8 +308,7 @@
     NSString* command = [paramDic objectForKey:CommandJSPopupCommand];
     GreePopup* popup = [paramDic objectForKey:@"popup"];
     
-    NSString* result = [popup stringByEvaluatingJavaScriptFromString:command];
-    [StepDefinition notifyOutsideStep];
+    [popup stringByEvaluatingJavaScriptFromString:command];
     
 }
 
@@ -319,5 +320,16 @@
                         waitUntilDone:YES];
     [StepDefinition notifyOutsideStep];
 }
+
+//#pragma mark - GreeWidgetDataSource
+//- (UIImage*)screenshotImageForWidget:(GreeWidget*)widget
+//{
+//    UIView* viewForScreenShot = self.view;
+//    UIGraphicsBeginImageContext(viewForScreenShot.layer.visibleRect.size);
+//    [viewForScreenShot.layer renderInContext:UIGraphicsGetCurrentContext()];
+//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    return image;
+//}
 
 @end
