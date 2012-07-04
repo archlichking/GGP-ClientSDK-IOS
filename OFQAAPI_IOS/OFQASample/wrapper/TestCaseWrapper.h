@@ -15,6 +15,8 @@
     int cId;
     BOOL isSelected;
     NSString* result;
+    
+    
 }
 
 @property (retain) TestCase* tc;

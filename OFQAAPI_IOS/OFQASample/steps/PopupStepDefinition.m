@@ -21,7 +21,7 @@
 
 @implementation GreePopup(PrivatePopupHacking)
 - (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView{
-    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
+//    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
     [StepDefinition notifyOutsideStep];
 }
 @end
@@ -128,31 +128,6 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
                             forKey:@"screenshot"];
 }
 
-- (void) screenshot_should_be_similar_to_expected_one{
-    NSString* imageName = [[NSBundle mainBundle] pathForResource:@"requestPopup" ofType:@"png"];
-    UIImage* expImage = [[UIImage alloc] initWithContentsOfFile:imageName];
-    
-    UIImage* actImage = [[self getBlockRepo] objectForKey:@"screenshot"];
-    
-    size_t width1  = CGImageGetWidth(expImage.CGImage);
-    size_t height1 = CGImageGetHeight(expImage.CGImage);
-    
-    size_t width  = CGImageGetWidth(actImage.CGImage);
-    size_t height = CGImageGetHeight(actImage.CGImage);
-    
-    NSLog(@"%i, %i, %i, %i", (int)width1, (int)width, (int)height1, (int)height);
-   
-//    for (int x = 0; x < width; x++) {
-//        for (int y = 0; y < height; y++) {
-//            int c1 = [self getPixelColorFromImage:expImage X:x Y:y];
-//            int c2 = [self getPixelColorFromImage:actImage X:x Y:y];
-////            NSLog(@"%f", fabs(c1-c2));
-//        }
-//    }
-//    
-    return;
-}
-
 - (void) I_will_dismiss_request_popup{
     GreeRequestServicePopup* requestPopup = [[self getBlockRepo] objectForKey:@"requestPopup"];
     
@@ -225,31 +200,6 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     NSString* mark = [[self getBlockRepo] objectForKey:@"completeMark"];
     [QAAssert assertEqualsExpected:@"1" 
                             Actual:mark];
-}
-
-- (int) getPixelColorFromImage:(UIImage*) image
-                             X:(int) x 
-                             Y:(int) y{
-    int color = 0;
-    
-    CGImageRef cgImage = [image CGImage];
-    size_t width = CGImageGetWidth(cgImage);
-    
-    CGDataProviderRef provider = CGImageGetDataProvider(cgImage);
-    CFDataRef bitmapData = CGDataProviderCopyData(provider);
-    const UInt8* data = CFDataGetBytePtr(bitmapData);
-    size_t offset = ((width * y) + x) * 4;
-    UInt8 red = data[offset];
-    UInt8 blue = data[offset+1];
-    UInt8 green = data[offset+2];
-    UInt8 alpha = data[offset+3];
-    CFRelease(bitmapData);
-    if (red+blue+green > 306) {
-        NSLog(@"%i", red+blue+green);
-    }
-    color = (int)(red*3/255+blue/255+green*6/255)/10;
-    
-    return color;
 }
 
 @end
