@@ -14,9 +14,11 @@
 #import "TestCaseWrapper.h"
 #import "TestRunnerWrapper.h"
 #import "TcmCommunicator.h"
+#import "Constant.h"
+#import "StepDefinition.h"
 
 #import "MAlertView.h"
-
+#import "GreePopup.h"
 
 #import "CaseTableDelegate.h"
 
@@ -64,6 +66,23 @@
                                              selector:@selector(refreshCases:)
                                                  name:@"RefreshCases" 
                                                object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(loadPopup:)
+                                                 name:CommandNotifyLoadPopup 
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(dismissPopup:)
+                                                 name:CommandNotifyDismissPopup 
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(executeCommandInPopup:)
+                                                 name:CommandNotifyExecuteCommandInPopup 
+                                               object:nil];
+
+    
     [self suiteIdText].delegate = self;
     [self runIdText].delegate = self;
     
@@ -104,6 +123,8 @@
     [tableView setContentOffset:CGPointMake(0, 44)];
     [doingLabel setHidden:TRUE];
     [memLabel setHidden:TRUE];
+    
+//    [self showGreeWidgetWithDataSource:self];
 }
 
 - (void)viewDidUnload
@@ -263,5 +284,52 @@
     [memLabel setHidden:YES];
     [[self view] setUserInteractionEnabled:YES];
 }
+
+- (void) loadPopup:(NSNotification*) notification{
+    
+    NSDictionary* infoDic = [notification userInfo];
+        
+    GreePopup* popup = [infoDic objectForKey:@"popup"];
+    
+    [self performSelectorOnMainThread:@selector(showGreePopup:)
+                           withObject:popup
+                        waitUntilDone:NO];
+}
+
+- (void) dismissPopup:(NSNotification*) notification{
+    
+    [self performSelectorOnMainThread:@selector(dismissGreePopup)
+                           withObject:nil
+                        waitUntilDone:YES];
+    [StepDefinition notifyOutsideStep];
+}
+
+- (void) executeJSInPopup:(NSDictionary*) paramDic{
+    NSString* command = [paramDic objectForKey:CommandJSPopupCommand];
+    GreePopup* popup = [paramDic objectForKey:@"popup"];
+    
+    [popup stringByEvaluatingJavaScriptFromString:command];
+    
+}
+
+- (void) executeCommandInPopup:(NSNotification*) notification{
+    NSDictionary* infoDic = [notification userInfo];
+    
+    [self performSelectorOnMainThread:@selector(executeJSInPopup:)
+                           withObject:infoDic
+                        waitUntilDone:YES];
+    [StepDefinition notifyOutsideStep];
+}
+
+//#pragma mark - GreeWidgetDataSource
+//- (UIImage*)screenshotImageForWidget:(GreeWidget*)widget
+//{
+//    UIView* viewForScreenShot = self.view;
+//    UIGraphicsBeginImageContext(viewForScreenShot.layer.visibleRect.size);
+//    [viewForScreenShot.layer renderInContext:UIGraphicsGetCurrentContext()];
+//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    return image;
+//}
 
 @end

@@ -21,12 +21,13 @@
 		BA20767F14FB5FBC00293C3C /* TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = BA20767D14FB5FBC00293C3C /* TestCase.m */; };
 		BA20768214FB62DD00293C3C /* CommandUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = BA20768014FB62DC00293C3C /* CommandUtil.h */; };
 		BA20768314FB62DD00293C3C /* CommandUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = BA20768114FB62DC00293C3C /* CommandUtil.m */; };
-		BA2648C915670F2900D6C6D9 /* libGreePlatform.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2648C715670F2900D6C6D9 /* libGreePlatform.a */; };
 		BA283D0F1532B9180055981A /* NoSuchStepException.h in Headers */ = {isa = PBXBuildFile; fileRef = BA283D0D1532B9180055981A /* NoSuchStepException.h */; };
 		BA283D101532B9180055981A /* NoSuchStepException.m in Sources */ = {isa = PBXBuildFile; fileRef = BA283D0E1532B9180055981A /* NoSuchStepException.m */; };
 		BA283D141532D0BE0055981A /* NoCommandMatchException.h in Headers */ = {isa = PBXBuildFile; fileRef = BA283D121532D0BE0055981A /* NoCommandMatchException.h */; };
 		BA283D151532D0BE0055981A /* NoCommandMatchException.m in Sources */ = {isa = PBXBuildFile; fileRef = BA283D131532D0BE0055981A /* NoCommandMatchException.m */; };
 		BA283D4C15341D960055981A /* ModerationStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA283D4B15341D960055981A /* ModerationStepDefinition.m */; };
+		BA286D9E159D9D05004C70C0 /* PopupStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA286D9D159D9D05004C70C0 /* PopupStepDefinition.m */; };
+		BA286D9F159D9D05004C70C0 /* PopupStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA286D9D159D9D05004C70C0 /* PopupStepDefinition.m */; };
 		BA34F4F815759ECC00EA1F50 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA78B5FE14F792A200C4D6FB /* UIKit.framework */; };
 		BA34F4F915759ECC00EA1F50 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA89094E14F75D6100018B0F /* Foundation.framework */; };
 		BA34F4FA15759ECC00EA1F50 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA78B60114F792A200C4D6FB /* CoreGraphics.framework */; };
@@ -36,8 +37,6 @@
 		BA34F50915759ECC00EA1F50 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA34F50715759ECC00EA1F50 /* MainStoryboard_iPhone.storyboard */; };
 		BA34F50C15759ECC00EA1F50 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA34F50A15759ECC00EA1F50 /* MainStoryboard_iPad.storyboard */; };
 		BA34F50F15759ECC00EA1F50 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA34F50E15759ECC00EA1F50 /* ViewController.m */; };
-		BA34F51615759FA800EA1F50 /* libGreePlatform.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2648C715670F2900D6C6D9 /* libGreePlatform.a */; };
-		BA34F51715759FA800EA1F50 /* libGreeWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2648C815670F2900D6C6D9 /* libGreeWallet.a */; };
 		BA34F51815759FED00EA1F50 /* libOFQAAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA89094B14F75D6100018B0F /* libOFQAAPI.a */; };
 		BA34F51915759FF300EA1F50 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA64CB70150DDF9200E8A9EE /* libz.dylib */; };
 		BA34F51A15759FFC00EA1F50 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA64CB6E150DDF8900E8A9EE /* libsqlite3.dylib */; };
@@ -61,9 +60,6 @@
 		BA34F54F1576968100EA1F50 /* tcmsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BAB8182714FC759100AF18CD /* tcmsConfig.json */; };
 		BA34F55B1576996900EA1F50 /* TestCaseWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BA34F5531576986200EA1F50 /* TestCaseWrapper.m */; };
 		BA34F55D1576996900EA1F50 /* TestRunnerWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BA34F5571576989400EA1F50 /* TestRunnerWrapper.m */; };
-		BA34F56A15769B3400EA1F50 /* GreePlatformCoreResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA34F56715769B3400EA1F50 /* GreePlatformCoreResources.bundle */; };
-		BA34F56B15769B3400EA1F50 /* GreePlatformLandscapeResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA34F56815769B3400EA1F50 /* GreePlatformLandscapeResources.bundle */; };
-		BA34F56C15769B3400EA1F50 /* GreePlatformPortraitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA34F56915769B3400EA1F50 /* GreePlatformPortraitResources.bundle */; };
 		BA34F56D15769B4C00EA1F50 /* TestCaseWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BA34F5531576986200EA1F50 /* TestCaseWrapper.m */; };
 		BA34F56E15769B4C00EA1F50 /* TestRunnerWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BA34F5571576989400EA1F50 /* TestRunnerWrapper.m */; };
 		BA381E5614FCA03D00FBA134 /* TcmCaseBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = BA381E5414FCA03D00FBA134 /* TcmCaseBuilder.h */; };
@@ -72,6 +68,8 @@
 		BA381E6314FCC2C100FBA134 /* TcmNotReachableException.h in Headers */ = {isa = PBXBuildFile; fileRef = BA381E6114FCC2C100FBA134 /* TcmNotReachableException.h */; };
 		BA381E6414FCC2C100FBA134 /* TcmNotReachableException.m in Sources */ = {isa = PBXBuildFile; fileRef = BA381E6214FCC2C100FBA134 /* TcmNotReachableException.m */; };
 		BA381E6D14FCC6D700FBA134 /* SampleStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA381E6C14FCC6D700FBA134 /* SampleStepDefinition.m */; };
+		BA3E489A15A2DBD1001CFE71 /* requestPopup.png in Resources */ = {isa = PBXBuildFile; fileRef = BA3E489915A2DBD1001CFE71 /* requestPopup.png */; };
+		BA3E489B15A2DBD1001CFE71 /* requestPopup.png in Resources */ = {isa = PBXBuildFile; fileRef = BA3E489915A2DBD1001CFE71 /* requestPopup.png */; };
 		BA5218F4150E04C2002F02B3 /* StepDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = BA5218F2150E04C2002F02B3 /* StepDefinition.h */; };
 		BA5218F5150E04C2002F02B3 /* StepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5218F3150E04C2002F02B3 /* StepDefinition.m */; };
 		BA52DE081566E59300F87A66 /* libOFQAAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA89094B14F75D6100018B0F /* libOFQAAPI.a */; };
@@ -158,11 +156,15 @@
 		BA89096014F75E6E00018B0F /* TcmCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = BA89095E14F75E6E00018B0F /* TcmCommunicator.m */; };
 		BA894EC5152EDFAC0010B6A1 /* CommenStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA894EC4152EDFAC0010B6A1 /* CommenStepDefinition.m */; };
 		BA894EC9152EE00B0010B6A1 /* LeaderboardStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA894EC8152EE00A0010B6A1 /* LeaderboardStepDefinition.m */; };
+		BA94C39715A14728006E3AC0 /* baseCommand.js in Resources */ = {isa = PBXBuildFile; fileRef = BA94C39615A14728006E3AC0 /* baseCommand.js */; };
+		BA94C39815A14728006E3AC0 /* baseCommand.js in Resources */ = {isa = PBXBuildFile; fileRef = BA94C39615A14728006E3AC0 /* baseCommand.js */; };
 		BA96EC37150EFA5C00214FAD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA64CB70150DDF9200E8A9EE /* libz.dylib */; };
 		BA98F88C1590B83E00159287 /* 12697credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA98F88B1590B83E00159287 /* 12697credentialsConfig.json */; };
 		BA98F88D1590B83E00159287 /* 12697credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA98F88B1590B83E00159287 /* 12697credentialsConfig.json */; };
 		BA98F8921590C7D000159287 /* CredentialStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98F88F1590BB7400159287 /* CredentialStorage.m */; };
 		BA98F8931590C7EE00159287 /* CredentialStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = BA98F88E1590BB7400159287 /* CredentialStorage.h */; };
+		BA99E24215A40C6F00818490 /* libGreePlatform.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA99E24015A40C6F00818490 /* libGreePlatform.a */; };
+		BA99E24315A40C6F00818490 /* libGreeWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA99E24115A40C6F00818490 /* libGreeWallet.a */; };
 		BAA80765150D96A6003A94E9 /* StepMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = BAA80763150D96A6003A94E9 /* StepMethod.h */; };
 		BAA80766150D96A6003A94E9 /* StepMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA80764150D96A6003A94E9 /* StepMethod.m */; };
 		BAA80775150DACF3003A94E9 /* failed_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA80774150DACF3003A94E9 /* failed_checked.png */; };
@@ -174,15 +176,11 @@
 		BAA80B7F150DCFC7003A94E9 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA80B7E150DCFC7003A94E9 /* AddressBook.framework */; };
 		BAA80B81150DCFCD003A94E9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA80B80150DCFCD003A94E9 /* Security.framework */; };
 		BAA80B83150DD01D003A94E9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA80B82150DD01D003A94E9 /* SystemConfiguration.framework */; };
-		BAB2102B152D4C8A00177141 /* GreePlatformCoreResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAB21028152D4C8A00177141 /* GreePlatformCoreResources.bundle */; };
-		BAB2102C152D4C8A00177141 /* GreePlatformLandscapeResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAB21029152D4C8A00177141 /* GreePlatformLandscapeResources.bundle */; };
-		BAB2102D152D4C8A00177141 /* GreePlatformPortraitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAB2102A152D4C8A00177141 /* GreePlatformPortraitResources.bundle */; };
 		BAB21032152D4FC700177141 /* AchievementStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB21031152D4FC700177141 /* AchievementStepDefinition.m */; };
 		BAB8182814FC759100AF18CD /* debugCase.txt in Resources */ = {isa = PBXBuildFile; fileRef = BAB8182614FC759100AF18CD /* debugCase.txt */; };
 		BAB8182914FC759100AF18CD /* tcmsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BAB8182714FC759100AF18CD /* tcmsConfig.json */; };
 		BAB8183014FC890900AF18CD /* TestRunner.h in Headers */ = {isa = PBXBuildFile; fileRef = BAB8182E14FC890900AF18CD /* TestRunner.h */; };
 		BAB8183114FC890900AF18CD /* TestRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB8182F14FC890900AF18CD /* TestRunner.m */; };
-		BABEA5E1159AD512001BBF43 /* libGreeWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2648C815670F2900D6C6D9 /* libGreeWallet.a */; };
 		BABEA602159AF4A1001BBF43 /* 15265credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BABEA601159AF4A1001BBF43 /* 15265credentialsConfig.json */; };
 		BABEA603159AF4A1001BBF43 /* 15265credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BABEA601159AF4A1001BBF43 /* 15265credentialsConfig.json */; };
 		BAC432C3153FF6AC00C07E21 /* PeopleStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC432C2153FF6AC00C07E21 /* PeopleStepDefinition.m */; };
@@ -233,14 +231,14 @@
 		BA20767D14FB5FBC00293C3C /* TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestCase.m; path = core/caze/TestCase.m; sourceTree = "<group>"; };
 		BA20768014FB62DC00293C3C /* CommandUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommandUtil.h; path = core/util/CommandUtil.h; sourceTree = "<group>"; };
 		BA20768114FB62DC00293C3C /* CommandUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommandUtil.m; path = core/util/CommandUtil.m; sourceTree = "<group>"; };
-		BA2648C715670F2900D6C6D9 /* libGreePlatform.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGreePlatform.a; path = ../../../ggplib_ios/release/libGreePlatform.a; sourceTree = "<group>"; };
-		BA2648C815670F2900D6C6D9 /* libGreeWallet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGreeWallet.a; path = ../../../ggplib_ios/release/libGreeWallet.a; sourceTree = "<group>"; };
 		BA283D0D1532B9180055981A /* NoSuchStepException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoSuchStepException.h; path = core/exception/NoSuchStepException.h; sourceTree = "<group>"; };
 		BA283D0E1532B9180055981A /* NoSuchStepException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoSuchStepException.m; path = core/exception/NoSuchStepException.m; sourceTree = "<group>"; };
 		BA283D121532D0BE0055981A /* NoCommandMatchException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoCommandMatchException.h; path = core/exception/NoCommandMatchException.h; sourceTree = "<group>"; };
 		BA283D131532D0BE0055981A /* NoCommandMatchException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoCommandMatchException.m; path = core/exception/NoCommandMatchException.m; sourceTree = "<group>"; };
 		BA283D4A15341D960055981A /* ModerationStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModerationStepDefinition.h; path = steps/ModerationStepDefinition.h; sourceTree = "<group>"; };
 		BA283D4B15341D960055981A /* ModerationStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModerationStepDefinition.m; path = steps/ModerationStepDefinition.m; sourceTree = "<group>"; };
+		BA286D9C159D9D05004C70C0 /* PopupStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopupStepDefinition.h; path = steps/PopupStepDefinition.h; sourceTree = "<group>"; };
+		BA286D9D159D9D05004C70C0 /* PopupStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopupStepDefinition.m; path = steps/PopupStepDefinition.m; sourceTree = "<group>"; };
 		BA34F4F615759ECC00EA1F50 /* OFQAJenkins.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OFQAJenkins.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA34F4FD15759ECC00EA1F50 /* OFQAJenkins-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OFQAJenkins-Info.plist"; sourceTree = "<group>"; };
 		BA34F4FF15759ECC00EA1F50 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -256,9 +254,6 @@
 		BA34F5531576986200EA1F50 /* TestCaseWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestCaseWrapper.m; path = wrapper/TestCaseWrapper.m; sourceTree = "<group>"; };
 		BA34F5561576989400EA1F50 /* TestRunnerWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestRunnerWrapper.h; path = wrapper/TestRunnerWrapper.h; sourceTree = "<group>"; };
 		BA34F5571576989400EA1F50 /* TestRunnerWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestRunnerWrapper.m; path = wrapper/TestRunnerWrapper.m; sourceTree = "<group>"; };
-		BA34F56715769B3400EA1F50 /* GreePlatformCoreResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformCoreResources.bundle; path = ../../../ggplib_ios/release/resources/GreePlatformCoreResources.bundle; sourceTree = "<group>"; };
-		BA34F56815769B3400EA1F50 /* GreePlatformLandscapeResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformLandscapeResources.bundle; path = ../../../ggplib_ios/release/resources/GreePlatformLandscapeResources.bundle; sourceTree = "<group>"; };
-		BA34F56915769B3400EA1F50 /* GreePlatformPortraitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformPortraitResources.bundle; path = ../../../ggplib_ios/release/resources/GreePlatformPortraitResources.bundle; sourceTree = "<group>"; };
 		BA381E5414FCA03D00FBA134 /* TcmCaseBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TcmCaseBuilder.h; path = core/caze/builder/TcmCaseBuilder.h; sourceTree = "<group>"; };
 		BA381E5514FCA03D00FBA134 /* TcmCaseBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TcmCaseBuilder.m; path = core/caze/builder/TcmCaseBuilder.m; sourceTree = "<group>"; };
 		BA381E5914FCAFD600FBA134 /* NetCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetCommunicator.h; path = core/net/NetCommunicator.h; sourceTree = "<group>"; };
@@ -266,6 +261,7 @@
 		BA381E6214FCC2C100FBA134 /* TcmNotReachableException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TcmNotReachableException.m; path = core/exception/TcmNotReachableException.m; sourceTree = "<group>"; };
 		BA381E6B14FCC6D700FBA134 /* SampleStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SampleStepDefinition.h; path = steps/SampleStepDefinition.h; sourceTree = "<group>"; };
 		BA381E6C14FCC6D700FBA134 /* SampleStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SampleStepDefinition.m; path = steps/SampleStepDefinition.m; sourceTree = "<group>"; };
+		BA3E489915A2DBD1001CFE71 /* requestPopup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = requestPopup.png; path = result/requestPopup.png; sourceTree = "<group>"; };
 		BA5218F2150E04C2002F02B3 /* StepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StepDefinition.h; path = core/caze/step/StepDefinition.h; sourceTree = "<group>"; };
 		BA5218F3150E04C2002F02B3 /* StepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StepDefinition.m; path = core/caze/step/StepDefinition.m; sourceTree = "<group>"; };
 		BA56CAD71505A3CC001ECED4 /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
@@ -362,9 +358,12 @@
 		BA894EC4152EDFAC0010B6A1 /* CommenStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommenStepDefinition.m; path = steps/CommenStepDefinition.m; sourceTree = "<group>"; };
 		BA894EC7152EE00A0010B6A1 /* LeaderboardStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeaderboardStepDefinition.h; path = steps/LeaderboardStepDefinition.h; sourceTree = "<group>"; };
 		BA894EC8152EE00A0010B6A1 /* LeaderboardStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeaderboardStepDefinition.m; path = steps/LeaderboardStepDefinition.m; sourceTree = "<group>"; };
+		BA94C39615A14728006E3AC0 /* baseCommand.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = baseCommand.js; path = Config/baseCommand.js; sourceTree = "<group>"; };
 		BA98F88B1590B83E00159287 /* 12697credentialsConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = 12697credentialsConfig.json; path = Config/12697credentialsConfig.json; sourceTree = "<group>"; };
 		BA98F88E1590BB7400159287 /* CredentialStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CredentialStorage.h; path = core/util/CredentialStorage.h; sourceTree = "<group>"; };
 		BA98F88F1590BB7400159287 /* CredentialStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CredentialStorage.m; path = core/util/CredentialStorage.m; sourceTree = "<group>"; };
+		BA99E24015A40C6F00818490 /* libGreePlatform.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGreePlatform.a; path = ../ggplib_ios/release/libGreePlatform.a; sourceTree = "<group>"; };
+		BA99E24115A40C6F00818490 /* libGreeWallet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGreeWallet.a; path = ../ggplib_ios/release/libGreeWallet.a; sourceTree = "<group>"; };
 		BAA80763150D96A6003A94E9 /* StepMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StepMethod.h; path = core/caze/step/StepMethod.h; sourceTree = "<group>"; };
 		BAA80764150D96A6003A94E9 /* StepMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StepMethod.m; path = core/caze/step/StepMethod.m; sourceTree = "<group>"; };
 		BAA80774150DACF3003A94E9 /* failed_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failed_checked.png; sourceTree = "<group>"; };
@@ -376,9 +375,6 @@
 		BAA80B7E150DCFC7003A94E9 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		BAA80B80150DCFCD003A94E9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BAA80B82150DD01D003A94E9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		BAB21028152D4C8A00177141 /* GreePlatformCoreResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformCoreResources.bundle; path = ../../../ggplib_ios/release/resources/GreePlatformCoreResources.bundle; sourceTree = "<group>"; };
-		BAB21029152D4C8A00177141 /* GreePlatformLandscapeResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformLandscapeResources.bundle; path = ../../../ggplib_ios/release/resources/GreePlatformLandscapeResources.bundle; sourceTree = "<group>"; };
-		BAB2102A152D4C8A00177141 /* GreePlatformPortraitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformPortraitResources.bundle; path = ../../../ggplib_ios/release/resources/GreePlatformPortraitResources.bundle; sourceTree = "<group>"; };
 		BAB21030152D4FC700177141 /* AchievementStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AchievementStepDefinition.h; path = steps/AchievementStepDefinition.h; sourceTree = "<group>"; };
 		BAB21031152D4FC700177141 /* AchievementStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AchievementStepDefinition.m; path = steps/AchievementStepDefinition.m; sourceTree = "<group>"; };
 		BAB8182614FC759100AF18CD /* debugCase.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = debugCase.txt; path = Config/debugCase.txt; sourceTree = "<group>"; };
@@ -421,8 +417,6 @@
 				BA34F51A15759FFC00EA1F50 /* libsqlite3.dylib in Frameworks */,
 				BA34F51915759FF300EA1F50 /* libz.dylib in Frameworks */,
 				BA34F51815759FED00EA1F50 /* libOFQAAPI.a in Frameworks */,
-				BA34F51615759FA800EA1F50 /* libGreePlatform.a in Frameworks */,
-				BA34F51715759FA800EA1F50 /* libGreeWallet.a in Frameworks */,
 				BA34F4F815759ECC00EA1F50 /* UIKit.framework in Frameworks */,
 				BA34F4F915759ECC00EA1F50 /* Foundation.framework in Frameworks */,
 				BA34F4FA15759ECC00EA1F50 /* CoreGraphics.framework in Frameworks */,
@@ -433,13 +427,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BABEA5E1159AD512001BBF43 /* libGreeWallet.a in Frameworks */,
+				BA99E24215A40C6F00818490 /* libGreePlatform.a in Frameworks */,
+				BA99E24315A40C6F00818490 /* libGreeWallet.a in Frameworks */,
 				BA96EC37150EFA5C00214FAD /* libz.dylib in Frameworks */,
 				BA78B60214F792A200C4D6FB /* CoreGraphics.framework in Frameworks */,
 				BA7044B11588CF7900B42451 /* MobileCoreServices.framework in Frameworks */,
 				BAA80B83150DD01D003A94E9 /* SystemConfiguration.framework in Frameworks */,
 				BA7044AF1588CF4C00B42451 /* CFNetwork.framework in Frameworks */,
-				BA2648C915670F2900D6C6D9 /* libGreePlatform.a in Frameworks */,
 				BA52DE081566E59300F87A66 /* libOFQAAPI.a in Frameworks */,
 				BA64CB73150DE03000E8A9EE /* StoreKit.framework in Frameworks */,
 				BA64CB6F150DDF8900E8A9EE /* libsqlite3.dylib in Frameworks */,
@@ -509,6 +503,7 @@
 		BA381E6714FCC3B900FBA134 /* Steps */ = {
 			isa = PBXGroup;
 			children = (
+				BA3E489415A2DB56001CFE71 /* result */,
 				BA56CADB1505A738001ECED4 /* wrapper */,
 				BA381E6B14FCC6D700FBA134 /* SampleStepDefinition.h */,
 				BA381E6C14FCC6D700FBA134 /* SampleStepDefinition.m */,
@@ -532,9 +527,19 @@
 				BA7656921599A81A0032120A /* GreePlatformStepDefinition.m */,
 				BA64A520159AD16E007527C2 /* PaymentStepDefinition.h */,
 				BA64A521159AD16E007527C2 /* PaymentStepDefinition.m */,
+				BA286D9C159D9D05004C70C0 /* PopupStepDefinition.h */,
+				BA286D9D159D9D05004C70C0 /* PopupStepDefinition.m */,
 			);
 			name = Steps;
 			path = OFQASample;
+			sourceTree = "<group>";
+		};
+		BA3E489415A2DB56001CFE71 /* result */ = {
+			isa = PBXGroup;
+			children = (
+				BA3E489915A2DBD1001CFE71 /* requestPopup.png */,
+			);
+			name = result;
 			sourceTree = "<group>";
 		};
 		BA56CAD51505A338001ECED4 /* icon */ = {
@@ -724,18 +729,12 @@
 		BA89094014F75D6100018B0F = {
 			isa = PBXGroup;
 			children = (
+				BA99E24015A40C6F00818490 /* libGreePlatform.a */,
+				BA99E24115A40C6F00818490 /* libGreeWallet.a */,
 				BA7044B01588CF7900B42451 /* MobileCoreServices.framework */,
 				BA7044AE1588CF4C00B42451 /* CFNetwork.framework */,
 				BA70447F1588CD7200B42451 /* vendor */,
-				BA34F56715769B3400EA1F50 /* GreePlatformCoreResources.bundle */,
-				BA34F56815769B3400EA1F50 /* GreePlatformLandscapeResources.bundle */,
-				BA34F56915769B3400EA1F50 /* GreePlatformPortraitResources.bundle */,
 				BA381E6714FCC3B900FBA134 /* Steps */,
-				BA2648C715670F2900D6C6D9 /* libGreePlatform.a */,
-				BA2648C815670F2900D6C6D9 /* libGreeWallet.a */,
-				BAB21028152D4C8A00177141 /* GreePlatformCoreResources.bundle */,
-				BAB21029152D4C8A00177141 /* GreePlatformLandscapeResources.bundle */,
-				BAB2102A152D4C8A00177141 /* GreePlatformPortraitResources.bundle */,
 				BA89095014F75D6100018B0F /* OFQAAPI */,
 				BA89097E14F760CD00018B0F /* Config */,
 				BA78B60314F792A200C4D6FB /* OFQASample */,
@@ -827,6 +826,7 @@
 				BA19E8BC15980E1000EDD94B /* 11787credentialsConfig.json */,
 				BA717A801598532D008DA307 /* 15199credentialsConfig.json */,
 				BABEA601159AF4A1001BBF43 /* 15265credentialsConfig.json */,
+				BA94C39615A14728006E3AC0 /* baseCommand.js */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -991,9 +991,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA34F56A15769B3400EA1F50 /* GreePlatformCoreResources.bundle in Resources */,
-				BA34F56B15769B3400EA1F50 /* GreePlatformLandscapeResources.bundle in Resources */,
-				BA34F56C15769B3400EA1F50 /* GreePlatformPortraitResources.bundle in Resources */,
 				BA34F54F1576968100EA1F50 /* tcmsConfig.json in Resources */,
 				BA34F50015759ECC00EA1F50 /* InfoPlist.strings in Resources */,
 				BA34F50915759ECC00EA1F50 /* MainStoryboard_iPhone.storyboard in Resources */,
@@ -1002,6 +999,8 @@
 				BA19E8BE15980E1000EDD94B /* 11787credentialsConfig.json in Resources */,
 				BA717A821598532D008DA307 /* 15199credentialsConfig.json in Resources */,
 				BABEA603159AF4A1001BBF43 /* 15265credentialsConfig.json in Resources */,
+				BA94C39815A14728006E3AC0 /* baseCommand.js in Resources */,
+				BA3E489B15A2DBD1001CFE71 /* requestPopup.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1009,9 +1008,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAB2102B152D4C8A00177141 /* GreePlatformCoreResources.bundle in Resources */,
-				BAB2102C152D4C8A00177141 /* GreePlatformLandscapeResources.bundle in Resources */,
-				BAB2102D152D4C8A00177141 /* GreePlatformPortraitResources.bundle in Resources */,
 				BA78B60814F792A200C4D6FB /* InfoPlist.strings in Resources */,
 				BA78B61114F792A200C4D6FB /* MainStoryboard.storyboard in Resources */,
 				BAB8182814FC759100AF18CD /* debugCase.txt in Resources */,
@@ -1023,6 +1019,8 @@
 				BA19E8BD15980E1000EDD94B /* 11787credentialsConfig.json in Resources */,
 				BA717A811598532D008DA307 /* 15199credentialsConfig.json in Resources */,
 				BABEA602159AF4A1001BBF43 /* 15265credentialsConfig.json in Resources */,
+				BA94C39715A14728006E3AC0 /* baseCommand.js in Resources */,
+				BA3E489A15A2DBD1001CFE71 /* requestPopup.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1049,6 +1047,7 @@
 				BA765685159992C80032120A /* NetworkStepDefinition.m in Sources */,
 				BA7656941599A81A0032120A /* GreePlatformStepDefinition.m in Sources */,
 				BA64A523159AD16E007527C2 /* PaymentStepDefinition.m in Sources */,
+				BA286D9F159D9D05004C70C0 /* PopupStepDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1074,6 +1073,7 @@
 				BA765684159992C80032120A /* NetworkStepDefinition.m in Sources */,
 				BA7656931599A81A0032120A /* GreePlatformStepDefinition.m in Sources */,
 				BA64A522159AD16E007527C2 /* PaymentStepDefinition.m in Sources */,
+				BA286D9E159D9D05004C70C0 /* PopupStepDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1237,15 +1237,16 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OFQASample/OFQASample-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"/Users/thunderzhulei/ggplib_ios/sdk/source/core/authorization\"";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../ggplib_ios/sdk/source/core/authorization\"/**";
 				INFOPLIST_FILE = "OFQASample/OFQASample-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../ggplib_ios/release\"",
+					"\"$(SRCROOT)/../ggplib_ios/release\"/**",
+					"\"$(SRCROOT)/../ggplib_ios/release\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos5.1;
-				USER_HEADER_SEARCH_PATHS = /Users/thunderzhulei/ggplib_ios/release/include;
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../ggplib_ios/release/include\"/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1259,16 +1260,17 @@
 				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OFQASample/OFQASample-Prefix.pch";
-				HEADER_SEARCH_PATHS = "\"/Users/thunderzhulei/ggplib_ios/sdk/source/core/authorization\"";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../ggplib_ios/sdk/source/core/authorization\"/**";
 				INFOPLIST_FILE = "OFQASample/OFQASample-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../../../ggplib_ios/release\"",
+					"\"$(SRCROOT)/../ggplib_ios/release\"/**",
+					"\"$(SRCROOT)/../ggplib_ios/release\"",
 				);
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos5.1;
-				USER_HEADER_SEARCH_PATHS = /Users/thunderzhulei/ggplib_ios/release/include;
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../ggplib_ios/release/include\"/**";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1329,8 +1331,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/OFQAAPI.dst;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OFQAAPI/OFQAAPI-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos5.1;
@@ -1342,8 +1346,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/OFQAAPI.dst;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OFQAAPI/OFQAAPI-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos5.1;

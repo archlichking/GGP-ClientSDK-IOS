@@ -13,6 +13,12 @@ int const CaseResultRetested = 4;
 int const CaseResultPassed = 1;
 int const CaseResultUntested = 0;
 
+NSString* const CommandNotifyLoadPopup = @"loadPopup";
+NSString* const CommandNotifyDismissPopup = @"dismissPopup";
+NSString* const CommandNotifyExecuteCommandInPopup = @"executeCommandInPopup";
+
+NSString* const CommandJSPopupCommand = @"jsCommand";
+
 @implementation Constant
 
 + (NSString*) getReadableResult:(int) res{

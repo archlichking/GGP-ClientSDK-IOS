@@ -25,4 +25,10 @@
 
 -(void) setTimeout:(int) timeout;
 
+- (void) notifyMainUIWithCommand:(NSString*) command 
+                          object:(id) obj;
+
++ (void) notifyOutsideStep;
++ (void) waitForOutsideStep;
+
 @end

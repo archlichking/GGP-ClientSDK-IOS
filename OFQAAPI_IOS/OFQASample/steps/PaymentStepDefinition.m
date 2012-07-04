@@ -20,6 +20,7 @@
                                                                       quantity:1 
                                                                       imageUrl:@"" 
                                                                    description:@""];
+    
     NSMutableArray* temp = [[NSMutableArray alloc] initWithObjects:item, nil];
     
     [GreeWallet paymentWithItems:temp 
