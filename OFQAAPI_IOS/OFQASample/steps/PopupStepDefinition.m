@@ -13,6 +13,7 @@
 #import "GreePopup.h"
 
 #import "Constant.h"
+#import "CommandUtil.h"
 #import "QAAssert.h"
 
 @interface GreePopup(PrivatePopupHacking)
@@ -21,7 +22,7 @@
 
 @implementation GreePopup(PrivatePopupHacking)
 - (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView{
-//    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
+    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
     [StepDefinition notifyOutsideStep];
 }
 @end
@@ -42,12 +43,14 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     NSString* js = [self wrapJsCommand:command];
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                        js, CommandJSPopupCommand, 
-                                        requestPopup, @"popup",
+                                        [NSString stringWithFormat:@"%i", executeJavascriptInPopup], @"command",
+                                        requestPopup, @"executor", 
+                                        js, @"jsCommand",
                                         nil];
     
-    [self notifyMainUIWithCommand:CommandNotifyExecuteCommandInPopup 
+    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
                            object:userinfoDic];
+    
     [StepDefinition waitForOutsideStep];
 }
 
@@ -72,15 +75,16 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     [[self getBlockRepo] setObject:requestPopup forKey:@"requestPopup"];
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                        requestPopup, @"popup",
+                                        [NSString stringWithFormat:@"%i", launchPopup], @"command",
+                                        requestPopup, @"executor", 
                                         nil];
     
-    [self notifyMainUIWithCommand:CommandNotifyLoadPopup
+    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
                            object:userinfoDic];
     
-    
-    [self waitForInStep];
     [StepDefinition waitForOutsideStep];
+    [self waitForInStep];
+    
     
 }
 - (void) I_did_open_request_popup{
@@ -104,14 +108,16 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     [[self getBlockRepo] setObject:requestPopup forKey:@"requestPopup"];
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                        requestPopup, @"popup",
+                                        [NSString stringWithFormat:@"%i", launchPopup], @"command",
+                                        requestPopup, @"executor", 
                                         nil];
     
-    [self notifyMainUIWithCommand:CommandNotifyLoadPopup
+    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
                            object:userinfoDic];
     
     [self waitForInStep];
     [StepDefinition waitForOutsideStep];
+    
     
 }
 
@@ -141,15 +147,16 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                        requestPopup, @"popup", 
+                                        [NSString stringWithFormat:@"%i", dismissPopup], @"command",
+                                        requestPopup, @"executor", 
                                         nil];
     
-    [self notifyMainUIWithCommand:CommandNotifyDismissPopup 
+    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
                            object:userinfoDic];
     
-    
-    [self waitForInStep];
     [StepDefinition waitForOutsideStep];
+    [self waitForInStep];
+    
     
 }
 - (void) I_did_dismiss_request_popup{
@@ -165,11 +172,13 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                        requestPopup, @"popup", 
+                                        [NSString stringWithFormat:@"%i", dismissPopup], @"command",
+                                        requestPopup, @"executor", 
                                         nil];
     
-    [self notifyMainUIWithCommand:CommandNotifyDismissPopup 
+    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
                            object:userinfoDic];
+    
     
     [StepDefinition waitForOutsideStep];
     [self waitForInStep];
@@ -200,6 +209,35 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     NSString* mark = [[self getBlockRepo] objectForKey:@"completeMark"];
     [QAAssert assertEqualsExpected:@"1" 
                             Actual:mark];
+}
+
+- (void) I_check_request_popup_setting_info{
+    GreeRequestServicePopup* requestPopup = [[self getBlockRepo] objectForKey:@"requestPopup"];
+    
+    NSString* js = [self wrapJsCommand:@"getText(fclass('sentence medium minor break-normal'))"];
+    
+    id resultBlock = ^(NSString* result){
+        [[self getBlockRepo] setObject:result forKey:@"jsResult"];
+        [self notifyInStep];
+    };
+    
+    NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                        [NSString stringWithFormat:@"%i", executeJavascriptInPopup], @"command",
+                                        requestPopup, @"executor", 
+                                        js, @"jsCommand",
+                                        resultBlock, @"jsCallback",
+                                        nil];
+    
+    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
+                           object:userinfoDic];
+    
+    [StepDefinition waitForOutsideStep];
+    [self waitForInStep];
+}
+
+- (NSString*) request_popup_info_should_be_correct{
+    NSString* jsResult = [[self getBlockRepo] objectForKey:@"jsResult"];
+    return jsResult;
 }
 
 @end

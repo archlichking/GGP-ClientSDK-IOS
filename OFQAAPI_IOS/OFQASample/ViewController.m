@@ -14,11 +14,14 @@
 #import "TestCaseWrapper.h"
 #import "TestRunnerWrapper.h"
 #import "TcmCommunicator.h"
+#import "CommandUtil.h"
 #import "Constant.h"
 #import "StepDefinition.h"
 
 #import "MAlertView.h"
 #import "GreePopup.h"
+#import "GreeWallet.h"
+#import "GreeWallet+ExternalUISupport.h"
 
 #import "CaseTableDelegate.h"
 
@@ -68,21 +71,10 @@
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(loadPopup:)
-                                                 name:CommandNotifyLoadPopup 
+                                             selector:@selector(dispatchCommand:)
+                                                 name:CommandDispatchPopupCommand 
                                                object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(dismissPopup:)
-                                                 name:CommandNotifyDismissPopup 
-                                               object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(executeCommandInPopup:)
-                                                 name:CommandNotifyExecuteCommandInPopup 
-                                               object:nil];
-
-    
+        
     [self suiteIdText].delegate = self;
     [self runIdText].delegate = self;
     
@@ -285,40 +277,64 @@
     [[self view] setUserInteractionEnabled:YES];
 }
 
-- (void) loadPopup:(NSNotification*) notification{
-    
-    NSDictionary* infoDic = [notification userInfo];
-        
-    GreePopup* popup = [infoDic objectForKey:@"popup"];
-    
-    [self performSelectorOnMainThread:@selector(showGreePopup:)
-                           withObject:popup
-                        waitUntilDone:NO];
-}
-
-- (void) dismissPopup:(NSNotification*) notification{
-    
-    [self performSelectorOnMainThread:@selector(dismissGreePopup)
-                           withObject:nil
-                        waitUntilDone:YES];
-    [StepDefinition notifyOutsideStep];
-}
-
-- (void) executeJSInPopup:(NSDictionary*) paramDic{
-    NSString* command = [paramDic objectForKey:CommandJSPopupCommand];
-    GreePopup* popup = [paramDic objectForKey:@"popup"];
-    
-    [popup stringByEvaluatingJavaScriptFromString:command];
-    
-}
-
-- (void) executeCommandInPopup:(NSNotification*) notification{
+- (void) dispatchCommand:(NSNotification*) notification{
     NSDictionary* infoDic = [notification userInfo];
     
-    [self performSelectorOnMainThread:@selector(executeJSInPopup:)
-                           withObject:infoDic
-                        waitUntilDone:YES];
-    [StepDefinition notifyOutsideStep];
+    if ([self respondsToSelector:@selector(dispatchCommand:withExecutor:extraInfo:)]) {
+        [self dispatchCommand:[infoDic objectForKey:@"command"] 
+                 withExecutor:[infoDic objectForKey:@"executor"] 
+                    extraInfo:infoDic]; 
+    }
+}
+
+- (void) dispatchCommand:(NSString*) command 
+            withExecutor:(id) popupExecutor 
+               extraInfo:(NSDictionary*) extra{
+    
+    switch ([command intValue]) {
+        case launchPopup:
+            [self performSelectorOnMainThread:@selector(showGreePopup:) 
+                                   withObject: (GreePopup*) popupExecutor
+                                waitUntilDone:NO];
+            break;
+        case dismissPopup:
+            [self performSelectorOnMainThread:@selector(dismissGreePopup) 
+                                   withObject:(GreePopup*) popupExecutor 
+                                waitUntilDone:YES];
+            [StepDefinition notifyOutsideStep];
+            break;  
+        case executeJavascriptInPopup:
+            [self performSelectorOnMainThread:@selector(executeJsInPopup:) 
+                                   withObject:extra 
+                                waitUntilDone:YES];
+            [StepDefinition notifyOutsideStep];
+            break;
+            
+        case executeInWallet:
+            [self performSelectorOnMainThread:@selector(launchDeositePopupInWallet:) 
+                                   withObject:extra 
+                                waitUntilDone:YES];
+            [StepDefinition notifyOutsideStep];
+            break;
+        default:
+            break;
+    }
+}
+
+- (void) launchDeositePopupInWallet:(NSDictionary*) info{
+    NSMutableArray* arr = [[NSMutableArray alloc] initWithObjects:[info objectForKey:@"item"], nil];
+    [GreeWallet paymentWithItems:arr
+                         message:@"ahha" 
+                     callbackUrl:@"http://www.google.com.hk" 
+                    successBlock:[info objectForKey:@"sBlock"] 
+                    failureBlock:[info objectForKey:@"fBlock"]];
+}
+
+- (void) executeJsInPopup:(NSDictionary*) info{
+    GreePopup* popup = (GreePopup*) [info objectForKey:@"executor"];
+    NSString* jsResult = [popup stringByEvaluatingJavaScriptFromString:[info objectForKey:@"jsCommand"]];
+    void (^callbackBlock)(NSString*) = [info objectForKey:@"jsCallback"];
+    callbackBlock(jsResult);
 }
 
 //#pragma mark - GreeWidgetDataSource

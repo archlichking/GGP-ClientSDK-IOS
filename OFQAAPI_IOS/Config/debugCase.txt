@@ -1,4 +1,4 @@
 Given I logged in with email auto3@136.com and password 123456
-Given I did open request popup
-When I execute command in request popup hl(fclass('button block large form-submit primary'))
-When I execute command in request popup click(fclass('button block large form-submit primary'))
+And I did open request popup
+When I check request popup setting info
+Then request popup info should be correct

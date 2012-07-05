@@ -15,5 +15,14 @@ extern NSString* const CommandAnd;
 extern NSString* const CommandAfter;
 extern NSString* const CommandBefore;
 
+extern NSString* const CommandDispatchPopupCommand;
+
+extern enum {
+    launchPopup,
+    dismissPopup,
+    executeJavascriptInPopup,
+    executeInWallet
+} CommandPopup;
+
 @interface CommandUtil : NSObject
 @end

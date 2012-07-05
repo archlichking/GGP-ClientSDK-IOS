@@ -15,5 +15,8 @@ NSString* const CommandAnd = @"And";
 NSString* const CommandAfter = @"After";
 NSString* const CommandBefore = @"Before";
 
+NSString* const CommandDispatchPopupCommand = @"dispatchPopupCommand";
+
 @implementation CommandUtil
+
 @end

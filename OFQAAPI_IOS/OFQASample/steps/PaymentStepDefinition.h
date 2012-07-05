@@ -11,6 +11,11 @@
 
 @interface PaymentStepDefinition : StepDefinition
 
-- (void) I_test_payment_api;
+- (void) I_check_my_balance;
+- (NSString*) my_balance_should_be_PARAM:(NSString*) balance;
+
+- (void) I_do_payment_test;
+
+- (void) product_test;
 
 @end
