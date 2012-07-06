@@ -13,6 +13,7 @@
 #import "GreePopup.h"
 
 #import "Constant.h"
+#import "StringUtil.h"
 #import "CommandUtil.h"
 #import "QAAssert.h"
 
@@ -44,12 +45,21 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
                             forKey:@"screenshot"];
 }
 
+// --------begin-----utils
+- (void) cleanCallbacks:(GreePopup*) popup{
+    popup.didDismissBlock = nil;
+    popup.willDismissBlock = nil;
+    popup.didLaunchBlock = nil;
+    popup.willLaunchBlock = nil;
+    popup.completeBlock = nil;
+    popup.cancelBlock = nil;
+}
 
 - (NSString*) wrapJsCommand:(NSString*) command{
     return [NSString stringWithFormat:@"(function(){%@ return(%@)})()", JsBaseCommand, command];
 }
 
-
+//---------end-------utils
 
 - (void) I_execute_js_command_in_popup_PARAM:(NSString*) command{
     NSLog(@"starting command %@", command);
@@ -92,7 +102,7 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     [StepDefinition waitForOutsideStep];
     
     // reset value to default
-    popup.willLaunchBlock = nil;
+    [self cleanCallbacks:popup];
 }
 
 // step definition : i did open popup
@@ -116,7 +126,7 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     [StepDefinition waitForOutsideStep];
     
     // reset value to default
-    popup.didLaunchBlock = nil;
+    [self cleanCallbacks:popup];
 }
 
 // step definition : i will dismiss popup
@@ -136,11 +146,12 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
                            object:userinfoDic];
     
+    
     [self waitForInStep];
     [StepDefinition waitForOutsideStep];
     
     // set value to default
-    popup.willDismissBlock = nil;
+    [self cleanCallbacks:popup];
     
 }
 
@@ -161,12 +172,11 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
                            object:userinfoDic];
     
-    
-    [StepDefinition waitForOutsideStep];
     [self waitForInStep];
+    [StepDefinition waitForOutsideStep];
     
     // set value to default
-    popup.didDismissBlock = nil;
+    [self cleanCallbacks:popup];
 }
 
 // step definition : popup will open callback should be fired within second SEC
@@ -224,28 +234,34 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
                                        nil];
     GreeRequestServicePopup* requestPopup = [GreeRequestServicePopup popupWithParameters:parameters];
     
-    requestPopup.didLaunchBlock = nil;
-    requestPopup.willDismissBlock = nil;
-    requestPopup.willLaunchBlock = nil;
-    requestPopup.didDismissBlock = nil;
+    [self cleanCallbacks:requestPopup];
     
+    // initialize request matrix
+    NSDictionary* requestMatrix = [[NSDictionary alloc] initWithObjectsAndKeys: 
+                                   @"getText(fclass('sentence medium minor break-normal'))", @"title",
+                                   @"getText(fclass('sentence medium minor break-normal'))", @"body",
+                                   nil];
+    
+    [[self getBlockRepo] setObject:requestMatrix forKey:@"requestPage"];
     [[self getBlockRepo] setObject:requestPopup forKey:@"popup"];
 }
 
 // step definition : i check request popup setting info
 - (void) I_check_request_popup_setting_info_PARAM:(NSString*) info{
-    GreeRequestServicePopup* requestPopup = [[self getBlockRepo] objectForKey:@"requestPopup"];
+    GreeRequestServicePopup* requestPopup = [[self getBlockRepo] objectForKey:@"popup"];
     
-    NSString* js = [self wrapJsCommand:@"getText(fclass('sentence medium minor break-normal'))"];
+    NSDictionary* requestMatrix = [[self getBlockRepo] objectForKey:@"requestPage"];
+    
+    NSString* js = [self wrapJsCommand:[requestMatrix objectForKey:info]];
     
     id resultBlock = ^(NSString* result){
-        [[self getBlockRepo] setObject:result forKey:@"jsResult"];
+        [[self getBlockRepo] setObject:result forKey:info];
         [self notifyInStep];
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                                         [NSString stringWithFormat:@"%i", executeJavascriptInPopup], @"command",
-                                        requestPopup, @"executor", 
+                                        requestPopup, @"executor",
                                         js, @"jsCommand",
                                         resultBlock, @"jsCallback",
                                         nil];
@@ -260,8 +276,15 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
 // step definition : request popup info INFO should be VALUE 
 - (NSString*) request_popup_info_PARAM:(NSString*) info 
                       _should_be_PARAM:(NSString*) value{
-    NSString* jsResult = [[self getBlockRepo] objectForKey:@"jsResult"];
-    return jsResult;
+    
+    NSString* jsResult = [[self getBlockRepo] objectForKey:info];
+    
+    [QAAssert assertContainsExpected:jsResult Contains:value];
+    return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
+            @"request popup info", 
+            value,
+            jsResult, 
+            SpliterTcmLine];
 }
 
 //--- end ----------- request popup
