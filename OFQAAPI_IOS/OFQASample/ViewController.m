@@ -21,7 +21,6 @@
 #import "MAlertView.h"
 #import "GreePopup.h"
 #import "GreeWallet.h"
-#import "GreeWallet+ExternalUISupport.h"
 
 #import "CaseTableDelegate.h"
 
