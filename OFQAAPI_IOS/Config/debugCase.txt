@@ -1,4 +1,6 @@
 Given I logged in with email auto3@136.com and password 123456
-Given I did open request popup
-When I execute command in request popup hl(fclass('button block large form-submit primary'))
-When I execute command in request popup click(fclass('button block large form-submit primary'))
+And I initialize share popup with text Nice shot do simple share raised
+And I did open popup
+When I check share popup setting info text
+Then share popup info text should be Nice shot do simple share raised
+After I did dismiss popup

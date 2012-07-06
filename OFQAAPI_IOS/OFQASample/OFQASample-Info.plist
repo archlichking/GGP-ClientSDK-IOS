@@ -11,7 +11,7 @@
 	<key>CFBundleIconFiles</key>
 	<array/>
 	<key>CFBundleIdentifier</key>
-	<string>jp.co.gree.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.aurorafeint.ofxdev1</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -28,7 +28,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>net.gree.sdk.showcase</string>
+			<string>com.aurorafeint.ofxdev1</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>greeapp52760</string>

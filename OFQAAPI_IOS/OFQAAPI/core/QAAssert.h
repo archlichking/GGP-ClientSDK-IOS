@@ -24,4 +24,11 @@
                        Actual:(id)result 
                   WithMessage:(NSString*) message;
 
++ (void) assertContainsExpected:(id)expected 
+                        Contains:(id)result;
+
++ (void) assertContainsExpected:(id)expected 
+                       Contains:(id)result
+                    WithMessage:(NSString*) message;
+
 @end

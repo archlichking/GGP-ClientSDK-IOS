@@ -46,4 +46,21 @@
     }
 }
 
++ (void) assertContainsExpected:(id)expected 
+                       Contains:(id)result{
+    if ([expected rangeOfString:result].length <= 0) {
+        [AssertException raise:@"assertIncludes failed" 
+                        format:@"expected:<%@> should contain result:<%@>", expected, result];
+    }
+}
+
++ (void) assertContainsExpected:(id)expected 
+                       Contains:(id)result
+                    WithMessage:(NSString*) message{
+    if ([expected rangeOfString:result].length <= 0) {
+        [AssertException raise:@"assertIncludes failed" 
+                        format:@"expected:<%@> should contain result:<%@> with message [%@]", expected, result, message];
+    }
+}
+
 @end

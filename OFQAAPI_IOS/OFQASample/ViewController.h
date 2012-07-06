@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <UIViewController+GreePlatform.h>
-
-#import "GreeWidget.h"
+#import "TestPopupDelegate.h"
 
 @class AppDelegate;
 @class CaseTableDelegate;
@@ -17,7 +16,7 @@
 
 
 
-@interface ViewController : UIViewController<UITextFieldDelegate, UIAlertViewDelegate>{
+@interface ViewController : UIViewController<UITextFieldDelegate, UIAlertViewDelegate, PopupDelegate>{
     UIBarButtonItem* loadTestCasesButton;
     UIBarButtonItem* runTestCasesButton;
     
@@ -31,6 +30,7 @@
     
     AppDelegate* appDelegate;
     CaseTableDelegate* caseTableDelegate;
+    
     
     UITableView* tableView;
     
@@ -70,5 +70,8 @@
 - (void) updateProgressViewWithRunning:(NSArray*) objs;
 
 - (void) loadPopup:(GreePopup*) popup;
+- (void) dispatchCommand:(NSString*) command 
+            withExecutor:(id) popupExecutor 
+               extraInfo:(NSDictionary*) infoDic;
 
 @end
