@@ -1,4 +1,5 @@
 Given I logged in with email auto3@136.com and password 123456
-And I did open request popup
-When I check request popup setting info
-Then request popup info should be correct
+And I initialize request popup with title Hell That Diablo3 and body Monk female monk fist
+And I did open popup
+When I did dismiss popup
+Then popup did dismiss callback should be fired within seconds 10

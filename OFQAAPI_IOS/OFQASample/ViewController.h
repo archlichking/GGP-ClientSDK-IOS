@@ -9,8 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <UIViewController+GreePlatform.h>
 #import "TestPopupDelegate.h"
-#import "TestPopupDelegate.h"
-#import "GreeWidget.h"
 
 @class AppDelegate;
 @class CaseTableDelegate;
@@ -72,5 +70,8 @@
 - (void) updateProgressViewWithRunning:(NSArray*) objs;
 
 - (void) loadPopup:(GreePopup*) popup;
+- (void) dispatchCommand:(NSString*) command 
+            withExecutor:(id) popupExecutor 
+               extraInfo:(NSDictionary*) infoDic;
 
 @end
