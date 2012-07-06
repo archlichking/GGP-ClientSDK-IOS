@@ -289,4 +289,132 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
 
 //--- end ----------- request popup
 
+//--- begin --------- invite popup
+
+// step definition : i initialize invite popup with message MSG and callback url URL and users USER1,USER2,USER3
+- (void) I_initialize_invite_popup_with_message_PARAM:(NSString*) msg 
+                               _and_callback_url_PARAM:(NSString*) cbUrl
+                                     _and_users_PARAM:(NSString*) userids{
+    NSArray* toUsers = [userids componentsSeparatedByString:@","];
+    
+    GreeInvitePopup* invitePopup = [GreeInvitePopup popup];
+    invitePopup.message = msg;
+    invitePopup.callbackURL = [NSURL URLWithString:cbUrl];
+    invitePopup.toUserIds = toUsers;
+    
+    [self cleanCallbacks:invitePopup];
+    
+    
+    NSDictionary* inviteMatrix = [[NSDictionary alloc] initWithObjectsAndKeys: 
+                                   @"getText(fclass('balloon bottom list-item round shrink'))", @"message",
+                                   nil];
+    
+    [[self getBlockRepo] setObject:inviteMatrix forKey:@"invitePage"];
+    [[self getBlockRepo] setObject:invitePopup 
+                            forKey:@"popup"];
+}
+
+// step definition : i check invite popup seeting info INFO
+- (void) I_check_invite_popup_setting_info_PARAM:(NSString*) info{
+    GreeInvitePopup* invitePopup = [[self getBlockRepo] objectForKey:@"popup"];
+    
+    NSDictionary* inviteMatrix = [[self getBlockRepo] objectForKey:@"invitePage"];
+    
+    NSString* js = [self wrapJsCommand:[inviteMatrix objectForKey:info]];
+    
+    id resultBlock = ^(NSString* result){
+        [[self getBlockRepo] setObject:result forKey:info];
+        [self notifyInStep];
+    };
+    
+    NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                        [NSString stringWithFormat:@"%i", executeJavascriptInPopup], @"command",
+                                        invitePopup, @"executor",
+                                        js, @"jsCommand",
+                                        resultBlock, @"jsCallback",
+                                        nil];
+    
+    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
+                           object:userinfoDic];
+    
+    [StepDefinition waitForOutsideStep];
+    [self waitForInStep];
+
+}
+
+// step definition : invite popup info INFO should be VALUE
+- (NSString*) invite_popup_info_PARAM:(NSString*) info 
+                     _should_be_PARAM:(NSString*) value{
+    NSString* jsResult = [[self getBlockRepo] objectForKey:info];
+    
+    [QAAssert assertContainsExpected:jsResult Contains:value];
+    return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
+            @"request popup info", 
+            value,
+            jsResult, 
+            SpliterTcmLine];
+}
+
+//--- end ----------- invite popup
+
+//--- begin --------- share popup
+
+// step definition : i initialize share popup with text TXT
+- (void) I_initialize_share_popup_with_text_PARAM:(NSString*) text{
+    GreeSharePopup* popup = [GreeSharePopup popup];
+    popup.text = text;
+    
+    [self cleanCallbacks:popup];
+    
+    NSDictionary* shareMatrix = [[NSDictionary alloc] initWithObjectsAndKeys: 
+                                  @"getText(fid('ggp_share_mood_message_display'))", @"text",
+                                  nil];
+    
+    [[self getBlockRepo] setObject:shareMatrix forKey:@"sharePage"];
+    [[self getBlockRepo] setObject:popup 
+                            forKey:@"popup"];
+    
+}
+
+// step definition : i check share popup setting info INFO
+- (void) I_check_share_popup_setting_info_PARAM:(NSString*) info{
+    GreeSharePopup* popup = [[self getBlockRepo] objectForKey:@"popup"];
+    
+    NSDictionary* shareMatrix = [[self getBlockRepo] objectForKey:@"sharePage"];
+    
+    NSString* js = [self wrapJsCommand:[shareMatrix objectForKey:info]];
+    
+    id resultBlock = ^(NSString* result){
+        [[self getBlockRepo] setObject:result forKey:info];
+        [self notifyInStep];
+    };
+    
+    NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                        [NSString stringWithFormat:@"%i", executeJavascriptInPopup], @"command",
+                                        popup, @"executor",
+                                        js, @"jsCommand",
+                                        resultBlock, @"jsCallback",
+                                        nil];
+    
+    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
+                           object:userinfoDic];
+    
+    [StepDefinition waitForOutsideStep];
+    [self waitForInStep];
+}
+
+// step definition : share popup info INFO should be VALUE
+- (NSString*) share_popup_info_PARAM:(NSString*) info 
+                    _should_be_PARAM:(NSString*) value{
+    NSString* jsResult = [[self getBlockRepo] objectForKey:info];
+    
+    [QAAssert assertContainsExpected:jsResult Contains:value];
+    return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
+            @"request popup info", 
+            value,
+            jsResult, 
+            SpliterTcmLine];
+}
+//--- end ----------- share popup
+
 @end
