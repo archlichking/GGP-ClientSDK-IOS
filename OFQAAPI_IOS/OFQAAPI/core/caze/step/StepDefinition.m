@@ -16,20 +16,12 @@
 
 static NSConditionLock* outsideStepLock; // this is now only allowed in popup steps
 static int OUTSIDETIMEOUT = 30;
-static NSMutableDictionary* outsideBlockRepo;
 
 - (NSMutableDictionary*) getBlockRepo{
     if (!blockRepo) {
         blockRepo = [[NSMutableDictionary alloc] init];
     }
     return blockRepo;
-}
-
-+ (NSMutableDictionary*) getOutsideBlockRepo{
-    if (!outsideBlockRepo){
-        outsideBlockRepo = [[NSMutableDictionary alloc] init];
-    }
-    return outsideBlockRepo;
 }
 
 - (void) waitForInStep{
@@ -44,13 +36,15 @@ static NSMutableDictionary* outsideBlockRepo;
     [inStepLock unlock];
     // reset timeout and condition
     [inStepLock release];
-    
     inStepLock = [[NSConditionLock alloc] initWithCondition:0];
     TIMEOUT = 0;
     
 }
 
 - (void) notifyInStep{
+    if (!outsideStepLock) {
+        outsideStepLock = [[NSConditionLock alloc] initWithCondition:0];
+    }
     @synchronized (self) {
         [inStepLock lock];
         [inStepLock unlockWithCondition:1];
@@ -70,6 +64,9 @@ static NSMutableDictionary* outsideBlockRepo;
 }
 
 + (void) notifyOutsideStep{
+    if (!outsideStepLock) {
+        outsideStepLock = [[NSConditionLock alloc] initWithCondition:0];
+    }
     @synchronized ([self class]){
         [outsideStepLock lock];
         [outsideStepLock unlockWithCondition:1];

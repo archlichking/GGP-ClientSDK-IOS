@@ -65,7 +65,8 @@
 
 // step definition : I load list of leaderboard
 - (void) I_load_list_of_leaderboard{
-    [GreeLeaderboard loadLeaderboardsWithBlock:^(NSArray* leaderboards, NSError* error) {
+    id<GreeEnumerator> enumerator = nil;
+    enumerator = [GreeLeaderboard loadLeaderboardsWithBlock:^(NSArray* leaderboards, NSError* error) {
         if(!error) {
             [[self getBlockRepo] setObject:leaderboards forKey:@"leaderboards"];
         }
@@ -73,7 +74,56 @@
     }];
     
     [self waitForInStep];
+    NSArray* leaderboards = [[self getBlockRepo] objectForKey:@"leaderboards"];
+    [enumerator setStartIndex:[leaderboards count]+1];
+    [[self getBlockRepo] setObject:enumerator forKey:@"enumerator"];
 }
+
+- (void) I_set_enumerator_size_to_PARAMINT:(NSString*) size{
+    id<GreeEnumerator> enumerator = [[self getBlockRepo] objectForKey:@"enumerator"];
+    [enumerator setPageSize:[size intValue]];
+    [[self getBlockRepo] setObject:enumerator forKey:@"enumerator"];
+}
+
+- (void) I_load_one_page_of_leaderboard_list_reversely{
+    id<GreeEnumerator> enumerator = [[self getBlockRepo] objectForKey:@"enumerator"];
+    
+    if ([enumerator canLoadPrevious]) {
+        [enumerator loadPrevious:^(NSArray *items, NSError *error) {
+            if(!error){
+                [[self getBlockRepo] setObject:items forKey:@"leaderboards"];
+            }
+            [self notifyInStep];
+        }];
+        
+        [self waitForInStep];
+    }
+}
+
+//// step definition : I load the first page of leaderboard list with page size SIZE
+//- (void) I_load_the_first_page_of_leaderboard_list_with_page_size_PARAMINT:(NSString*) size{
+//    __block NSMutableArray* array = [[[NSMutableArray alloc] init] autorelease];
+//    
+//    id<GreeEnumerator> enumerator = nil;
+//    enumerator = [GreeLeaderboard loadLeaderboardsWithBlock:^(NSArray *leaderboards, NSError *error) {
+//        [self notifyInStep];
+//    }];
+//    [self waitForInStep];
+//    
+//    [enumerator setPageSize:<#(NSInteger)#>]
+//    [enumerator setPageSize:[size intValue]];
+//    
+//    while ([enumerator canLoadPrevious]) {
+//        [enumerator loadPrevious:^(NSArray *items, NSError *error) {
+//            if(!error){
+//                [array addObjectsFromArray:items];
+//            }
+//            [self notifyInStep];
+//        }];
+//        [self waitForInStep];
+//    }
+//    [[self getBlockRepo] setObject:array forKey:@"leaderboards"];
+//}
 
 // step definition : I should have total leaderboards NUMBER
 - (void) I_should_have_total_leaderboards_PARAMINT:(NSString*) amount{
@@ -157,7 +207,6 @@
     }];
     [self waitForInStep];
     [s release];
-    
 }
 
 // step definition : my score SCORE should be updated in leaderboard LB_NAME

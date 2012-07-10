@@ -13,11 +13,17 @@
 }
 
 - (void) I_load_list_of_leaderboard;
+- (void) I_set_enumerator_size_to_PARAMINT:(NSString*) size;
+- (void) I_load_one_page_of_leaderboard_list_reversely;
+//- (void) I_load_the_first_page_of_leaderboard_list_with_page_size_PARAMINT:(NSString*) size;
+
 - (void) I_should_have_total_leaderboards_PARAMINT:(NSString*) amount;
 - (void) I_should_have_leaderboard_of_name_PARAM:(NSString*) ld_name 
                      _with_allowWorseScore_PARAM:(NSString*) aws
                                _and_secret_PARAM:(NSString*) secret
                             _and_order_asc_PARAM:(NSString*) order;
+
+
 
 - (void) I_make_sure_my_score_PARAM:(NSString*) exist
               _in_leaderboard_PARAM:(NSString*) ld_name;

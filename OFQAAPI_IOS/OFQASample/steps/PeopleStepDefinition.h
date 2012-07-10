@@ -16,9 +16,15 @@
 
 - (NSString*) my_info_PARAM:(NSString*) key _should_be_PARAM:(NSString*) value;
 
-- (void) I_check_my_friend_list;
+- (void) I_load_my_friend_list;
 
-- (void) I_check_my_friend_list_first_page;
+- (void) I_load_friend_list_of_user_PARAM:(NSString*) guid;
+
+- (void) I_load_first_page_of_my_friend_list;
+
+- (void) I_set_enumerator_size_to_PARAMINT:(NSString*) size;
+
+- (void) I_load_one_page_of_friend_list;
 
 - (NSString*) friend_list_should_be_size_of_PARAMINT:(NSString*) size;
 

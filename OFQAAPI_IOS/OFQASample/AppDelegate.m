@@ -34,8 +34,8 @@ static NSString* APPID = @"15265";
     // Override point for customization after application launch.
     // to use debug case, switch to debugCase.txt
     // to use tcm settings, switch to tcmsConfig.json
-//    NSData* rawData = [self loadConfig:@"debugCase.txt"];
-    NSData* rawData = [self loadConfig:@"tcmsConfig.json"];
+    NSData* rawData = [self loadConfig:@"debugCase.txt"];
+//    NSData* rawData = [self loadConfig:@"tcmsConfig.json"];
     
     // just change APPID
     NSString* appconf = [NSString stringWithFormat:@"%@credentialsConfig.json", APPID];
@@ -48,7 +48,7 @@ static NSString* APPID = @"15265";
     
     
     runnerWrapper = [[TestRunnerWrapper alloc] initWithRawData:rawData 
-                                                   builderType:[CaseBuilderFactory TCM_BUILDER]];
+                                                   builderType:[CaseBuilderFactory FILE_BUILDER]];
     
     
     // --------- GREE Platform initialization
@@ -56,7 +56,6 @@ static NSString* APPID = @"15265";
     NSDictionary* settings = [NSDictionary dictionaryWithObjectsAndKeys: 
                               @"sandbox", GreeSettingDevelopmentMode,
                               [NSNumber numberWithBool:YES], GreeSettingUseWallet,
-                              @"true",@"useWallet", 
                               nil]; 
 
       
@@ -69,11 +68,6 @@ static NSString* APPID = @"15265";
                                consumerSecret:[[CredentialStorage sharedInstance] getValueForKey:CredentialStoredAppSecret] 
                                      settings:settings
                                      delegate:self];
-//    [GreePlatform initializeWithApplicationId:@"11787" 
-//                                  consumerKey:@"97f61d7b8f43" 
-//                               consumerSecret:@"38a4325e76d9b66fb5cd2bda5a2eaa59" 
-//                                     settings:settings
-//                                     delegate:self];
 
     
     id httpClient = [[GreePlatform sharedInstance] valueForKey:@"httpClient"];

@@ -60,6 +60,9 @@ function waitPageLoading() {
 	}
 }
 
+function waitPageLoading(t) {if (t < 20) {t = t + 1;setTimeout(waitPageLoading, 2000);}}
+
+
 function assertEqual(exp, res) {
 	return exp == res;
 }
