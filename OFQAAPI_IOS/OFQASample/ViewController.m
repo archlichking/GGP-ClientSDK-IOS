@@ -222,6 +222,7 @@
     [self performSelectorOnMainThread:@selector(dismissAllProgressDisplay)
                            withObject:nil
                         waitUntilDone:YES];
+    exit(0);
 }
 
 
@@ -240,7 +241,6 @@
                                                                         selector:@selector(loadCasesInAnotherThread) 
                                                                           object:nil] autorelease];
     [operationQueue addOperation:theOp]; 
-    
 }
 
 - (IBAction) runCases{

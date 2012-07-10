@@ -1,5 +1,6 @@
 Given I logged in with email auto3@136.com and password 123456
-When I load product list of game 15265
-Then product list should be size of 2
-And product list should have product with id com.aurorafeint.ofxdev1.currency4 and title Currency Two and code USD and price 0.99 and tier 2 and points 140
-And product list should have product with id com.aurorafeint.ofxdev1.currency3 and title Currency One and code USD and price 0.99 and tier 1 and points 70
+And I load first page of my friend list
+When I load friend list of user 1000012972
+Then friend list should be size of 1
+Then friend list should have auto-grade3-user
+Then userid of auto-grade3-user should be 1000012971 and grade should be 3

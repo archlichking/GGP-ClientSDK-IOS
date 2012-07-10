@@ -32,11 +32,12 @@
 }
 
 // step definition : I check my friend list first page
-- (void) I_check_my_friend_list_first_page{
+- (void) I_load_first_page_of_my_friend_list{
     GreeUser* user = [GreePlatform sharedInstance].localUser;
-        
+       
+    id<GreeEnumerator> enumerator = nil;
     if (user) {
-        [user loadFriendsWithBlock:^(NSArray *friends, NSError *error) {
+        enumerator = [user loadFriendsWithBlock:^(NSArray *friends, NSError *error) {
             // first 10 friends could only be retrieved this way
             if (!error) {
                 [[self getBlockRepo] setObject:friends 
@@ -45,6 +46,7 @@
             [self notifyInStep];
         }];
         [self waitForInStep];
+        [[self getBlockRepo] setObject:enumerator forKey:@"enumerator"];
     }
 }
 
@@ -173,7 +175,7 @@
 }
 
 // step definition : I check my friend list
-- (void) I_check_my_friend_list{
+- (void) I_load_my_friend_list{
     GreeUser* user = [GreePlatform sharedInstance].localUser;
     // temperary save for friends list
     NSMutableArray* array = [[[NSMutableArray alloc] init] autorelease];
@@ -262,5 +264,43 @@
     return nil;
 }
 
+- (void) I_set_enumerator_size_to_PARAMINT:(NSString*) size{
+    id<GreeEnumerator> enumerator = [[self getBlockRepo] objectForKey:@"enumerator"];
+    [enumerator setPageSize:[size intValue]];
+    [[self getBlockRepo] setObject:enumerator forKey:@"enumerator"];
+}
+
+- (void) I_load_one_page_of_friend_list{
+    id<GreeEnumerator> enumerator = [[self getBlockRepo] objectForKey:@"enumerator"];
+    NSArray* friends = [[self getBlockRepo] objectForKey:@"friends"];
+    NSMutableArray* arr = [NSMutableArray arrayWithArray:friends];
+    
+    if ([enumerator canLoadNext]) {
+        [enumerator loadNext:^(NSArray *items, NSError *error) {
+            if(!error){
+                [arr addObjectsFromArray:items];
+            }
+            [self notifyInStep];
+        }];
+        
+        [self waitForInStep];
+    }
+    [[self getBlockRepo] setObject:arr forKey:@"friends"];
+}
+
+- (void) I_load_friend_list_of_user_PARAM:(NSString*) guid{
+    id<GreeEnumerator> enumerator = [[self getBlockRepo] objectForKey:@"enumerator"];
+    [enumerator setStartIndex:0];
+    [enumerator setGuid:guid];
+    
+    NSMutableArray* arr = [[NSMutableArray alloc] init];
+    
+    while ([enumerator canLoadNext]) {
+        [enumerator loadNext:^(NSArray *items, NSError *error) {
+            [arr addObjectsFromArray:items];
+        }];
+    }
+    [[self getBlockRepo] setObject:arr forKey:@"friends"];
+}
 
 @end
