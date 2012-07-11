@@ -31,4 +31,14 @@
                        Contains:(id)result
                     WithMessage:(NSString*) message;
 
+
++ (void) assertNotNil:(id)result;
+
++ (void) assertNotNil:(id)result 
+          WithMessage:(NSString*) message;
+
++ (void) assertNil:(id)result;
+
++ (void) assertNil:(id)result 
+          WithMessage:(NSString*) message;
 @end

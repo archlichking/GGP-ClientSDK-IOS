@@ -18,12 +18,21 @@
 #import "GreeAchievement.h"
 #import "GreePlatform.h"
 
+#define RUN_MODE 0
 
+#if RUN_MODE == 0
+#define CONFIG_NAME           @"debugCase.txt"
+#define RUN_TYPE              FILE_BUILDER
+#elif RUN_MODE == 1
+#define CONFIG_NAME           @"tcmsConfig.json"
+#define RUN_TYPE              TCM_BUILDER
+#endif
 
 @implementation AppDelegate
 
 @synthesize window = _window;
 @synthesize runnerWrapper;
+
 
 //static NSString* APPID = @"12697";
 static NSString* APPID = @"15265";
@@ -34,7 +43,7 @@ static NSString* APPID = @"15265";
     // Override point for customization after application launch.
     // to use debug case, switch to debugCase.txt
     // to use tcm settings, switch to tcmsConfig.json
-    NSData* rawData = [self loadConfig:@"debugCase.txt"];
+    NSData* rawData = [self loadConfig:CONFIG_NAME];
 //    NSData* rawData = [self loadConfig:@"tcmsConfig.json"];
     
     // just change APPID
@@ -48,7 +57,7 @@ static NSString* APPID = @"15265";
     
     
     runnerWrapper = [[TestRunnerWrapper alloc] initWithRawData:rawData 
-                                                   builderType:[CaseBuilderFactory FILE_BUILDER]];
+                                                   builderType:[CaseBuilderFactory RUN_TYPE]];
     
     
     // --------- GREE Platform initialization

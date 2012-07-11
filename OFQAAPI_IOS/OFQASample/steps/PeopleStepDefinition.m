@@ -264,7 +264,7 @@
     return nil;
 }
 
-- (void) I_set_enumerator_size_to_PARAMINT:(NSString*) size{
+- (void) I_set_friend_enumerator_size_to_PARAMINT:(NSString*) size{
     id<GreeEnumerator> enumerator = [[self getBlockRepo] objectForKey:@"enumerator"];
     [enumerator setPageSize:[size intValue]];
     [[self getBlockRepo] setObject:enumerator forKey:@"enumerator"];

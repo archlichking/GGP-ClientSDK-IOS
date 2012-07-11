@@ -10,6 +10,7 @@
 
 #import "QAAssert.h"
 #import "QALog.h"
+#import "StringUtil.h"
 
 #import "GreeLeaderboard.h"
 #import "GreeEnumerator.h"
@@ -79,12 +80,15 @@
     [[self getBlockRepo] setObject:enumerator forKey:@"enumerator"];
 }
 
-- (void) I_set_enumerator_size_to_PARAMINT:(NSString*) size{
+
+// step definition : I set leaderboard enumerator size to SIZE
+- (void) I_set_leaderboard_enumerator_size_to_PARAMINT:(NSString*) size{
     id<GreeEnumerator> enumerator = [[self getBlockRepo] objectForKey:@"enumerator"];
     [enumerator setPageSize:[size intValue]];
     [[self getBlockRepo] setObject:enumerator forKey:@"enumerator"];
 }
 
+// step definition : I load one page of leaderboard list reversely
 - (void) I_load_one_page_of_leaderboard_list_reversely{
     id<GreeEnumerator> enumerator = [[self getBlockRepo] objectForKey:@"enumerator"];
     
@@ -440,6 +444,69 @@
         }
     }
     [[self getBlockRepo] setObject:array forKey:@"scores"];
+}
+
+// step definition : I load icon of leaderboard LB
+- (void) I_load_icon_of_leaderboard_PARAM:(NSString*) ld_name{
+    NSArray* lds = [[self getBlockRepo] objectForKey:@"leaderboards"];
+    [[self getBlockRepo] setObject:@"nil" 
+                            forKey:@"leaderboardIcon"];
+    
+    for (GreeLeaderboard* ld in lds) {
+        if([[ld name] isEqualToString:ld_name]){
+            [ld loadIconWithBlock:^(UIImage *image, NSError *error) {
+                if(!error){
+                    [[self getBlockRepo] setObject:image 
+                                            forKey:@"leaderboardIcon"]; 
+                }
+                [self notifyInStep];
+            }];
+            [self waitForInStep];
+            return;
+        }
+    }
+    
+}
+
+// step definition : I cancel load icon of leaderboard LB
+- (void) I_cancel_load_icon_of_leaderboard_PARAM:(NSString*) ld_name{
+    NSArray* lds = [[self getBlockRepo] objectForKey:@"leaderboards"];
+    [[self getBlockRepo] setObject:@"nil" 
+                            forKey:@"leaderboardIcon"];
+    
+    
+    for (GreeLeaderboard* ld in lds) {
+        if([[ld name] isEqualToString:ld_name]){
+            [ld loadIconWithBlock:^(UIImage *image, NSError *error) {
+                if(!error){
+                    [[self getBlockRepo] setObject:image 
+                                            forKey:@"leaderboardIcon"]; 
+                }
+                [self notifyInStep];
+            }];
+            [ld cancelIconLoad];
+            [self waitForInStep];
+            return;
+        }
+    }
+}
+
+// step definition : leaderboard icon of LB should be STATUS
+- (NSString*) leaderboard_icon_of_PARAM:(NSString*) ld_name 
+                  _should_be_PARAM:(NSString*) status{
+    id icon = [[self getBlockRepo] objectForKey:@"leaderboardIcon"];
+    
+    if ([status isEqualToString:@"null"]) {
+        [QAAssert assertEqualsExpected:@"nil" Actual:icon];
+    }else{
+        [QAAssert assertNotEqualsExpected:@"nil" Actual:icon];
+    }
+    
+    return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+            @"leaderboard icon", 
+            status, 
+            icon,
+            SpliterTcmLine];
 }
 
 @end

@@ -63,4 +63,34 @@
     }
 }
 
++ (void) assertNotNil:(id)result{
+    if (result == nil) {
+        [AssertException raise:@"assertNotNil failed" 
+                        format:@"expected:not nil but was:<%@> with message [%@]", result];
+    }
+}
+
++ (void) assertNotNil:(id)result 
+          WithMessage:(NSString*) message{
+    if (result == nil) {
+        [AssertException raise:@"assertNotNil failed" 
+                        format:@"expected:not nil but was:<%@> with message [%@]", result, message];
+    }
+}
+
++ (void) assertNil:(id)result{
+    if (result != nil) {
+        [AssertException raise:@"assertNil failed" 
+                        format:@"expected:nil but was:<%@> with message [%@]", result];
+    }
+}
+
++ (void) assertNil:(id)result 
+       WithMessage:(NSString*) message{
+    if (result != nil) {
+        [AssertException raise:@"assertNil failed" 
+                        format:@"expected:nil but was:<%@> with message [%@]", result, message];
+    }
+}
+
 @end

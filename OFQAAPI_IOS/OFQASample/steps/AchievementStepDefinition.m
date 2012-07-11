@@ -10,6 +10,8 @@
 
 #import "QAAssert.h"
 #import "QALog.h"
+#import "StringUtil.h"
+
 #import "GreeAchievement.h"
 
 
@@ -142,6 +144,67 @@
 // step definition : my score should be DECREASED by SCORE
 - (void) my_score_should_be_PARAM:(NSString*) increment
                              _by_PARAMINT:(NSString*) time{
+}
+
+// step definition : i load icon of achievement ACH
+- (void) I_load_icon_of_achievement_PARAM:(NSString*) ach_name{
+    NSArray* achs = [[self getBlockRepo] objectForKey:@"achievements"];
+    [[self getBlockRepo] setObject:@"nil" 
+                            forKey:@"achievementIcon"];
+    
+    for (GreeAchievement* ach in achs) {
+        if([[ach name] isEqualToString:ach_name]){
+            [ach loadIconWithBlock:^(UIImage *image, NSError *error) {
+                if(!error){
+                    [[self getBlockRepo] setObject:image 
+                                            forKey:@"achievementIcon"]; 
+                }
+                [self notifyInStep];
+            }];
+            [self waitForInStep];
+            return;
+        }
+    }
+}
+
+// step definition : i cancel load icon of achievement ACH
+- (void) I_cancel_load_icon_of_achievement_PARAM:(NSString*) ach_name{
+    NSArray* achs = [[self getBlockRepo] objectForKey:@"achievements"];
+    [[self getBlockRepo] setObject:@"nil" 
+                            forKey:@"achievementIcon"];
+    
+    for (GreeAchievement* ach in achs) {
+        if([[ach name] isEqualToString:ach_name]){
+            [ach loadIconWithBlock:^(UIImage *image, NSError *error) {
+                if(!error){
+                    [[self getBlockRepo] setObject:image 
+                                            forKey:@"achievementIcon"]; 
+                }
+                [self notifyInStep];
+            }];
+            [ach cancelIconLoad];
+            [self waitForInStep];
+            return;
+        }
+    }
+}
+
+// step definition : achievement icon of ACH should be STATUS
+- (NSString*) achievement_icon_of_PARAM:(NSString*) ach_name 
+                  _should_be_PARAM:(NSString*) status{
+    id icon = [[self getBlockRepo] objectForKey:@"achievementIcon"];
+    
+    if ([status isEqualToString:@"null"]) {
+        [QAAssert assertEqualsExpected:@"nil" Actual:icon];
+    }else{
+        [QAAssert assertNotEqualsExpected:@"nil" Actual:icon];
+    }
+    
+    return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+            @"leaderboard icon", 
+            status, 
+            icon,
+            SpliterTcmLine];
 }
 
 @end

@@ -22,7 +22,7 @@
 
 - (void) I_load_first_page_of_my_friend_list;
 
-- (void) I_set_enumerator_size_to_PARAMINT:(NSString*) size;
+- (void) I_set_friend_enumerator_size_to_PARAMINT:(NSString*) size;
 
 - (void) I_load_one_page_of_friend_list;
 
