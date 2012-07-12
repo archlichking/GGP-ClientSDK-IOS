@@ -30,5 +30,11 @@
 - (void) my_score_should_be_PARAM:(NSString*) increment
                              _by_PARAMINT:(NSString*) time;
 
+- (void) I_load_icon_of_achievement_PARAM:(NSString*) ach_name;
+- (void) I_cancel_load_icon_of_achievement_PARAM:(NSString*) ach_name;
+
+
+- (NSString*) achievement_icon_of_PARAM:(NSString*) ach_name 
+                  _should_be_PARAM:(NSString*) status;
 
 @end

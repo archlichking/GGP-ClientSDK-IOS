@@ -13,7 +13,7 @@
 }
 
 - (void) I_load_list_of_leaderboard;
-- (void) I_set_enumerator_size_to_PARAMINT:(NSString*) size;
+- (void) I_set_leaderboard_enumerator_size_to_PARAMINT:(NSString*) size;
 - (void) I_load_one_page_of_leaderboard_list_reversely;
 //- (void) I_load_the_first_page_of_leaderboard_list_with_page_size_PARAMINT:(NSString*) size;
 
@@ -47,5 +47,12 @@
                      _with_rank_PARAMINT:(NSString*) rank;
 
 - (void) I_load_top_score_list_for_leaderboard_PARAM:(NSString*) ld_name _for_period_PARAM:(NSString*) period;
+
+- (void) I_load_icon_of_leaderboard_PARAM:(NSString*) ld_name;
+
+- (void) I_cancel_load_icon_of_leaderboard_PARAM:(NSString*) ld_name;
+
+- (NSString*) leaderboard_icon_of_PARAM:(NSString*) ld_name 
+                  _should_be_PARAM:(NSString*) status;
 
 @end

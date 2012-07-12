@@ -22,7 +22,7 @@
 
 - (void) I_load_first_page_of_my_friend_list;
 
-- (void) I_set_enumerator_size_to_PARAMINT:(NSString*) size;
+- (void) I_set_friend_enumerator_size_to_PARAMINT:(NSString*) size;
 
 - (void) I_load_one_page_of_friend_list;
 
@@ -34,5 +34,14 @@
 
 - (NSString*) userid_of_PARAM:(NSString*) person
         _should_be_PARAM:(NSString*) userid _and_grade_should_be_PARAMINT:(NSString*) grade;
+
+- (void) I_load_my_image_with_size_PARAM:(NSString*) size;
+
+- (void) I_cancel_load_my_image_with_size_PARAM:(NSString*) size;
+
+- (NSString*) my_image_should_be_null;
+
+- (NSString*) my_image_should_be_in_height_PARAMINT:(NSString*) height 
+                                _and_width_PARAMINT:(NSString*) width;
 
 @end

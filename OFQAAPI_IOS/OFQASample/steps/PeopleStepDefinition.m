@@ -16,6 +16,22 @@
 
 @implementation PeopleStepDefinition
 
+- (GreeUserThumbnailSize) sizeTopThumbnailSize:(NSString*) size{
+    if ([size isEqualToString:@"small"]) {
+        return GreeUserThumbnailSizeSmall;
+    }else if([size isEqualToString:@"standard"]){
+        return GreeUserThumbnailSizeStandard;
+    }else if([size isEqualToString:@"large"]){
+        return GreeUserThumbnailSizeLarge;
+    }else if([size isEqualToString:@"huge"]){
+        return GreeUserThumbnailSizeHuge;
+    }else{
+        return -100;
+    }
+    
+}
+
+
 // step definition : i see my info from server
 - (void) I_see_my_info_from_server{
     
@@ -230,6 +246,7 @@
     
 }
 
+// step definition : friend list should not have PERSON
 - (NSString*) friend_list_should_not_have_PARAM:(NSString*) person{
     NSArray* friends = [[self getBlockRepo] objectForKey:@"friends"];
     for (GreeUser* f in friends) {
@@ -264,12 +281,14 @@
     return nil;
 }
 
-- (void) I_set_enumerator_size_to_PARAMINT:(NSString*) size{
+// step definition : i set friend enumerator size to SIZE
+- (void) I_set_friend_enumerator_size_to_PARAMINT:(NSString*) size{
     id<GreeEnumerator> enumerator = [[self getBlockRepo] objectForKey:@"enumerator"];
     [enumerator setPageSize:[size intValue]];
     [[self getBlockRepo] setObject:enumerator forKey:@"enumerator"];
 }
 
+// step definition : i load one page of friend list
 - (void) I_load_one_page_of_friend_list{
     id<GreeEnumerator> enumerator = [[self getBlockRepo] objectForKey:@"enumerator"];
     NSArray* friends = [[self getBlockRepo] objectForKey:@"friends"];
@@ -288,6 +307,7 @@
     [[self getBlockRepo] setObject:arr forKey:@"friends"];
 }
 
+// step definition : i load friend list of user GUID
 - (void) I_load_friend_list_of_user_PARAM:(NSString*) guid{
     id<GreeEnumerator> enumerator = [[self getBlockRepo] objectForKey:@"enumerator"];
     [enumerator setStartIndex:0];
@@ -302,5 +322,77 @@
     }
     [[self getBlockRepo] setObject:arr forKey:@"friends"];
 }
+
+// step definition : i load my image with size SIZE
+- (void) I_load_my_image_with_size_PARAM:(NSString*) size{
+    GreeUser* user = [GreePlatform sharedInstance].localUser;
+    
+    [[self getBlockRepo] setObject:@"nil" 
+                            forKey:@"myImage"];
+    [user loadThumbnailWithSize:[self sizeTopThumbnailSize:size] 
+                          block:^(UIImage *icon, NSError *error) {
+                              if(!error){
+                                  [[self getBlockRepo] setObject:icon forKey:@"myImage"];
+                              }
+                              [self notifyInStep];
+    }];
+    [self waitForInStep];
+}
+
+- (void) I_cancel_load_my_image_with_size_PARAM:(NSString*) size{
+    GreeUser* user = [GreePlatform sharedInstance].localUser;
+    
+    [[self getBlockRepo] setObject:@"nil" 
+                            forKey:@"myImage"];
+    
+    [user loadThumbnailWithSize:GreeUserThumbnailSizeStandard 
+                          block:^(UIImage *icon, NSError *error) {
+                              if(!error){
+                                  [[self getBlockRepo] setObject:icon forKey:@"myImage"];
+                              }
+                              [self notifyInStep];
+                          }];
+    [user cancelThumbnailLoad];
+    [self waitForInStep];
+}
+
+// step definition : my image should be STATUS
+- (NSString*) my_image_should_be_PARAM:(NSString*) status{
+    id icon = [[self getBlockRepo] objectForKey:@"myImage"];
+    
+    if ([status isEqualToString:@"null"]) {
+        [QAAssert assertEqualsExpected:@"nil" Actual:icon];
+    }else{
+        [QAAssert assertNotEqualsExpected:@"nil" Actual:icon];
+    }
+    
+    return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+            @"my thumbnail icon", 
+            status, 
+            icon,
+            SpliterTcmLine];
+}
+
+// step definition : my image should be in height H and width W
+- (NSString*) my_image_should_be_in_height_PARAMINT:(NSString*) height 
+                                _and_width_PARAMINT:(NSString*) width{
+    UIImage* icon = [[self getBlockRepo] objectForKey:@"myImage"];
+    NSString* result = @"";
+    [QAAssert assertEqualsExpected:height Actual:[NSString stringWithFormat:@"%0f", [icon size].height]];
+    result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+              @"image height",
+              height, 
+              [NSString stringWithFormat:@"%0f", [icon size].height],
+              SpliterTcmLine];
+    [QAAssert assertEqualsExpected:width Actual:[NSString stringWithFormat:@"%0f", [icon size].width]];
+    result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+              @"image width",
+              width, 
+              [NSString stringWithFormat:@"%0f", [icon size].width],
+              SpliterTcmLine];
+
+    return result;
+}
+ 
 
 @end

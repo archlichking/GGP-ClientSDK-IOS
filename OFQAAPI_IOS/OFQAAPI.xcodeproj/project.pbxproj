@@ -70,7 +70,6 @@
 		BA381E6D14FCC6D700FBA134 /* SampleStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA381E6C14FCC6D700FBA134 /* SampleStepDefinition.m */; };
 		BA5218F4150E04C2002F02B3 /* StepDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = BA5218F2150E04C2002F02B3 /* StepDefinition.h */; };
 		BA5218F5150E04C2002F02B3 /* StepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5218F3150E04C2002F02B3 /* StepDefinition.m */; };
-		BA5287B315AC10B3005FBE21 /* libprofile_rt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA99E27215A42A3900818490 /* libprofile_rt.dylib */; };
 		BA5287B615AC19B4005FBE21 /* StdioHack.c in Sources */ = {isa = PBXBuildFile; fileRef = BA5287B515AC19B4005FBE21 /* StdioHack.c */; };
 		BA52DE081566E59300F87A66 /* libOFQAAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA89094B14F75D6100018B0F /* libOFQAAPI.a */; };
 		BA56CAD81505A3CC001ECED4 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = BA56CAD71505A3CC001ECED4 /* checked.png */; };
@@ -369,7 +368,6 @@
 		BA98F88F1590BB7400159287 /* CredentialStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CredentialStorage.m; path = core/util/CredentialStorage.m; sourceTree = "<group>"; };
 		BA99E24015A40C6F00818490 /* libGreePlatform.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGreePlatform.a; path = ../ggplib_ios/release/libGreePlatform.a; sourceTree = "<group>"; };
 		BA99E24115A40C6F00818490 /* libGreeWallet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGreeWallet.a; path = ../ggplib_ios/release/libGreeWallet.a; sourceTree = "<group>"; };
-		BA99E27215A42A3900818490 /* libprofile_rt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprofile_rt.dylib; path = ../../../../../usr/lib/libprofile_rt.dylib; sourceTree = "<group>"; };
 		BA99E2F115A5603D00818490 /* TestPopupDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPopupDelegate.h; sourceTree = "<group>"; };
 		BA99E2F215A5603D00818490 /* TestPopupDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPopupDelegate.m; sourceTree = "<group>"; };
 		BA99E2FA15A595AE00818490 /* GreePlatformCoreResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformCoreResources.bundle; path = ../ggplib_ios/release/resources/GreePlatformCoreResources.bundle; sourceTree = "<group>"; };
@@ -464,7 +462,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA5287B315AC10B3005FBE21 /* libprofile_rt.dylib in Frameworks */,
 				BA89094F14F75D6100018B0F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -745,7 +742,6 @@
 				BA99E2FA15A595AE00818490 /* GreePlatformCoreResources.bundle */,
 				BA99E2FB15A595AE00818490 /* GreePlatformLandscapeResources.bundle */,
 				BA99E2FC15A595AE00818490 /* GreePlatformPortraitResources.bundle */,
-				BA99E27215A42A3900818490 /* libprofile_rt.dylib */,
 				BA99E24015A40C6F00818490 /* libGreePlatform.a */,
 				BA99E24115A40C6F00818490 /* libGreeWallet.a */,
 				BA7044B01588CF7900B42451 /* MobileCoreServices.framework */,
@@ -1317,7 +1313,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CC = /usr/bin/clang;
+				CC = "";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1346,7 +1342,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CC = /usr/bin/clang;
+				CC = "";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1402,105 +1398,6 @@
 			};
 			name = Release;
 		};
-		BAE772D815AAB53700A9351C /* Coverage */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CC = /usr/bin/clang;
-				CLANG_ENABLE_OBJC_ARC = NO;
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = "-objc";
-				SDKROOT = iphoneos5.0;
-			};
-			name = Coverage;
-		};
-		BAE772D915AAB53700A9351C /* Coverage */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DSTROOT = /tmp/OFQAAPI.dst;
-				GCC_ENABLE_KERNEL_DEVELOPMENT = NO;
-				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "OFQAAPI/OFQAAPI-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos5.0;
-				SKIP_INSTALL = YES;
-				fsfd = "";
-			};
-			name = Coverage;
-		};
-		BAE772DA15AAB53700A9351C /* Coverage */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "OFQASample/OFQASample-Prefix.pch";
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../ggplib_ios/sdk/source/core/authorization\"/**";
-				INFOPLIST_FILE = "OFQASample/OFQASample-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../ggplib_ios/release\"/**",
-					"\"$(SRCROOT)/../ggplib_ios/release\"",
-				);
-				OTHER_LDFLAGS = (
-					"-objc",
-					"-all_load",
-					"-fprofile-arcs",
-					"-ftest-coverage",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos5.0;
-				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../ggplib_ios/release/include\"/**";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Coverage;
-		};
-		BAE772DB15AAB53800A9351C /* Coverage */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
-				CLANG_ENABLE_OBJC_ARC = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "OFQAJenkins/OFQAJenkins-Prefix.pch";
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				INFOPLIST_FILE = "OFQAJenkins/OFQAJenkins-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../../../ggplib_ios/release\"";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos5.1;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = /Users/thunderzhulei/ggplib_ios/release/include;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Coverage;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1508,7 +1405,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BA34F51015759ECC00EA1F50 /* Debug */,
-				BAE772DB15AAB53800A9351C /* Coverage */,
 				BA34F51115759ECC00EA1F50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1518,7 +1414,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BA78B61614F792A200C4D6FB /* Debug */,
-				BAE772DA15AAB53700A9351C /* Coverage */,
 				BA78B61714F792A200C4D6FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1528,7 +1423,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BA89095614F75D6100018B0F /* Debug */,
-				BAE772D815AAB53700A9351C /* Coverage */,
 				BA89095714F75D6100018B0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1538,7 +1432,6 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				BA89095914F75D6100018B0F /* Debug */,
-				BAE772D915AAB53700A9351C /* Coverage */,
 				BA89095A14F75D6100018B0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
