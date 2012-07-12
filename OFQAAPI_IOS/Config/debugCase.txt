@@ -1,4 +1,3 @@
 Given I logged in with email auto3@136.com and password 123456
-And I load list of achievement
-When I cancel load icon of achievement Achievement01
-Then achievement icon of Achievement01 should be null
+When I cancel load my image with size standard
+Then my image should be null

@@ -102,7 +102,7 @@
     [suiteAndRunView addTextField:suiteIdText placeHolder:@"Suite ID : 178"];    
     
     runIdText = [[UITextField alloc] init];
-    [suiteAndRunView addTextField:runIdText placeHolder:@"Run ID : 402"];
+    [suiteAndRunView addTextField:runIdText placeHolder:@"Run ID : 416"];
     
     
     [progressView setHidden:TRUE];
@@ -207,7 +207,7 @@
 - (void) runCasesInAnotherThread{
 //    [[appDelegate runnerWrapper] executeSelectedCases];
     // replace this line to not submit 
-    [[appDelegate runnerWrapper] executeSelectedCasesWithSubmit:[runIdText text] == nil?@"402":[runIdText text]
+    [[appDelegate runnerWrapper] executeSelectedCasesWithSubmit:[runIdText text] == nil?@"416":[runIdText text]
                                                           block:^(NSArray* objs){
                                                               [self performSelectorOnMainThread:@selector(updateProgressViewWithRunning:)
                                                                                      withObject:objs 
