@@ -50,17 +50,22 @@
 
 - (void) execute{
     QALog(@"============= launching case of [id: %@, title: %@] =============", [self caseId], [self title]);
-    if(steps.count == 0){
-        //no steps
+    if ([[[self title] lowercaseString] rangeOfString:@"android only"].length > 0) {
+        // case that doesnt support IOS SDK
+        self.result = CaseResultBlocked;
+        [self setResultComment: @"Not an IOS SDK case, skipped"];
+    }else if(steps.count == 0){
+        //current platform but without steps
         [self setResult:CaseResultRetested];
         [self setResultComment: @"No Step Found for this case, maybe a parse error, need retested"];
         QALog(@"No Step Found for this case, maybe a parse error, need retested");
     }else{
+        //finally can be executed
         for (int i=0;i<[self steps].count;i++) {
             Step* s = [[self steps] objectAtIndex:i];
             StepResult* r = [s invoke];
             // merge results with or operation
-            result = result | [r result];
+            self.result = self.result | [r result];
             if (![[r comment] isEqualToString:@""]) {
                 // step invocation error occurs
                 [self setResultComment:[resultComment stringByAppendingFormat:@"%@ %@", [r comment], SpliterFileLine]];
