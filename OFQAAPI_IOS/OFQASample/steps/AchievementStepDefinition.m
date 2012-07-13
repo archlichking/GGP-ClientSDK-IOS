@@ -105,40 +105,44 @@
 - (void) I_update_status_of_achievement_PARAM:(NSString*) ach_name 
                                           _to_PARAM:(NSString*) status{
     NSArray* achs = [[self getBlockRepo] objectForKey:@"achievements"];
-    for (GreeAchievement* ach in achs) {
-        if([[ach name] isEqualToString:ach_name]){
-            if ([AchievementStepDefinition lockToBool:status]) {
-                [ach relockWithBlock:^{
-                    [self notifyInStep];
-                }];
-            }else{
-                [ach unlockWithBlock:^{
-                    [self notifyInStep];
-                }];
-            }
-            [self waitForInStep];
-            return;
+    
+    // initialized for submit to a non-existed achievement
+    GreeAchievement* ach = [[GreeAchievement alloc] initWithIdentifier:ach_name];
+    
+    for (GreeAchievement* ac in achs) {
+        if([[ac name] isEqualToString:ach_name]){
+            ach = ac;
+            break;
         }
     }
-    [QAAssert assertEqualsExpected:ach_name
-                            Actual:@"nil"
-                       WithMessage:@"no achieveiemt matches"];
+    
+    if ([AchievementStepDefinition lockToBool:status]) {
+        [ach relockWithBlock:^{
+            [self notifyInStep];
+        }];
+    }else{
+        [ach unlockWithBlock:^{
+            [self notifyInStep];
+        }];
+    }
+    [self waitForInStep];
 }
 
 // step definition : status of achievement ACH_NAME should be UNLOCK
 - (void) status_of_achievement_PARAM:(NSString*) ach_name 
                          _should_be_PARAM:(NSString*) status{
     NSArray* achs = [[self getBlockRepo] objectForKey:@"achievements"];
-    for (GreeAchievement* ach in achs) {
-        if([[ach name] isEqualToString:ach_name]){
-            [QAAssert assertEqualsExpected:status
-                                    Actual:[AchievementStepDefinition lockToString:[ach isUnlocked]]];
-            return;
+    GreeAchievement* ach = [[GreeAchievement alloc] initWithIdentifier:ach_name];
+    
+    for (GreeAchievement* ac in achs) {
+        if([[ac name] isEqualToString:ach_name]){
+            ach = ac;
+            break;
         }
     }
-    [QAAssert assertEqualsExpected:ach_name
-                            Actual:@"nil"
-                       WithMessage:@"no achieveiemt matches"];
+    
+    [QAAssert assertEqualsExpected:status
+                            Actual:[AchievementStepDefinition lockToString:[ach isUnlocked]]];
 }
 
 // step definition : my score should be DECREASED by SCORE
@@ -195,9 +199,9 @@
     id icon = [[self getBlockRepo] objectForKey:@"achievementIcon"];
     
     if ([status isEqualToString:@"null"]) {
-        [QAAssert assertEqualsExpected:@"nil" Actual:icon];
+        [QAAssert assertEqualsExpected:@"nil" Actual:[NSString stringWithFormat:@"%@", icon]];
     }else{
-        [QAAssert assertNotEqualsExpected:@"nil" Actual:icon];
+        [QAAssert assertNotEqualsExpected:@"nil" Actual:[NSString stringWithFormat:@"%@", icon]];
     }
     
     return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
