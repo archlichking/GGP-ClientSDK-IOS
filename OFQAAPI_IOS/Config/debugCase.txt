@@ -1,3 +1,4 @@
 Given I logged in with email auto3@136.com and password 123456
-When I cancel load my image with size standard
-Then my image should be null
+When I load my image with size large
+Then my image should be not null
+And my image should be height 76 and width 48
