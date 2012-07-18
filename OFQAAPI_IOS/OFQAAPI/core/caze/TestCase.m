@@ -49,6 +49,7 @@
 }
 
 - (void) execute{
+    self.result = CaseResultPassed;
     QALog(@"============= launching case of [id: %@, title: %@] =============", [self caseId], [self title]);
     if ([[[self title] lowercaseString] rangeOfString:@"android only"].length > 0) {
         // case that doesnt support IOS SDK

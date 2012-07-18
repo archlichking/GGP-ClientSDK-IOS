@@ -37,4 +37,10 @@
 - (NSString*) achievement_icon_of_PARAM:(NSString*) ach_name 
                   _should_be_PARAM:(NSString*) status;
 
+- (void) I_check_basic_info_of_achievement_PARAM:(NSString*) ach_name;
+
+- (NSString*) info_PARAM:(NSString*) info 
+   _of_achievement_PARAM:(NSString*) ach_name 
+        _should_be_PARAM:(NSString*) res;
+
 @end

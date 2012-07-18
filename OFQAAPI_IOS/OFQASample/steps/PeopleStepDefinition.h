@@ -16,6 +16,8 @@
 
 - (NSString*) my_info_PARAM:(NSString*) key _should_be_PARAM:(NSString*) value;
 
+- (NSString*) I_should_have_app_with_id_PARAMINT:(NSString*) appid;
+
 - (void) I_load_my_friend_list;
 
 - (void) I_load_friend_list_of_user_PARAM:(NSString*) guid;
@@ -39,9 +41,9 @@
 
 - (void) I_cancel_load_my_image_with_size_PARAM:(NSString*) size;
 
-- (NSString*) my_image_should_be_null;
+- (NSString*) the_returned_thumbnail_should_be_PARAM:(NSString*) type;
 
-- (NSString*) my_image_should_be_in_height_PARAMINT:(NSString*) height 
+- (NSString*) my_image_should_be_height_PARAMINT:(NSString*) height 
                                 _and_width_PARAMINT:(NSString*) width;
 
 @end

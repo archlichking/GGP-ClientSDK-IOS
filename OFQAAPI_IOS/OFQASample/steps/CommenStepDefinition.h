@@ -25,4 +25,6 @@
 
 - (void) print_user;
 
+- (void) I_logout;
+
 @end

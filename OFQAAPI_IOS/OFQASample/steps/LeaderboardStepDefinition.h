@@ -55,4 +55,14 @@
 - (NSString*) leaderboard_icon_of_PARAM:(NSString*) ld_name 
                   _should_be_PARAM:(NSString*) status;
 
+- (void) I_check_basic_info_of_leaderboard_PARAM:(NSString*) lb_name;
+
+- (NSString*) info_PARAM:(NSString*) info 
+   _of_leaderboard_PARAM:(NSString*) lb_name 
+        _should_be_PARAM:(NSString*) res;
+
+- (void) I_format_my_score_of_leaderboard_PARAM:(NSString*) lb_name;
+
+- (NSString*) formatted_score_should_be_PARAM:(NSString*) score;
+
 @end

@@ -509,4 +509,136 @@
             SpliterTcmLine];
 }
 
+// step definition : i check basic info of leaderboard LB
+- (void) I_check_basic_info_of_leaderboard_PARAM:(NSString*) lb_name{
+    GreeLeaderboard* lb = [[GreeLeaderboard alloc] init];
+    NSArray* lbs = [[self getBlockRepo] objectForKey:@"leaderboards"];
+    
+    for (GreeLeaderboard* l in lbs) {
+        if([[l name] isEqualToString:lb_name]){
+            lb = l;
+            break;
+        }
+    }
+    
+    [[self getBlockRepo] setObject:lb forKey:lb_name];
+}
+
+// step definition : info INFO of leaderboard LB should be RES
+- (NSString*) info_PARAM:(NSString*) info 
+   _of_leaderboard_PARAM:(NSString*) lb_name 
+        _should_be_PARAM:(NSString*) res{
+    GreeLeaderboard* lb = [[self getBlockRepo] objectForKey:lb_name];
+    if ([info isEqualToString:@"identifier"]) {
+        [QAAssert assertEqualsExpected:res Actual:[lb identifier]];
+        return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+                @"leaderboard identifier", 
+                res, 
+                [lb identifier],
+                SpliterTcmLine];
+    }
+    else if ([info isEqualToString:@"name"]) {
+        [QAAssert assertEqualsExpected:res Actual:[lb name]];
+        return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+                @"achievement name", 
+                res, 
+                [lb name],
+                SpliterTcmLine];
+    }
+    else if ([info isEqualToString:@"format"]) {
+        [QAAssert assertEqualsExpected:res Actual:[NSString stringWithFormat:@"%i", [lb format]]];
+        return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%i) %@",
+                @"leaderboard format", 
+                res, 
+                [lb format],
+                SpliterTcmLine];
+    }
+    else if ([info isEqualToString:@"formatSuffix"]) {
+        [QAAssert assertEqualsExpected:res Actual:[lb formatSuffix]];
+        return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+                @"leaderboard formatSuffix", 
+                res, 
+                [lb formatSuffix],
+                SpliterTcmLine];
+    }
+    else if ([info isEqualToString:@"formatDecimal"]) {
+        [QAAssert assertEqualsExpected:res Actual:[NSString stringWithFormat:@"%i", [lb formatDecimal]]];
+        return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%i) %@",
+                @"leaderboard formatDecimal", 
+                res, 
+                [lb formatDecimal],
+                SpliterTcmLine];
+    }
+    else if ([info isEqualToString:@"sortOrder"]) {
+        [QAAssert assertEqualsExpected:res Actual:[NSString stringWithFormat:@"%i", [lb sortOrder]]];
+        return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%i) %@",
+                @"leaderboard sortOrder", 
+                res, 
+                [lb sortOrder],
+                SpliterTcmLine];
+    }
+    else if ([info isEqualToString:@"allowWorseScore"]) {
+        [QAAssert assertEqualsExpected:res Actual:[lb allowWorseScore]?@"YES":@"NO"];
+        return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+                @"leaderboard allowWorseScore", 
+                res, 
+                [lb allowWorseScore]?@"YES":@"NO",
+                SpliterTcmLine];
+    }
+    else if ([info isEqualToString:@"isSecret"]) {
+        [QAAssert assertEqualsExpected:res Actual:[lb allowWorseScore]?@"YES":@"NO"];
+        return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+                @"leaderboard isSecret", 
+                res, 
+                [lb isSecret]?@"YES":@"NO",
+                SpliterTcmLine];
+    }
+    else {
+        [QAAssert assertEqualsExpected:info
+                                Actual:nil
+                           WithMessage:@"no info found"];
+        return nil;
+    }
+}
+
+- (void) I_format_my_score_of_leaderboard_PARAM:(NSString*) lb_name{
+    GreeLeaderboard* lb = [[GreeLeaderboard alloc] init];
+    NSArray* lbs = [[self getBlockRepo] objectForKey:@"leaderboards"];
+    
+    for (GreeLeaderboard* l in lbs) {
+        if([[l name] isEqualToString:lb_name]){
+            // get leaderboard object
+            lb = l;
+            break;
+        }
+    }
+    
+    __block NSString* fs = @"";
+    
+    // load my score
+    [GreeScore loadMyScoreForLeaderboard:[lb identifier] 
+                          timePeriod:GreeScoreTimePeriodAlltime
+                               block:^(GreeScore *score, NSError *error) {
+                                   if(!error){
+                                       // real format
+                                       fs = [score formattedScoreWithLeaderboard:lb];
+                                       [[self getBlockRepo] setObject:fs forKey:@"formattedScore"];
+                                   }
+                                   [self notifyInStep];
+                               }];
+    // has to wait for async call finished
+    [self waitForInStep];
+}
+
+- (NSString*) formatted_score_should_be_PARAM:(NSString*) score{
+    NSString* formattedScore = [[self getBlockRepo] objectForKey:@"formattedScore"];
+    [QAAssert assertEqualsExpected:score 
+                            Actual:formattedScore];
+    return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+            @"formatted score", 
+            score, 
+            formattedScore,
+            SpliterTcmLine];
+}
+
 @end
