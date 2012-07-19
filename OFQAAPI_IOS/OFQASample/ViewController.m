@@ -115,6 +115,8 @@
     [doingLabel setHidden:TRUE];
     [memLabel setHidden:TRUE];
     
+    [tableSearchBar setDelegate:caseTableDelegate];
+    
 //    [self showGreeWidgetWithDataSource:self];
 }
 
@@ -187,7 +189,10 @@
 
 - (void) refreshCases:(NSNotification*) notification{
     [tableView reloadData];
-    [tableView setContentOffset:CGPointMake(0, 44)];
+    NSDictionary* userInfo = [notification userInfo];
+    if (![userInfo objectForKey:@"isSearching"]) {
+        [tableView setContentOffset:CGPointMake(0, 44)];
+    }
 }
 
 - (void) loadCasesInAnotherThread{

@@ -9,7 +9,10 @@
 #import "CaseTableDelegate.h"
 #import "TestCase.h"
 #import "TestCaseWrapper.h"
+#import "TestRunnerWrapper.h"
 #import "Constant.h"
+
+#import "AppDelegate.h"
 
 @implementation CaseTableDelegate
 
@@ -78,6 +81,38 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         [[tableItems objectAtIndex:indexPath.row] setIsSelected:true];
     }
     
+}
+
+- (void) searchBarTextDidBeginEditing:(UISearchBar *)theSearchBar {
+    return;
+}
+
+- (void)searchBar:(UISearchBar *)theSearchBar textDidChange:(NSString *)searchText {
+    
+    if ([searchText length] < 3) {
+        // to avoid unnecessary search
+        return;
+    }
+    else{
+        NSMutableArray* arr = [[NSMutableArray alloc] init];
+        for (TestCaseWrapper* tcw in tableItems){
+            if ([[tcw.tc.title lowercaseString] rangeOfString:[searchText lowercaseString]].length > 0) {
+                [arr addObject:tcw];
+            }
+        }
+        
+        [[(AppDelegate *)[[UIApplication sharedApplication] delegate] runnerWrapper] setCaseWrappers:arr];
+        
+        [self setTableItems:arr];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" 
+                                                            object:nil 
+                                                          userInfo:[[NSDictionary alloc] initWithObjectsAndKeys:@"YES", @"isSearching", nil]];
+    }
+}
+
+- (void) searchBarSearchButtonClicked:(UISearchBar *)theSearchBar {
+    // hide search button after search
+    [theSearchBar resignFirstResponder];
 }
 
 - (void)dealloc{

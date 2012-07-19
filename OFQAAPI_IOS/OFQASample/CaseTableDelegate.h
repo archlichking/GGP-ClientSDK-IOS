@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CaseTableDelegate : UITableViewController<UITableViewDelegate,UITableViewDataSource>{
+@interface CaseTableDelegate : UITableViewController<UITableViewDelegate,UITableViewDataSource, UISearchBarDelegate>{
     
     NSArray* tableItems;
     UIImage* unchecked;
