@@ -89,7 +89,6 @@ static NSString* APPID = @"15265";
 //    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert];
 
     // ---------
-    
     return YES;
 }
 

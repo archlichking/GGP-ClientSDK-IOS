@@ -10,6 +10,7 @@
 
 extern int const CaseResultFailed;
 extern int const CaseResultRetested;
+extern int const CaseResultBlocked;
 extern int const CaseResultPassed;
 extern int const CaseResultUntested;
 

@@ -356,35 +356,35 @@
     [self waitForInStep];
 }
 
-// step definition : my image should be STATUS
-- (NSString*) my_image_should_be_PARAM:(NSString*) status{
+// step definition : the returned thumbnail should be TYPE
+- (NSString*) the_returned_thumbnail_should_be_PARAM:(NSString*) type{
     id icon = [[self getBlockRepo] objectForKey:@"myImage"];
     
-    if ([status isEqualToString:@"null"]) {
+    if ([type isEqualToString:@"null"]) {
         [QAAssert assertEqualsExpected:@"nil" Actual:icon];
     }else{
         [QAAssert assertNotEqualsExpected:@"nil" Actual:icon];
     }
     
     return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
-            @"my thumbnail icon", 
-            status, 
+            @"my thumbnail image", 
+            type, 
             icon,
             SpliterTcmLine];
 }
 
 // step definition : my image should be in height H and width W
-- (NSString*) my_image_should_be_in_height_PARAMINT:(NSString*) height 
+- (NSString*) my_image_should_be_height_PARAMINT:(NSString*) height 
                                 _and_width_PARAMINT:(NSString*) width{
     UIImage* icon = [[self getBlockRepo] objectForKey:@"myImage"];
     NSString* result = @"";
-    [QAAssert assertEqualsExpected:height Actual:[NSString stringWithFormat:@"%0f", [icon size].height]];
+    [QAAssert assertEqualsExpected:height Actual:[NSString stringWithFormat:@"%0.0f", [icon size].height]];
     result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
               @"image height",
               height, 
               [NSString stringWithFormat:@"%0f", [icon size].height],
               SpliterTcmLine];
-    [QAAssert assertEqualsExpected:width Actual:[NSString stringWithFormat:@"%0f", [icon size].width]];
+    [QAAssert assertEqualsExpected:width Actual:[NSString stringWithFormat:@"%0.0f", [icon size].width]];
     result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
               @"image width",
               width, 
@@ -394,5 +394,9 @@
     return result;
 }
  
+// step definition : i should have app with id APPID
+- (NSString*) I_should_have_app_with_id_PARAMINT:(NSString*) appid{
+    return nil;
+}
 
 @end

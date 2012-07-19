@@ -90,7 +90,7 @@
     
 }
 
-- (NSArray*) getCaseWrappers{
+- (NSMutableArray*) getCaseWrappers{
     NSSortDescriptor* sortByCaseId = [NSSortDescriptor sortDescriptorWithKey:@"cId" 
                                                                     ascending:YES];
     [caseWrappers sortUsingDescriptors:[NSArray arrayWithObject:sortByCaseId]];

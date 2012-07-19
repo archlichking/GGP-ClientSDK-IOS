@@ -10,6 +10,7 @@
 
 int const CaseResultFailed = 5;
 int const CaseResultRetested = 4;
+int const CaseResultBlocked = 2;
 int const CaseResultPassed = 1;
 int const CaseResultUntested = 0;
 
@@ -23,6 +24,9 @@ int const CaseResultUntested = 0;
             break;
         case 4:
             ret = @"retested";
+            break;
+        case 2:
+            ret = @"blocked";
             break;
         case 1:
             ret = @"passed";

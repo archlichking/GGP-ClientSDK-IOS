@@ -115,6 +115,8 @@
     [doingLabel setHidden:TRUE];
     [memLabel setHidden:TRUE];
     
+    [tableSearchBar setDelegate:caseTableDelegate];
+    
 //    [self showGreeWidgetWithDataSource:self];
 }
 
@@ -187,7 +189,10 @@
 
 - (void) refreshCases:(NSNotification*) notification{
     [tableView reloadData];
-    [tableView setContentOffset:CGPointMake(0, 44)];
+    NSDictionary* userInfo = [notification userInfo];
+    if (![userInfo objectForKey:@"isSearching"]) {
+        [tableView setContentOffset:CGPointMake(0, 44)];
+    }
 }
 
 - (void) loadCasesInAnotherThread{
@@ -195,7 +200,7 @@
     [[appDelegate runnerWrapper] buildRunner:[suiteIdText text] == nil?@"178":[suiteIdText text]];
     
     NSArray* tmp = [[appDelegate runnerWrapper] getCaseWrappers];
-    [(CaseTableDelegate*)[tableView dataSource] setTableItems:tmp];
+    [(CaseTableDelegate*)[tableView dataSource] initTableItems:tmp];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" object:nil];
     
@@ -205,7 +210,7 @@
 }
 
 - (void) runCasesInAnotherThread{
-//    [[appDelegate runnerWrapper] executeSelectedCases];
+    [[appDelegate runnerWrapper] setCaseWrappers:[(CaseTableDelegate*)[tableView dataSource] displayTableItems]];
     // replace this line to not submit 
     [[appDelegate runnerWrapper] executeSelectedCasesWithSubmit:[runIdText text] == nil?@"416":[runIdText text]
                                                           block:^(NSArray* objs){
@@ -214,8 +219,8 @@
                                                                                   waitUntilDone:YES];
                                                           }];
     
-    NSArray* tmp = [[appDelegate runnerWrapper] getCaseWrappers];
-    [(CaseTableDelegate*)[tableView dataSource] setTableItems:tmp];
+    NSMutableArray* tmp = [[appDelegate runnerWrapper] getCaseWrappers];
+    [(CaseTableDelegate*)[tableView dataSource] setDisplayTableItems:tmp];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" object:nil];
     
@@ -250,6 +255,7 @@
     [memLabel setText:@""];
     [doingLabel setHidden:NO];
     [memLabel setHidden:NO];
+    [tableSearchBar resignFirstResponder];
     
     [[self view] setUserInteractionEnabled:NO];
     

@@ -95,6 +95,10 @@
     
 }
 
+- (void) I_logout{
+    [GreePlatform revokeAuthorization];
+}
+
 - (void) print_user{
     NSLog(@"%@", [[GreePlatform sharedInstance] localUser]);
     [GreeUser loadUserWithId:@"@me" block:^(GreeUser *user, NSError *error) {

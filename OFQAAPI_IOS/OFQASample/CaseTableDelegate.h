@@ -8,14 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CaseTableDelegate : UITableViewController<UITableViewDelegate,UITableViewDataSource>{
+@interface CaseTableDelegate : UITableViewController<UITableViewDelegate,UITableViewDataSource, UISearchBarDelegate>{
     
-    NSArray* tableItems;
+    NSMutableArray* displayTableItems;
+    NSArray* fullTableItems;
+    
+    
     UIImage* unchecked;
     UIImage* checked;
     UIImage* failed_checked;
 }
 
-@property (copy) NSArray* tableItems;
+@property (retain) NSMutableArray* displayTableItems;
+
+- (void) initTableItems:(NSArray*) items;
 
 @end

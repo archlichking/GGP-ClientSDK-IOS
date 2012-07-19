@@ -30,7 +30,7 @@
 
 - (void) addCaseWrappers:(NSArray*) testCaseWrappers;
 
-- (NSArray*) getCaseWrappers;
+- (NSMutableArray*) getCaseWrappers;
 
 - (void) executeSelectedCasesWithSubmit:(NSString*) runId 
                                   block:(void(^)(NSArray* objs))block;

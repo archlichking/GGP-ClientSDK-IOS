@@ -11,14 +11,17 @@
 #import "TestCaseWrapper.h"
 #import "Constant.h"
 
+#import "AppDelegate.h"
+
 @implementation CaseTableDelegate
 
-@synthesize tableItems;
+@synthesize displayTableItems;
 
 - (id)init{
     if (self=[super init])
     {
-        tableItems = [[NSArray alloc] init];
+        displayTableItems = [[NSMutableArray alloc] init];
+        fullTableItems = [[NSArray alloc] init];
         NSString* imageName = [[NSBundle mainBundle] pathForResource:@"unchecked" ofType:@"png"];
         unchecked = [[UIImage alloc] initWithContentsOfFile:imageName];
         imageName = [[NSBundle mainBundle] pathForResource:@"checked" ofType:@"png"];
@@ -30,12 +33,17 @@
 
 }
 
+- (void) initTableItems:(NSArray*) items{
+    displayTableItems = [[NSMutableArray alloc] initWithArray:items];
+    fullTableItems = [[NSArray alloc] initWithArray:items];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tView 
          cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString* cellIdentifier = @"Cell";
     UITableViewCell *cell = [tView dequeueReusableCellWithIdentifier:cellIdentifier];
-    TestCaseWrapper* tw = [tableItems objectAtIndex:indexPath.row];
+    TestCaseWrapper* tw = [displayTableItems objectAtIndex:indexPath.row];
     if (cell == nil) {
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                        reuseIdentifier:cellIdentifier] autorelease];
@@ -59,29 +67,66 @@
 
 - (NSInteger)tableView:(UITableView *)tableView 
  numberOfRowsInSection:(NSInteger)section {
-    return [tableItems count];
+    return [displayTableItems count];
 }
 
 -(NSString *)tableView:(UITableView *)tableView 
 titleForHeaderInSection:(NSInteger)section {
-	return [[[NSString alloc] initWithFormat:@"Total %i Cases", [tableItems count]] autorelease];
+	return [[[NSString alloc] initWithFormat:@"Total %i Cases", [displayTableItems count]] autorelease];
 }
 
 - (void)tableView:(UITableView *)tableView 
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 //    NSLog(@"%i", indexPath.row);
-    if ([[tableItems objectAtIndex:indexPath.row] isSelected]) {
+    if ([[displayTableItems objectAtIndex:indexPath.row] isSelected]) {
         [tableView cellForRowAtIndexPath:indexPath].imageView.image = unchecked;
-        [[tableItems objectAtIndex:indexPath.row] setIsSelected:false];
+        [[displayTableItems objectAtIndex:indexPath.row] setIsSelected:false];
     }else{
         [tableView cellForRowAtIndexPath:indexPath].imageView.image = checked;
-        [[tableItems objectAtIndex:indexPath.row] setIsSelected:true];
+        [[displayTableItems objectAtIndex:indexPath.row] setIsSelected:true];
     }
     
 }
 
+- (void) searchBarTextDidBeginEditing:(UISearchBar *)theSearchBar {
+    return;
+}
+
+- (void)searchBar:(UISearchBar *)theSearchBar textDidChange:(NSString *)searchText {
+    NSMutableArray* arr = [[[NSMutableArray alloc] init] autorelease];
+    if ([searchText length] < 3) {
+        // to avoid unnecessary search
+        [arr addObjectsFromArray:fullTableItems];
+        if ([searchText length] == 0) {
+            [theSearchBar resignFirstResponder];
+        }
+    }
+    else{
+        
+        for (TestCaseWrapper* tcw in fullTableItems){
+            if ([[tcw.tc.title lowercaseString] rangeOfString:[searchText lowercaseString]].length > 0) {
+                [arr addObject:tcw];
+            }
+        }
+    }
+    [self setDisplayTableItems:arr];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" 
+                                                        object:nil 
+                                                      userInfo:[[NSDictionary alloc] initWithObjectsAndKeys:@"YES", @"isSearching", nil]];
+}
+
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+    [searchBar resignFirstResponder];
+}
+
+- (void) searchBarSearchButtonClicked:(UISearchBar *)theSearchBar {
+    // hide search button after search
+    [theSearchBar resignFirstResponder];
+}
+
 - (void)dealloc{
-    [tableItems release];
+    [displayTableItems release];
+    [fullTableItems release];
     [super dealloc];
 }
 
