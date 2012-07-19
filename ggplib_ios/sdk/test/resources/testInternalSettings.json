@@ -1,0 +1,6 @@
+{
+  "fakeIntegerSetting" : 123,
+  "fakeBoolSetting" : true,
+  "fakeStringSetting" : "stringValue",
+  "fakeObjectSetting" : null
+}

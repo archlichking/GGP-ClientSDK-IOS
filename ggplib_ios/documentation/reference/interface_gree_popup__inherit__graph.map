@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$interface_gree_invite_popup.html" title="The GreeInvitePopup interface is used for interacting with the invite service." alt="" coords="5,81,107,106"/>
+<area shape="rect" id="node5" href="$interface_gree_request_service_popup.html" title="The GreeRequestPopup interface is used for interacting with the request service." alt="" coords="131,81,281,106"/>
+<area shape="rect" id="node7" href="$interface_gree_share_popup.html" title="The GreeSharePopup interface is used for interacting with the share service." alt="" coords="306,81,411,106"/>
+</map>

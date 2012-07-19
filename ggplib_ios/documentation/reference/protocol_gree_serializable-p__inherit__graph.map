@@ -1,0 +1,9 @@
+<map id="G" name="G">
+<area shape="rect" id="node3" href="$interface_gree_achievement.html" title="The GreeAchievement interface encapsulates all of the Gree Platform&#39;s achievement functionality..." alt="" coords="352,84,459,108"/>
+<area shape="rect" id="node5" href="$interface_gree_leaderboard.html" title="The GreeLeaderboard interface encapsulates all of the Gree Platform&#39;s leaderboard functionality..." alt="" coords="182,34,287,59"/>
+<area shape="rect" id="node7" href="$interface_gree_moderated_text.html" title="A class to create, load, update, and delete moderated text objects." alt="" coords="177,84,292,108"/>
+<area shape="rect" id="node9" href="$interface_gree_score.html" title="The GreeScore interface encapsulates all of the Gree Platform&#39;s score functionality." alt="" coords="369,182,442,207"/>
+<area shape="rect" id="node11" href="$interface_gree_user.html" title="The GreeUser interface represents a single user of the Gree Platform." alt="" coords="201,182,268,207"/>
+<area shape="rect" id="node13" href="$interface_gree_wallet_payment_item.html" title="The class for purchasing virtual items with app&#45;specific currency." alt="" coords="166,232,303,256"/>
+<area shape="rect" id="node15" href="$protocol_gree_write_cacheable-p.html" title="Adopting this protocol allows a given class to be cached in a GreeWriteCache." alt="" coords="168,133,301,158"/>
+</map>

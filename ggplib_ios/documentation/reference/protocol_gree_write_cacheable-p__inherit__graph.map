@@ -1,0 +1,5 @@
+<map id="G" name="G">
+<area shape="rect" id="node5" href="$interface_gree_achievement.html" title="The GreeAchievement interface encapsulates all of the Gree Platform&#39;s achievement functionality..." alt="" coords="5,156,112,180"/>
+<area shape="rect" id="node7" href="$interface_gree_score.html" title="The GreeScore interface encapsulates all of the Gree Platform&#39;s score functionality." alt="" coords="136,156,208,180"/>
+<area shape="rect" id="node2" href="$protocol_gree_serializable-p.html" title="Adopting this protocol allows a given class to be serialized via GreeSerializer." alt="" coords="58,6,171,31"/>
+</map>
