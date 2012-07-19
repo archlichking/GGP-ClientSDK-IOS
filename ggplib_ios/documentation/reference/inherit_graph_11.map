@@ -1,6 +1,0 @@
-<map id="G" name="G">
-<area shape="rect" id="node1" href="$interface_gree_popup.html" title="The GreePopup class provides an API to display pop&#45;ups for various Gree Platform services." alt="" coords="6,54,82,79"/>
-<area shape="rect" id="node3" href="$interface_gree_invite_popup.html" title="The GreeInvitePopup interface is used for interacting with the invite service." alt="" coords="156,5,257,30"/>
-<area shape="rect" id="node5" href="$interface_gree_request_service_popup.html" title="The GreeRequestPopup interface is used for interacting with the request service." alt="" coords="131,54,282,79"/>
-<area shape="rect" id="node7" href="$interface_gree_share_popup.html" title="The GreeSharePopup interface is used for interacting with the share service." alt="" coords="154,104,259,128"/>
-</map>
