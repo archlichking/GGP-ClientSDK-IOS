@@ -21,6 +21,7 @@
 		BA20767F14FB5FBC00293C3C /* TestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = BA20767D14FB5FBC00293C3C /* TestCase.m */; };
 		BA20768214FB62DD00293C3C /* CommandUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = BA20768014FB62DC00293C3C /* CommandUtil.h */; };
 		BA20768314FB62DD00293C3C /* CommandUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = BA20768114FB62DC00293C3C /* CommandUtil.m */; };
+		BA23986815B7F9EC00E51650 /* NotificationStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA23986715B7F9EC00E51650 /* NotificationStepDefinition.m */; };
 		BA283D0F1532B9180055981A /* NoSuchStepException.h in Headers */ = {isa = PBXBuildFile; fileRef = BA283D0D1532B9180055981A /* NoSuchStepException.h */; };
 		BA283D101532B9180055981A /* NoSuchStepException.m in Sources */ = {isa = PBXBuildFile; fileRef = BA283D0E1532B9180055981A /* NoSuchStepException.m */; };
 		BA283D141532D0BE0055981A /* NoCommandMatchException.h in Headers */ = {isa = PBXBuildFile; fileRef = BA283D121532D0BE0055981A /* NoCommandMatchException.h */; };
@@ -235,6 +236,8 @@
 		BA20767D14FB5FBC00293C3C /* TestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestCase.m; path = core/caze/TestCase.m; sourceTree = "<group>"; };
 		BA20768014FB62DC00293C3C /* CommandUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CommandUtil.h; path = core/util/CommandUtil.h; sourceTree = "<group>"; };
 		BA20768114FB62DC00293C3C /* CommandUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CommandUtil.m; path = core/util/CommandUtil.m; sourceTree = "<group>"; };
+		BA23986615B7F9EC00E51650 /* NotificationStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationStepDefinition.h; path = steps/NotificationStepDefinition.h; sourceTree = "<group>"; };
+		BA23986715B7F9EC00E51650 /* NotificationStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotificationStepDefinition.m; path = steps/NotificationStepDefinition.m; sourceTree = "<group>"; };
 		BA283D0D1532B9180055981A /* NoSuchStepException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoSuchStepException.h; path = core/exception/NoSuchStepException.h; sourceTree = "<group>"; };
 		BA283D0E1532B9180055981A /* NoSuchStepException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NoSuchStepException.m; path = core/exception/NoSuchStepException.m; sourceTree = "<group>"; };
 		BA283D121532D0BE0055981A /* NoCommandMatchException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NoCommandMatchException.h; path = core/exception/NoCommandMatchException.h; sourceTree = "<group>"; };
@@ -538,6 +541,8 @@
 				BA64A521159AD16E007527C2 /* PaymentStepDefinition.m */,
 				BA286D9C159D9D05004C70C0 /* PopupStepDefinition.h */,
 				BA286D9D159D9D05004C70C0 /* PopupStepDefinition.m */,
+				BA23986615B7F9EC00E51650 /* NotificationStepDefinition.h */,
+				BA23986715B7F9EC00E51650 /* NotificationStepDefinition.m */,
 			);
 			name = Steps;
 			path = OFQASample;
@@ -1092,6 +1097,7 @@
 				BA64A522159AD16E007527C2 /* PaymentStepDefinition.m in Sources */,
 				BA286D9E159D9D05004C70C0 /* PopupStepDefinition.m in Sources */,
 				BA99E2F315A5603D00818490 /* TestPopupDelegate.m in Sources */,
+				BA23986815B7F9EC00E51650 /* NotificationStepDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1259,7 +1265,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OFQASample/OFQASample-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../ggplib_ios/sdk/source/core/authorization\"/**";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../ggplib_ios/sdk/source/core/authorization\"/**",
+					"\"${SRCROOT}/../ggplib_ios/sdk/source/core/settings\"/**",
+				);
 				INFOPLIST_FILE = "OFQASample/OFQASample-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1289,7 +1298,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OFQASample/OFQASample-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../ggplib_ios/sdk/source/core/authorization\"/**";
+				HEADER_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../ggplib_ios/sdk/source/core/authorization\"/**",
+					"\"${SRCROOT}/../ggplib_ios/sdk/source/core/settings\"/**",
+				);
 				INFOPLIST_FILE = "OFQASample/OFQASample-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1370,11 +1382,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OFQAAPI/OFQAAPI-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos5.0;
 				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "";
 				fsfd = "";
 			};
 			name = Debug;
@@ -1389,11 +1403,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OFQAAPI/OFQAAPI-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				HEADER_SEARCH_PATHS = "";
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos5.0;
 				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "";
 				fsfd = "";
 			};
 			name = Release;
