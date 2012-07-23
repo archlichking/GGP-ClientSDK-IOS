@@ -96,7 +96,7 @@
 }
 
 - (void) I_logout{
-    [GreePlatform revokeAuthorization];
+    //[GreePlatform revokeAuthorization];
 }
 
 - (void) print_user{

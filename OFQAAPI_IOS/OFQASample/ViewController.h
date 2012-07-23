@@ -69,7 +69,6 @@
 
 - (void) updateProgressViewWithRunning:(NSArray*) objs;
 
-- (void) loadPopup:(GreePopup*) popup;
 - (void) dispatchCommand:(NSString*) command 
             withExecutor:(id) popupExecutor 
                extraInfo:(NSDictionary*) infoDic;

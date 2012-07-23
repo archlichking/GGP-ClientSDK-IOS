@@ -25,6 +25,15 @@
                                           _and_tier_PARAM:(NSString*) tier 
                                      _and_points_PARAMINT:(NSString*) points;
 
-- (void) product_test;
+// payment popup
+- (void) I_add_payment_item_with_ID_PARAM:(NSString*) pid 
+                          _and_NAME_PARAM:(NSString*) name 
+                     _and_UNITPRICE_PARAM:(NSString*) price 
+                      _and_QUANTITY_PARAM:(NSString*) quality 
+                      _and_IMAGEURL_PARAM:(NSString*) imageurl 
+                   _and_DESCRIPTION_PARAM:(NSString*) description;
+
+- (void) I_did_open_the_payment_request_popup;
+
 
 @end

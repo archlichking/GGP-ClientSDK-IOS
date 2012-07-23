@@ -12,29 +12,38 @@
 #import "GreeWallet+ExternalUISupport.h"
 #import "GreeWalletPaymentItem.h"
 #import "GreeWalletProduct.h"
+
 #import "GreePopup.h"
 
 #import "QAAssert.h"
 #import "StringUtil.h"
 #import "CommandUtil.h"
 
-@interface GreePopup(PrivatePopupHacking)
-- (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView;
+
+// define gree payment delegate
+@interface GreePaymentDelegate : NSObject <GreeWalletDelegate>
+- (void) walletPaymentDidLaunchPopup;
+- (void) walletPaymentDidDismissPopup;
 @end
 
-@implementation GreePopup(PrivatePopupHacking)
-- (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView{
-    //    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
-    [StepDefinition notifyOutsideStep];
+@implementation GreePaymentDelegate
+- (void) walletPaymentDidLaunchPopup;{
+    NSLog(@"payment request popup did launch");
+    //[StepDefinition notifyOutsideStep];
+}
+
+- (void) walletPaymentDidDismissPopup{
+    NSLog(@"payment request popup did dismiss");
 }
 @end
+
 
 @implementation PaymentStepDefinition
 
 // --- begin ---------- balance
+
 // step definition : i check my balance
 - (void) I_check_my_balance{
-
     [GreeWallet loadBalanceWithBlock:^(unsigned long long balance, NSError *error) {
         if(!error){
             [[self getBlockRepo] setObject:[NSString stringWithFormat:@"%d", balance] 
@@ -146,35 +155,62 @@
 }
 // --- end ------------ product list 
 
-- (void) I_do_payment_test{
-    GreeWallet* wallet = [[GreeWallet alloc] init];
-   
-    GreeWalletPaymentItem* item = [GreeWalletPaymentItem paymentItemWithItemId:@"1" itemName:@"1" unitPrice:1 quantity:1 imageUrl:@"http://a.b.com" description:@"1"];
+//--- begin --------- payment popup
+
+// step definition : I add payment item with ID xx, NAME xx, UNIT_PRICE xx, QUANTITY xx, IMAGE_URL xx and DESCRIPTION xx
+- (void) I_add_payment_item_with_ID_PARAM:(NSString*) pid 
+                          _and_NAME_PARAM:(NSString*) name 
+                     _and_UNITPRICE_PARAM:(NSString*) price 
+                      _and_QUANTITY_PARAM:(NSString*) quality 
+                      _and_IMAGEURL_PARAM:(NSString*) imageurl 
+                   _and_DESCRIPTION_PARAM:(NSString*) description{
+    GreeWalletPaymentItem* item = [GreeWalletPaymentItem paymentItemWithItemId:pid 
+                                                                      itemName:name 
+                                                                     unitPrice:[price integerValue] 
+                                                                      quantity:[quality integerValue] 
+                                                                      imageUrl:imageurl
+                                                                   description:description];
+    NSMutableArray* arr = [[self getBlockRepo] objectForKey:@"paymentItemList"];
+    if (!arr) {
+        arr = [[NSMutableArray alloc] init];
+    }
     
-    id success = ^(NSString *paymentId, NSArray *items){
-        [self notifyInStep];
+    [arr addObject:item];
+    
+    [[self getBlockRepo] setObject:arr 
+                            forKey:@"paymentItemList"];
+}
+
+// step definition : I did open the payment request popup
+- (void) I_did_open_the_payment_request_popup{
+    
+    id successBlock = ^ (NSString* paymentId, NSArray* items){
+       // [self notifyInStep];  
     };
     
-    id failed = ^(NSString *paymentId, NSArray *items, NSError *error) {
-        [self notifyInStep];
+    id failureBlock = ^ (NSString* paymentId, NSArray* items, NSError* error){
+       // [self notifyInStep];  
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                        [NSString stringWithFormat:@"%i", executeInWallet], @"command",
-                                        wallet, @"executor",
-                                        item, @"item",
-                                        success, @"sBlock",
-                                        failed, @"fBlock",
+                                        [NSString stringWithFormat:@"%i", executeInPaymentRequestPopup], @"command",
+                                        [[self getBlockRepo] objectForKey:@"paymentItemList"], @"items",
+                                        @"", @"message",
+                                        @"http://www.google.com", @"callbackUrl",
+                                        successBlock, @"sBlock",
+                                        failureBlock, @"fBlock",
                                         nil];
-    
-    
+    // set delegate to hack did popup and did dismiss
+    GreePaymentDelegate* delegate = [[GreePaymentDelegate alloc] init];
+    [GreeWallet setDelegate:delegate];
     
     [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
                            object:userinfoDic];
-    
-    
     [StepDefinition waitForOutsideStep];
-    [self waitForInStep];
+//    [self waitForInStep];
 }
+
+//--- end ----------- payment popup
+
 
 @end

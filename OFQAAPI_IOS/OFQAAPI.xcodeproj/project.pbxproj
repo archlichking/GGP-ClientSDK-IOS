@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA054DD815BD4FF5002F5DE6 /* libGreeWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA99E24115A40C6F00818490 /* libGreeWallet.a */; };
 		BA09131C155C98D900EEFD4B /* FriendCodeStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA09131B155C98D900EEFD4B /* FriendCodeStepDefinition.m */; };
 		BA19E8BD15980E1000EDD94B /* 11787credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA19E8BC15980E1000EDD94B /* 11787credentialsConfig.json */; };
 		BA19E8BE15980E1000EDD94B /* 11787credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA19E8BC15980E1000EDD94B /* 11787credentialsConfig.json */; };
@@ -164,7 +165,6 @@
 		BA98F8921590C7D000159287 /* CredentialStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = BA98F88F1590BB7400159287 /* CredentialStorage.m */; };
 		BA98F8931590C7EE00159287 /* CredentialStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = BA98F88E1590BB7400159287 /* CredentialStorage.h */; };
 		BA99E26015A41F6B00818490 /* libGreePlatform.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA99E24015A40C6F00818490 /* libGreePlatform.a */; };
-		BA99E26115A41F6B00818490 /* libGreeWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA99E24115A40C6F00818490 /* libGreeWallet.a */; };
 		BA99E2F315A5603D00818490 /* TestPopupDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA99E2F215A5603D00818490 /* TestPopupDelegate.m */; };
 		BA99E2F415A5603D00818490 /* TestPopupDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BA99E2F215A5603D00818490 /* TestPopupDelegate.m */; };
 		BA99E2FD15A595AE00818490 /* GreePlatformCoreResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA99E2FA15A595AE00818490 /* GreePlatformCoreResources.bundle */; };
@@ -439,8 +439,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA054DD815BD4FF5002F5DE6 /* libGreeWallet.a in Frameworks */,
 				BA99E26015A41F6B00818490 /* libGreePlatform.a in Frameworks */,
-				BA99E26115A41F6B00818490 /* libGreeWallet.a in Frameworks */,
 				BA96EC37150EFA5C00214FAD /* libz.dylib in Frameworks */,
 				BA78B60214F792A200C4D6FB /* CoreGraphics.framework in Frameworks */,
 				BA7044B11588CF7900B42451 /* MobileCoreServices.framework in Frameworks */,

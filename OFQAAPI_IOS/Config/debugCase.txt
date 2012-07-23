@@ -1,2 +1,4 @@
 Given I logged in with email auto3@136.com and password 123456
-Given test local notification
+Given I add payment item with ID fsw43 and NAME test item and UNITPRICE 10 and QUANTITY 10 and IMAGEURL http://www.google.com and DESCRIPTION hahahshshss
+When I did open the payment request popup
+After I did dismiss popup
