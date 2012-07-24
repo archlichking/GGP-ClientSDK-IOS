@@ -13,7 +13,7 @@
 #import "Constant.h"
 
 @implementation StepDefinition
-
+static NSMutableDictionary* outsideBlockRepo;
 static NSConditionLock* outsideStepLock; // this is now only allowed in popup steps
 static int OUTSIDETIMEOUT = 30;
 
@@ -23,6 +23,8 @@ static int OUTSIDETIMEOUT = 30;
     }
     return blockRepo;
 }
+
+
 
 - (void) waitForInStep{
     if (!inStepLock) {
@@ -42,8 +44,8 @@ static int OUTSIDETIMEOUT = 30;
 }
 
 - (void) notifyInStep{
-    if (!outsideStepLock) {
-        outsideStepLock = [[NSConditionLock alloc] initWithCondition:0];
+    if (!inStepLock) {
+        inStepLock = [[NSConditionLock alloc] initWithCondition:0];
     }
     @synchronized (self) {
         [inStepLock lock];
@@ -61,6 +63,13 @@ static int OUTSIDETIMEOUT = 30;
     [[NSNotificationCenter defaultCenter] postNotificationName:command 
                                                         object:nil
                                                       userInfo:obj];
+}
+
++ (NSMutableDictionary*) getOutsideBlockRepo{
+    if (!outsideBlockRepo) {
+        outsideBlockRepo = [[NSMutableDictionary alloc] init];
+    }
+    return outsideBlockRepo;
 }
 
 + (void) notifyOutsideStep{
