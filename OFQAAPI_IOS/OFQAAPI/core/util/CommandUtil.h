@@ -21,7 +21,7 @@ extern enum {
     launchPopup,
     dismissPopup,
     executeJavascriptInPopup,
-    executeInWallet
+    executeInPaymentRequestPopup
 } CommandPopup;
 
 @interface CommandUtil : NSObject

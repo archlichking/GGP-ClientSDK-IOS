@@ -314,23 +314,21 @@
             [StepDefinition notifyOutsideStep];
             break;
             
-        case executeInWallet:
-            [self performSelectorOnMainThread:@selector(launchDeositePopupInWallet:) 
+        case executeInPaymentRequestPopup:
+            [self performSelectorOnMainThread:@selector(launchPaymentRequestPopupInWallet:) 
                                    withObject:extra 
                                 waitUntilDone:YES];
-            [StepDefinition notifyOutsideStep];
             break;
         default:
             break;
     }
 }
 
-- (void) launchDeositePopupInWallet:(NSDictionary*) info{
-    NSMutableArray* arr = [[NSMutableArray alloc] initWithObjects:[info objectForKey:@"item"], nil];
-    [GreeWallet paymentWithItems:arr
-                         message:@"ahha" 
-                     callbackUrl:@"http://www.google.com.hk" 
-                    successBlock:[info objectForKey:@"sBlock"] 
+- (void) launchPaymentRequestPopupInWallet:(NSDictionary*) info{
+    [GreeWallet paymentWithItems:[info objectForKey:@"items"]
+                         message:[info objectForKey:@"message"]
+                     callbackUrl:[info objectForKey:@"callbackUrl"]
+                    successBlock:[info objectForKey:@"sBlock"]
                     failureBlock:[info objectForKey:@"fBlock"]];
 }
 

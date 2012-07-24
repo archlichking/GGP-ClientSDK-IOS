@@ -25,6 +25,4 @@
                                           _and_tier_PARAM:(NSString*) tier 
                                      _and_points_PARAMINT:(NSString*) points;
 
-- (void) product_test;
-
 @end

@@ -102,7 +102,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         }
     }
     else{
-        
         for (TestCaseWrapper* tcw in fullTableItems){
             if ([[tcw.tc.title lowercaseString] rangeOfString:[searchText lowercaseString]].length > 0) {
                 [arr addObject:tcw];

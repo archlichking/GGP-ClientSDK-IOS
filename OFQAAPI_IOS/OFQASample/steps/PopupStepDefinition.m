@@ -11,11 +11,55 @@
 #import <QuartzCore/QuartzCore.h>
 
 #import "GreePopup.h"
+#import "GreeWallet.h"
+#import "GreeWallet+ExternalUISupport.h"
+#import "GreeWalletPaymentItem.h"
+#import "GreeWalletProduct.h"
+#import "GreeWalletPayment.h"
+#import "GreeWalletPaymentPopup.h"
+
 
 #import "Constant.h"
 #import "StringUtil.h"
 #import "CommandUtil.h"
 #import "QAAssert.h"
+
+// define gree payment delegate
+@interface GreePaymentDelegate : NSObject <GreeWalletDelegate>
+- (void) walletPaymentDidLaunchPopup;
+- (void) walletPaymentDidDismissPopup;
+@end
+
+@implementation GreePaymentDelegate
+- (void) walletPaymentDidLaunchPopup;{
+    NSLog(@"payment request popup did launch");
+    //[StepDefinition notifyOutsideStep];
+}
+
+- (void) walletPaymentDidDismissPopup{
+    NSLog(@"payment request popup did dismiss");
+}
+@end
+
+// hack did finish load to notify outside
+@interface GreeWalletPaymentPopup(PrivatePaymentHack)
+-(void)popupViewWebViewDidFinishLoad:(UIWebView *)aWebView;
+@end
+
+@implementation GreeWalletPaymentPopup(PrivatePaymentHack)
+-(void)popupViewWebViewDidFinishLoad:(UIWebView *)aWebView{
+    if ([self respondsToSelector:@selector(updateBackButtonStateWithWebView:)]) {
+        [self performSelector:@selector(updateBackButtonStateWithWebView:) withObject:aWebView];
+    }
+    if ([self respondsToSelector:@selector(showCloseButton)]) {
+        [self performSelector:@selector(showCloseButton)];
+    }
+//    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
+    [[StepDefinition getOutsideBlockRepo] setObject:self forKey:@"popup"];
+    [StepDefinition notifyOutsideStep];
+}
+
+@end
 
 @interface GreePopup(PrivatePopupHacking)
 - (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView;
@@ -23,7 +67,7 @@
 
 @implementation GreePopup(PrivatePopupHacking)
 - (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView{
-//    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
+    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
     [StepDefinition notifyOutsideStep];
 }
 @end
@@ -177,6 +221,7 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     
     // set value to default
     [self cleanCallbacks:popup];
+    [[self getBlockRepo] setObject:[[NSMutableArray alloc] init] forKey:@"paymentItemList"];
 }
 
 // step definition : popup will open callback should be fired within second SEC
@@ -416,5 +461,111 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
             SpliterTcmLine];
 }
 //--- end ----------- share popup
+
+//--- begin --------- payment popup
+
+// step definition : I add payment item with ID xx, NAME xx, UNIT_PRICE xx, QUANTITY xx, IMAGE_URL xx and DESCRIPTION xx
+- (void) I_add_payment_item_with_ID_PARAM:(NSString*) pid 
+                          _and_NAME_PARAM:(NSString*) name 
+                     _and_UNITPRICE_PARAM:(NSString*) price 
+                      _and_QUANTITY_PARAM:(NSString*) quality 
+                      _and_IMAGEURL_PARAM:(NSString*) imageurl 
+                   _and_DESCRIPTION_PARAM:(NSString*) description{
+    GreeWalletPaymentItem* item = [GreeWalletPaymentItem paymentItemWithItemId:pid 
+                                                                      itemName:name 
+                                                                     unitPrice:[price integerValue] 
+                                                                      quantity:[quality integerValue] 
+                                                                      imageUrl:imageurl
+                                                                   description:description];
+    NSMutableArray* arr = [[self getBlockRepo] objectForKey:@"paymentItemList"];
+    if (!arr) {
+        arr = [[NSMutableArray alloc] init];
+    }
+    
+    [arr addObject:item];
+    
+    [[self getBlockRepo] setObject:arr 
+                            forKey:@"paymentItemList"];
+}
+
+// step definition : I did open the payment request popup
+- (void) I_did_open_payment_request_popup{
+    
+    id successBlock = ^ (NSString* paymentId, NSArray* items){
+        // [self notifyInStep];  
+    };
+    
+    id failureBlock = ^ (NSString* paymentId, NSArray* items, NSError* error){
+        // [self notifyInStep];  
+    };
+    
+    NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                        [NSString stringWithFormat:@"%i", executeInPaymentRequestPopup], @"command",
+                                        [[self getBlockRepo] objectForKey:@"paymentItemList"], @"items",
+                                        @"payment test", @"message",
+                                        @"http://www.google.com", @"callbackUrl",
+                                        successBlock, @"sBlock",
+                                        failureBlock, @"fBlock",
+                                        nil];
+    // set delegate to hack did popup and did dismiss
+    GreePaymentDelegate* delegate = [[GreePaymentDelegate alloc] init];
+    [GreeWallet setDelegate:delegate];
+    
+    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
+                           object:userinfoDic];
+    [StepDefinition waitForOutsideStep];
+    
+    GreeWalletPaymentPopup* popup = [[StepDefinition getOutsideBlockRepo] objectForKey:@"popup"];
+    [[self getBlockRepo] setObject:popup 
+                            forKey:@"popup"];
+    
+    NSDictionary* paymentRequestMatrix = [[NSDictionary alloc] initWithObjectsAndKeys: 
+                                 @"getText(fclass('sentence medium minor'))", @"message",
+                                 @"getText(fclass('solid min'))", @"paymentCurrnecyAmount",
+                                 nil];
+    
+    [[self getBlockRepo] setObject:paymentRequestMatrix forKey:@"paymentRequestPage"];
+}
+
+- (void) I_check_payment_request_popup_PARAM:(NSString*) info{
+    GreeWalletPaymentPopup* popup = [[self getBlockRepo] objectForKey:@"popup"];
+    
+    NSDictionary* paymentRequestMatrix = [[self getBlockRepo] objectForKey:@"paymentRequestPage"];
+    
+    NSString* js = [self wrapJsCommand:[paymentRequestMatrix objectForKey:info]];
+    
+    id resultBlock = ^(NSString* result){
+        [[self getBlockRepo] setObject:result forKey:info];
+        [self notifyInStep];
+    };
+    
+    NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                        [NSString stringWithFormat:@"%i", executeJavascriptInPopup], @"command",
+                                        popup, @"executor",
+                                        js, @"jsCommand",
+                                        resultBlock, @"jsCallback",
+                                        nil];
+    
+    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
+                           object:userinfoDic];
+    
+    [self waitForInStep];
+    [StepDefinition waitForOutsideStep];
+   
+}
+
+- (NSString*) payment_request_popup_info_PARAM:(NSString*) info 
+                         _should_be_PARAM:(NSString*) value{
+    NSString* jsResult = [[self getBlockRepo] objectForKey:info];
+    
+    [QAAssert assertContainsExpected:jsResult Contains:value];
+    return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
+            @"payment request popup info", 
+            value,
+            jsResult, 
+            SpliterTcmLine];
+}
+
+//--- end ----------- payment popup
 
 @end

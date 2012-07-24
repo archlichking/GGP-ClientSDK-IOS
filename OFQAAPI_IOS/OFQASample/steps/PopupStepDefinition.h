@@ -22,7 +22,7 @@ extern NSString* const JsBaseCommand;
 
 // invite popup
 - (void) I_initialize_invite_popup_with_message_PARAM:(NSString*) msg 
-                                     _and_callbackUrl_PARAM:(NSString*) cbUrl
+                              _and_callback_url_PARAM:(NSString*) cbUrl
                                      _and_users_PARAM:(NSString*) userids;
 - (void) I_check_invite_popup_setting_info_PARAM:(NSString*) info;
 - (NSString*) invite_popup_info_PARAM:(NSString*) info 
@@ -30,7 +30,7 @@ extern NSString* const JsBaseCommand;
 
 // share popup
 - (void) I_initialize_share_popup_with_text_PARAM:(NSString*) text;
-- (void) I_check_sharee_popup_setting_info_PARAM:(NSString*) info;
+- (void) I_check_share_popup_setting_info_PARAM:(NSString*) info;
 - (NSString*) share_popup_info_PARAM:(NSString*) info 
                      _should_be_PARAM:(NSString*) value;
 
@@ -48,5 +48,17 @@ extern NSString* const JsBaseCommand;
 - (void) popup_did_dismiss_callback_should_be_fired_within_seconds_PARAMINT:(NSString*) seconds;
 - (void) popup_complete_callback_should_be_fired_within_seconds_PARAMINT:(NSString*) seconds;
 
+// payment popup
+- (void) I_add_payment_item_with_ID_PARAM:(NSString*) pid 
+                          _and_NAME_PARAM:(NSString*) name 
+                     _and_UNITPRICE_PARAM:(NSString*) price 
+                      _and_QUANTITY_PARAM:(NSString*) quality 
+                      _and_IMAGEURL_PARAM:(NSString*) imageurl 
+                   _and_DESCRIPTION_PARAM:(NSString*) description;
+
+- (void) I_did_open_payment_request_popup;
+- (void) I_check_payment_request_popup_PARAM:(NSString*) info;
+- (NSString*) payment_request_popup_info_PARAM:(NSString*) info
+                         _should_be_PARAM:(NSString*) value;
 
 @end
