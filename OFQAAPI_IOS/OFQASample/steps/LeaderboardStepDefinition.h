@@ -65,4 +65,6 @@
 
 - (NSString*) formatted_score_should_be_PARAM:(NSString*) score;
 
+- (void) dealloc;
+
 @end

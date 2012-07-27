@@ -608,6 +608,7 @@
     for (GreeLeaderboard* l in lbs) {
         if([[l name] isEqualToString:lb_name]){
             // get leaderboard object
+            [lb release];
             lb = l;
             break;
         }

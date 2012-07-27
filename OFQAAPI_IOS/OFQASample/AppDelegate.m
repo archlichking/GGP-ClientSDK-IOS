@@ -64,7 +64,7 @@ static NSString* APPID = @"15265";
     
     NSDictionary* settings = [NSDictionary dictionaryWithObjectsAndKeys: 
                               @"sandbox", GreeSettingDevelopmentMode,
-                              [NSNumber numberWithBool:YES], GreeSettingUseWallet,
+//                              [NSNumber numberWithBool:YES], GreeSettingUseWallet,
                               nil]; 
 
       
@@ -83,7 +83,9 @@ static NSString* APPID = @"15265";
     //All requests from the sample app should be distinguishable in our analytics system 
     [[httpClient valueForKey:@"defaultHeaders"] setObject:@"x" forKey:@"x_gree_sample_app"];
     // init user
-    [GreePlatform authorize];
+    [GreePlatform authorizeWithBlock:^(GreeUser *localUser, NSError *error) {
+        
+    }];
     [GreePlatform handleLaunchOptions:launchOptions application:application];
     
 //    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert];

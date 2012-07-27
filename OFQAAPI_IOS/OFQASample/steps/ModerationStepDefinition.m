@@ -150,6 +150,4 @@
     
 //    [[self getBlockRepo] setObject:[self fetchModerationFromServerById:[t textId]] forKey:@"text"];
 }
-
-
 @end

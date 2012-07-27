@@ -96,4 +96,5 @@ static int OUTSIDETIMEOUT = 30;
     outsideStepLock = [[NSConditionLock alloc] initWithCondition:0];
 }
 
+
 @end
