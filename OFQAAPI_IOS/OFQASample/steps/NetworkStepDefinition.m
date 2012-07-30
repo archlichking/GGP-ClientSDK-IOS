@@ -55,6 +55,8 @@
         // time out here indicates given host is not reachable
         
     }
+    
+    [accessTest release];
 }
 
 - (NSString*) access_should_be_PARAM:(NSString*) status{

@@ -57,8 +57,19 @@ extern NSString* const JsBaseCommand;
                    _and_DESCRIPTION_PARAM:(NSString*) description;
 
 - (void) I_did_open_payment_request_popup;
-- (void) I_check_payment_request_popup_PARAM:(NSString*) info;
+- (void) I_check_payment_request_popup_info_PARAM:(NSString*) info;
 - (NSString*) payment_request_popup_info_PARAM:(NSString*) info
                          _should_be_PARAM:(NSString*) value;
 
+// deposit popup
+- (void) I_did_open_deposit_popup;
+- (void) I_check_deposit_popup_info_PARAM:(NSString*) info;
+- (NSString*) deposit_popup_info_PARAM:(NSString*) info
+                      _should_be_PARAM:(NSString*) value;
+
+// deposit IAP history popup
+- (void) I_did_open_deposit_history_popup;
+- (void) I_check_deposit_history_popup_info_PARAM:(NSString*) info;
+- (NSString*) deposit_history_popup_info_PARAM:(NSString*) info
+                              _should_be_PARAM:(NSString*) value;
 @end

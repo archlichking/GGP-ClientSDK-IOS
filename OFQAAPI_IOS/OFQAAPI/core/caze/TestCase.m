@@ -72,6 +72,9 @@
                 [self setResultComment:[resultComment stringByAppendingFormat:@"%@ %@", [r comment], SpliterFileLine]];
             }
         }
+        
+        // needs to invoke specific step to release things
+        
     }
     
     [self setResultComment:resultComment];

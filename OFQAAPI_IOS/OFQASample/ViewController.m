@@ -319,6 +319,16 @@
                                    withObject:extra 
                                 waitUntilDone:YES];
             break;
+        case executeInDepositPopup:
+            [self performSelectorOnMainThread:@selector(launchPaymentDepositPopupInWallet) 
+                                   withObject:extra 
+                                waitUntilDone:YES];
+            break;
+        case executeInDepositHistoryPopup:
+            [self performSelectorOnMainThread:@selector(launchPaymentDepositHistoryPopupInWallet) 
+                                   withObject:extra 
+                                waitUntilDone:YES];
+            break;
         default:
             break;
     }
@@ -330,6 +340,14 @@
                      callbackUrl:[info objectForKey:@"callbackUrl"]
                     successBlock:[info objectForKey:@"sBlock"]
                     failureBlock:[info objectForKey:@"fBlock"]];
+}
+
+- (void) launchPaymentDepositPopupInWallet{
+    [GreeWallet launchDepositPopup];
+}
+
+- (void) launchPaymentDepositHistoryPopupInWallet{
+    [GreeWallet launchDepositHistoryPopup];
 }
 
 - (void) executeJsInPopup:(NSDictionary*) info{

@@ -17,7 +17,8 @@
 #import "GreeWalletProduct.h"
 #import "GreeWalletPayment.h"
 #import "GreeWalletPaymentPopup.h"
-
+#import "GreeWalletDepositPopup.h"
+#import "GreeWalletDepositIAPHistoryPopup.h"
 
 #import "Constant.h"
 #import "StringUtil.h"
@@ -41,6 +42,21 @@
 }
 @end
 
+// --- begin ------------ popup hack
+
+// hack did finish load to notify outside
+@interface GreeWalletDepositPopup(PrivateDepositetHack)
+-(void)popupViewWebViewDidFinishLoad:(UIWebView *)aWebView;
+@end
+
+@implementation GreeWalletDepositPopup(PrivateDepositetHack)
+-(void)popupViewWebViewDidFinishLoad:(UIWebView *)aWebView{
+    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
+    [[StepDefinition getOutsideBlockRepo] setObject:self forKey:@"popup"];
+    [StepDefinition notifyOutsideStep];
+}
+@end
+
 // hack did finish load to notify outside
 @interface GreeWalletPaymentPopup(PrivatePaymentHack)
 -(void)popupViewWebViewDidFinishLoad:(UIWebView *)aWebView;
@@ -61,20 +77,39 @@
 
 @end
 
+// hack did finish load to notify outside
+@interface GreeWalletDepositIAPHistoryPopup(PrivatePaymentHack)
+-(void)popupViewWebViewDidFinishLoad:(UIWebView *)aWebView;
+@end
+
+@implementation GreeWalletDepositIAPHistoryPopup(PrivatePaymentHack)
+-(void)popupViewWebViewDidFinishLoad:(UIWebView *)aWebView{
+    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
+    [[StepDefinition getOutsideBlockRepo] setObject:self forKey:@"popup"];
+    [StepDefinition notifyOutsideStep];
+}
+
+@end
+
 @interface GreePopup(PrivatePopupHacking)
 - (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView;
 @end
 
 @implementation GreePopup(PrivatePopupHacking)
 - (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView{
-    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
+//    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
     [StepDefinition notifyOutsideStep];
 }
 @end
 
+
+// --- end ------------ popup hack
+
+
 NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.style.outline;e.style.outline='#FDFF47 solid';setTimeout(function(){e.style.outline=d;},STEP_TIMEOUT);}function fid(id){return document.getElementById(id);}function fclass(clazz){return document.getElementsByClassName(clazz)[0];}function ftag(g,t){var e=document.getElementsByTagName(g);for(var i=0;i<e.length;i++){if(e[i].innerText.indexOf(t)!=-1){return e[i];}}}function click(e){var t=document.createEvent('HTMLEvents');t.initEvent('click',false,false);setTimeout(function(){hl(e);setTimeout(function(){e.dispatchEvent(t);},STEP_TIMEOUT);},STEP_TIMEOUT);}function setText(e,t){setTimeout(function(){hl(e);setTimeout(function(){e.value=t;},STEP_TIMEOUT);},STEP_TIMEOUT);}function getText(e){var r=e.value;if(r===''||typeof(r)=='undefined'){r=e.innerText;}hl(e);return r;}";
 
 @implementation PopupStepDefinition
+
 
 - (void) I_make_screenshot_of_current_popup{
     GreeRequestServicePopup* requestPopup = [[self getBlockRepo] objectForKey:@"requestPopup"];
@@ -316,6 +351,8 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     
     [StepDefinition waitForOutsideStep];
     [self waitForInStep];
+    
+    [requestPopup release];
 }
 
 // step definition : request popup info INFO should be VALUE 
@@ -384,6 +421,7 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     
     [StepDefinition waitForOutsideStep];
     [self waitForInStep];
+    [invitePopup release];
 
 }
 
@@ -446,6 +484,7 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     
     [StepDefinition waitForOutsideStep];
     [self waitForInStep];
+    [popup release];
 }
 
 // step definition : share popup info INFO should be VALUE
@@ -527,7 +566,7 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     [[self getBlockRepo] setObject:paymentRequestMatrix forKey:@"paymentRequestPage"];
 }
 
-- (void) I_check_payment_request_popup_PARAM:(NSString*) info{
+- (void) I_check_payment_request_popup_info_PARAM:(NSString*) info{
     GreeWalletPaymentPopup* popup = [[self getBlockRepo] objectForKey:@"popup"];
     
     NSDictionary* paymentRequestMatrix = [[self getBlockRepo] objectForKey:@"paymentRequestPage"];
@@ -551,6 +590,7 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     
     [self waitForInStep];
     [StepDefinition waitForOutsideStep];
+    [popup release];
    
 }
 
@@ -568,4 +608,138 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
 
 //--- end ----------- payment popup
 
+//--- begin --------- deposit popup
+// step definition : i did open deposit popup
+- (void) I_did_open_deposit_popup{
+    NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                        [NSString stringWithFormat:@"%i", executeInDepositPopup], @"command",
+                                        nil];
+    // set delegate to hack did popup and did dismiss
+    GreePaymentDelegate* delegate = [[GreePaymentDelegate alloc] init];
+    [GreeWallet setDelegate:delegate];
+    
+    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
+                           object:userinfoDic];
+    [StepDefinition waitForOutsideStep];
+    
+    GreeWalletDepositPopup* popup = [[StepDefinition getOutsideBlockRepo] objectForKey:@"popup"];
+    [[self getBlockRepo] setObject:popup 
+                            forKey:@"popup"];
+    
+    NSDictionary* depositMatrix = [[NSDictionary alloc] initWithObjectsAndKeys:
+                                   @"getText(fid('com.aurorafeint.ofxdev1.currency4'))", @"price of currency4",
+                                   @"getText(fid('com.aurorafeint.ofxdev1.currency3'))", @"price of currency3",
+                                   @"getText(fclass('com.aurorafeint.ofxdev1.currency3'))", @"tc amount of current4",
+                                   nil];
+    
+    [[self getBlockRepo] setObject:depositMatrix forKey:@"depositPage"];
+}
+
+// step definition : i check deposit popup info INFO
+- (void) I_check_deposit_popup_info_PARAM:(NSString*) info{
+    GreeWalletDepositPopup* popup = [[self getBlockRepo] objectForKey:@"popup"];
+    
+    NSDictionary* depositMatrix = [[self getBlockRepo] objectForKey:@"depositPage"];
+    
+    NSString* js = [self wrapJsCommand:[depositMatrix objectForKey:info]];
+    
+    id resultBlock = ^(NSString* result){
+        [[self getBlockRepo] setObject:result forKey:info];
+        [self notifyInStep];
+    };
+    
+    NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                        [NSString stringWithFormat:@"%i", executeJavascriptInPopup], @"command",
+                                        popup, @"executor",
+                                        js, @"jsCommand",
+                                        resultBlock, @"jsCallback",
+                                        nil];
+    
+    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
+                           object:userinfoDic];
+    
+    [self waitForInStep];
+    [StepDefinition waitForOutsideStep];
+    [popup release];
+}
+
+// step definition : deposit popup info INFO should be VALUE
+- (NSString*) deposit_popup_info_PARAM:(NSString*) info
+                      _should_be_PARAM:(NSString*) value{
+    NSString* jsResult = [[self getBlockRepo] objectForKey:info];
+    
+    [QAAssert assertContainsExpected:jsResult Contains:value];
+    return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
+            @"deposit popup info", 
+            value,
+            jsResult, 
+            SpliterTcmLine];
+}
+
+//--- end ----------- deposit popup
+
+//--- begin --------- deposit history popup
+- (void) I_did_open_deposit_history_popup{
+    NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                        [NSString stringWithFormat:@"%i", executeInDepositHistoryPopup], @"command",
+                                        nil];
+    // set delegate to hack did popup and did dismiss
+    GreePaymentDelegate* delegate = [[GreePaymentDelegate alloc] init];
+    [GreeWallet setDelegate:delegate];
+    
+    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
+                           object:userinfoDic];
+    [StepDefinition waitForOutsideStep];
+    
+    GreeWalletDepositIAPHistoryPopup* popup = [[StepDefinition getOutsideBlockRepo] objectForKey:@"popup"];
+    [[self getBlockRepo] setObject:popup 
+                            forKey:@"popup"];
+    
+    NSDictionary* depositHistoryMatrix = [[NSDictionary alloc] initWithObjectsAndKeys: 
+                                          @"getText(fid('collation-button'))", @"collation button",
+                                          nil];
+    
+    [[self getBlockRepo] setObject:depositHistoryMatrix forKey:@"depositHistoryPage"];
+}
+
+- (void) I_check_deposit_history_popup_info_PARAM:(NSString*) info{
+    GreeWalletDepositIAPHistoryPopup* popup = [[self getBlockRepo] objectForKey:@"popup"];
+    
+    NSDictionary* depositHistoryMatrix = [[self getBlockRepo] objectForKey:@"depositHistoryPage"];
+    
+    NSString* js = [self wrapJsCommand:[depositHistoryMatrix objectForKey:info]];
+    
+    id resultBlock = ^(NSString* result){
+        [[self getBlockRepo] setObject:result forKey:info];
+        [self notifyInStep];
+    };
+    
+    NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                        [NSString stringWithFormat:@"%i", executeJavascriptInPopup], @"command",
+                                        popup, @"executor",
+                                        js, @"jsCommand",
+                                        resultBlock, @"jsCallback",
+                                        nil];
+    
+    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
+                           object:userinfoDic];
+    
+    [self waitForInStep];
+    [StepDefinition waitForOutsideStep];
+    [popup release];
+}
+
+- (NSString*) deposit_history_popup_info_PARAM:(NSString*) info
+                              _should_be_PARAM:(NSString*) value{
+    NSString* jsResult = [[self getBlockRepo] objectForKey:info];
+    
+    [QAAssert assertContainsExpected:jsResult Contains:value];
+    return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
+            @"deposit history popup info", 
+            value,
+            jsResult, 
+            SpliterTcmLine];
+}
+
+//--- end ----------- deposit history popup
 @end

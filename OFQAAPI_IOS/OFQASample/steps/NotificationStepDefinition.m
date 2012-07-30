@@ -58,7 +58,7 @@
 
 - (void) notification_queue_should_have_notifications_of_size_PARAMINT:(NSString*) size{
     GreeNotificationQueue* notificationQueue = [[self getBlockRepo] objectForKey:@"notificationQueue"];
-    NSArray* notifications =  (NSArray*)[notificationQueue valueForKeyPath:@"notifications"];
+    NSArray* notifications = (NSArray*)[notificationQueue valueForKeyPath:@"notifications"];
     
     [QAAssert assertEqualsExpected:size
                             Actual:[NSString stringWithFormat:@"%i", [notifications count]]];
@@ -71,6 +71,8 @@
         if ([[notification message] isEqualToString:message]) {
             [QAAssert assertEqualsExpected:message
                                     Actual:[notification message]];
+            [notification release];
+            [notificationQueue release];
             return;
         }
     }
@@ -78,4 +80,6 @@
                             Actual:@"nil"
                        WithMessage:[NSString stringWithFormat:@"notification with message %@ isn't in notification queue", message]];
 }
+
+
 @end

@@ -1,8 +1,4 @@
 Given I logged in with email auto3@136.com and password 123456
-And I add payment item with ID fsw43 and NAME test item and UNITPRICE 10 and QUANTITY 10 and IMAGEURL http://www.google.com and DESCRIPTION hahahshshss
-And I did open payment request popup
-When I check payment request popup message
-And I check payment request popup paymentCurrnecyAmount
-Then payment request popup info message should be payment test
-Then payment request popup info paymentCurrnecyAmount should be 100
-After I did dismiss popup
+When I update badge value to latest one for all application
+Then my social badge value should be 0
+Then my in game badge value should be 0

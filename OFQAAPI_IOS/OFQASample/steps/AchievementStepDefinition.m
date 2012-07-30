@@ -111,6 +111,7 @@
     
     for (GreeAchievement* ac in achs) {
         if([[ac name] isEqualToString:ach_name]){
+            [ach release];
             ach = ac;
             break;
         }
@@ -136,6 +137,7 @@
     
     for (GreeAchievement* ac in achs) {
         if([[ac name] isEqualToString:ach_name]){
+            [ach release];
             ach = ac;
             break;
         }
@@ -231,9 +233,10 @@
    _of_achievement_PARAM:(NSString*) ach_name 
         _should_be_PARAM:(NSString*) res{
     GreeAchievement* ach = [[self getBlockRepo] objectForKey:ach_name];
+    NSString* result = @"";
     if ([info isEqualToString:@"identifier"]) {
         [QAAssert assertEqualsExpected:res Actual:[ach identifier]];
-        return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+        result = [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
                 @"achievement identifier", 
                 res, 
                 [ach identifier],
@@ -241,7 +244,7 @@
     }
     else if ([info isEqualToString:@"name"]) {
         [QAAssert assertEqualsExpected:res Actual:[ach name]];
-        return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+        result = [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
                 @"achievement name", 
                 res, 
                 [ach name],
@@ -249,7 +252,7 @@
     }
     else if ([info isEqualToString:@"descriptionText"]) {
         [QAAssert assertEqualsExpected:res Actual:[ach descriptionText]];
-        return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+        result = [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
                 @"achievement descriptionText", 
                 res, 
                 [ach descriptionText],
@@ -257,7 +260,7 @@
     }
     else if ([info isEqualToString:@"isSecret"]) {
         [QAAssert assertEqualsExpected:res Actual:[ach isSecret]?@"YES":@"NO"];
-        return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+        result = [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
                 @"achievement isSecret", 
                 res, 
                 [ach isSecret]?@"YES":@"NO",
@@ -265,7 +268,7 @@
     }
     else if ([info isEqualToString:@"score"]) {
         [QAAssert assertEqualsExpected:res Actual:[NSString stringWithFormat:@"%i", [ach score]]];
-        return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%i) %@",
+        result = [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%i) %@",
                 @"achievement score", 
                 res, 
                 [ach score],
@@ -273,7 +276,7 @@
     }
     else if ([info isEqualToString:@"isUnlocked"]) {
         [QAAssert assertEqualsExpected:res Actual:[ach isUnlocked]?@"YES":@"NO"];
-        return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+        result = [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
                 @"achievement isUnlocked", 
                 res, 
                 [ach isUnlocked]?@"YES":@"NO",
@@ -281,7 +284,7 @@
     }
     else if ([info isEqualToString:@"descriptionString"]) {
         [QAAssert assertEqualsExpected:res Actual:[ach description]];
-        return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+        result = [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
                 @"achievement descriptionString", 
                 res, 
                 [ach description],
@@ -291,8 +294,7 @@
         [QAAssert assertEqualsExpected:info
                                 Actual:nil
                            WithMessage:@"no info found"];
-        return nil;
     }
+    return result;
 }
-
 @end
