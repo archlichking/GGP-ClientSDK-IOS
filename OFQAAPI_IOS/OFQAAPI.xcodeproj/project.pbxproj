@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA00215315C658760013F320 /* BadgeStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA00215215C658760013F320 /* BadgeStepDefinition.m */; };
 		BA054E1015BE4D09002F5DE6 /* libGreePlatform-llvm-gcc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA054E0E15BE4D09002F5DE6 /* libGreePlatform-llvm-gcc.a */; };
 		BA054E1115BE4D09002F5DE6 /* libGreeWallet-llvm-gcc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA054E0F15BE4D09002F5DE6 /* libGreeWallet-llvm-gcc.a */; };
 		BA09131C155C98D900EEFD4B /* FriendCodeStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA09131B155C98D900EEFD4B /* FriendCodeStepDefinition.m */; };
@@ -222,6 +223,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA00215115C658760013F320 /* BadgeStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BadgeStepDefinition.h; path = steps/BadgeStepDefinition.h; sourceTree = "<group>"; };
+		BA00215215C658760013F320 /* BadgeStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BadgeStepDefinition.m; path = steps/BadgeStepDefinition.m; sourceTree = "<group>"; };
 		BA054E0E15BE4D09002F5DE6 /* libGreePlatform-llvm-gcc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libGreePlatform-llvm-gcc.a"; path = "../ggplib_ios/release/libGreePlatform-llvm-gcc.a"; sourceTree = "<group>"; };
 		BA054E0F15BE4D09002F5DE6 /* libGreeWallet-llvm-gcc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libGreeWallet-llvm-gcc.a"; path = "../ggplib_ios/release/libGreeWallet-llvm-gcc.a"; sourceTree = "<group>"; };
 		BA09131A155C98D900EEFD4B /* FriendCodeStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendCodeStepDefinition.h; path = steps/FriendCodeStepDefinition.h; sourceTree = "<group>"; };
@@ -543,6 +546,8 @@
 				BA286D9D159D9D05004C70C0 /* PopupStepDefinition.m */,
 				BA23986615B7F9EC00E51650 /* NotificationStepDefinition.h */,
 				BA23986715B7F9EC00E51650 /* NotificationStepDefinition.m */,
+				BA00215115C658760013F320 /* BadgeStepDefinition.h */,
+				BA00215215C658760013F320 /* BadgeStepDefinition.m */,
 			);
 			name = Steps;
 			path = OFQASample;
@@ -1098,6 +1103,7 @@
 				BA286D9E159D9D05004C70C0 /* PopupStepDefinition.m in Sources */,
 				BA99E2F315A5603D00818490 /* TestPopupDelegate.m in Sources */,
 				BA23986815B7F9EC00E51650 /* NotificationStepDefinition.m in Sources */,
+				BA00215315C658760013F320 /* BadgeStepDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

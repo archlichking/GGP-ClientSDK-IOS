@@ -36,6 +36,7 @@
 #import "PaymentStepDefinition.h"
 #import "PopupStepDefinition.h"
 #import "NotificationStepDefinition.h"
+#import "BadgeStepDefinition.h"
 
 #import "QALog.h"
 
@@ -67,7 +68,8 @@
                                class_createInstance([GreePlatformStepDefinition class], 0),
                                class_createInstance([PaymentStepDefinition class], 0),
                                class_createInstance([PopupStepDefinition class], 0),
-                                class_createInstance([NotificationStepDefinition class], 0),
+                               class_createInstance([NotificationStepDefinition class], 0),
+                               class_createInstance([BadgeStepDefinition class], 0),
 //                                 class_createInstance([SampleStepDefinition class], 0),
                                nil] autorelease];
 

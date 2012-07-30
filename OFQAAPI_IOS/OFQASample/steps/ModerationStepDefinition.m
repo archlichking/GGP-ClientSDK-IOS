@@ -150,4 +150,10 @@
     
 //    [[self getBlockRepo] setObject:[self fetchModerationFromServerById:[t textId]] forKey:@"text"];
 }
+
+// step definition : I serialize moderation text
+- (void) I_serialize_moderation_text{
+    GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
+    t serializeWithGreeSerializer:<#(GreeSerializer *)#>]
+}
 @end

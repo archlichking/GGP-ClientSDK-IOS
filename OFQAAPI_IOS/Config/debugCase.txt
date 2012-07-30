@@ -1,6 +1,4 @@
 Given I logged in with email auto3@136.com and password 123456
-And I did open deposit popup
-When I check deposit popup info price of currency3
-And I check deposit popup info price of currency4
-Then deposit popup info price of currency3 should be $0.99
-And deposit popup info price of currency3 should be $0.99
+When I update badge value to latest one for all application
+Then my social badge value should be 0
+Then my in game badge value should be 0
