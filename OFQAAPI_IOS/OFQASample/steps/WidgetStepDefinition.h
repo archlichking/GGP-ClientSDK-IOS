@@ -16,6 +16,7 @@
 - (void) widget_position_should_be_PARAM:(NSString*) value;
 - (void) widget_expandable_should_be_PARAM:(NSString*) value;
 
-- (void) I_set_widget_position_to_PARAM:(NSString*) position;
+- (void) I_active_widget_with_position_PARAM:(NSString*) position 
+                       _and_expandable_PARAM:(NSString*) expandable;
 
 @end

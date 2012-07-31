@@ -377,6 +377,8 @@
 - (void) activeWidget:(NSDictionary*) info{
     [self showGreeWidgetWithDataSource:self];
     GreeWidget* widget = [self activeGreeWidget];
+    [widget setExpandable:[[info objectForKey:@"expandable"] boolValue]];
+    [widget setPosition:[[info objectForKey:@"position"] intValue]];
     void (^callbackBlock)(GreeWidget*) = [info objectForKey:@"cmdCallback"];
     callbackBlock(widget);
 }

@@ -1,5 +1,5 @@
 Given I logged in with email auto3@136.com and password 123456
-When I active default widget
-Then widget position should be bottom left
-Then widget expandable should be NO
+When I active widget with position top right and expandable YES
+Then widget position should be top right
+Then widget expandable should be YES
 After I hide widget
