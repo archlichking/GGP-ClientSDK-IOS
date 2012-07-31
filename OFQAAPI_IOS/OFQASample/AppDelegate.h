@@ -14,10 +14,12 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate, GreePlatformDelegate>{
 @private
     TestRunnerWrapper* runnerWrapper;
+    NSString* baseJsCommand;
 }
 
 @property (strong, nonatomic) UIWindow *window;
 @property (retain) TestRunnerWrapper* runnerWrapper;
+@property (retain) NSString* baseJsCommand;
 
 - (NSData*) loadConfig:(NSString*) fname;
 

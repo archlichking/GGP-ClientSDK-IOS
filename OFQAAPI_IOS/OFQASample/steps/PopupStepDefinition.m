@@ -134,10 +134,6 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;var STR_TEMPLATE='{\"id\"
     popup.cancelBlock = nil;
 }
 
-- (NSString*) wrapJsCommand:(NSString*) command{
-    return [NSString stringWithFormat:@"(function(){%@ return(%@)})()", JsBaseCommand, command];
-}
-
 //---------end-------utils
 
 - (void) I_execute_js_command_in_popup_PARAM:(NSString*) command{
@@ -145,12 +141,10 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;var STR_TEMPLATE='{\"id\"
     
     GreePopup* popup = [[self getBlockRepo] objectForKey:@"popup"];
     
-    NSString* js = [self wrapJsCommand:command];
-    
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                                         [NSString stringWithFormat:@"%i", executeJavascriptInPopup], @"command",
                                         popup, @"executor", 
-                                        js, @"jsCommand",
+                                        command, @"jsCommand",
                                         nil];
     
     [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
@@ -332,7 +326,7 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;var STR_TEMPLATE='{\"id\"
     
     NSDictionary* requestMatrix = [[self getBlockRepo] objectForKey:@"requestPage"];
     
-    NSString* js = [self wrapJsCommand:[requestMatrix objectForKey:info]];
+    NSString* js = [requestMatrix objectForKey:info];
     
     id resultBlock = ^(NSString* result){
         [[self getBlockRepo] setObject:result forKey:info];
@@ -402,7 +396,7 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;var STR_TEMPLATE='{\"id\"
     
     NSDictionary* inviteMatrix = [[self getBlockRepo] objectForKey:@"invitePage"];
     
-    NSString* js = [self wrapJsCommand:[inviteMatrix objectForKey:info]];
+    NSString* js = [inviteMatrix objectForKey:info];
     
     id resultBlock = ^(NSString* result){
         [[self getBlockRepo] setObject:result forKey:info];
@@ -465,7 +459,7 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;var STR_TEMPLATE='{\"id\"
     
     NSDictionary* shareMatrix = [[self getBlockRepo] objectForKey:@"sharePage"];
     
-    NSString* js = [self wrapJsCommand:[shareMatrix objectForKey:info]];
+    NSString* js = [shareMatrix objectForKey:info];
     
     id resultBlock = ^(NSString* result){
         [[self getBlockRepo] setObject:result forKey:info];
@@ -572,7 +566,7 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;var STR_TEMPLATE='{\"id\"
     
     NSDictionary* paymentRequestMatrix = [[self getBlockRepo] objectForKey:@"paymentRequestPage"];
     
-    NSString* js = [self wrapJsCommand:[paymentRequestMatrix objectForKey:info]];
+    NSString* js = [paymentRequestMatrix objectForKey:info];
     
     id resultBlock = ^(NSString* result){
         [[self getBlockRepo] setObject:result forKey:info];
@@ -642,7 +636,7 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;var STR_TEMPLATE='{\"id\"
     
     NSDictionary* depositMatrix = [[self getBlockRepo] objectForKey:@"depositPage"];
     
-    NSString* js = [self wrapJsCommand:[depositMatrix objectForKey:info]];
+    NSString* js = [depositMatrix objectForKey:info];
     
     id resultBlock = ^(NSString* result){
         [[self getBlockRepo] setObject:result forKey:info];
@@ -708,7 +702,7 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;var STR_TEMPLATE='{\"id\"
     
     NSDictionary* depositHistoryMatrix = [[self getBlockRepo] objectForKey:@"depositHistoryPage"];
     
-    NSString* js = [self wrapJsCommand:[depositHistoryMatrix objectForKey:info]];
+    NSString* js = [depositHistoryMatrix objectForKey:info];
     
     id resultBlock = ^(NSString* result){
         [[self getBlockRepo] setObject:result forKey:info];

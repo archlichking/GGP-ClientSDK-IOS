@@ -18,7 +18,7 @@
 #import "GreeAchievement.h"
 #import "GreePlatform.h"
 
-#define RUN_MODE 0
+#define RUN_MODE 1
 
 #if RUN_MODE == 0
 #define CONFIG_NAME           @"debugCase.txt"
@@ -31,6 +31,7 @@
 @implementation AppDelegate
 
 @synthesize window = _window;
+@synthesize baseJsCommand = _baseJsCommand;
 @synthesize runnerWrapper;
 
 
@@ -44,6 +45,8 @@ static NSString* APPID = @"15265";
     // to use debug case, switch to debugCase.txt
     // to use tcm settings, switch to tcmsConfig.json
     NSData* rawData = [self loadConfig:CONFIG_NAME];
+    NSData* baseJsCommandData = [self loadConfig:@"baseCommand.js"];
+    _baseJsCommand = [[NSString alloc] initWithData:baseJsCommandData encoding:NSUTF8StringEncoding];
 //    NSData* rawData = [self loadConfig:@"tcmsConfig.json"];
     
     // just change APPID

@@ -66,7 +66,7 @@
 + (void) assertNotNil:(id)result{
     if (result == nil) {
         [AssertException raise:@"assertNotNil failed" 
-                        format:@"expected:not nil but was:<%@> with message [%@]", result];
+                        format:@"expected:not nil but was:<%@>", result];
     }
 }
 
