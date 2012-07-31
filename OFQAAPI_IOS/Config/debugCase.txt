@@ -1,5 +1,5 @@
 Given I logged in with email auto3@136.com and password 123456
-And I add payment item with ID fsw43 and NAME test item and UNITPRICE 10 and QUANTITY 10 and IMAGEURL http://www.google.com and DESCRIPTION hahahshshss
-And I add payment item with ID fsw43 and NAME test item and UNITPRICE 5 and QUANTITY 10 and IMAGEURL http://www.google.com and DESCRIPTION dfsdfsdf
-And I did open payment request popup
-When I check payment request popup info itemList
+When I active default widget
+Then widget position should be bottom left
+Then widget expandable should be NO
+After I hide widget

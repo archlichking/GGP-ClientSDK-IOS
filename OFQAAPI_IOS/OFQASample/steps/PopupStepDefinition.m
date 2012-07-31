@@ -142,7 +142,7 @@
                                         command, @"jsCommand",
                                         nil];
     
-    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
+    [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
     [StepDefinition waitForOutsideStep];
@@ -163,7 +163,7 @@
                                         popup, @"executor", 
                                         nil];
     
-    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
+    [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
     [self waitForInStep];
@@ -187,7 +187,7 @@
                                         popup, @"executor", 
                                         nil];
     
-    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
+    [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
     [self waitForInStep];
@@ -211,7 +211,7 @@
                                         popup, @"executor", 
                                         nil];
     
-    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
+    [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
     
@@ -237,7 +237,7 @@
                                         popup, @"executor", 
                                         nil];
     
-    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
+    [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
     [self waitForInStep];
@@ -335,7 +335,7 @@
                                         resultBlock, @"jsCallback",
                                         nil];
     
-    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
+    [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
     [StepDefinition waitForOutsideStep];
@@ -405,7 +405,7 @@
                                         resultBlock, @"jsCallback",
                                         nil];
     
-    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
+    [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
     [StepDefinition waitForOutsideStep];
@@ -468,7 +468,7 @@
                                         resultBlock, @"jsCallback",
                                         nil];
     
-    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
+    [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
     [StepDefinition waitForOutsideStep];
@@ -539,7 +539,7 @@
     GreePaymentDelegate* delegate = [[GreePaymentDelegate alloc] init];
     [GreeWallet setDelegate:delegate];
     
-    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
+    [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     [StepDefinition waitForOutsideStep];
     
@@ -575,7 +575,7 @@
                                         resultBlock, @"jsCallback",
                                         nil];
     
-    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
+    [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
     [self waitForInStep];
@@ -608,7 +608,7 @@
     GreePaymentDelegate* delegate = [[GreePaymentDelegate alloc] init];
     [GreeWallet setDelegate:delegate];
     
-    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
+    [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     [StepDefinition waitForOutsideStep];
     
@@ -645,7 +645,7 @@
                                         resultBlock, @"jsCallback",
                                         nil];
     
-    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
+    [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
     [self waitForInStep];
@@ -677,7 +677,7 @@
     GreePaymentDelegate* delegate = [[GreePaymentDelegate alloc] init];
     [GreeWallet setDelegate:delegate];
     
-    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
+    [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     [StepDefinition waitForOutsideStep];
     
@@ -711,7 +711,7 @@
                                         resultBlock, @"jsCallback",
                                         nil];
     
-    [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
+    [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
     [self waitForInStep];
