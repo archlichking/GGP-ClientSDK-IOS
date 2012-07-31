@@ -84,7 +84,7 @@
 
 @implementation GreeWalletDepositIAPHistoryPopup(PrivatePaymentHack)
 -(void)popupViewWebViewDidFinishLoad:(UIWebView *)aWebView{
-    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
+//    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
     [[StepDefinition getOutsideBlockRepo] setObject:self forKey:@"popup"];
     [StepDefinition notifyOutsideStep];
 }
@@ -102,14 +102,9 @@
 }
 @end
 
-
 // --- end ------------ popup hack
 
-
-NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.style.outline;e.style.outline='#FDFF47 solid';setTimeout(function(){e.style.outline=d;},STEP_TIMEOUT);}function fid(id){return document.getElementById(id);}function fclass(clazz){return document.getElementsByClassName(clazz)[0];}function ftag(g,t){var e=document.getElementsByTagName(g);for(var i=0;i<e.length;i++){if(e[i].innerText.indexOf(t)!=-1){return e[i];}}}function click(e){var t=document.createEvent('HTMLEvents');t.initEvent('click',false,false);setTimeout(function(){hl(e);setTimeout(function(){e.dispatchEvent(t);},STEP_TIMEOUT);},STEP_TIMEOUT);}function setText(e,t){setTimeout(function(){hl(e);setTimeout(function(){e.value=t;},STEP_TIMEOUT);},STEP_TIMEOUT);}function getText(e){var r=e.value;if(r===''||typeof(r)=='undefined'){r=e.innerText;}hl(e);return r;}";
-
 @implementation PopupStepDefinition
-
 
 - (void) I_make_screenshot_of_current_popup{
     GreeRequestServicePopup* requestPopup = [[self getBlockRepo] objectForKey:@"requestPopup"];
@@ -134,10 +129,6 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     popup.cancelBlock = nil;
 }
 
-- (NSString*) wrapJsCommand:(NSString*) command{
-    return [NSString stringWithFormat:@"(function(){%@ return(%@)})()", JsBaseCommand, command];
-}
-
 //---------end-------utils
 
 - (void) I_execute_js_command_in_popup_PARAM:(NSString*) command{
@@ -145,12 +136,10 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     
     GreePopup* popup = [[self getBlockRepo] objectForKey:@"popup"];
     
-    NSString* js = [self wrapJsCommand:command];
-    
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                                         [NSString stringWithFormat:@"%i", executeJavascriptInPopup], @"command",
                                         popup, @"executor", 
-                                        js, @"jsCommand",
+                                        command, @"jsCommand",
                                         nil];
     
     [self notifyMainUIWithCommand:CommandDispatchPopupCommand 
@@ -318,8 +307,8 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     
     // initialize request matrix
     NSDictionary* requestMatrix = [[NSDictionary alloc] initWithObjectsAndKeys: 
-                                   @"getText(fclass('sentence medium minor break-normal'))", @"title",
-                                   @"getText(fclass('sentence medium minor break-normal'))", @"body",
+                                   @"stringify(fclass('sentence medium minor break-normal'))", @"title",
+                                   @"stringify(fclass('sentence medium minor break-normal'))", @"body",
                                    nil];
     
     [[self getBlockRepo] setObject:requestMatrix forKey:@"requestPage"];
@@ -332,7 +321,7 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     
     NSDictionary* requestMatrix = [[self getBlockRepo] objectForKey:@"requestPage"];
     
-    NSString* js = [self wrapJsCommand:[requestMatrix objectForKey:info]];
+    NSString* js = [requestMatrix objectForKey:info];
     
     id resultBlock = ^(NSString* result){
         [[self getBlockRepo] setObject:result forKey:info];
@@ -388,7 +377,7 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     
     
     NSDictionary* inviteMatrix = [[NSDictionary alloc] initWithObjectsAndKeys: 
-                                   @"getText(fclass('balloon bottom list-item round shrink'))", @"message",
+                                   @"stringify(fclass('balloon bottom list-item round shrink'))", @"message",
                                    nil];
     
     [[self getBlockRepo] setObject:inviteMatrix forKey:@"invitePage"];
@@ -402,7 +391,7 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     
     NSDictionary* inviteMatrix = [[self getBlockRepo] objectForKey:@"invitePage"];
     
-    NSString* js = [self wrapJsCommand:[inviteMatrix objectForKey:info]];
+    NSString* js = [inviteMatrix objectForKey:info];
     
     id resultBlock = ^(NSString* result){
         [[self getBlockRepo] setObject:result forKey:info];
@@ -450,7 +439,7 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     [self cleanCallbacks:popup];
     
     NSDictionary* shareMatrix = [[NSDictionary alloc] initWithObjectsAndKeys: 
-                                  @"getText(fid('ggp_share_mood_message_display'))", @"text",
+                                  @"stringify(fid('ggp_share_mood_message_display'))", @"text",
                                   nil];
     
     [[self getBlockRepo] setObject:shareMatrix forKey:@"sharePage"];
@@ -465,7 +454,7 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     
     NSDictionary* shareMatrix = [[self getBlockRepo] objectForKey:@"sharePage"];
     
-    NSString* js = [self wrapJsCommand:[shareMatrix objectForKey:info]];
+    NSString* js = [shareMatrix objectForKey:info];
     
     id resultBlock = ^(NSString* result){
         [[self getBlockRepo] setObject:result forKey:info];
@@ -559,8 +548,9 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
                             forKey:@"popup"];
     
     NSDictionary* paymentRequestMatrix = [[NSDictionary alloc] initWithObjectsAndKeys: 
-                                 @"getText(fclass('sentence medium minor'))", @"message",
-                                 @"getText(fclass('solid min'))", @"paymentCurrnecyAmount",
+                                 @"stringify(fclass('sentence medium minor'))", @"message",
+                                 @"stringify(fclass('solid min'))", @"paymentCurrnecyAmount",
+                                 @"stringify(fclass('list-item'))", @"itemList",
                                  nil];
     
     [[self getBlockRepo] setObject:paymentRequestMatrix forKey:@"paymentRequestPage"];
@@ -571,7 +561,7 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     
     NSDictionary* paymentRequestMatrix = [[self getBlockRepo] objectForKey:@"paymentRequestPage"];
     
-    NSString* js = [self wrapJsCommand:[paymentRequestMatrix objectForKey:info]];
+    NSString* js = [paymentRequestMatrix objectForKey:info];
     
     id resultBlock = ^(NSString* result){
         [[self getBlockRepo] setObject:result forKey:info];
@@ -629,7 +619,7 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     NSDictionary* depositMatrix = [[NSDictionary alloc] initWithObjectsAndKeys:
                                    @"getText(fid('com.aurorafeint.ofxdev1.currency4'))", @"price of currency4",
                                    @"getText(fid('com.aurorafeint.ofxdev1.currency3'))", @"price of currency3",
-                                   @"getText(fclass('com.aurorafeint.ofxdev1.currency3'))", @"tc amount of current4",
+                                   @"stringify(fclass('com.aurorafeint.ofxdev1.currency3'))", @"tc amount of current4",
                                    nil];
     
     [[self getBlockRepo] setObject:depositMatrix forKey:@"depositPage"];
@@ -641,7 +631,7 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     
     NSDictionary* depositMatrix = [[self getBlockRepo] objectForKey:@"depositPage"];
     
-    NSString* js = [self wrapJsCommand:[depositMatrix objectForKey:info]];
+    NSString* js = [depositMatrix objectForKey:info];
     
     id resultBlock = ^(NSString* result){
         [[self getBlockRepo] setObject:result forKey:info];
@@ -696,7 +686,7 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
                             forKey:@"popup"];
     
     NSDictionary* depositHistoryMatrix = [[NSDictionary alloc] initWithObjectsAndKeys: 
-                                          @"getText(fid('collation-button'))", @"collation button",
+                                          @"stringify(fid('collation-button'))", @"collation button",
                                           nil];
     
     [[self getBlockRepo] setObject:depositHistoryMatrix forKey:@"depositHistoryPage"];
@@ -707,7 +697,7 @@ NSString* const JsBaseCommand = @"var STEP_TIMEOUT=250;function hl(e){var d=e.st
     
     NSDictionary* depositHistoryMatrix = [[self getBlockRepo] objectForKey:@"depositHistoryPage"];
     
-    NSString* js = [self wrapJsCommand:[depositHistoryMatrix objectForKey:info]];
+    NSString* js = [depositHistoryMatrix objectForKey:info];
     
     id resultBlock = ^(NSString* result){
         [[self getBlockRepo] setObject:result forKey:info];

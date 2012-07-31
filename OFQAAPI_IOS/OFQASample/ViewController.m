@@ -350,9 +350,15 @@
     [GreeWallet launchDepositHistoryPopup];
 }
 
+- (NSString*) wrapJsCommand:(NSString*) command{
+    return [NSString stringWithFormat:@"(function(){%@ return(%@)})()", [appDelegate baseJsCommand], command];
+}
+
+
 - (void) executeJsInPopup:(NSDictionary*) info{
     GreePopup* popup = (GreePopup*) [info objectForKey:@"executor"];
-    NSString* jsResult = [popup stringByEvaluatingJavaScriptFromString:[info objectForKey:@"jsCommand"]];
+    NSString* jsCommand = [self wrapJsCommand:[info objectForKey:@"jsCommand"]];
+    NSString* jsResult = [popup stringByEvaluatingJavaScriptFromString:jsCommand];
     void (^callbackBlock)(NSString*) = [info objectForKey:@"jsCallback"];
     callbackBlock(jsResult);
 }

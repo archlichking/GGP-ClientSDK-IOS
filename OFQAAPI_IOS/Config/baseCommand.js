@@ -1,67 +1,67 @@
 var STEP_TIMEOUT = 250;
+var STR_TEMPLATE = '{\"id\":\"#id\", \"tag\":\"#tag\", \"class\":\"#class\", \"text\":\"#text\", \"index\":\"#index\"}';
 
 function hl(e) {
-	var d = e.style.outline;
-	e.style.outline = '#FDFF47 solid';
-	setTimeout(function() {
-        e.style.outline = d;
-    }, STEP_TIMEOUT);
+    var d = e.style.outline;
+    e.style.outline = '#FDFF47 solid';
+    setTimeout(function () {
+               e.style.outline = d
+               }, STEP_TIMEOUT)
 }
-
 function fid(id) {
-	return document.getElementById(id);
+    return document.getElementById(id)
 }
-
 function fclass(clazz) {
-	return document.getElementsByClassName(clazz)[0];
+    return document.getElementsByClassName(clazz)
 }
-
-function ftag(g, t) {
-	var e = document.getElementsByTagName(g);
-	for (var i = 0; i < e.length; i++) {
-		if (e[i].innerText.indexOf(t) != -1) {
-			return e[i];
-		}
-	}
+function ftag(g) {
+    return document.getElementsByTagName(g)
 }
-
 function click(e) {
-	var t = document.createEvent('HTMLEvents');
-	t.initEvent('click', false, false);
-	setTimeout(function() {
-        hl(e);
-        setTimeout(function() {
-            e.dispatchEvent(t);
-        }, STEP_TIMEOUT);
-    }, STEP_TIMEOUT);
+    var t = document.createEvent('HTMLEvents');
+    t.initEvent('click', false, false);
+    setTimeout(function () {
+               hl(e);
+               setTimeout(function () {
+                          e.dispatchEvent(t)
+                          }, STEP_TIMEOUT)
+               }, STEP_TIMEOUT)
 }
-
 function setText(e, t) {
-	setTimeout(function() {
-        hl(e);
-        setTimeout(function() {
-            e.value = t;
-        }, STEP_TIMEOUT);
-    }, STEP_TIMEOUT);
+    setTimeout(function () {
+               hl(e);
+               setTimeout(function () {
+                          e.value = t
+                          }, STEP_TIMEOUT)
+               }, STEP_TIMEOUT)
 }
-
 function getText(e) {
-	var r = e.value;
-	if (r === '' || typeof(r) == 'undefined') {
-		r = e.innerText;
-	}
-	hl(e);
-	return r;
+    var r = e.value;
+    if (r === '' || typeof (r) == 'undefined') {
+        r = e.innerText
+    }
+    hl(e);
+    return r
 }
-
-function waitPageLoading() {
-	if ('complete' != document.readyState) {
-		setTimeout(waitPageLoading, STEP_TIMEOUT);
-	}
+function stringify(es) {
+    var r = '{elements:[';
+    if (es.constructor == NodeList) {
+        for (var i = 0; i < es.length; i++) {
+            var ret = '';
+            ret = STR_TEMPLATE.replace('#tag', es[i].tagName).replace('#id', es[i].getAttribute('id'))
+                    .replace('#class', es[i].getAttribute('class')).replace('#text', getText(es[i]))
+                    .replace('#index', i);
+            console.log(ret);
+            r = r + ret + ','
+        }
+        r = r + ']}'
+    } else {
+        r = r + STR_TEMPLATE.replace('#tag', es.tagName).replace('#id', es.getAttribute('id'))
+                .replace('#class', es.getAttribute('class')).replace('#text', getText(es))
+                .replace('#index', 0) + ']}'
+    }
+    return r
 }
-
-function waitPageLoading(t) {if (t < 20) {t = t + 1;setTimeout(waitPageLoading, 2000);}}
-
 
 function assertEqual(exp, res) {
 	return exp == res;
