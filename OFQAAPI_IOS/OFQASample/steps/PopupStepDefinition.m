@@ -732,4 +732,36 @@
 }
 
 //--- end ----------- deposit history popup
+
+// -----------------
+
+- (void) I_test_jskit{
+    GreePopup* popup = [[self getBlockRepo] objectForKey:@"popup"];
+    
+    NSString* js = @"alert('dsfsdfsdf')";
+    
+    id resultBlock = ^(NSString* result){
+        [[self getBlockRepo] setObject:result forKey:@"kkkkkkkkk"];
+        [self notifyInStep];
+    };
+    
+    NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                        [NSString stringWithFormat:@"%i", executeJskitCommandInPopup], @"command",
+                                        popup, @"executor",
+                                        js, @"jsCommand",
+                                        resultBlock, @"jsCallback",
+                                        nil];
+    
+    [self notifyMainUIWithCommand:CommandDispatchCommand 
+                           object:userinfoDic];
+    
+    [self waitForInStep];
+    [StepDefinition waitForOutsideStep];
+    [popup release];
+
+}
+
+- (void) I_load_popup{
+
+}
 @end

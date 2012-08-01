@@ -328,6 +328,14 @@
                                 waitUntilDone:YES];
             break;
             
+            
+        case executeJskitCommandInPopup:
+            [self performSelectorOnMainThread:@selector(invokeJskitInPopup:) 
+                                   withObject:extra 
+                                waitUntilDone:YES];
+            
+            [StepDefinition notifyOutsideStep];
+            break;
         case getWidget:
             [self performSelectorOnMainThread:@selector(activeWidget:) 
                                    withObject:extra 
@@ -361,9 +369,17 @@
 }
 
 - (NSString*) wrapJsCommand:(NSString*) command{
-    return [NSString stringWithFormat:@"(function(){%@ return(%@)})()", [appDelegate baseJsCommand], command];
+    return [NSString stringWithFormat:@"(function(){%@ return(%@)})()", 
+            [appDelegate baseJsCommand], 
+            command];
 }
 
+- (NSString*) wrapJskitCommand:(NSString*) command{
+    return [NSString stringWithFormat:@"(function(){%@ %@ return(%@)})()", 
+            [appDelegate ggpCommand],
+            [appDelegate ggpCommandInterface], 
+            command];
+}
 
 - (void) executeJsInPopup:(NSDictionary*) info{
     GreePopup* popup = (GreePopup*) [info objectForKey:@"executor"];
@@ -373,6 +389,13 @@
     callbackBlock(jsResult);
 }
 
+- (void) invokeJskitInPopup:(NSDictionary*) info{
+    GreePopup* popup = (GreePopup*) [info objectForKey:@"executor"];
+    NSString* jsCommand = [self wrapJskitCommand:[info objectForKey:@"jsCommand"]];
+    NSString* jsResult = [popup stringByEvaluatingJavaScriptFromString:jsCommand];
+    void (^callbackBlock)(NSString*) = [info objectForKey:@"jsCallback"];
+    callbackBlock(jsResult);
+}
 
 - (void) activeWidget:(NSDictionary*) info{
     [self showGreeWidgetWithDataSource:self];

@@ -18,12 +18,16 @@ extern NSString* const CommandBefore;
 extern NSString* const CommandDispatchCommand;
 
 extern enum {
+    // general popup test
     launchPopup,
     dismissPopup,
     executeJavascriptInPopup,
     executeInPaymentRequestPopup,
     executeInDepositPopup,
     executeInDepositHistoryPopup,
+    // jskit test
+    executeJskitCommandInPopup,
+    // widget test
     getWidget,
     hideWidget
 } CommandPopup;
