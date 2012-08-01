@@ -37,6 +37,7 @@
 #import "PopupStepDefinition.h"
 #import "NotificationStepDefinition.h"
 #import "BadgeStepDefinition.h"
+#import "WidgetStepDefinition.h"
 
 #import "QALog.h"
 
@@ -57,19 +58,20 @@
         [self setCaseWrappers:[[[NSMutableArray alloc] init] autorelease]];
         
         NSArray* classArray = [[[NSArray alloc] initWithObjects:
-                               class_createInstance([CommenStepDefinition class], 0), 
-                               class_createInstance([AchievementStepDefinition class], 0),
-                               class_createInstance([LeaderboardStepDefinition class], 0), 
-                               class_createInstance([PeopleStepDefinition class], 0),
-                               class_createInstance([ModerationStepDefinition class], 0),
-                               class_createInstance([FriendCodeStepDefinition class], 0),
-                               class_createInstance([IgnorelistStepDefinition class], 0),
-                               class_createInstance([NetworkStepDefinition class], 0),
-                               class_createInstance([GreePlatformStepDefinition class], 0),
-                               class_createInstance([PaymentStepDefinition class], 0),
-                               class_createInstance([PopupStepDefinition class], 0),
-                               class_createInstance([NotificationStepDefinition class], 0),
-                               class_createInstance([BadgeStepDefinition class], 0),
+                                class_createInstance([CommenStepDefinition class], 0), 
+                                class_createInstance([AchievementStepDefinition class], 0),
+                                class_createInstance([LeaderboardStepDefinition class], 0), 
+                                class_createInstance([PeopleStepDefinition class], 0),
+                                class_createInstance([ModerationStepDefinition class], 0),
+                                class_createInstance([FriendCodeStepDefinition class], 0),
+                                class_createInstance([IgnorelistStepDefinition class], 0),
+                                class_createInstance([NetworkStepDefinition class], 0),
+                                class_createInstance([GreePlatformStepDefinition class], 0),
+                                class_createInstance([PaymentStepDefinition class], 0),
+                                class_createInstance([PopupStepDefinition class], 0),
+                                class_createInstance([NotificationStepDefinition class], 0),
+                                class_createInstance([BadgeStepDefinition class], 0),
+                                class_createInstance([WidgetStepDefinition class], 0),
 //                                 class_createInstance([SampleStepDefinition class], 0),
                                nil] autorelease];
 

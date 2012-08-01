@@ -18,7 +18,7 @@
 #import "GreeAchievement.h"
 #import "GreePlatform.h"
 
-#define RUN_MODE 1
+#define RUN_MODE 0
 
 #if RUN_MODE == 0
 #define CONFIG_NAME           @"debugCase.txt"
@@ -28,12 +28,12 @@
 #define RUN_TYPE              TCM_BUILDER
 #endif
 
+
 @implementation AppDelegate
 
 @synthesize window = _window;
 @synthesize baseJsCommand = _baseJsCommand;
 @synthesize runnerWrapper;
-
 
 //static NSString* APPID = @"12697";
 static NSString* APPID = @"15265";
@@ -46,8 +46,9 @@ static NSString* APPID = @"15265";
     // to use tcm settings, switch to tcmsConfig.json
     NSData* rawData = [self loadConfig:CONFIG_NAME];
     NSData* baseJsCommandData = [self loadConfig:@"baseCommand.js"];
-    _baseJsCommand = [[NSString alloc] initWithData:baseJsCommandData encoding:NSUTF8StringEncoding];
-//    NSData* rawData = [self loadConfig:@"tcmsConfig.json"];
+    
+    _baseJsCommand = [[NSString alloc] initWithData:baseJsCommandData 
+                                           encoding:NSUTF8StringEncoding];
     
     // just change APPID
     NSString* appconf = [NSString stringWithFormat:@"%@credentialsConfig.json", APPID];
@@ -80,7 +81,6 @@ static NSString* APPID = @"15265";
                                consumerSecret:[[CredentialStorage sharedInstance] getValueForKey:CredentialStoredAppSecret] 
                                      settings:settings
                                      delegate:self];
-
     
     id httpClient = [[GreePlatform sharedInstance] valueForKey:@"httpClient"];
     //All requests from the sample app should be distinguishable in our analytics system 
@@ -90,7 +90,6 @@ static NSString* APPID = @"15265";
         
     }];
     [GreePlatform handleLaunchOptions:launchOptions application:application];
-    
 //    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert];
 
     // ---------
@@ -210,4 +209,6 @@ static NSString* APPID = @"15265";
                       otherButtonTitles:@"OK", nil] show];
     
 }
+
+
 @end

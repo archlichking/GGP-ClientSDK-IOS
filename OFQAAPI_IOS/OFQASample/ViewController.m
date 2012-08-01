@@ -21,7 +21,7 @@
 #import "MAlertView.h"
 #import "GreePopup.h"
 #import "GreeWallet.h"
-
+#import "GreeWidget.h"
 #import "CaseTableDelegate.h"
 
 @implementation ViewController
@@ -71,9 +71,9 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(dispatchCommand:)
-                                                 name:CommandDispatchPopupCommand 
+                                                 name:CommandDispatchCommand 
                                                object:nil];
-        
+    
     [self suiteIdText].delegate = self;
     [self runIdText].delegate = self;
     
@@ -116,8 +116,6 @@
     [memLabel setHidden:TRUE];
     
     [tableSearchBar setDelegate:caseTableDelegate];
-    
-//    [self showGreeWidgetWithDataSource:self];
 }
 
 - (void)viewDidUnload
@@ -329,6 +327,18 @@
                                    withObject:extra 
                                 waitUntilDone:YES];
             break;
+            
+        case getWidget:
+            [self performSelectorOnMainThread:@selector(activeWidget:) 
+                                   withObject:extra 
+                                waitUntilDone:YES];
+            break;
+        case hideWidget:
+            [self performSelectorOnMainThread:@selector(hideGreeWidget) 
+                                   withObject:nil 
+                                waitUntilDone:YES];
+            [StepDefinition notifyOutsideStep];
+            break;
         default:
             break;
     }
@@ -363,15 +373,24 @@
     callbackBlock(jsResult);
 }
 
-//#pragma mark - GreeWidgetDataSource
-//- (UIImage*)screenshotImageForWidget:(GreeWidget*)widget
-//{
-//    UIView* viewForScreenShot = self.view;
-//    UIGraphicsBeginImageContext(viewForScreenShot.layer.visibleRect.size);
-//    [viewForScreenShot.layer renderInContext:UIGraphicsGetCurrentContext()];
-//    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-//    UIGraphicsEndImageContext();
-//    return image;
-//}
+
+- (void) activeWidget:(NSDictionary*) info{
+    [self showGreeWidgetWithDataSource:self];
+    GreeWidget* widget = [self activeGreeWidget];
+    [widget setExpandable:[[info objectForKey:@"expandable"] boolValue]];
+    [widget setPosition:[[info objectForKey:@"position"] intValue]];
+    void (^callbackBlock)(GreeWidget*) = [info objectForKey:@"cmdCallback"];
+    callbackBlock(widget);
+}
+
+#pragma mark - GreeWidgetDataSource
+- (UIImage*)screenshotImageForWidget:(GreeWidget*)widget
+{
+    //    UIGraphicsBeginImageContext(self.view.layer.visibleRect.size);
+    //    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    //    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    //    UIGraphicsEndImageContext();
+    //    return image;
+}
 
 @end

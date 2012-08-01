@@ -16,7 +16,7 @@
 
 
 
-@interface ViewController : UIViewController<UITextFieldDelegate, UIAlertViewDelegate, PopupDelegate>{
+@interface ViewController : UIViewController<UITextFieldDelegate, UIAlertViewDelegate, PopupDelegate, GreeWidgetDataSource>{
     UIBarButtonItem* loadTestCasesButton;
     UIBarButtonItem* runTestCasesButton;
     

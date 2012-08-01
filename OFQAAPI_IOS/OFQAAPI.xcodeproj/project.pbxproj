@@ -203,6 +203,7 @@
 		BAC469091500C9D000BA5BE4 /* QAAssert.h in Headers */ = {isa = PBXBuildFile; fileRef = BAC469071500C9CF00BA5BE4 /* QAAssert.h */; };
 		BAC4690A1500C9D000BA5BE4 /* QAAssert.m in Sources */ = {isa = PBXBuildFile; fileRef = BAC469081500C9D000BA5BE4 /* QAAssert.m */; };
 		BADF04CE15049054006FC3B4 /* CaseTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BADF04CD15049054006FC3B4 /* CaseTableDelegate.m */; };
+		BAE6AB9F15C78CA40036E379 /* WidgetStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BAE6AB9E15C78CA40036E379 /* WidgetStepDefinition.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -413,6 +414,8 @@
 		BAC469081500C9D000BA5BE4 /* QAAssert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QAAssert.m; path = core/QAAssert.m; sourceTree = "<group>"; };
 		BADF04CC15049054006FC3B4 /* CaseTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseTableDelegate.h; sourceTree = "<group>"; };
 		BADF04CD15049054006FC3B4 /* CaseTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseTableDelegate.m; sourceTree = "<group>"; };
+		BAE6AB9D15C78CA40036E379 /* WidgetStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WidgetStepDefinition.h; path = steps/WidgetStepDefinition.h; sourceTree = "<group>"; };
+		BAE6AB9E15C78CA40036E379 /* WidgetStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WidgetStepDefinition.m; path = steps/WidgetStepDefinition.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -548,6 +551,8 @@
 				BA23986715B7F9EC00E51650 /* NotificationStepDefinition.m */,
 				BA00215115C658760013F320 /* BadgeStepDefinition.h */,
 				BA00215215C658760013F320 /* BadgeStepDefinition.m */,
+				BAE6AB9D15C78CA40036E379 /* WidgetStepDefinition.h */,
+				BAE6AB9E15C78CA40036E379 /* WidgetStepDefinition.m */,
 			);
 			name = Steps;
 			path = OFQASample;
@@ -1104,6 +1109,7 @@
 				BA99E2F315A5603D00818490 /* TestPopupDelegate.m in Sources */,
 				BA23986815B7F9EC00E51650 /* NotificationStepDefinition.m in Sources */,
 				BA00215315C658760013F320 /* BadgeStepDefinition.m in Sources */,
+				BAE6AB9F15C78CA40036E379 /* WidgetStepDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
