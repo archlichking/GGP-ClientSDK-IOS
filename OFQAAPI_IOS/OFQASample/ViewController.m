@@ -375,6 +375,7 @@
 }
 
 - (NSString*) wrapJskitCommand:(NSString*) command{
+    
     return [NSString stringWithFormat:@"(function(){%@ %@ return(%@)})()", 
             [appDelegate ggpCommand],
             [appDelegate ggpCommandInterface], 

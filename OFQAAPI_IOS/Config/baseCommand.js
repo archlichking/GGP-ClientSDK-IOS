@@ -1,5 +1,5 @@
 var STEP_TIMEOUT = 250;
-var STR_TEMPLATE = '{\"id\":\"#id\", \"tag\":\"#tag\", \"class\":\"#class\", \"text\":\"#text\", \"index\":\"#index\"}';
+var STR_TEMPLATE = '{\"id\":\"#id\", \"tag\":\"#tag\", \"class\":\"#class\", \"text\":\"#text\", \"index\":\"#index\", \"src\":\"#src\"}';
 
 function hl(e) {
     var d = e.style.outline;
@@ -50,7 +50,7 @@ function stringify(es) {
             var ret = '';
             ret = STR_TEMPLATE.replace('#tag', es[i].tagName).replace('#id', es[i].getAttribute('id'))
                     .replace('#class', es[i].getAttribute('class')).replace('#text', getText(es[i]))
-                    .replace('#index', i);
+                    .replace('#index', i).replace('#src', es[i].getAttribute('src'));
             console.log(ret);
             r = r + ret + ','
         }
@@ -58,7 +58,7 @@ function stringify(es) {
     } else {
         r = r + STR_TEMPLATE.replace('#tag', es.tagName).replace('#id', es.getAttribute('id'))
                 .replace('#class', es.getAttribute('class')).replace('#text', getText(es))
-                .replace('#index', 0) + ']}'
+                .replace('#index', 0).replace('#src', es.getAttribute('src')) + ']}'
     }
     return r
 }

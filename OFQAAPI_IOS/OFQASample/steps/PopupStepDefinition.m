@@ -51,7 +51,7 @@
 
 @implementation GreeWalletDepositPopup(PrivateDepositetHack)
 -(void)popupViewWebViewDidFinishLoad:(UIWebView *)aWebView{
-    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
+//    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
     [[StepDefinition getOutsideBlockRepo] setObject:self forKey:@"popup"];
     [StepDefinition notifyOutsideStep];
 }
@@ -548,9 +548,9 @@
                             forKey:@"popup"];
     
     NSDictionary* paymentRequestMatrix = [[NSDictionary alloc] initWithObjectsAndKeys: 
-                                 @"stringify(fclass('sentence medium minor'))", @"message",
-                                 @"stringify(fclass('solid min'))", @"paymentCurrnecyAmount",
-                                 @"stringify(fclass('list-item'))", @"itemList",
+                                 @"stringify(fclass('sentence medium minor'))", @"popupTitle",
+                                 @"stringify(fclass('solid min'))", @"totalAmount",
+                                 @"stringify(fclass('list-item'))", @"payment items",
                                  nil];
     
     [[self getBlockRepo] setObject:paymentRequestMatrix forKey:@"paymentRequestPage"];
@@ -591,6 +591,22 @@
     [QAAssert assertContainsExpected:jsResult Contains:value];
     return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
             @"payment request popup info", 
+            value,
+            jsResult, 
+            SpliterTcmLine];
+}
+
+- (NSString*) payment_request_item_PARAM:(NSString*) name
+              _info_PARAM:(NSString*) info 
+              _should_be_PARAM:(NSString*) value{
+    if ([info isEqualToString:@"IMAGEURL"]) {
+        // hack for IMAGEURL now
+        return @"";
+    }
+    NSString* jsResult = [[self getBlockRepo] objectForKey:@"payment items"];
+    [QAAssert assertContainsExpected:jsResult Contains:value];
+    return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
+            @"payment request item info", 
             value,
             jsResult, 
             SpliterTcmLine];
@@ -738,7 +754,7 @@
 - (void) I_test_jskit{
     GreePopup* popup = [[self getBlockRepo] objectForKey:@"popup"];
     
-    NSString* js = @"alert('dsfsdfsdf')";
+    NSString* js = @"proton.app.getContactList()";
     
     id resultBlock = ^(NSString* result){
         [[self getBlockRepo] setObject:result forKey:@"kkkkkkkkk"];
