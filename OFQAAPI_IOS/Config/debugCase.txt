@@ -1,3 +1,0 @@
-Given I logged in with email auto3@136.com and password 123456
-And I initialize local notification with TITLE test notification title and BODY test notification body message and BARTITLE test notification bar title and INTERVAL 1 and ID 1 and CALLBACKPARAM callback helloworld
-When I push local notification

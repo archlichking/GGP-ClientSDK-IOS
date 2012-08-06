@@ -33,6 +33,8 @@
 
 @synthesize window = _window;
 @synthesize baseJsCommand = _baseJsCommand;
+@synthesize ggpCommand = _ggpCommand;
+@synthesize ggpCommandInterface = _ggpCommandInterface;
 @synthesize runnerWrapper;
 
 //static NSString* APPID = @"12697";
@@ -49,6 +51,16 @@ static NSString* APPID = @"15265";
     
     _baseJsCommand = [[NSString alloc] initWithData:baseJsCommandData 
                                            encoding:NSUTF8StringEncoding];
+    
+    NSData* ggpCommandData = [self loadConfig:@"ggp_command.js"];
+    
+    _ggpCommand = [[NSString alloc] initWithData:ggpCommandData 
+                                        encoding:NSUTF8StringEncoding];
+    
+    NSData* ggpCommandInterfaceData = [self loadConfig:@"command_interface.js"];
+    
+    _ggpCommandInterface = [[NSString alloc] initWithData:ggpCommandInterfaceData 
+                                        encoding:NSUTF8StringEncoding];
     
     // just change APPID
     NSString* appconf = [NSString stringWithFormat:@"%@credentialsConfig.json", APPID];

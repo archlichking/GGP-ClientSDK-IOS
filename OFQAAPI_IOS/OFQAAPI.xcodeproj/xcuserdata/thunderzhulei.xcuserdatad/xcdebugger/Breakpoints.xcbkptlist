@@ -7,26 +7,78 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/WidgetStepDefinition.m"
-         timestampString = "365420632.120593"
+         filePath = "OFQASample/ViewController.m"
+         timestampString = "365505753.249874"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "74"
-         endingLineNumber = "74"
-         landmarkName = "-I_active_default_widget"
+         startingLineNumber = "396"
+         endingLineNumber = "396"
+         landmarkName = "-invokeJskitInPopup:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/AppDelegate.m"
+         timestampString = "365504519.948643"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "58"
+         endingLineNumber = "58"
+         landmarkName = "-application:didFinishLaunchingWithOptions:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/AppDelegate.m"
+         timestampString = "365504520.805792"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "57"
+         endingLineNumber = "57"
+         landmarkName = "-application:didFinishLaunchingWithOptions:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/AppDelegate.m"
+         timestampString = "365504522.468688"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "62"
+         endingLineNumber = "62"
+         landmarkName = "-application:didFinishLaunchingWithOptions:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/WidgetStepDefinition.m"
-         timestampString = "365420632.120593"
+         filePath = "OFQASample/steps/PopupStepDefinition.m"
+         timestampString = "365915020.257099"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "63"
-         endingLineNumber = "63"
-         landmarkName = "-I_active_default_widget"
+         startingLineNumber = "566"
+         endingLineNumber = "566"
+         landmarkName = "-I_check_payment_request_popup_info_PARAM:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/steps/PopupStepDefinition.m"
+         timestampString = "365915021.010569"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "571"
+         endingLineNumber = "571"
+         landmarkName = "-I_check_payment_request_popup_info_PARAM:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -34,51 +86,51 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OFQASample/ViewController.m"
-         timestampString = "365419817.184178"
+         timestampString = "365915161.16011"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "380"
-         endingLineNumber = "380"
-         landmarkName = "-activeWidget:"
+         startingLineNumber = "386"
+         endingLineNumber = "386"
+         landmarkName = "-executeJsInPopup:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/WidgetStepDefinition.m"
-         timestampString = "365420686.397219"
+         filePath = "OFQASample/ViewController.m"
+         timestampString = "365915330.527836"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "82"
-         endingLineNumber = "82"
-         landmarkName = "-I_active_widget_with_position_PARAM:_and_expandable_PARAM:"
+         startingLineNumber = "309"
+         endingLineNumber = "309"
+         landmarkName = "-dispatchCommand:withExecutor:extraInfo:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/WidgetStepDefinition.m"
-         timestampString = "365420758.892762"
+         filePath = "OFQASample/ViewController.m"
+         timestampString = "365915439.347949"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "108"
-         endingLineNumber = "108"
-         landmarkName = "-widget_position_should_be_PARAM:"
+         startingLineNumber = "285"
+         endingLineNumber = "285"
+         landmarkName = "-dispatchCommand:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/WidgetStepDefinition.m"
-         timestampString = "365420802.68198"
+         filePath = "OFQASample/ViewController.m"
+         timestampString = "365915518.91011"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "26"
-         endingLineNumber = "26"
-         landmarkName = "-positionToString:"
+         startingLineNumber = "296"
+         endingLineNumber = "296"
+         landmarkName = "-dispatchCommand:withExecutor:extraInfo:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
