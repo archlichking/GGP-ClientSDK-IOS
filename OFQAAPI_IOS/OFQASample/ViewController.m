@@ -335,7 +335,7 @@
             break;
             
         case executeJskitCommandInPopup:
-            [self performSelectorOnMainThread:@selector(invokeJskitInPopup:) 
+            [self performSelectorOnMainThread:@selector(executeJskitCommandInPopup:) 
                                    withObject:extra 
                                 waitUntilDone:YES];
             
@@ -381,14 +381,6 @@
             command];
 }
 
-- (NSString*) wrapJskitCommand:(NSString*) command{
-    
-    return [NSString stringWithFormat:@"(function(){%@ %@ return(%@)})()", 
-            [appDelegate ggpCommand],
-            [appDelegate ggpCommandInterface], 
-            command];
-}
-
 - (void) executeJsInPopup:(NSDictionary*) info{
     GreePopup* popup = (GreePopup*) [info objectForKey:@"executor"];
     NSString* jsCommand = [self wrapJsCommand:[info objectForKey:@"jsCommand"]];
@@ -400,7 +392,7 @@
 - (void) launchJskitPopup:(NSDictionary*) info{
     GreePopup* popup = (GreePopup*) [info objectForKey:@"executor"];
     popup.willLaunchBlock = ^(id sender){
-        NSString *aFilePath = [[NSBundle mainBundle] pathForResource:@"demo.html" ofType:nil];
+        NSString *aFilePath = [[NSBundle mainBundle] pathForResource:@"cases.html" ofType:nil];
         NSData *aHtmlData = [NSData dataWithContentsOfFile:aFilePath];
         NSURL *aBaseURL = [NSURL fileURLWithPath:aFilePath];
         [popup loadData:aHtmlData MIMEType:@"text/html" textEncodingName:nil baseURL:aBaseURL];
@@ -409,11 +401,28 @@
     [self showGreePopup:popup];
 }
 
-- (void) invokeJskitInPopup:(NSDictionary*) info{
+- (void) executeJskitCommandInPopup:(NSDictionary*) info{
+    
     GreePopup* popup = (GreePopup*) [info objectForKey:@"executor"];
-    NSString* jsCommand = [self wrapJskitCommand:[info objectForKey:@"jsCommand"]];
-    NSString* jsResult = [popup stringByEvaluatingJavaScriptFromString:jsCommand];
-    void (^callbackBlock)(NSString*) = [info objectForKey:@"jsCallback"];
+    NSString* element = [info objectForKey:@"jsKitElement"];
+    NSString* cmd = [info objectForKey:@"jsKitCommand"];
+    NSString* value = [info objectForKey:@"jsKitValue"];
+    
+    NSString* fullCommand = @"";
+    
+    if ([element isEqualToString:@""]) {
+        // full command mode
+        fullCommand = cmd;
+    }else{
+        if ([value isEqualToString:@""]) {
+            fullCommand = [NSString stringWithFormat:@"%@(%@)", cmd, element];
+        }else{
+            fullCommand = [NSString stringWithFormat:@"%@(%@, %@)", cmd, element, value];
+        }
+    }
+    
+    NSString* jsResult = [popup stringByEvaluatingJavaScriptFromString:fullCommand];
+    void (^callbackBlock)(NSString*) = [info objectForKey:@"jsKitCallback"];
     callbackBlock(jsResult);
 }
 

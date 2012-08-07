@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <script type="text/javascript" src='./command_interface.js'></script>
+        <script type="text/javascript" src='./ggp_command.js'></script>
+        <script type="text/javascript">
+            window.addEventListener('load', function() {
+                                    var ret = proton.app.init();
+//                                    proton.app.pageLoaded();
+            });
+            
+            function notifyNextStep(){
+                alert('sdfsdfsdfsdf');
+                var iframe = document.createElement("IFRAME");
+                iframe.setAttribute("src", "jnb://notifyNextStep");
+                document.documentElement.appendChild(iframe);
+                iframe.parentNode.removeChild(iframe);
+                iframe = null;
+            }
+        </script>
+    <head>
+    <body>
+    </body>
+</html>

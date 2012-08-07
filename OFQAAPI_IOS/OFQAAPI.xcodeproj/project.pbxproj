@@ -17,6 +17,7 @@
 		BA198CE615CFA9B000397DF7 /* ggp_command.js in Resources */ = {isa = PBXBuildFile; fileRef = BA198CE215CFA9A300397DF7 /* ggp_command.js */; };
 		BA198D1615CFAAB500397DF7 /* demo.html in Resources */ = {isa = PBXBuildFile; fileRef = BA198D1515CFAAB500397DF7 /* demo.html */; };
 		BA198D5915D0C03400397DF7 /* LogJsKitStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA198D5815D0C03400397DF7 /* LogJsKitStepDefinition.m */; };
+		BA198DAA15D0FDF000397DF7 /* cases.html in Resources */ = {isa = PBXBuildFile; fileRef = BA198DA915D0FDF000397DF7 /* cases.html */; };
 		BA19E8BD15980E1000EDD94B /* 11787credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA19E8BC15980E1000EDD94B /* 11787credentialsConfig.json */; };
 		BA19E8BE15980E1000EDD94B /* 11787credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA19E8BC15980E1000EDD94B /* 11787credentialsConfig.json */; };
 		BA20766F14FB58E800293C3C /* FileCaseBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = BA20766D14FB58E800293C3C /* FileCaseBuilder.h */; };
@@ -242,6 +243,7 @@
 		BA198D1515CFAAB500397DF7 /* demo.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = demo.html; path = OFQASample/vendor/demo.html; sourceTree = "<group>"; };
 		BA198D5715D0C03400397DF7 /* LogJsKitStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LogJsKitStepDefinition.h; path = steps/jskit/LogJsKitStepDefinition.h; sourceTree = "<group>"; };
 		BA198D5815D0C03400397DF7 /* LogJsKitStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LogJsKitStepDefinition.m; path = steps/jskit/LogJsKitStepDefinition.m; sourceTree = "<group>"; };
+		BA198DA915D0FDF000397DF7 /* cases.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = cases.html; path = OFQASample/vendor/cases.html; sourceTree = "<group>"; };
 		BA19E8BC15980E1000EDD94B /* 11787credentialsConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = 11787credentialsConfig.json; path = Config/11787credentialsConfig.json; sourceTree = "<group>"; };
 		BA20766D14FB58E800293C3C /* FileCaseBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FileCaseBuilder.h; path = core/caze/builder/FileCaseBuilder.h; sourceTree = "<group>"; };
 		BA20766E14FB58E800293C3C /* FileCaseBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FileCaseBuilder.m; path = core/caze/builder/FileCaseBuilder.m; sourceTree = "<group>"; };
@@ -495,6 +497,7 @@
 		BA198CDF15CFA94300397DF7 /* greejskit */ = {
 			isa = PBXGroup;
 			children = (
+				BA198DA915D0FDF000397DF7 /* cases.html */,
 				BA198D1515CFAAB500397DF7 /* demo.html */,
 				BA198CE115CFA9A300397DF7 /* command_interface.js */,
 				BA198CE215CFA9A300397DF7 /* ggp_command.js */,
@@ -1092,6 +1095,7 @@
 				BABEA602159AF4A1001BBF43 /* 15265credentialsConfig.json in Resources */,
 				BA94C39715A14728006E3AC0 /* baseCommand.js in Resources */,
 				BA198D1615CFAAB500397DF7 /* demo.html in Resources */,
+				BA198DAA15D0FDF000397DF7 /* cases.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

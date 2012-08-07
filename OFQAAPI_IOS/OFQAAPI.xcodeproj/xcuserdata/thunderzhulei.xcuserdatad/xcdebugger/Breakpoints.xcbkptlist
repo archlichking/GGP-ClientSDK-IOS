@@ -7,26 +7,13 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/ViewController.m"
-         timestampString = "365932492.048798"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "332"
-         endingLineNumber = "332"
-         landmarkName = "-dispatchCommand:withExecutor:extraInfo:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "OFQASample/steps/JsKitStepDefinition.m"
-         timestampString = "365932514.97403"
+         timestampString = "366027792.846905"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "36"
-         endingLineNumber = "36"
-         landmarkName = "-I_load_jskit_popup"
+         startingLineNumber = "44"
+         endingLineNumber = "44"
+         landmarkName = "-popupViewWebViewDidFinishLoad:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -34,25 +21,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OFQASample/ViewController.m"
-         timestampString = "365933001.674757"
+         timestampString = "366028169.127049"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "402"
-         endingLineNumber = "402"
-         landmarkName = "-launchJskitPopup:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/JsKitStepDefinition.m"
-         timestampString = "365932679.061991"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "41"
-         endingLineNumber = "41"
-         landmarkName = "-I_load_jskit_popup"
+         startingLineNumber = "424"
+         endingLineNumber = "424"
+         landmarkName = "-executeJskitCommandInPopup:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

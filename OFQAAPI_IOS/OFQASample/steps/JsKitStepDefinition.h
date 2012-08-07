@@ -10,9 +10,12 @@
 
 @interface JsKitStepDefinition : StepDefinition
 
-- (void) I_load_jskit_popup;
+- (void) I_launch_jskit_popup;
+- (void) I_dismiss_jskit_popup;
 
-
-- (void) I_test_jskit;
+- (void) invoke_in_jskit_popup_with_full_command:(NSString*) command;
+- (void) invoke_in_jskit_popup_with_element:(NSString*) element 
+                               _and_command:(NSString*) command 
+                                 _and_value:(NSString*) value;
 
 @end

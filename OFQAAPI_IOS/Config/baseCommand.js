@@ -27,6 +27,14 @@ function click(e) {
                           }, STEP_TIMEOUT)
                }, STEP_TIMEOUT)
 }
+function check(e) {
+    setTimeout(function () {
+               hl(e);
+               setTimeout(function () {
+                          e.checked = true;
+                          }, STEP_TIMEOUT)
+               }, STEP_TIMEOUT)
+}
 function setText(e, t) {
     setTimeout(function () {
                hl(e);
