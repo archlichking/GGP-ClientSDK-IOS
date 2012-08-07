@@ -117,6 +117,7 @@
 // step definition : I push local notification
 - (void) I_push_local_notification{
     GreeLocalNotification* notification = [[GreePlatform sharedInstance] localNotification];
+    NSLog(@"%@", notification);
     
 }
 

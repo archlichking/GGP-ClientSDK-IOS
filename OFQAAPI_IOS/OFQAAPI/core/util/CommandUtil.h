@@ -26,6 +26,7 @@ extern enum {
     executeInDepositPopup,
     executeInDepositHistoryPopup,
     // jskit test
+    launchJskitPopup,
     executeJskitCommandInPopup,
     // widget test
     getWidget,

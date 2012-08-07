@@ -55,6 +55,7 @@ extern NSString* const JsBaseCommand;
                       _and_QUANTITY_PARAM:(NSString*) quality 
                       _and_IMAGEURL_PARAM:(NSString*) imageurl 
                    _and_DESCRIPTION_PARAM:(NSString*) description;
+- (void) I_set_payment_popup_message_PARAM:(NSString*) msg;
 
 - (void) I_did_open_payment_request_popup;
 - (void) I_check_payment_request_popup_info_PARAM:(NSString*) info;
@@ -78,7 +79,4 @@ extern NSString* const JsBaseCommand;
 
 
 // -----------------
-- (void) I_test_jskit;
-
-- (void) I_load_popup;
 @end

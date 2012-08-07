@@ -328,6 +328,11 @@
                                 waitUntilDone:YES];
             break;
             
+        case launchJskitPopup:
+            [self performSelectorOnMainThread:@selector(launchJskitPopup:) 
+                                   withObject:extra 
+                                waitUntilDone:YES];
+            break;
             
         case executeJskitCommandInPopup:
             [self performSelectorOnMainThread:@selector(invokeJskitInPopup:) 
@@ -336,6 +341,8 @@
             
             [StepDefinition notifyOutsideStep];
             break;
+            
+            
         case getWidget:
             [self performSelectorOnMainThread:@selector(activeWidget:) 
                                    withObject:extra 
@@ -388,6 +395,18 @@
     NSString* jsResult = [popup stringByEvaluatingJavaScriptFromString:jsCommand];
     void (^callbackBlock)(NSString*) = [info objectForKey:@"jsCallback"];
     callbackBlock(jsResult);
+}
+
+- (void) launchJskitPopup:(NSDictionary*) info{
+    GreePopup* popup = (GreePopup*) [info objectForKey:@"executor"];
+    popup.willLaunchBlock = ^(id sender){
+        NSString *aFilePath = [[NSBundle mainBundle] pathForResource:@"demo.html" ofType:nil];
+        NSData *aHtmlData = [NSData dataWithContentsOfFile:aFilePath];
+        NSURL *aBaseURL = [NSURL fileURLWithPath:aFilePath];
+        [popup loadData:aHtmlData MIMEType:@"text/html" textEncodingName:nil baseURL:aBaseURL];
+    };
+    
+    [self showGreePopup:popup];
 }
 
 - (void) invokeJskitInPopup:(NSDictionary*) info{

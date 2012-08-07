@@ -10,6 +10,9 @@
 
 @interface JsKitStepDefinition : StepDefinition
 
+- (void) I_load_jskit_popup;
 
+
+- (void) I_test_jskit;
 
 @end

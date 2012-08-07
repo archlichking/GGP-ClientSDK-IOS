@@ -8,102 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OFQASample/ViewController.m"
-         timestampString = "365505753.249874"
+         timestampString = "365932492.048798"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "396"
-         endingLineNumber = "396"
-         landmarkName = "-invokeJskitInPopup:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/AppDelegate.m"
-         timestampString = "365504519.948643"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "58"
-         endingLineNumber = "58"
-         landmarkName = "-application:didFinishLaunchingWithOptions:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/AppDelegate.m"
-         timestampString = "365504520.805792"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "57"
-         endingLineNumber = "57"
-         landmarkName = "-application:didFinishLaunchingWithOptions:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/AppDelegate.m"
-         timestampString = "365504522.468688"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "62"
-         endingLineNumber = "62"
-         landmarkName = "-application:didFinishLaunchingWithOptions:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/PopupStepDefinition.m"
-         timestampString = "365915020.257099"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "566"
-         endingLineNumber = "566"
-         landmarkName = "-I_check_payment_request_popup_info_PARAM:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/PopupStepDefinition.m"
-         timestampString = "365915021.010569"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "571"
-         endingLineNumber = "571"
-         landmarkName = "-I_check_payment_request_popup_info_PARAM:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/ViewController.m"
-         timestampString = "365915161.16011"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "386"
-         endingLineNumber = "386"
-         landmarkName = "-executeJsInPopup:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/ViewController.m"
-         timestampString = "365915330.527836"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "309"
-         endingLineNumber = "309"
+         startingLineNumber = "332"
+         endingLineNumber = "332"
          landmarkName = "-dispatchCommand:withExecutor:extraInfo:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -111,13 +20,13 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/ViewController.m"
-         timestampString = "365915439.347949"
+         filePath = "OFQASample/steps/JsKitStepDefinition.m"
+         timestampString = "365932514.97403"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "285"
-         endingLineNumber = "285"
-         landmarkName = "-dispatchCommand:"
+         startingLineNumber = "36"
+         endingLineNumber = "36"
+         landmarkName = "-I_load_jskit_popup"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -125,25 +34,25 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OFQASample/ViewController.m"
-         timestampString = "365915518.91011"
+         timestampString = "365933001.674757"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "296"
-         endingLineNumber = "296"
-         landmarkName = "-dispatchCommand:withExecutor:extraInfo:"
+         startingLineNumber = "402"
+         endingLineNumber = "402"
+         landmarkName = "-launchJskitPopup:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/NotificationStepDefinition.m"
-         timestampString = "365496052.93843"
+         filePath = "OFQASample/steps/JsKitStepDefinition.m"
+         timestampString = "365932679.061991"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "106"
-         endingLineNumber = "106"
-         landmarkName = "-I_initialize_local_notification_with_TITLE_PARAM:_and_BODY_PARAM:_and_BARTITLE_PARAM:_and_INTERVAL_PARAMINT:_and_ID_PARAM:_and_CALLBACKPARAM_PARAM:"
+         startingLineNumber = "41"
+         endingLineNumber = "41"
+         landmarkName = "-I_load_jskit_popup"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

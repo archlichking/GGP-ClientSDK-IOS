@@ -30,10 +30,22 @@
 
 @implementation JsKitStepDefinition
 
-- (void) I_load_popup{
+- (void) I_load_jskit_popup{
+    GreePopup* popup = [GreePopup popup];
+    
+    NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                        [NSString stringWithFormat:@"%i", launchJskitPopup], @"command",
+                                        popup, @"executor",
+                                        nil];
+    
+    [self notifyMainUIWithCommand:CommandDispatchCommand 
+                           object:userinfoDic];
+    
+    [StepDefinition waitForOutsideStep];
 }
 
 - (void) I_test_jskit{
+    
 }
 
 @end
