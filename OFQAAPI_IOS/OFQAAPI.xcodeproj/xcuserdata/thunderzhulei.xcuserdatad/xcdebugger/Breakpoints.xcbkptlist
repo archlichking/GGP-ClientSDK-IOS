@@ -17,7 +17,7 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OFQASample/ViewController.m"
@@ -27,6 +27,58 @@
          startingLineNumber = "424"
          endingLineNumber = "424"
          landmarkName = "-executeJskitCommandInPopup:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/steps/jskit/LogJsKitStepDefinition.m"
+         timestampString = "366186556.781411"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "45"
+         endingLineNumber = "45"
+         landmarkName = "-I_need_to_wait_for_all_invoke_done"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/steps/jskit/LogJsKitStepDefinition.m"
+         timestampString = "366186557.981536"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "43"
+         endingLineNumber = "43"
+         landmarkName = "-I_need_to_wait_for_all_invoke_done"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/steps/BaseJsKitStepDefinition.m"
+         timestampString = "366186588.261274"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "124"
+         endingLineNumber = "124"
+         landmarkName = "-invoke_in_jskit_popup_with_element:_and_command:_and_value:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/steps/BaseJsKitStepDefinition.m"
+         timestampString = "366186590.173271"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "141"
+         endingLineNumber = "141"
+         landmarkName = "-invoke_in_jskit_popup_with_element:_and_command:_and_value:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

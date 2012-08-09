@@ -1,4 +1,4 @@
 Given I logged in with email auto3@136.com and password 123456
 And I launch jskit popup
-When I set jskit log level to 100
-Then jskit log level should be 100
+When I click invoke all button
+Then I need to wait for all invoke done

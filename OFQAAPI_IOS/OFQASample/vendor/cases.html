@@ -8,11 +8,162 @@
 //                                    proton.app.pageLoaded();
             });
             
+            var jskitSuite = {
+                init : function(){
+                    jskitSuite.tests = new Array();
+                    jskitSuite.testDone = true;
+                },
+
+                addTest : function(test){
+                    jskitSuite.tests.push(test);
+                },
+
+                description : function(){
+                    alert(jskitSuite.tests);
+                },
+
+                privateCallback : function(){
+                    jskitSuite.testDone = true;
+                },
+
+                invoke : function(){
+                    alert(jskitSuite.tests);
+                    while(jskitSuite.tests.length > 0){
+                        jskitSuite.testDone = false;
+                        var func = jskitSuite.tests.pop();
+                        func(jskitSuite.privateCallback);
+                    }
+                }
+            };
+
+
             function stepCallback(fname){
-                alert(fname + ' done');
+                console.log(fname + ' done');
+            }
+            
+            function jskitDoneCallback(callback){
+                proton.app.setConfig({'key' : 'jskitTestDone', 'value':'true'}, callback);
+            }
+            
+            function appendTextNode(text){
+                var e = document.createTextNode(text);
+                document.getElementById('resultText').appendChild(e);
+                document.getElementById('resultText').appendChild(document.createElement('hr'))
+            }
+
+            function invokeAllTest(){
+                // jskitSuite.init();
+                // jskitSuite.addTest(setConfigTest);
+                // jskitSuite.description();
+                // jskitSuite.invoke();
+                setConfigTest(getConfigTest(function (ret) {
+                    appendTextNode('* set/get config test done');
+                }));
+
+                getConfigListTest(function (ret) {
+                    appendTextNode('* get config list test done');
+                });
+
+                getAppListTest(function (ret){
+                    appendTextNode('* get app list test done');
+                });
+
+                getViewInfoTest(function (ret){
+                    appendTextNode('* get view info test done');
+                });
+
+                // launchNativeBrowserTest(function (ret){
+                //     appendTextNode('* launch native browser test done with result');
+                // });
+                
+                // launchOK_CANCELDialogTest(function (ret){
+                //     appendTextNode('* get ok cancel dialog test done');
+                // });
+
+                showDashboardTest(function (ret){
+                    appendTextNode('* show dashboard test done');
+                });
+
+                // inviteExternalUserTest(function (ret) {
+                //     appendTextNode('* invite external user test done');
+                // });
+
+                // launchShareDialogTest(function (ret){
+                //     appendTextNode('* share popup test done');
+                // });
+
+                setValueTest(getValueTest(function (ret) {
+                    appendTextNode('* set/get value test done');
+                    jskitDoneCallback(stepCallback('callback done'));
+                }));
+            }
+
+            function setConfigTest(callback){
+                proton.app.setConfig({'key':'jsKitTest', 'value':'lay.zhu'},  callback);
+            }
+
+            function getConfigTest(callback){
+                proton.app.getConfig({'key':'jsKitTest'}, callback);
+            }
+
+            function setValueTest(callback){
+                proton.app.setValue({'key':'jsKitTest', 'value':'lay.zhu'},  callback);
+            }
+
+            function getValueTest(callback){
+                proton.app.getValue({'key':'jsKitTest'},  callback);
+            }
+
+            function getConfigListTest(callback){
+                proton.app.getConfigList(null, callback);
+            }
+
+            function getAppListTest(callback){
+                proton.app.getAppList({'schemes': ['greeapp12345', 'greeapp54321']}, callback);
+            }
+
+            function getViewInfoTest(callback){
+                proton.app.getViewInfo(null, callback);
+            }
+
+            function launchNativeBrowserTest(callback){
+                proton.app.launchNativeBrowser({'URL':'http://www.baidu.com/'}, callback);
+            }
+
+            function launchOK_CANCELDialogTest(callback){
+                proton.app.showMessageDialog({
+                                'buttons' : [ 'OK', 'Cancel'],
+                                'title' : 'ok cancel dialog test',
+                                'message' : 'this is test purpose',
+                                'cancel_index' : 1
+                               }, callback);
+            }
+
+            function showDashboardTest(callback) {
+                var ret = proton.app.init();
+                proton.app.showDashboard({
+                           'URL' : 'http://www.baidu.com',
+                           'close' : function(ret){ alert('dashboard closed'); }
+                           }, callback);
+            }
+
+            function inviteExternalUserTest(callback) {
+                var ret = proton.app.init();
+                proton.app.inviteExternalUser({'URL':'http://www.baidu.com/'});
+                callback();
+            }
+
+            function launchShareDialogTest(callback) {
+                var ret = proton.app.init();
+                proton.app.showShareDialog({
+                             'type' : 'jskit share popup',
+                             'message' : 'jskit share popup'
+                            }, callback);
             }
         </script>
     <head>
     <body>
+        <div id='resultText'></div>
+        <div id='invokeAll' onclick='invokeAllTest()'>invoke all</div>
     </body>
 </html>

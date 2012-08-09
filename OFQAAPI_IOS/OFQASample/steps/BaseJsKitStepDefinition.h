@@ -8,7 +8,7 @@
 
 #import "StepDefinition.h"
 
-@interface JsKitStepDefinition : StepDefinition
+@interface BaseJsKitStepDefinition : StepDefinition
 
 - (void) I_launch_jskit_popup;
 - (void) I_dismiss_jskit_popup;

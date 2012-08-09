@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "JsKitStepDefinition.h"
+#import "BaseJsKitStepDefinition.h"
 
 #import "GreePopup.h"
 #import "GreePopupView.h"
@@ -40,7 +40,7 @@
 
 @implementation GreePopup(PrivateJskitPopupHacking)
 - (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView{
-    //    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
+    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
     [StepDefinition notifyOutsideStep];
 }
 
@@ -48,7 +48,7 @@
 
 
 
-@implementation JsKitStepDefinition
+@implementation BaseJsKitStepDefinition
 
 - (void) I_launch_jskit_popup{
     GreePopup* popup = [GreePopup popup];
@@ -111,6 +111,8 @@
     [self waitForInStep];
     [StepDefinition waitForOutsideStep];
     [popup release];
+    
+    [self step_sleep:2];
 }
 
 - (void) invoke_in_jskit_popup_with_element:(NSString*) element 

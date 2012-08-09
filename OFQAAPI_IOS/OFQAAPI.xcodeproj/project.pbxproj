@@ -178,7 +178,7 @@
 		BA99E2FD15A595AE00818490 /* GreePlatformCoreResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA99E2FA15A595AE00818490 /* GreePlatformCoreResources.bundle */; };
 		BA99E2FE15A595AE00818490 /* GreePlatformLandscapeResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA99E2FB15A595AE00818490 /* GreePlatformLandscapeResources.bundle */; };
 		BA99E2FF15A595AE00818490 /* GreePlatformPortraitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BA99E2FC15A595AE00818490 /* GreePlatformPortraitResources.bundle */; };
-		BAA6D25815C9122200D890A6 /* JsKitStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA6D25715C9122200D890A6 /* JsKitStepDefinition.m */; };
+		BAA6D25815C9122200D890A6 /* BaseJsKitStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA6D25715C9122200D890A6 /* BaseJsKitStepDefinition.m */; };
 		BAA80765150D96A6003A94E9 /* StepMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = BAA80763150D96A6003A94E9 /* StepMethod.h */; };
 		BAA80766150D96A6003A94E9 /* StepMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = BAA80764150D96A6003A94E9 /* StepMethod.m */; };
 		BAA80775150DACF3003A94E9 /* failed_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = BAA80774150DACF3003A94E9 /* failed_checked.png */; };
@@ -396,8 +396,8 @@
 		BA99E2FA15A595AE00818490 /* GreePlatformCoreResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformCoreResources.bundle; path = ../ggplib_ios/release/resources/GreePlatformCoreResources.bundle; sourceTree = "<group>"; };
 		BA99E2FB15A595AE00818490 /* GreePlatformLandscapeResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformLandscapeResources.bundle; path = ../ggplib_ios/release/resources/GreePlatformLandscapeResources.bundle; sourceTree = "<group>"; };
 		BA99E2FC15A595AE00818490 /* GreePlatformPortraitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformPortraitResources.bundle; path = ../ggplib_ios/release/resources/GreePlatformPortraitResources.bundle; sourceTree = "<group>"; };
-		BAA6D25615C9122200D890A6 /* JsKitStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JsKitStepDefinition.h; path = steps/JsKitStepDefinition.h; sourceTree = "<group>"; };
-		BAA6D25715C9122200D890A6 /* JsKitStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JsKitStepDefinition.m; path = steps/JsKitStepDefinition.m; sourceTree = "<group>"; };
+		BAA6D25615C9122200D890A6 /* BaseJsKitStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; name = BaseJsKitStepDefinition.h; path = steps/BaseJsKitStepDefinition.h; sourceTree = "<group>"; };
+		BAA6D25715C9122200D890A6 /* BaseJsKitStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BaseJsKitStepDefinition.m; path = steps/BaseJsKitStepDefinition.m; sourceTree = "<group>"; };
 		BAA80763150D96A6003A94E9 /* StepMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StepMethod.h; path = core/caze/step/StepMethod.h; sourceTree = "<group>"; };
 		BAA80764150D96A6003A94E9 /* StepMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StepMethod.m; path = core/caze/step/StepMethod.m; sourceTree = "<group>"; };
 		BAA80774150DACF3003A94E9 /* failed_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failed_checked.png; sourceTree = "<group>"; };
@@ -510,8 +510,8 @@
 		BA198D4515D0BE9A00397DF7 /* jskit */ = {
 			isa = PBXGroup;
 			children = (
-				BAA6D25615C9122200D890A6 /* JsKitStepDefinition.h */,
-				BAA6D25715C9122200D890A6 /* JsKitStepDefinition.m */,
+				BAA6D25615C9122200D890A6 /* BaseJsKitStepDefinition.h */,
+				BAA6D25715C9122200D890A6 /* BaseJsKitStepDefinition.m */,
 				BA198D5715D0C03400397DF7 /* LogJsKitStepDefinition.h */,
 				BA198D5815D0C03400397DF7 /* LogJsKitStepDefinition.m */,
 			);
@@ -1158,7 +1158,7 @@
 				BA23986815B7F9EC00E51650 /* NotificationStepDefinition.m in Sources */,
 				BA00215315C658760013F320 /* BadgeStepDefinition.m in Sources */,
 				BAE6AB9F15C78CA40036E379 /* WidgetStepDefinition.m in Sources */,
-				BAA6D25815C9122200D890A6 /* JsKitStepDefinition.m in Sources */,
+				BAA6D25815C9122200D890A6 /* BaseJsKitStepDefinition.m in Sources */,
 				BA198CE315CFA9A300397DF7 /* command_interface.js in Sources */,
 				BA198CE415CFA9A300397DF7 /* ggp_command.js in Sources */,
 				BA198D5915D0C03400397DF7 /* LogJsKitStepDefinition.m in Sources */,

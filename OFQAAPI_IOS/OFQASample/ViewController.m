@@ -415,9 +415,9 @@
         fullCommand = cmd;
     }else{
         if ([value isEqualToString:@""]) {
-            fullCommand = [NSString stringWithFormat:@"%@(%@)", cmd, element];
+            fullCommand = [self wrapJsCommand:[NSString stringWithFormat:@"%@(%@)", cmd, element]];
         }else{
-            fullCommand = [NSString stringWithFormat:@"%@(%@, %@)", cmd, element, value];
+            fullCommand = [self wrapJsCommand:[NSString stringWithFormat:@"%@(%@, %@)", cmd, element, value]];
         }
     }
     
