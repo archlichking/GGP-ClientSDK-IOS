@@ -16,22 +16,22 @@
 #import "CommandUtil.h"
 #import "QAAssert.h"
 
-@interface GreePopupView(PrivateJskitPopupHacking)
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
-@end
-
-@implementation GreePopupView(PrivateJskitPopupHacking)
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
-    NSLog(@"%@", [[request URL] absoluteString]);
-    if ([[[request URL] absoluteString] hasPrefix:@"file://"] || [[[request URL] absoluteString] hasPrefix:@"proton://"]) {
-        return YES;
-    }else if([[[request URL] absoluteString] hasPrefix:@"jnc://"]){
-        //handle jskit native callback
-        
-    }
-    return NO;
-}
-@end
+//@interface GreePopupView(PrivateJskitPopupHacking)
+//- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
+//@end
+//
+//@implementation GreePopupView(PrivateJskitPopupHacking)
+//- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
+//    NSLog(@"%@", [[request URL] absoluteString]);
+//    if ([[[request URL] absoluteString] hasPrefix:@"file://"] || [[[request URL] absoluteString] hasPrefix:@"proton://"]) {
+//        return YES;
+//    }else if([[[request URL] absoluteString] hasPrefix:@"jnc://"]){
+//        //handle jskit native callback
+//        
+//    }
+//    return NO;
+//}
+//@end
 
 @interface GreePopup(PrivateJskitPopupHacking)
 - (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView;
@@ -83,6 +83,10 @@
     
     [self waitForInStep];
     [StepDefinition waitForOutsideStep]; 
+}
+
+- (void) step_sleep:(NSTimeInterval) interval{
+    [NSThread sleepForTimeInterval:interval];
 }
 
 - (void) invoke_in_jskit_popup_with_full_command:(NSString*) command{

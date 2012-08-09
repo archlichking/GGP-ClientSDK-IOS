@@ -8,13 +8,8 @@
 //                                    proton.app.pageLoaded();
             });
             
-            function notifyNextStep(){
-                alert('sdfsdfsdfsdf');
-                var iframe = document.createElement("IFRAME");
-                iframe.setAttribute("src", "jnb://notifyNextStep");
-                document.documentElement.appendChild(iframe);
-                iframe.parentNode.removeChild(iframe);
-                iframe = null;
+            function stepCallback(fname){
+                alert(fname + ' done');
             }
         </script>
     <head>

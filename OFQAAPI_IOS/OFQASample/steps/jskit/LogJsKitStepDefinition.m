@@ -47,9 +47,11 @@
 //                                  _and_value:@""];
     
     
-    NSString* fullCommand = [NSString stringWithFormat:@"proton.app.startLog({'loglevel' : '%@'}, function(ret) {window.alert('')})", level];
+    NSString* fullCommand = [NSString stringWithFormat:@"proton.app.startLog({'loglevel' : '%@'}, function(ret) {stepCallback('%@')})", level, @"start log"];
     
     [self invoke_in_jskit_popup_with_full_command:fullCommand];
+    
+    [self step_sleep:5];
 }
 
 - (NSString*) jskit_log_level_should_be_PARAM:(NSString*) l{

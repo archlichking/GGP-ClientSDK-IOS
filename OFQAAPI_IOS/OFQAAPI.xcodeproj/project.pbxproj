@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BA00215315C658760013F320 /* BadgeStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA00215215C658760013F320 /* BadgeStepDefinition.m */; };
-		BA054E1015BE4D09002F5DE6 /* libGreePlatform-llvm-gcc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA054E0E15BE4D09002F5DE6 /* libGreePlatform-llvm-gcc.a */; };
-		BA054E1115BE4D09002F5DE6 /* libGreeWallet-llvm-gcc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA054E0F15BE4D09002F5DE6 /* libGreeWallet-llvm-gcc.a */; };
 		BA09131C155C98D900EEFD4B /* FriendCodeStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA09131B155C98D900EEFD4B /* FriendCodeStepDefinition.m */; };
 		BA198CE315CFA9A300397DF7 /* command_interface.js in Sources */ = {isa = PBXBuildFile; fileRef = BA198CE115CFA9A300397DF7 /* command_interface.js */; };
 		BA198CE415CFA9A300397DF7 /* ggp_command.js in Sources */ = {isa = PBXBuildFile; fileRef = BA198CE215CFA9A300397DF7 /* ggp_command.js */; };
@@ -95,6 +93,8 @@
 		BA6D88CD14FDED51009D93CB /* StepHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6D88CB14FDED51009D93CB /* StepHolder.m */; };
 		BA6F025A14FB246F008D82BC /* Step.h in Headers */ = {isa = PBXBuildFile; fileRef = BA6F025814FB246F008D82BC /* Step.h */; };
 		BA6F025B14FB246F008D82BC /* Step.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6F025914FB246F008D82BC /* Step.m */; };
+		BA6F9D2815D359C300740AD9 /* libGreePlatform-llvm-gcc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA054E0E15BE4D09002F5DE6 /* libGreePlatform-llvm-gcc.a */; };
+		BA6F9D2915D359C300740AD9 /* libGreeWallet-llvm-gcc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA054E0F15BE4D09002F5DE6 /* libGreeWallet-llvm-gcc.a */; };
 		BA7044AF1588CF4C00B42451 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA7044AE1588CF4C00B42451 /* CFNetwork.framework */; };
 		BA7044B11588CF7900B42451 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA7044B01588CF7900B42451 /* MobileCoreServices.framework */; };
 		BA717A4F15984A9E008DA307 /* ASIAuthenticationDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = BA717A3915984A9E008DA307 /* ASIAuthenticationDialog.h */; };
@@ -304,6 +304,8 @@
 		BA6D88CB14FDED51009D93CB /* StepHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StepHolder.m; path = core/caze/step/StepHolder.m; sourceTree = "<group>"; };
 		BA6F025814FB246F008D82BC /* Step.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Step.h; path = core/caze/step/Step.h; sourceTree = "<group>"; };
 		BA6F025914FB246F008D82BC /* Step.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Step.m; path = core/caze/step/Step.m; sourceTree = "<group>"; };
+		BA6F9D2415D3595200740AD9 /* libGreePlatform.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGreePlatform.a; path = ../ggplib_ios/release/libGreePlatform.a; sourceTree = "<group>"; };
+		BA6F9D2515D3595200740AD9 /* libGreeWallet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGreeWallet.a; path = ../ggplib_ios/release/libGreeWallet.a; sourceTree = "<group>"; };
 		BA7044AE1588CF4C00B42451 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		BA7044B01588CF7900B42451 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		BA717A3915984A9E008DA307 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIAuthenticationDialog.h; path = OFQAAPI/vendor/ASIAuthenticationDialog.h; sourceTree = "<group>"; };
@@ -461,8 +463,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA054E1015BE4D09002F5DE6 /* libGreePlatform-llvm-gcc.a in Frameworks */,
-				BA054E1115BE4D09002F5DE6 /* libGreeWallet-llvm-gcc.a in Frameworks */,
+				BA6F9D2815D359C300740AD9 /* libGreePlatform-llvm-gcc.a in Frameworks */,
+				BA6F9D2915D359C300740AD9 /* libGreeWallet-llvm-gcc.a in Frameworks */,
 				BA96EC37150EFA5C00214FAD /* libz.dylib in Frameworks */,
 				BA78B60214F792A200C4D6FB /* CoreGraphics.framework in Frameworks */,
 				BA7044B11588CF7900B42451 /* MobileCoreServices.framework in Frameworks */,
@@ -794,6 +796,8 @@
 		BA89094014F75D6100018B0F = {
 			isa = PBXGroup;
 			children = (
+				BA6F9D2415D3595200740AD9 /* libGreePlatform.a */,
+				BA6F9D2515D3595200740AD9 /* libGreeWallet.a */,
 				BA054E0E15BE4D09002F5DE6 /* libGreePlatform-llvm-gcc.a */,
 				BA054E0F15BE4D09002F5DE6 /* libGreeWallet-llvm-gcc.a */,
 				BA99E2FA15A595AE00818490 /* GreePlatformCoreResources.bundle */,
@@ -1341,6 +1345,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1375,6 +1380,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				WRAPPER_EXTENSION = app;
 			};

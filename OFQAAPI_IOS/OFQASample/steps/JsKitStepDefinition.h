@@ -13,6 +13,8 @@
 - (void) I_launch_jskit_popup;
 - (void) I_dismiss_jskit_popup;
 
+- (void) step_sleep:(NSTimeInterval) interval;
+
 - (void) invoke_in_jskit_popup_with_full_command:(NSString*) command;
 - (void) invoke_in_jskit_popup_with_element:(NSString*) element 
                                _and_command:(NSString*) command 
