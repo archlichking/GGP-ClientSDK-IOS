@@ -34,12 +34,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OFQASample/steps/jskit/LogJsKitStepDefinition.m"
-         timestampString = "366186556.781411"
+         timestampString = "366262870.048287"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "45"
-         endingLineNumber = "45"
-         landmarkName = "-I_need_to_wait_for_all_invoke_done"
+         startingLineNumber = "54"
+         endingLineNumber = "54"
+         landmarkName = "-I_need_to_wait_for_test_done_PARAM:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -47,12 +47,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OFQASample/steps/jskit/LogJsKitStepDefinition.m"
-         timestampString = "366186557.981536"
+         timestampString = "366262870.048287"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "43"
-         endingLineNumber = "43"
-         landmarkName = "-I_need_to_wait_for_all_invoke_done"
+         startingLineNumber = "52"
+         endingLineNumber = "52"
+         landmarkName = "-I_need_to_wait_for_test_done_PARAM:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

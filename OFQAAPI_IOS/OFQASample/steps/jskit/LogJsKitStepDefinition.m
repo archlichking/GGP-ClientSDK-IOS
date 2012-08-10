@@ -28,8 +28,8 @@
 }
 
 // jskit work around
-- (void) I_click_invoke_all_button{
-    NSString* element = @"fid('invokeAll')";
+- (void) I_click_invoke_non_popup_button{
+    NSString* element = @"fid('invokeAllNoPOP')";
     NSString* command = @"click";
     
     [self invoke_in_jskit_popup_with_element:element 
@@ -37,15 +37,30 @@
                                   _and_value:@""];
 }
 
-- (void) I_need_to_wait_for_all_invoke_done{
+- (void) I_click_invoke_dashboard_button{
+    NSString* element = @"fid('invokeDashboardPopup')";
+    NSString* command = @"click";
+    
+    [self invoke_in_jskit_popup_with_element:element 
+                                _and_command:command 
+                                  _and_value:@""];
+}
+
+- (void) I_need_to_wait_for_test_done_PARAM:(NSString*) type{
     GreeSettings* st = [[GreePlatform sharedInstance] settings];
     NSString* result = [st objectValueForSetting:@"jskitTestDone"];
-    while (!result) {
+    while (!result || ![result isEqualToString:@"true"]) {
         result = [st objectValueForSetting:@"jskitTestDone"];
         [NSThread sleepForTimeInterval:2];
     }
     NSLog(@"jskit test done %@", result);
+
+    // reset @"jskitTestDone" to false
+    NSDictionary* dic = [[NSDictionary alloc] initWithObjectsAndKeys:
+                @"false", @"jskitTestDone",
+                nil];
     
+    [st applySettingDictionary:dic];
 }
 
 - (void) I_set_jskit_log_level_to_PARAM:(NSString*) level{

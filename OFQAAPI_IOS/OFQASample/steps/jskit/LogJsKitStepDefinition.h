@@ -14,8 +14,9 @@
 - (void) I_launch_jskit_popup;
 - (void) I_dismiss_jskit_popup;
 
-- (void) I_click_invoke_all_button;
-- (void) I_need_to_wait_for_all_invoke_done;
+- (void) I_click_invoke_non_popup_button;
+- (void) I_click_invoke_dashboard_button;
+- (void) I_need_to_wait_for_test_done_PARAM:(NSString*) type;
 // start/ stop log
 - (void) I_set_jskit_log_level_to_PARAM:(NSString*) level;
 - (void) I_stop_jskit_log_level_with_PARAM:(NSString*) level;
