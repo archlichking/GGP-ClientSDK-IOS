@@ -7,8 +7,112 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/JsKitStepDefinition.m"
-         timestampString = "366027792.846905"
+         filePath = "OFQASample/steps/PopupStepDefinition.m"
+         timestampString = "366695223.442371"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "182"
+         endingLineNumber = "182"
+         landmarkName = "-I_did_open_popup"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/steps/PopupStepDefinition.m"
+         timestampString = "366695223.442371"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "193"
+         endingLineNumber = "193"
+         landmarkName = "-I_did_open_popup"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/steps/PopupStepDefinition.m"
+         timestampString = "366695223.442371"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "194"
+         endingLineNumber = "194"
+         landmarkName = "-I_did_open_popup"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/steps/PopupStepDefinition.m"
+         timestampString = "366695223.442371"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "197"
+         endingLineNumber = "197"
+         landmarkName = "-I_did_open_popup"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/steps/PopupStepDefinition.m"
+         timestampString = "366695223.442371"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "101"
+         endingLineNumber = "101"
+         landmarkName = "-popupViewWebViewDidFinishLoad:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/ViewController.m"
+         timestampString = "366695325.308885"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "411"
+         endingLineNumber = "411"
+         landmarkName = "-executeJskitCommandInPopup:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/steps/BaseJsKitStepDefinition.m"
+         timestampString = "366718424.402794"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "99"
+         endingLineNumber = "99"
+         landmarkName = "-invoke_in_jskit_popup_with_full_command:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/steps/BaseJsKitStepDefinition.m"
+         timestampString = "366718020.866028"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "66"
+         endingLineNumber = "66"
+         landmarkName = "-I_launch_jskit_popup"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/steps/BaseJsKitStepDefinition.m"
+         timestampString = "366718020.866028"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "44"
@@ -20,21 +124,8 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/ViewController.m"
-         timestampString = "366028169.127049"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "424"
-         endingLineNumber = "424"
-         landmarkName = "-executeJskitCommandInPopup:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "OFQASample/steps/jskit/LogJsKitStepDefinition.m"
-         timestampString = "366262870.048287"
+         timestampString = "366719529.528717"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "54"
@@ -47,11 +138,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OFQASample/steps/jskit/LogJsKitStepDefinition.m"
-         timestampString = "366262870.048287"
+         timestampString = "366719529.528717"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "52"
-         endingLineNumber = "52"
+         startingLineNumber = "58"
+         endingLineNumber = "58"
          landmarkName = "-I_need_to_wait_for_test_done_PARAM:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,11 +151,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "OFQASample/steps/BaseJsKitStepDefinition.m"
-         timestampString = "366186588.261274"
+         timestampString = "366718424.402794"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "124"
-         endingLineNumber = "124"
+         startingLineNumber = "121"
+         endingLineNumber = "121"
          landmarkName = "-invoke_in_jskit_popup_with_element:_and_command:_and_value:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -72,13 +163,13 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/BaseJsKitStepDefinition.m"
-         timestampString = "366186590.173271"
+         filePath = "OFQASample/ViewController.m"
+         timestampString = "366716889.417241"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "141"
-         endingLineNumber = "141"
-         landmarkName = "-invoke_in_jskit_popup_with_element:_and_command:_and_value:"
+         startingLineNumber = "406"
+         endingLineNumber = "406"
+         landmarkName = "-executeJskitCommandInPopup:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

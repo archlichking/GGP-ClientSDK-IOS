@@ -5,7 +5,8 @@
         <script type="text/javascript">
             window.addEventListener('load', function() {
                                     var ret = proton.app.init();
-//                                    proton.app.pageLoaded();
+                                    proton.app.setPullToRefresh();
+                                    proton.app.pageLoaded();
             });
             
             var jskitSuite = {
@@ -84,6 +85,10 @@
                     appendTextNode('* get view info test done' + ret.result.view);
                 });
 
+                getContactListTest(function (ret){
+                    appendTextNode('* get contact list test done' + ret.result.view);
+                });
+
                 // inviteExternalUserTest(function (ret) {
                 //     appendTextNode('* invite external user test done');
                 // });
@@ -123,25 +128,34 @@
                 proton.app.getAppList({'schemes': ['greeapp12345', 'greeapp54321']}, callback);
             }
 
+            function getContactListTest(callback){
+                proton.app.getContactList(callback);
+            }
+
             function getViewInfoTest(callback){
                 proton.app.getViewInfo(null, callback);
             }
 
-            function invokeDashboardPopupTest(){
-                showDashboardTest(function (ret){
-                    appendTextNode('* show dashboard test done');
+            function pageLoadedTest(callback){
+                proton.app.pageLoaded();
+            }
+
+            function invokeRequestPopup(){
+                showRequestDialog(function (ret){
+                    appendTextNode('* show request test done');
                     jskitDoneCallback(stepCallback('callback done'));
                 });
             }
-
-            function showDashboardTest(callback) {
+            
+            function showRequestDialog(callback) {
                 var ret = proton.app.init();
-
-                proton.app.showDashboard({
-                           'URL' : 'http://www.baidu.com',
-                           'close' : function(ret){ alert('dashboard closed'); }
-                           }, 
-                           callback);
+                proton.app.showRequestDialog({
+                            'request' : {
+                                            'title' : 'this is js',
+                                            'body' : 'THIS IS JS'
+                                        }
+                            }, null);
+                callback;
             }
 
             function launchNativeBrowserTest(callback){
@@ -182,6 +196,6 @@
     <body>
         <div id='resultText'></div>
         <div id='invokeAllNoPOP' onclick='invokeAllNoPOPTest()'>invokeAllNoPOPTest</div>
-        <div id='invokeDashboardPopup' onclick='invokeDashboardPopupTest()'>invokeDashboardPopup</div>
+        <div id='invokeRequestPopup' onclick='invokeRequestPopup()'>invokeRequestPopup</div>
     </body>
 </html>

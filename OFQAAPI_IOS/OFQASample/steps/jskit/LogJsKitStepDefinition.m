@@ -23,8 +23,8 @@
     [super I_launch_jskit_popup];
 }
 
-- (void) I_dismiss_jskit_popup{
-    [super I_dismiss_jskit_popup];
+- (void) I_dismiss_jskit_base_popup{
+    [super I_dismiss_jskit_base_popup];
 }
 
 // jskit work around
@@ -37,14 +37,18 @@
                                   _and_value:@""];
 }
 
-- (void) I_click_invoke_dashboard_button{
-    NSString* element = @"fid('invokeDashboardPopup')";
+// open request popup
+- (void) I_click_invoke_request_popup_button{
+    NSString* element = @"fid('invokeRequestPopup')";
     NSString* command = @"click";
     
     [self invoke_in_jskit_popup_with_element:element 
                                 _and_command:command 
                                   _and_value:@""];
 }
+
+// close request popup
+
 
 - (void) I_need_to_wait_for_test_done_PARAM:(NSString*) type{
     GreeSettings* st = [[GreePlatform sharedInstance] settings];

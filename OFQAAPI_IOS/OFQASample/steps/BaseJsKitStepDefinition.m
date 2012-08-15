@@ -66,7 +66,7 @@
     [[self getBlockRepo] setObject:popup forKey:@"baseJskitPopup"];
 }
 
-- (void) I_dismiss_jskit_popup{
+- (void) I_dismiss_jskit_base_popup{
     GreePopup* popup = [[self getBlockRepo] objectForKey:@"baseJskitPopup"];
     
     popup.didDismissBlock = ^(id aSender) {

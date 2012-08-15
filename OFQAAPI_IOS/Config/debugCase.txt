@@ -1,8 +1,4 @@
 Given I logged in with email auto3@136.com and password 123456
 And I launch jskit popup
 When I click invoke non popup button
-Then I need to wait for test done non popup
-Then I dismiss jskit popup
-When I click invoke dashboard button
-Then I need to wait for test done dashboard
-Then I dismiss jskit popup
+Then I need to wait for test done PARAM
