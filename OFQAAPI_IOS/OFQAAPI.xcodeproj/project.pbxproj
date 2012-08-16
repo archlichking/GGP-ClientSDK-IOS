@@ -83,6 +83,8 @@
 		BA52DE081566E59300F87A66 /* libOFQAAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA89094B14F75D6100018B0F /* libOFQAAPI.a */; };
 		BA56CAD81505A3CC001ECED4 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = BA56CAD71505A3CC001ECED4 /* checked.png */; };
 		BA56CADA1505A3FC001ECED4 /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = BA56CAD91505A3FC001ECED4 /* unchecked.png */; };
+		BA5BE67C15DC92C60024227C /* libGreePlatform.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5BE66C15DC92510024227C /* libGreePlatform.a */; };
+		BA5BE67D15DC92C60024227C /* libGreeWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAF9498115DC8D9400907055 /* libGreeWallet.a */; };
 		BA64A522159AD16E007527C2 /* PaymentStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA64A521159AD16E007527C2 /* PaymentStepDefinition.m */; };
 		BA64A523159AD16E007527C2 /* PaymentStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA64A521159AD16E007527C2 /* PaymentStepDefinition.m */; };
 		BA64CB6F150DDF8900E8A9EE /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA64CB6E150DDF8900E8A9EE /* libsqlite3.dylib */; };
@@ -93,8 +95,6 @@
 		BA6D88CD14FDED51009D93CB /* StepHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6D88CB14FDED51009D93CB /* StepHolder.m */; };
 		BA6F025A14FB246F008D82BC /* Step.h in Headers */ = {isa = PBXBuildFile; fileRef = BA6F025814FB246F008D82BC /* Step.h */; };
 		BA6F025B14FB246F008D82BC /* Step.m in Sources */ = {isa = PBXBuildFile; fileRef = BA6F025914FB246F008D82BC /* Step.m */; };
-		BA6F9D2815D359C300740AD9 /* libGreePlatform-llvm-gcc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA054E0E15BE4D09002F5DE6 /* libGreePlatform-llvm-gcc.a */; };
-		BA6F9D2915D359C300740AD9 /* libGreeWallet-llvm-gcc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA054E0F15BE4D09002F5DE6 /* libGreeWallet-llvm-gcc.a */; };
 		BA7044AF1588CF4C00B42451 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA7044AE1588CF4C00B42451 /* CFNetwork.framework */; };
 		BA7044B11588CF7900B42451 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA7044B01588CF7900B42451 /* MobileCoreServices.framework */; };
 		BA717A4F15984A9E008DA307 /* ASIAuthenticationDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = BA717A3915984A9E008DA307 /* ASIAuthenticationDialog.h */; };
@@ -223,12 +223,75 @@
 			remoteGlobalIDString = BA89094A14F75D6100018B0F;
 			remoteInfo = OFQAAPI;
 		};
+		BA5BE66B15DC92510024227C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA5BE65B15DC92500024227C /* GreePlatformSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1B1D82EC14644D9100F670CE;
+			remoteInfo = GreePlatformSDK;
+		};
+		BA5BE66D15DC92510024227C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA5BE65B15DC92500024227C /* GreePlatformSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1B1D82FC14644D9100F670CE;
+			remoteInfo = GreePlatformSDKTests;
+		};
+		BA5BE66F15DC92510024227C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA5BE65B15DC92500024227C /* GreePlatformSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1BE6347414E5E40D005F28C1;
+			remoteInfo = GreePlatformCoreResources;
+		};
+		BA5BE67115DC92510024227C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA5BE65B15DC92500024227C /* GreePlatformSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1BE6351F14E5E79A005F28C1;
+			remoteInfo = GreePlatformPortraitResources;
+		};
+		BA5BE67315DC92510024227C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA5BE65B15DC92500024227C /* GreePlatformSDK.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1BE6352714E5E7D9005F28C1;
+			remoteInfo = GreePlatformLandscapeResources;
+		};
+		BA5BE67A15DC92A30024227C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA5BE65B15DC92500024227C /* GreePlatformSDK.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 1B1D82EB14644D9100F670CE;
+			remoteInfo = GreePlatformSDK;
+		};
 		BA78B62E14F798A100C4D6FB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BA89094214F75D6100018B0F /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = BA89094A14F75D6100018B0F;
 			remoteInfo = OFQAAPI;
+		};
+		BAF9498015DC8D9400907055 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BAF9496115DC8D9300907055 /* GreeWallet.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9B5DCFD2151BA32300C11049;
+			remoteInfo = GreeWallet;
+		};
+		BAF9498215DC8D9400907055 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BAF9496115DC8D9300907055 /* GreeWallet.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9BE1FE201521C218009DACC6;
+			remoteInfo = GreeWalletTests;
+		};
+		BAF9498D15DC8E2000907055 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BAF9496115DC8D9300907055 /* GreeWallet.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B5DCFD1151BA32300C11049;
+			remoteInfo = GreeWallet;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -294,6 +357,7 @@
 		BA5287B515AC19B4005FBE21 /* StdioHack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = StdioHack.c; sourceTree = "<group>"; };
 		BA56CAD71505A3CC001ECED4 /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
 		BA56CAD91505A3FC001ECED4 /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
+		BA5BE65B15DC92500024227C /* GreePlatformSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GreePlatformSDK.xcodeproj; path = ../ggplib_ios/sdk/GreePlatformSDK.xcodeproj; sourceTree = "<group>"; };
 		BA64A520159AD16E007527C2 /* PaymentStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaymentStepDefinition.h; path = steps/PaymentStepDefinition.h; sourceTree = "<group>"; };
 		BA64A521159AD16E007527C2 /* PaymentStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaymentStepDefinition.m; path = steps/PaymentStepDefinition.m; sourceTree = "<group>"; };
 		BA64CB6E150DDF8900E8A9EE /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -433,6 +497,7 @@
 		BADF04CD15049054006FC3B4 /* CaseTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseTableDelegate.m; sourceTree = "<group>"; };
 		BAE6AB9D15C78CA40036E379 /* WidgetStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WidgetStepDefinition.h; path = steps/WidgetStepDefinition.h; sourceTree = "<group>"; };
 		BAE6AB9E15C78CA40036E379 /* WidgetStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WidgetStepDefinition.m; path = steps/WidgetStepDefinition.m; sourceTree = "<group>"; };
+		BAF9496115DC8D9300907055 /* GreeWallet.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GreeWallet.xcodeproj; path = ../ggplib_ios/sdk/GreeWallet.xcodeproj; sourceTree = "<group>"; };
 		BAFC3B2815D4ABE10070F589 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -463,9 +528,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA5BE67C15DC92C60024227C /* libGreePlatform.a in Frameworks */,
+				BA5BE67D15DC92C60024227C /* libGreeWallet.a in Frameworks */,
 				BAFC3B2915D4ABE10070F589 /* CoreLocation.framework in Frameworks */,
-				BA6F9D2815D359C300740AD9 /* libGreePlatform-llvm-gcc.a in Frameworks */,
-				BA6F9D2915D359C300740AD9 /* libGreeWallet-llvm-gcc.a in Frameworks */,
 				BA96EC37150EFA5C00214FAD /* libz.dylib in Frameworks */,
 				BA78B60214F792A200C4D6FB /* CoreGraphics.framework in Frameworks */,
 				BA7044B11588CF7900B42451 /* MobileCoreServices.framework in Frameworks */,
@@ -626,6 +691,18 @@
 				BA34F5571576989400EA1F50 /* TestRunnerWrapper.m */,
 			);
 			name = wrapper;
+			sourceTree = "<group>";
+		};
+		BA5BE65C15DC92500024227C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA5BE66C15DC92510024227C /* libGreePlatform.a */,
+				BA5BE66E15DC92510024227C /* GreePlatformSDKTests.octest */,
+				BA5BE67015DC92510024227C /* GreePlatformCoreResources.bundle */,
+				BA5BE67215DC92510024227C /* GreePlatformPortraitResources.bundle */,
+				BA5BE67415DC92510024227C /* GreePlatformLandscapeResources.bundle */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		BA6F025014FB21F6008D82BC /* caze */ = {
@@ -813,6 +890,8 @@
 				BA34F4FB15759ECC00EA1F50 /* OFQAJenkins */,
 				BA89094D14F75D6100018B0F /* Frameworks */,
 				BA89094C14F75D6100018B0F /* Products */,
+				BA5BE65B15DC92500024227C /* GreePlatformSDK.xcodeproj */,
+				BAF9496115DC8D9300907055 /* GreeWallet.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -914,6 +993,15 @@
 			name = delegate;
 			sourceTree = "<group>";
 		};
+		BAF9496215DC8D9300907055 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BAF9498115DC8D9400907055 /* libGreeWallet.a */,
+				BAF9498315DC8D9400907055 /* GreeWalletTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1007,6 +1095,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				BA5BE67B15DC92A30024227C /* PBXTargetDependency */,
+				BAF9498E15DC8E2000907055 /* PBXTargetDependency */,
 				BA78B62F14F798A100C4D6FB /* PBXTargetDependency */,
 			);
 			name = OFQASample;
@@ -1051,6 +1141,16 @@
 			mainGroup = BA89094014F75D6100018B0F;
 			productRefGroup = BA89094C14F75D6100018B0F /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BA5BE65C15DC92500024227C /* Products */;
+					ProjectRef = BA5BE65B15DC92500024227C /* GreePlatformSDK.xcodeproj */;
+				},
+				{
+					ProductGroup = BAF9496215DC8D9300907055 /* Products */;
+					ProjectRef = BAF9496115DC8D9300907055 /* GreeWallet.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				BA89094A14F75D6100018B0F /* OFQAAPI */,
@@ -1059,6 +1159,58 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BA5BE66C15DC92510024227C /* libGreePlatform.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGreePlatform.a;
+			remoteRef = BA5BE66B15DC92510024227C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BA5BE66E15DC92510024227C /* GreePlatformSDKTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GreePlatformSDKTests.octest;
+			remoteRef = BA5BE66D15DC92510024227C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BA5BE67015DC92510024227C /* GreePlatformCoreResources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GreePlatformCoreResources.bundle;
+			remoteRef = BA5BE66F15DC92510024227C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BA5BE67215DC92510024227C /* GreePlatformPortraitResources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GreePlatformPortraitResources.bundle;
+			remoteRef = BA5BE67115DC92510024227C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BA5BE67415DC92510024227C /* GreePlatformLandscapeResources.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GreePlatformLandscapeResources.bundle;
+			remoteRef = BA5BE67315DC92510024227C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BAF9498115DC8D9400907055 /* libGreeWallet.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libGreeWallet.a;
+			remoteRef = BAF9498015DC8D9400907055 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BAF9498315DC8D9400907055 /* GreeWalletTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = GreeWalletTests.octest;
+			remoteRef = BAF9498215DC8D9400907055 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		BA34F4F415759ECC00EA1F50 /* Resources */ = {
@@ -1226,10 +1378,20 @@
 			target = BA89094A14F75D6100018B0F /* OFQAAPI */;
 			targetProxy = BA34F5301575A54A00EA1F50 /* PBXContainerItemProxy */;
 		};
+		BA5BE67B15DC92A30024227C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GreePlatformSDK;
+			targetProxy = BA5BE67A15DC92A30024227C /* PBXContainerItemProxy */;
+		};
 		BA78B62F14F798A100C4D6FB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BA89094A14F75D6100018B0F /* OFQAAPI */;
 			targetProxy = BA78B62E14F798A100C4D6FB /* PBXContainerItemProxy */;
+		};
+		BAF9498E15DC8E2000907055 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = GreeWallet;
+			targetProxy = BAF9498D15DC8E2000907055 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1324,20 +1486,19 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OFQASample/OFQASample-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = (
-					"\"${SRCROOT}/../ggplib_ios/sdk/source/\"/**",
-					"\"${SRCROOT}/../ggplib_ios/vendor/\"/**",
-				);
+				HEADER_SEARCH_PATHS = "\"${SRCROOT}/../ggplib_ios/sdk/source/\"/**";
 				INFOPLIST_FILE = "OFQASample/OFQASample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../ggplib_ios/release\"",
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				OTHER_CFLAGS = (
+					"-fprofile-arcs",
+					"-ftest-coverage",
 				);
 				OTHER_LDFLAGS = (
 					"-objc",
@@ -1358,21 +1519,16 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				FRAMEWORK_SEARCH_PATHS = "";
-				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OFQASample/OFQASample-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				HEADER_SEARCH_PATHS = (
-					"\"${SRCROOT}/../ggplib_ios/sdk/source/\"/**",
-					"\"${SRCROOT}/../ggplib_ios/vendor/\"/**",
-				);
+				HEADER_SEARCH_PATHS = "\"${SRCROOT}/../ggplib_ios/sdk/source/\"/**";
 				INFOPLIST_FILE = "OFQASample/OFQASample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/../ggplib_ios/release\"",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"-objc",
@@ -1443,14 +1599,17 @@
 			buildSettings = {
 				DSTROOT = /tmp/OFQAAPI.dst;
 				GCC_ENABLE_KERNEL_DEVELOPMENT = NO;
-				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OFQAAPI/OFQAAPI-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				OTHER_CFLAGS = "";
+				OTHER_CFLAGS = (
+					"-fprofile-arcs",
+					"-ftest-coverage",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1465,14 +1624,17 @@
 			buildSettings = {
 				DSTROOT = /tmp/OFQAAPI.dst;
 				GCC_ENABLE_KERNEL_DEVELOPMENT = NO;
-				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
-				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "OFQAAPI/OFQAAPI-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				OTHER_CFLAGS = "";
+				OTHER_CFLAGS = (
+					"-fprofile-arcs",
+					"-ftest-coverage",
+				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;

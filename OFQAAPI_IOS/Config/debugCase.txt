@@ -1,4 +1,16 @@
 Given I logged in with email auto3@136.com and password 123456
 And I launch jskit popup
-When I click invoke non popup button
-Then I need to wait for test done PARAM
+When I click invoke button invokeRequestPopup
+And I dismiss jskit base popup
+When I click invoke button invokeSharePopup
+And I dismiss jskit base popup
+When I click invoke button invokeInvitePopup
+And I dismiss jskit base popup
+When I click invoke button invokeWebviewDialog
+And I dismiss jskit base popup
+When I click invoke button invokeDepositProductDialog
+And I dismiss jskit base popup
+When I click invoke button invokeDepositHistoryDialog
+And I dismiss jskit base popup
+Then I need to wait for test done popup
+And I dismiss jskit base popup

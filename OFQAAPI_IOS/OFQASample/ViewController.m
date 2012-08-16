@@ -225,6 +225,8 @@
     [self performSelectorOnMainThread:@selector(dismissAllProgressDisplay)
                            withObject:nil
                         waitUntilDone:YES];
+    
+    exit(0);
 }
 
 

@@ -27,28 +27,15 @@
     [super I_dismiss_jskit_base_popup];
 }
 
-// jskit work around
-- (void) I_click_invoke_non_popup_button{
-    NSString* element = @"fid('invokeAllNoPOP')";
+- (void) I_click_invoke_button_PARAM:(NSString*) type{
     NSString* command = @"click";
+    NSString* element = [NSString stringWithFormat:@"fid('%@')", type];
     
     [self invoke_in_jskit_popup_with_element:element 
                                 _and_command:command 
                                   _and_value:@""];
+    [self step_sleep:2];
 }
-
-// open request popup
-- (void) I_click_invoke_request_popup_button{
-    NSString* element = @"fid('invokeRequestPopup')";
-    NSString* command = @"click";
-    
-    [self invoke_in_jskit_popup_with_element:element 
-                                _and_command:command 
-                                  _and_value:@""];
-}
-
-// close request popup
-
 
 - (void) I_need_to_wait_for_test_done_PARAM:(NSString*) type{
     GreeSettings* st = [[GreePlatform sharedInstance] settings];
@@ -65,6 +52,7 @@
                 nil];
     
     [st applySettingDictionary:dic];
+    [self step_sleep:2];
 }
 
 - (void) I_set_jskit_log_level_to_PARAM:(NSString*) level{

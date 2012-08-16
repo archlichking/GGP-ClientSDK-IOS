@@ -40,7 +40,7 @@
 
 @implementation GreePopup(PrivateJskitPopupHacking)
 - (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView{
-    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
+//    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
     [StepDefinition notifyOutsideStep];
 }
 
@@ -69,9 +69,9 @@
 - (void) I_dismiss_jskit_base_popup{
     GreePopup* popup = [[self getBlockRepo] objectForKey:@"baseJskitPopup"];
     
-    popup.didDismissBlock = ^(id aSender) {
-        [self notifyInStep];
-    };
+//    popup.didDismissBlock = ^(id aSender) {
+//        [self notifyInStep];
+//    };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                                         [NSString stringWithFormat:@"%i", dismissPopup], @"command",
@@ -81,7 +81,7 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [self waitForInStep];
+//    [self waitForInStep];
     [StepDefinition waitForOutsideStep]; 
 }
 

@@ -76,8 +76,8 @@
         if ([[notification message] isEqualToString:message]) {
             [QAAssert assertEqualsExpected:message
                                     Actual:[notification message]];
-            [notification release];
-            [notificationQueue release];
+//            [notification release];
+//            [notificationQueue release];
             return;
         }
     }

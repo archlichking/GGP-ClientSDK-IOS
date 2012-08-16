@@ -14,8 +14,7 @@
 - (void) I_launch_jskit_popup;
 - (void) I_dismiss_jskit_base_popup;
 
-- (void) I_click_invoke_non_popup_button;
-- (void) I_click_invoke_request_popup_button;
+- (void) I_click_invoke_button_PARAM:(NSString*) type;
 - (void) I_need_to_wait_for_test_done_PARAM:(NSString*) type;
 
 

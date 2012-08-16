@@ -70,7 +70,7 @@
     if ([self respondsToSelector:@selector(showCloseButton)]) {
         [self performSelector:@selector(showCloseButton)];
     }
-    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
+//    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
     [[StepDefinition getOutsideBlockRepo] setObject:self forKey:@"popup"];
     [StepDefinition notifyOutsideStep];
 }
@@ -586,7 +586,6 @@
     
     [self waitForInStep];
     [StepDefinition waitForOutsideStep];
-    [popup release];
    
 }
 
