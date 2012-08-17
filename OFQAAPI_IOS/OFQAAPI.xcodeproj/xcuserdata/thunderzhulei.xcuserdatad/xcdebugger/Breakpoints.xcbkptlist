@@ -4,115 +4,81 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "OFQASample/ViewController.m"
-         timestampString = "366794475.993403"
+         filePath = "OFQASample/steps/PeopleStepDefinition.m"
+         timestampString = "366865696.677974"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "308"
-         endingLineNumber = "308"
-         landmarkName = "-dispatchCommand:withExecutor:extraInfo:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "OFQASample/steps/BaseJsKitStepDefinition.m"
-         timestampString = "366794487.884322"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "70"
-         endingLineNumber = "70"
-         landmarkName = "-I_dismiss_jskit_base_popup"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "OFQASample/steps/BaseJsKitStepDefinition.m"
-         timestampString = "366794495.974885"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "85"
-         endingLineNumber = "85"
-         landmarkName = "-I_dismiss_jskit_base_popup"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "OFQASample/steps/BaseJsKitStepDefinition.m"
-         timestampString = "366794496.783298"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "84"
-         endingLineNumber = "84"
-         landmarkName = "-I_dismiss_jskit_base_popup"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "OFQASample/steps/jskit/LogJsKitStepDefinition.m"
-         timestampString = "366796359.795482"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "31"
-         endingLineNumber = "31"
-         landmarkName = "-I_click_invoke_button_PARAM:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "OFQASample/steps/jskit/LogJsKitStepDefinition.m"
-         timestampString = "366796744.905572"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "34"
-         endingLineNumber = "34"
-         landmarkName = "-I_click_invoke_button_PARAM:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "OFQASample/steps/BaseJsKitStepDefinition.m"
-         timestampString = "366796750.688163"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "121"
-         endingLineNumber = "121"
-         landmarkName = "-invoke_in_jskit_popup_with_element:_and_command:_and_value:"
+         startingLineNumber = "352"
+         endingLineNumber = "352"
+         landmarkName = "-I_load_my_image_with_size_PARAM:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "OFQASample/steps/BaseJsKitStepDefinition.m"
-         timestampString = "366796752.040055"
+         filePath = "OFQASample/steps/PeopleStepDefinition.m"
+         timestampString = "366865791.977469"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "93"
-         endingLineNumber = "93"
-         landmarkName = "-invoke_in_jskit_popup_with_full_command:"
+         startingLineNumber = "358"
+         endingLineNumber = "358"
+         landmarkName = "-I_load_my_image_with_size_PARAM:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/steps/PeopleStepDefinition.m"
+         timestampString = "366865842.500676"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "385"
+         endingLineNumber = "385"
+         landmarkName = "-the_returned_thumbnail_should_be_PARAM:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/steps/LeaderboardStepDefinition.m"
+         timestampString = "366866072.743041"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "218"
+         endingLineNumber = "218"
+         landmarkName = "-my_score_PARAMINT:_should_be_updated_in_leaderboard_PARAM:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/steps/LeaderboardStepDefinition.m"
+         timestampString = "366866087.481269"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "229"
+         endingLineNumber = "229"
+         landmarkName = "-my_score_PARAMINT:_should_be_updated_in_leaderboard_PARAM:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/steps/LeaderboardStepDefinition.m"
+         timestampString = "366866131.660996"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "232"
+         endingLineNumber = "232"
+         landmarkName = "-my_score_PARAMINT:_should_be_updated_in_leaderboard_PARAM:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

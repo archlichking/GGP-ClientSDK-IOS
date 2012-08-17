@@ -77,7 +77,15 @@
     GreeUser* user = [[self getBlockRepo] objectForKey:@"user"];
     NSString* result = @"";
     if (user) {
-        if ([key isEqualToString:@"displayName"]) {
+        if ([key isEqualToString:@"nickName"]) {
+            [QAAssert assertEqualsExpected:value 
+                                    Actual:[user nickname]];
+            result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
+                      key, 
+                      value, 
+                      [user nickname], 
+                      SpliterTcmLine];
+        }else if ([key isEqualToString:@"displayName"]) {
             [QAAssert assertEqualsExpected:value 
                                     Actual:[user displayName]];
             result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
@@ -131,6 +139,14 @@
                       value, 
                       [user birthday],
                       SpliterTcmLine];
+        }else if([key isEqualToString:@"gender"]){
+            [QAAssert assertEqualsExpected:value 
+                                    Actual:[user gender]];
+            result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@",
+                      key, 
+                      value, 
+                      [user gender],
+                      SpliterTcmLine];
         }
         else if([key isEqualToString:@"aboutMe"]){
             [QAAssert assertEqualsExpected:value 
@@ -175,6 +191,14 @@
                       key, 
                       value, 
                       [user age],
+                      SpliterTcmLine];
+        }else if([key isEqualToString:@"hasApp"]){
+            [QAAssert assertEqualsExpected:value 
+                                    Actual:[user hasThisApplication]?@"true":@"false"];
+            result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
+                      key, 
+                      value, 
+                      [user hasThisApplication]?@"true":@"false", 
                       SpliterTcmLine];
         }
         else{

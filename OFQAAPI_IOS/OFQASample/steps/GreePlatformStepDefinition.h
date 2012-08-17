@@ -16,4 +16,7 @@
 - (NSString*) platform_info_should_be_correct_to_user_with_email_PARAM:(NSString*) EMAIL 
                                                    _and_password_PARAM:(NSString*) PWD;
 
+- (void) my_sdk_build_should_be_PARAM:(NSString*) build;
+- (void) my_sdk_version_should_be_PARAM:(NSString*) version;
+
 @end
