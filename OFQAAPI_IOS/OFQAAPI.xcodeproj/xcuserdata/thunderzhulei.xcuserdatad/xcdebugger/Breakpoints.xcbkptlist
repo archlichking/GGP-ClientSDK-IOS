@@ -7,78 +7,52 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/PeopleStepDefinition.m"
-         timestampString = "366865696.677974"
+         filePath = "OFQASample/ViewController.m"
+         timestampString = "365932492.048798"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "352"
-         endingLineNumber = "352"
-         landmarkName = "-I_load_my_image_with_size_PARAM:"
+         startingLineNumber = "332"
+         endingLineNumber = "332"
+         landmarkName = "-dispatchCommand:withExecutor:extraInfo:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/PeopleStepDefinition.m"
-         timestampString = "366865791.977469"
+         filePath = "OFQASample/steps/JsKitStepDefinition.m"
+         timestampString = "365932514.97403"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "358"
-         endingLineNumber = "358"
-         landmarkName = "-I_load_my_image_with_size_PARAM:"
+         startingLineNumber = "36"
+         endingLineNumber = "36"
+         landmarkName = "-I_load_jskit_popup"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/PeopleStepDefinition.m"
-         timestampString = "366865842.500676"
+         filePath = "OFQASample/ViewController.m"
+         timestampString = "365933001.674757"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "385"
-         endingLineNumber = "385"
-         landmarkName = "-the_returned_thumbnail_should_be_PARAM:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/LeaderboardStepDefinition.m"
-         timestampString = "366866072.743041"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "218"
-         endingLineNumber = "218"
-         landmarkName = "-my_score_PARAMINT:_should_be_updated_in_leaderboard_PARAM:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/LeaderboardStepDefinition.m"
-         timestampString = "366866087.481269"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "229"
-         endingLineNumber = "229"
-         landmarkName = "-my_score_PARAMINT:_should_be_updated_in_leaderboard_PARAM:"
+         startingLineNumber = "402"
+         endingLineNumber = "402"
+         landmarkName = "-launchJskitPopup:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/LeaderboardStepDefinition.m"
-         timestampString = "366866131.660996"
+         filePath = "OFQASample/steps/JsKitStepDefinition.m"
+         timestampString = "365932679.061991"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "232"
-         endingLineNumber = "232"
-         landmarkName = "-my_score_PARAMINT:_should_be_updated_in_leaderboard_PARAM:"
+         startingLineNumber = "41"
+         endingLineNumber = "41"
+         landmarkName = "-I_load_jskit_popup"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
