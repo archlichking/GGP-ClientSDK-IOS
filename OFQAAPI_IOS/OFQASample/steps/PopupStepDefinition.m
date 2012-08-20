@@ -525,6 +525,7 @@
 - (void) I_did_open_payment_request_popup{
     
     id successBlock = ^ (NSString* paymentId, NSArray* items){
+        NSLog(@"%@", paymentId);
         // [self notifyInStep];  
     };
     

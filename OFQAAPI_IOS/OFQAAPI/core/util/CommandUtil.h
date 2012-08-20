@@ -30,7 +30,8 @@ extern enum {
     executeJskitCommandInPopup,
     // widget test
     getWidget,
-    hideWidget
+    hideWidget,
+    screenShotWidget
 } CommandPopup;
 
 @interface CommandUtil : NSObject

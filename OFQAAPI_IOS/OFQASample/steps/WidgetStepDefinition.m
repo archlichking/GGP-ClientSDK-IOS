@@ -121,4 +121,27 @@
     [widget setPosition:GreeWidgetPositionTopRight];
 }
 
+- (void) I_take_screenshot{
+    GreeWidget* widget = [[self getBlockRepo] objectForKey:@"widget"];
+    
+    id resultBlock = ^(UIImage* shot){
+        [[self getBlockRepo] setObject:shot forKey:@"screenshot"];
+        [self notifyInStep];
+    };
+    
+    NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                        [NSString stringWithFormat:@"%i", screenShotWidget], @"command",
+                                        widget, @"widget",
+                                        resultBlock, @"cmdCallback",
+                                        nil];
+    [self notifyMainUIWithCommand:CommandDispatchCommand 
+                           object:userinfoDic];
+    [self waitForInStep];
+}
+
+- (void) screenshot_should_be_correct{
+    UIImage* shot = [[self getBlockRepo] objectForKey:@"screenshot"];
+    NSLog(@"%@", shot);
+}
+
 @end

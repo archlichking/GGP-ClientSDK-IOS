@@ -82,6 +82,25 @@
                            object:userinfoDic];
     
 //    [self waitForInStep];
+    [StepDefinition waitForOutsideStep];
+}
+
+- (void) I_dismiss_last_opened_popup{
+    GreePopup* popup = [[self getBlockRepo] objectForKey:@"baseJskitPopup"];
+    
+    //    popup.didDismissBlock = ^(id aSender) {
+    //        [self notifyInStep];
+    //    };
+    
+    NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                        [NSString stringWithFormat:@"%i", dismissPopup], @"command",
+                                        popup, @"executor", 
+                                        nil];
+    
+    [self notifyMainUIWithCommand:CommandDispatchCommand 
+                           object:userinfoDic];
+    
+    //    [self waitForInStep];
     [StepDefinition waitForOutsideStep]; 
 }
 

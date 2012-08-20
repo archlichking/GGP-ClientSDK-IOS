@@ -22,6 +22,9 @@
 #import "GreePopup.h"
 #import "GreeWallet.h"
 #import "GreeWidget.h"
+
+#import <QuartzCore/QuartzCore.h>
+#import "UIViewController+GreePlatform.h"
 #import "CaseTableDelegate.h"
 
 @implementation ViewController
@@ -356,6 +359,12 @@
                                 waitUntilDone:YES];
             [StepDefinition notifyOutsideStep];
             break;
+            
+        case screenShotWidget:
+            [self performSelectorOnMainThread:@selector(screenshot:) 
+                                   withObject:extra
+                                waitUntilDone:YES];
+            break;
         default:
             break;
     }
@@ -437,14 +446,22 @@
     callbackBlock(widget);
 }
 
+- (void) screenshot:(NSDictionary*) info{
+    GreeWidget* widget = [info objectForKey:@"widget"];
+    UIImage *image = [self screenshotImageForWidget:widget];
+    void (^callbackBlock)(UIImage*) = [info objectForKey:@"cmdCallback"];
+    callbackBlock(image);
+}
+
 #pragma mark - GreeWidgetDataSource
 - (UIImage*)screenshotImageForWidget:(GreeWidget*)widget
 {
-    //    UIGraphicsBeginImageContext(self.view.layer.visibleRect.size);
-    //    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
-    //    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    //    UIGraphicsEndImageContext();
-    //    return image;
+    UIView* viewForScreenShot = self.view;
+    UIGraphicsBeginImageContext(viewForScreenShot.layer.visibleRect.size);
+    [viewForScreenShot.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
 }
 
 @end

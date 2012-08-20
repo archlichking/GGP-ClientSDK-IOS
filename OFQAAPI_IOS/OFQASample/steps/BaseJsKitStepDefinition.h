@@ -12,6 +12,7 @@
 
 - (void) I_launch_jskit_popup;
 - (void) I_dismiss_jskit_base_popup;
+- (void) I_dismiss_last_opened_popup;
 
 - (void) step_sleep:(NSTimeInterval) interval;
 

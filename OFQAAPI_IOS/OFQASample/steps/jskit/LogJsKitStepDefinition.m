@@ -27,6 +27,10 @@
     [super I_dismiss_jskit_base_popup];
 }
 
+- (void) I_dismiss_last_opened_popup{
+    [super I_dismiss_last_opened_popup];
+}
+
 - (void) I_click_invoke_button_PARAM:(NSString*) type{
     NSString* command = @"click";
     NSString* element = [NSString stringWithFormat:@"fid('%@')", type];

@@ -19,4 +19,8 @@
 - (void) I_active_widget_with_position_PARAM:(NSString*) position 
                        _and_expandable_PARAM:(NSString*) expandable;
 
+- (void) I_take_screenshot;
+
+- (void) screenshot_should_be_correct;
+
 @end
