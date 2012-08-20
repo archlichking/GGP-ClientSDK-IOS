@@ -76,8 +76,8 @@
         if ([[notification message] isEqualToString:message]) {
             [QAAssert assertEqualsExpected:message
                                     Actual:[notification message]];
-            [notification release];
-            [notificationQueue release];
+//            [notification release];
+//            [notificationQueue release];
             return;
         }
     }
@@ -117,6 +117,7 @@
 // step definition : I push local notification
 - (void) I_push_local_notification{
     GreeLocalNotification* notification = [[GreePlatform sharedInstance] localNotification];
+    NSLog(@"%@", notification);
     
 }
 

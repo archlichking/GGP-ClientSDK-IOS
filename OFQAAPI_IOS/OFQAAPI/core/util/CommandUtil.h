@@ -26,10 +26,12 @@ extern enum {
     executeInDepositPopup,
     executeInDepositHistoryPopup,
     // jskit test
+    launchJskitPopup,
     executeJskitCommandInPopup,
     // widget test
     getWidget,
-    hideWidget
+    hideWidget,
+    screenShotWidget
 } CommandPopup;
 
 @interface CommandUtil : NSObject

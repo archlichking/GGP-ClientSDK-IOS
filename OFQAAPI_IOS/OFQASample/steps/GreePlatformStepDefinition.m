@@ -85,4 +85,12 @@
     return result;
 }
 
+- (void) my_sdk_build_should_be_PARAM:(NSString*) build{
+    [QAAssert assertNotNil:[GreePlatform build]];
+}
+
+- (void) my_sdk_version_should_be_PARAM:(NSString*) version{
+    [QAAssert assertNotNil:[GreePlatform version]];
+}
+
 @end

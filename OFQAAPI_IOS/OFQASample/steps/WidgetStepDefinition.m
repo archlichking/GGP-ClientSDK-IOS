@@ -58,6 +58,7 @@
     }
 }
 
+// step definition : i activate default widget
 - (void) I_active_default_widget{
     id resultBlock = ^(GreeWidget* widget){
         [[self getBlockRepo] setObject:widget forKey:@"widget"];
@@ -76,6 +77,7 @@
     [self waitForInStep];
 }
 
+// step definition : i activate widget with position P and expandable E
 - (void) I_active_widget_with_position_PARAM:(NSString*) position 
                        _and_expandable_PARAM:(NSString*) expandable{
     id resultBlock = ^(GreeWidget* widget){
@@ -95,6 +97,7 @@
     [self waitForInStep];
 }
 
+// step definition : i hide widget
 - (void) I_hide_widget{
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                                         [NSString stringWithFormat:@"%i", hideWidget], @"command",
@@ -104,11 +107,13 @@
     [StepDefinition waitForOutsideStep];
 }
 
+// step definition : widget position should be P
 - (void) widget_position_should_be_PARAM:(NSString*) value{
     GreeWidget* widget = [[self getBlockRepo] objectForKey:@"widget"];
     [QAAssert assertEqualsExpected:value Actual:[self positionToString:[widget position]]];
 }
 
+// step definition : widget expandable should be E
 - (void) widget_expandable_should_be_PARAM:(NSString*) value{
     GreeWidget* widget = [[self getBlockRepo] objectForKey:@"widget"];
     
@@ -116,9 +121,35 @@
                             Actual:[widget expandable]?@"YES":@"NO"];
 }
 
+// step definition : i set widget position to P
 - (void) I_set_widget_position_to_PARAM:(NSString*) position{
     GreeWidget* widget = [[self getBlockRepo] objectForKey:@"widget"];
     [widget setPosition:GreeWidgetPositionTopRight];
+}
+
+// step definition : i take screenshot
+- (void) I_take_screenshot{
+    [[self getBlockRepo] removeObjectForKey:@"screenshot"];
+    GreeWidget* widget = [[self getBlockRepo] objectForKey:@"widget"];
+    
+    id resultBlock = ^(UIImage* shot){
+        [[self getBlockRepo] setObject:shot forKey:@"screenshot"];
+        [self notifyInStep];
+    };
+    
+    NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                        [NSString stringWithFormat:@"%i", screenShotWidget], @"command",
+                                        widget, @"widget",
+                                        resultBlock, @"cmdCallback",
+                                        nil];
+    [self notifyMainUIWithCommand:CommandDispatchCommand 
+                           object:userinfoDic];
+    [self waitForInStep];
+}
+
+// step definition : 
+- (void) screenshot_should_be_correct{
+    UIImage* shot = [[self getBlockRepo] objectForKey:@"screenshot"];
 }
 
 @end

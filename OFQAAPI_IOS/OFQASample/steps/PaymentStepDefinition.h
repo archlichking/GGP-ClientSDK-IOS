@@ -25,4 +25,13 @@
                                           _and_tier_PARAM:(NSString*) tier 
                                      _and_points_PARAMINT:(NSString*) points;
 
+// verify payment
+- (void) I_verify_payment_order_PARAM:(NSString*) order;
+- (void) payment_order_verify_result_should_be_PARAM:(NSString*) status;
+
+// buy products
+- (void) I_buy_product_with_id_PARAM:(NSString*) product;
+- (void) purchased_product_id_should_be_PARAM:(NSString*) product;
+
+
 @end

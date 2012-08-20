@@ -516,10 +516,16 @@
                             forKey:@"paymentItemList"];
 }
 
+- (void) I_set_payment_popup_message_PARAM:(NSString*) msg{
+    [[self getBlockRepo] setObject:msg 
+                            forKey:@"message"];
+}
+
 // step definition : I did open the payment request popup
 - (void) I_did_open_payment_request_popup{
     
     id successBlock = ^ (NSString* paymentId, NSArray* items){
+        NSLog(@"%@", paymentId);
         // [self notifyInStep];  
     };
     
@@ -530,7 +536,7 @@
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
                                         [NSString stringWithFormat:@"%i", executeInPaymentRequestPopup], @"command",
                                         [[self getBlockRepo] objectForKey:@"paymentItemList"], @"items",
-                                        @"payment test", @"message",
+                                        [[self getBlockRepo] objectForKey:@"message"], @"message",
                                         @"http://www.google.com", @"callbackUrl",
                                         successBlock, @"sBlock",
                                         failureBlock, @"fBlock",
@@ -548,7 +554,8 @@
                             forKey:@"popup"];
     
     NSDictionary* paymentRequestMatrix = [[NSDictionary alloc] initWithObjectsAndKeys: 
-                                 @"stringify(fclass('sentence medium minor'))", @"popupTitle",
+                                 @"stringify(ftag('title'))", @"popupTitle",
+                                 @"stringify(fclass('sentence medium minor'))", @"message",
                                  @"stringify(fclass('solid min'))", @"totalAmount",
                                  @"stringify(fclass('list-item'))", @"payment items",
                                  nil];
@@ -580,7 +587,6 @@
     
     [self waitForInStep];
     [StepDefinition waitForOutsideStep];
-    [popup release];
    
 }
 
@@ -749,35 +755,4 @@
 
 //--- end ----------- deposit history popup
 
-// -----------------
-
-- (void) I_test_jskit{
-    GreePopup* popup = [[self getBlockRepo] objectForKey:@"popup"];
-    
-    NSString* js = @"proton.app.getContactList()";
-    
-    id resultBlock = ^(NSString* result){
-        [[self getBlockRepo] setObject:result forKey:@"kkkkkkkkk"];
-        [self notifyInStep];
-    };
-    
-    NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                        [NSString stringWithFormat:@"%i", executeJskitCommandInPopup], @"command",
-                                        popup, @"executor",
-                                        js, @"jsCommand",
-                                        resultBlock, @"jsCallback",
-                                        nil];
-    
-    [self notifyMainUIWithCommand:CommandDispatchCommand 
-                           object:userinfoDic];
-    
-    [self waitForInStep];
-    [StepDefinition waitForOutsideStep];
-    [popup release];
-
-}
-
-- (void) I_load_popup{
-
-}
 @end

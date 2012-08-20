@@ -22,6 +22,9 @@
 #import "GreePopup.h"
 #import "GreeWallet.h"
 #import "GreeWidget.h"
+
+#import <QuartzCore/QuartzCore.h>
+#import "UIViewController+GreePlatform.h"
 #import "CaseTableDelegate.h"
 
 @implementation ViewController
@@ -225,6 +228,8 @@
     [self performSelectorOnMainThread:@selector(dismissAllProgressDisplay)
                            withObject:nil
                         waitUntilDone:YES];
+    
+//    exit(0);
 }
 
 
@@ -328,14 +333,21 @@
                                 waitUntilDone:YES];
             break;
             
+        case launchJskitPopup:
+            [self performSelectorOnMainThread:@selector(launchJskitPopup:) 
+                                   withObject:extra 
+                                waitUntilDone:YES];
+            break;
             
         case executeJskitCommandInPopup:
-            [self performSelectorOnMainThread:@selector(invokeJskitInPopup:) 
+            [self performSelectorOnMainThread:@selector(executeJskitCommandInPopup:) 
                                    withObject:extra 
                                 waitUntilDone:YES];
             
             [StepDefinition notifyOutsideStep];
             break;
+            
+            
         case getWidget:
             [self performSelectorOnMainThread:@selector(activeWidget:) 
                                    withObject:extra 
@@ -346,6 +358,12 @@
                                    withObject:nil 
                                 waitUntilDone:YES];
             [StepDefinition notifyOutsideStep];
+            break;
+            
+        case screenShotWidget:
+            [self performSelectorOnMainThread:@selector(screenshot:) 
+                                   withObject:extra
+                                waitUntilDone:YES];
             break;
         default:
             break;
@@ -374,14 +392,6 @@
             command];
 }
 
-- (NSString*) wrapJskitCommand:(NSString*) command{
-    
-    return [NSString stringWithFormat:@"(function(){%@ %@ return(%@)})()", 
-            [appDelegate ggpCommand],
-            [appDelegate ggpCommandInterface], 
-            command];
-}
-
 - (void) executeJsInPopup:(NSDictionary*) info{
     GreePopup* popup = (GreePopup*) [info objectForKey:@"executor"];
     NSString* jsCommand = [self wrapJsCommand:[info objectForKey:@"jsCommand"]];
@@ -390,11 +400,40 @@
     callbackBlock(jsResult);
 }
 
-- (void) invokeJskitInPopup:(NSDictionary*) info{
+- (void) launchJskitPopup:(NSDictionary*) info{
     GreePopup* popup = (GreePopup*) [info objectForKey:@"executor"];
-    NSString* jsCommand = [self wrapJskitCommand:[info objectForKey:@"jsCommand"]];
-    NSString* jsResult = [popup stringByEvaluatingJavaScriptFromString:jsCommand];
-    void (^callbackBlock)(NSString*) = [info objectForKey:@"jsCallback"];
+    popup.willLaunchBlock = ^(id sender){
+        NSString *aFilePath = [[NSBundle mainBundle] pathForResource:@"cases.html" ofType:nil];
+        NSData *aHtmlData = [NSData dataWithContentsOfFile:aFilePath];
+        NSURL *aBaseURL = [NSURL fileURLWithPath:aFilePath];
+        [popup loadData:aHtmlData MIMEType:@"text/html" textEncodingName:nil baseURL:aBaseURL];
+    };
+    
+    [self showGreePopup:popup];
+}
+
+- (void) executeJskitCommandInPopup:(NSDictionary*) info{
+    
+    GreePopup* popup = (GreePopup*) [info objectForKey:@"executor"];
+    NSString* element = [info objectForKey:@"jsKitElement"];
+    NSString* cmd = [info objectForKey:@"jsKitCommand"];
+    NSString* value = [info objectForKey:@"jsKitValue"];
+    
+    NSString* fullCommand = @"";
+    
+    if ([element isEqualToString:@""]) {
+        // full command mode
+        fullCommand = cmd;
+    }else{
+        if ([value isEqualToString:@""]) {
+            fullCommand = [self wrapJsCommand:[NSString stringWithFormat:@"%@(%@)", cmd, element]];
+        }else{
+            fullCommand = [self wrapJsCommand:[NSString stringWithFormat:@"%@(%@, %@)", cmd, element, value]];
+        }
+    }
+    
+    NSString* jsResult = [popup stringByEvaluatingJavaScriptFromString:fullCommand];
+    void (^callbackBlock)(NSString*) = [info objectForKey:@"jsKitCallback"];
     callbackBlock(jsResult);
 }
 
@@ -407,14 +446,22 @@
     callbackBlock(widget);
 }
 
+- (void) screenshot:(NSDictionary*) info{
+    GreeWidget* widget = [info objectForKey:@"widget"];
+    UIImage *image = [self screenshotImageForWidget:widget];
+    void (^callbackBlock)(UIImage*) = [info objectForKey:@"cmdCallback"];
+    callbackBlock(image);
+}
+
 #pragma mark - GreeWidgetDataSource
 - (UIImage*)screenshotImageForWidget:(GreeWidget*)widget
 {
-    //    UIGraphicsBeginImageContext(self.view.layer.visibleRect.size);
-    //    [self.view.layer renderInContext:UIGraphicsGetCurrentContext()];
-    //    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    //    UIGraphicsEndImageContext();
-    //    return image;
+    UIView* viewForScreenShot = self.view;
+    UIGraphicsBeginImageContext(viewForScreenShot.layer.visibleRect.size);
+    [viewForScreenShot.layer renderInContext:UIGraphicsGetCurrentContext()];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
 }
 
 @end
