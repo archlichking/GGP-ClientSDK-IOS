@@ -147,7 +147,6 @@
                                   [self notifyInStep];
                               } 
                               failureBlock:^(NSString *paymentId, NSArray *items, NSError *error) {
-                                  NSLog(@"%d", error.code);
                                   [[self getBlockRepo] setObject:@"FAILED" forKey:@"paymentVerificationResult"];
                                   [self notifyInStep];
                               }];
