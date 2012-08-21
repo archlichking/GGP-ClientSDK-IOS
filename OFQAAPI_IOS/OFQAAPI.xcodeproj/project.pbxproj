@@ -83,6 +83,8 @@
 		BA52DE081566E59300F87A66 /* libOFQAAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA89094B14F75D6100018B0F /* libOFQAAPI.a */; };
 		BA56CAD81505A3CC001ECED4 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = BA56CAD71505A3CC001ECED4 /* checked.png */; };
 		BA56CADA1505A3FC001ECED4 /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = BA56CAD91505A3FC001ECED4 /* unchecked.png */; };
+		BA60CA2715E35DE2001319BB /* jskit_test.js in Sources */ = {isa = PBXBuildFile; fileRef = BA60CA2615E35DE2001319BB /* jskit_test.js */; };
+		BA60CA2915E377C6001319BB /* jskit_test.js in Resources */ = {isa = PBXBuildFile; fileRef = BA60CA2615E35DE2001319BB /* jskit_test.js */; };
 		BA64A522159AD16E007527C2 /* PaymentStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA64A521159AD16E007527C2 /* PaymentStepDefinition.m */; };
 		BA64A523159AD16E007527C2 /* PaymentStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA64A521159AD16E007527C2 /* PaymentStepDefinition.m */; };
 		BA64CB6F150DDF8900E8A9EE /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BA64CB6E150DDF8900E8A9EE /* libsqlite3.dylib */; };
@@ -294,6 +296,7 @@
 		BA5287B515AC19B4005FBE21 /* StdioHack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = StdioHack.c; sourceTree = "<group>"; };
 		BA56CAD71505A3CC001ECED4 /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
 		BA56CAD91505A3FC001ECED4 /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
+		BA60CA2615E35DE2001319BB /* jskit_test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = jskit_test.js; path = OFQASample/vendor/jskit_test.js; sourceTree = "<group>"; };
 		BA64A520159AD16E007527C2 /* PaymentStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaymentStepDefinition.h; path = steps/PaymentStepDefinition.h; sourceTree = "<group>"; };
 		BA64A521159AD16E007527C2 /* PaymentStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaymentStepDefinition.m; path = steps/PaymentStepDefinition.m; sourceTree = "<group>"; };
 		BA64CB6E150DDF8900E8A9EE /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -500,6 +503,7 @@
 		BA198CDF15CFA94300397DF7 /* greejskit */ = {
 			isa = PBXGroup;
 			children = (
+				BA60CA2615E35DE2001319BB /* jskit_test.js */,
 				BA198DA915D0FDF000397DF7 /* cases.html */,
 				BA198D1515CFAAB500397DF7 /* demo.html */,
 				BA198CE115CFA9A300397DF7 /* command_interface.js */,
@@ -1081,6 +1085,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA60CA2915E377C6001319BB /* jskit_test.js in Resources */,
 				BA198CE515CFA9B000397DF7 /* command_interface.js in Resources */,
 				BA198CE615CFA9B000397DF7 /* ggp_command.js in Resources */,
 				BA99E2FD15A595AE00818490 /* GreePlatformCoreResources.bundle in Resources */,
@@ -1162,6 +1167,7 @@
 				BA198CE315CFA9A300397DF7 /* command_interface.js in Sources */,
 				BA198CE415CFA9A300397DF7 /* ggp_command.js in Sources */,
 				BA198D5915D0C03400397DF7 /* LogJsKitStepDefinition.m in Sources */,
+				BA60CA2715E35DE2001319BB /* jskit_test.js in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
