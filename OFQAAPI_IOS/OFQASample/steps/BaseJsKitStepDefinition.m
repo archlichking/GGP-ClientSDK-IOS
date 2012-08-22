@@ -104,6 +104,16 @@
     [StepDefinition waitForOutsideStep]; 
 }
 
+- (void) I_dismiss_last_opened_viewControl{
+    
+    NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                        [NSString stringWithFormat:@"%i", dismissViewControl], @"command",
+                                        nil];
+    [self notifyMainUIWithCommand:CommandDispatchCommand 
+                           object:userinfoDic];
+    [StepDefinition waitForOutsideStep]; 
+}
+
 - (void) step_sleep:(NSTimeInterval) interval{
     [NSThread sleepForTimeInterval:interval];
 }

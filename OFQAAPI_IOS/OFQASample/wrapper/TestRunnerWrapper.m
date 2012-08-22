@@ -24,7 +24,7 @@
 
 
 #import "SampleStepDefinition.h"
-#import "CommenStepDefinition.h"
+#import "AuthorizationStepDefinition.h"
 #import "AchievementStepDefinition.h"
 #import "LeaderboardStepDefinition.h"
 #import "PeopleStepDefinition.h"
@@ -59,7 +59,7 @@
         [self setCaseWrappers:[[[NSMutableArray alloc] init] autorelease]];
         
         NSArray* classArray = [[[NSArray alloc] initWithObjects:
-                                class_createInstance([CommenStepDefinition class], 0), 
+                                class_createInstance([AuthorizationStepDefinition class], 0), 
                                 class_createInstance([AchievementStepDefinition class], 0),
                                 class_createInstance([LeaderboardStepDefinition class], 0), 
                                 class_createInstance([PeopleStepDefinition class], 0),

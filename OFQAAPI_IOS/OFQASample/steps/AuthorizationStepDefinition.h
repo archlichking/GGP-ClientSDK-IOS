@@ -9,11 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "StepDefinition.h"
 
-@interface CommenStepDefinition : StepDefinition{
+@interface AuthorizationStepDefinition : StepDefinition{
     
 }
 
 - (void) I_logged_in_with_email_PARAM:(NSString*) email
+                  _and_password_PARAM:(NSString*) password;
+
+- (void) I_logged_in_via_popup_with_email_PARAM:(NSString*) email
                   _and_password_PARAM:(NSString*) password;
 
 - (void) as_server_automation_PARAM:(NSString*) anything;

@@ -50,6 +50,7 @@ class JskitTest
                                 'message' : 'this is message',
                                 'cancel_index' : 1
                                }",
+            'needUpdate':"",
 			'setConfig': "{'key':'jskitTestDone', 'value':'true'}"
 
 		console.log JSON.stringify(nonUISuite)
@@ -57,9 +58,7 @@ class JskitTest
 
 	invokePopupTest: () ->
 		popupSuite = 
-			'showDashboardFromNotificationBoard':"{
-                           'URL':'http://www.google.com'
-                           }",
+			'showDashboardFromNotificationBoard':"",
 			'setConfig': "{'key':'jskitTestDone', 'value':'true'}"
 
 		console.log JSON.stringify(popupSuite)

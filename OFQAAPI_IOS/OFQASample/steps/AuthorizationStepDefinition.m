@@ -6,16 +6,19 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
-#import "CommenStepDefinition.h"
+#import "AuthorizationStepDefinition.h"
 #import "GreeKeyChain.h"
 #import "GreePlatform.h"
 #import "GreeUser.h"
+#import "GreeAuthorizationPopup.h"
 
 #import "AppDelegate.h"
 
 #import "CredentialStorage.h"
-#import "QAAssert.h"
 #import "Constant.h"
+#import "StringUtil.h"
+#import "CommandUtil.h"
+#import "QAAssert.h"
 
 // private hacking to update local user
 @interface GreePlatform(PrivateUserHacking)
@@ -26,8 +29,24 @@
 @property (nonatomic, retain) GreeUser* localUser;
 @end
 
+//
+@interface GreeAuthorizationPopup(AuthorizationPopupHacking)
+- (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView;
+@end
 
-@implementation CommenStepDefinition
+@implementation GreeAuthorizationPopup(AuthorizationPopupHacking)
+- (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView{
+    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
+    if (self.didFinishLoadHandlingBlock){
+        self.didFinishLoadHandlingBlock(aWebView.request);
+    }
+    
+    [[StepDefinition getOutsideBlockRepo] setObject:self forKey:@"popup"];
+    [StepDefinition notifyOutsideStep];
+}
+@end
+
+@implementation AuthorizationStepDefinition
 
 // step definition : I logged in with email EMAIL and password PWD
 - (void) I_logged_in_with_email_PARAM:(NSString*) email
@@ -57,6 +76,12 @@
         [self notifyInStep];
     }];
     [self waitForInStep];
+}
+
+// step definition: 
+- (void) I_logged_in_via_popup_with_email_PARAM:(NSString*) email
+                            _and_password_PARAM:(NSString*) password{
+    // this is for login popup
 }
 
 - (void) as_server_automation_PARAM:(NSString*) anything{
@@ -95,8 +120,42 @@
     
 }
 
+// step definition : i logout
 - (void) I_logout{
-    //[GreePlatform revokeAuthorization];
+    // this only works for sandbox
+    [GreePlatform revokeAuthorizationWithBlock:^(NSError *error) {
+        if(!error){
+            
+        }
+    }];
+    
+    // wait for logout popup
+    [StepDefinition waitForOutsideStep];
+    
+    GreeAuthorizationPopup* popup = [[StepDefinition getOutsideBlockRepo] objectForKey:@"popup"];
+    [[self getBlockRepo] setObject:popup 
+                            forKey:@"popup"];
+    
+    // click logout button
+    NSString* js = @"stringify(fclass('button large block primary'))";
+    
+    id resultBlock = ^(NSString* result){
+        [[self getBlockRepo] setObject:result forKey:@"logoutButton"];
+        [self notifyInStep];
+    };
+    
+    NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                        [NSString stringWithFormat:@"%i", executeJavascriptInPopup], @"command",
+                                        popup, @"executor",
+                                        js, @"jsCommand",
+                                        resultBlock, @"jsCallback",
+                                        nil];
+    
+    [self notifyMainUIWithCommand:CommandDispatchCommand 
+                           object:userinfoDic];
+    
+    [self waitForInStep];
+    [StepDefinition waitForOutsideStep];
 }
 
 - (void) print_user{

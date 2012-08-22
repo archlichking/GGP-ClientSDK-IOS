@@ -310,6 +310,12 @@
                                 waitUntilDone:YES];
             [StepDefinition notifyOutsideStep];
             break;  
+        case dismissViewControl:
+            [self performSelectorOnMainThread:@selector(dismissActiveGreeViewControllerAnimated:) 
+                                   withObject:[NSNumber numberWithBool:YES] 
+                                waitUntilDone:YES];
+            [StepDefinition notifyOutsideStep];
+            break;
         case executeJavascriptInPopup:
             [self performSelectorOnMainThread:@selector(executeJsInPopup:) 
                                    withObject:extra 
