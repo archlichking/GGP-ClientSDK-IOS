@@ -17,7 +17,7 @@
       _results = [];
       for (func in suite) {
         params = suite[func];
-        _results.push(this.functionCall(func, params, "this.appendTextNode('" + func + "  test done')"));
+        _results.push(this.functionCall(func, params, "this.appendTextNode('" + func + " test done')"));
       }
       return _results;
     };
@@ -52,6 +52,12 @@
         'getLocalNotificationEnabled': "",
         'flushAnalyticsQueue': "",
         'flushAnalyticsData': "",
+        'collateForDeposit': "",
+        'contactForDeposit': "{'id':'101'}",
+        'noticeLaunchDeposit': "",
+        'pushViewWithURL': "'http://www.baidu.com'",
+        'openExternalView': "'http://www.baidu.com'",
+        'showMessageDialog': "{                                'buttons' : [ 'OK', 'Cancel'],                                'title' : 'ok cancel dialog',                                'message' : 'this is message',                                'cancel_index' : 1                               }",
         'setConfig': "{'key':'jskitTestDone', 'value':'true'}"
       };
       console.log(JSON.stringify(nonUISuite));
@@ -60,10 +66,7 @@
     JskitTest.prototype.invokePopupTest = function() {
       var popupSuite;
       popupSuite = {
-        'showRequestDialog': "{'request':{'title':'request test','body':'request body'}}",
-        'showShareDialog': "{'type':'normal', 'message':'normal dialog'}",
-        'showInviteDialog': "{'invite':{'body':'this is js invite'}}",
-        'showWebViewDialog': "{'URL':'http://www.baidu.com','size':[50, 50]}",
+        'showDashboardFromNotificationBoard': "{                           'URL':'http://www.google.com'                           }",
         'setConfig': "{'key':'jskitTestDone', 'value':'true'}"
       };
       console.log(JSON.stringify(popupSuite));
@@ -122,6 +125,60 @@
       };
       console.log(JSON.stringify(popupSuite));
       return this.executeSuite(popupSuite);
+    };
+    JskitTest.prototype.invokeNeedUpgrade = function() {
+      var popupSuite;
+      popupSuite = {
+        'needUpgrade': "{'target_grade':'2'}",
+        'setConfig': "{'key':'jskitTestDone', 'value':'true'}"
+      };
+      console.log(JSON.stringify(popupSuite));
+      return this.executeSuite(popupSuite);
+    };
+    JskitTest.prototype.invokeIAPHistoryDialog = function() {
+      var popupSuite;
+      popupSuite = {
+        'closeAndLaunchIAPHistoryDialog': "",
+        'setConfig': "{'key':'jskitTestDone', 'value':'true'}"
+      };
+      console.log(JSON.stringify(popupSuite));
+      return this.executeSuite(popupSuite);
+    };
+    JskitTest.prototype.inviteExternalUser = function() {
+      var viewSuite;
+      viewSuite = {
+        'inviteExternalUser': "{'URL':'http://www.baidu.com/'}",
+        'setConfig': "{'key':'jskitTestDone', 'value':'true'}"
+      };
+      console.log(JSON.stringify(viewSuite));
+      return this.executeSuite(viewSuite);
+    };
+    JskitTest.prototype.showActionSheet = function() {
+      var viewSuite;
+      viewSuite = {
+        'showActionSheetL': "{ 'title' : 'Alert',                               'buttons': ['OK', 'Do Nothing', 'Destroy All Buttons!', 'Cancel'],                               'cancel_index' : 2,                               'destructive_index' : 3}",
+        'setConfig': "{'key':'jskitTestDone', 'value':'true'}"
+      };
+      console.log(JSON.stringify(viewSuite));
+      return this.executeSuite(viewSuite);
+    };
+    JskitTest.prototype.showAlertView = function() {
+      var viewSuite;
+      viewSuite = {
+        'showAlertView': "{ 'title' : 'Alert',                             'message' : 'This is a message',                             'buttons': ['OK', 'Do Nothing', 'Cancel'],                             'cancel_index' : 0}",
+        'setConfig': "{'key':'jskitTestDone', 'value':'true'}"
+      };
+      console.log(JSON.stringify(viewSuite));
+      return this.executeSuite(viewSuite);
+    };
+    JskitTest.prototype.showDashboard = function() {
+      var viewSuite;
+      viewSuite = {
+        'showDashboard': "{                           'URL':'http://www.google.com'                           }",
+        'setConfig': "{'key':'jskitTestDone', 'value':'true'}"
+      };
+      console.log(JSON.stringify(viewSuite));
+      return this.executeSuite(viewSuite);
     };
     return JskitTest;
   })();
