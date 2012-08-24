@@ -57,7 +57,8 @@
         'noticeLaunchDeposit': "",
         'pushViewWithURL': "'http://www.baidu.com'",
         'openExternalView': "'http://www.baidu.com'",
-        'showMessageDialog': "{                                'buttons' : [ 'OK', 'Cancel'],                                'title' : 'ok cancel dialog',                                'message' : 'this is message',                                'cancel_index' : 1                               }",
+        'showMessageDialog': "{'buttons':['OK','Cancel'],'title':'ok cancel dialog','message':'this is message','cancel_index':1}",
+        'needUpdate': "",
         'setConfig': "{'key':'jskitTestDone', 'value':'true'}"
       };
       console.log(JSON.stringify(nonUISuite));
@@ -66,7 +67,7 @@
     JskitTest.prototype.invokePopupTest = function() {
       var popupSuite;
       popupSuite = {
-        'showDashboardFromNotificationBoard': "{                           'URL':'http://www.google.com'                           }",
+        'showDashboardFromNotificationBoard': "",
         'setConfig': "{'key':'jskitTestDone', 'value':'true'}"
       };
       console.log(JSON.stringify(popupSuite));

@@ -22,6 +22,7 @@
 #import "GreePopup.h"
 #import "GreeWallet.h"
 #import "GreeWidget.h"
+#import "GreeAgreementPopup.h"
 
 #import <QuartzCore/QuartzCore.h>
 #import "UIViewController+GreePlatform.h"
@@ -338,7 +339,6 @@
                                    withObject:extra 
                                 waitUntilDone:YES];
             break;
-            
         case launchJskitPopup:
             [self performSelectorOnMainThread:@selector(launchJskitPopup:) 
                                    withObject:extra 

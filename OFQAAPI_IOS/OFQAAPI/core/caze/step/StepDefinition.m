@@ -31,7 +31,7 @@ static int OUTSIDETIMEOUT = 30;
         inStepLock = [[NSConditionLock alloc] initWithCondition:0];
     }
     if(!TIMEOUT || TIMEOUT == 0){
-        TIMEOUT = 5;
+        TIMEOUT = 10;
     }
     [inStepLock lockWhenCondition:1 
                        beforeDate:[NSDate dateWithTimeIntervalSinceNow:TIMEOUT]];

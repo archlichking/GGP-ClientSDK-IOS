@@ -1,3 +1,2 @@
 Given I logged in with email auto3@136.com and password 123456
-And I logout
-When I logged in via popup with email auto3@136.com and password 123456
+And I did open agreement popup
