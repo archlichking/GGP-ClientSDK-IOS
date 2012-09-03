@@ -93,4 +93,54 @@
     [QAAssert assertNotNil:[GreePlatform version]];
 }
 
+
+
+- (void) I_rotate_screen{
+    
+}
+
+- (void) I_sign_request_to_url_PARAM:(NSString*) url 
+     _with_url_params_with_key_PARAM:(NSString*) key 
+                    _and_value_PARAM:(NSString*) value{
+    [[self getBlockRepo] setObject:@"nil" forKey:@"signed_result"];
+    NSString* u = [NSString stringWithFormat:@"%@?%@=%@", url, key, value];
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:u]];
+    [[GreePlatform sharedInstance] signRequest:request parameters:nil];
+
+    
+    NSHTTPURLResponse *response;
+    NSError *err;
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+    [[self getBlockRepo] setObject:request forKey:@"signed_request"];
+}
+
+- (void) I_sign_request_to_url_PARAM:(NSString*) url 
+   _with_extra_params_with_key_PARAM:(NSString*) key 
+                    _and_value_PARAM:(NSString*) value{
+    [[self getBlockRepo] setObject:@"nil" forKey:@"signed_request"];
+    NSDictionary* params = [[NSDictionary alloc] initWithObjectsAndKeys:
+                            value, key
+                            , nil];
+    NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+    [[GreePlatform sharedInstance] signRequest:request parameters:params];
+    
+    NSHTTPURLResponse *response;
+    NSError *err;
+    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
+    [[self getBlockRepo] setObject:request forKey:@"signed_request"];
+}
+
+- (void) signed_request_query_params_with_key_PARAM:(NSString*) key
+                                   _should_be_PARAM:(NSString*) value{
+    NSMutableURLRequest* request = [[self getBlockRepo] objectForKey:@"signed_request"];
+    NSString* str = [[request URL] absoluteString];
+//    NSString* r = [[NSString alloc] initWithData:result 
+//                                        encoding:NSUTF8StringEncoding];
+    NSDictionary* dic = [request allHTTPHeaderFields];
+    NSString* v = [NSURLProtocol propertyForKey:key inRequest:request];
+    [QAAssert assertEqualsExpected:value
+                            Actual:v];
+//    [r release];
+}
+
 @end

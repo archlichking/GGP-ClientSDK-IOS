@@ -9,25 +9,6 @@
                                     proton.app.setPullToRefresh();
                                     proton.app.pageLoaded();
             });
-            
-            function inviteExternalUser(){
-                proton.app.inviteExternalUser({
-                    'URL':'http://www.baidu.com/'
-                });
-            }
-
-            function launchNativeBrowserTest(callback){
-                proton.app.launchNativeBrowser({'URL':'http://www.baidu.com/'}, callback);
-            }
-
-            function launchOK_CANCELDialogTest(callback){
-                proton.app.showMessageDialog({
-                                'buttons' : [ 'OK', 'Cancel'],
-                                'title' : 'ok cancel dialog test',
-                                'message' : 'this is test purpose',
-                                'cancel_index' : 1
-                               }, callback);
-            }
         </script>
     <head>
     <body>
