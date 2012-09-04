@@ -39,6 +39,7 @@
 #import "BadgeStepDefinition.h"
 #import "WidgetStepDefinition.h"
 #import "LogJsKitStepDefinition.h"
+#import "LoggerStepDefinition.h"
 
 #import "QALog.h"
 
@@ -74,6 +75,7 @@
                                 class_createInstance([BadgeStepDefinition class], 0),
                                 class_createInstance([WidgetStepDefinition class], 0),
                                 class_createInstance([LogJsKitStepDefinition class], 0),
+                                 class_createInstance([LoggerStepDefinition class], 0),
 //                                 class_createInstance([SampleStepDefinition class], 0),
                                nil] autorelease];
 
