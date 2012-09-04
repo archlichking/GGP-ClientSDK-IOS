@@ -106,11 +106,6 @@
     NSString* u = [NSString stringWithFormat:@"%@?%@=%@", url, key, value];
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:u]];
     [[GreePlatform sharedInstance] signRequest:request parameters:nil];
-
-    
-    NSHTTPURLResponse *response;
-    NSError *err;
-    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
     [[self getBlockRepo] setObject:request forKey:@"signed_request"];
 }
 
@@ -123,23 +118,14 @@
                             , nil];
     NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
     [[GreePlatform sharedInstance] signRequest:request parameters:params];
-    
-    NSHTTPURLResponse *response;
-    NSError *err;
-    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&err];
     [[self getBlockRepo] setObject:request forKey:@"signed_request"];
 }
 
 - (void) signed_request_query_params_with_key_PARAM:(NSString*) key
                                    _should_be_PARAM:(NSString*) value{
     NSMutableURLRequest* request = [[self getBlockRepo] objectForKey:@"signed_request"];
-    NSString* str = [[request URL] absoluteString];
-//    NSString* r = [[NSString alloc] initWithData:result 
-//                                        encoding:NSUTF8StringEncoding];
     NSDictionary* dic = [request allHTTPHeaderFields];
-    NSString* v = [NSURLProtocol propertyForKey:key inRequest:request];
-    [QAAssert assertEqualsExpected:value
-                            Actual:v];
+    [QAAssert assertContainsExpected:[dic objectForKey:@"Authorization"] Contains:value];
 //    [r release];
 }
 

@@ -77,7 +77,7 @@
     GreeUser* user = [[self getBlockRepo] objectForKey:@"user"];
     NSString* result = @"";
     if (user) {
-        if ([key isEqualToString:@"nickName"]) {
+        if ([key isEqualToString:@"nickname"]) {
             [QAAssert assertEqualsExpected:value 
                                     Actual:[user nickname]];
             result = [result stringByAppendingFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 

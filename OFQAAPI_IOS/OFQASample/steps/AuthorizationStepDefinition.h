@@ -24,6 +24,7 @@
 
 // login popup
 - (void) I_replace_my_token_with_invalid_value;
+- (void) I_recover_my_token_with_correct_value;
 - (void) I_do_a_reauthorization;
 - (void) authorization_failed_confirm_popup_should_display_well;
 

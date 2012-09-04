@@ -36,7 +36,7 @@
 
 @implementation GreeAuthorizationPopup(AuthorizationPopupHacking)
 - (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView{
-    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
+//    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
     if (self.didFinishLoadHandlingBlock){
         self.didFinishLoadHandlingBlock(aWebView.request);
     }
@@ -61,6 +61,8 @@
     
     if ([[GreeKeyChain readWithKey:GreeKeyChainUserIdIdentifier] isEqualToString:[credentialDic objectForKey:CredentialStoredUserid]]) {
         // no need to switch user
+        [[self getBlockRepo] setObject:email forKey:@"valie_email"];
+        [[self getBlockRepo] setObject:password forKey:@"valie_password"];
         return;
     }
     
@@ -76,6 +78,9 @@
         [self notifyInStep];
     }];
     [self waitForInStep];
+    
+    [[self getBlockRepo] setObject:email forKey:@"valie_email"];
+    [[self getBlockRepo] setObject:password forKey:@"valie_password"];
 }
 
 // step definition: 
@@ -188,19 +193,14 @@
     [GreeKeyChain saveWithKey:GreeKeyChainAccessTokenIdentifier value:[credentialDic objectForKey:CredentialStoredOauthKey]];
     [GreeKeyChain saveWithKey:GreeKeyChainAccessTokenSecretIdentifier value:[credentialDic objectForKey:CredentialStoredOauthSecret]];
         
-    [GreeUser loadUserWithId:[credentialDic objectForKey:CredentialStoredUserid] block:^(GreeUser *user, NSError *error) {
-        [[GreePlatform sharedInstance] updateLocalUser:user];
-        [[GreePlatform sharedInstance] authorizeDidUpdateUserId:[credentialDic objectForKey:CredentialStoredUserid] 
-                                                      withToken:[credentialDic objectForKey:CredentialStoredOauthKey] 
-                                                     withSecret:[credentialDic objectForKey:CredentialStoredOauthSecret]];
+    [GreePlatform authorizeWithBlock:^(GreeUser *localUser, NSError *error) {
         [self notifyInStep];
     }];
     [self waitForInStep];
-
     
 }
 
-
+// step definition: i replace my token with invalid value
 - (void) I_replace_my_token_with_invalid_value{
     // do a little tricky thing here
     [GreeKeyChain saveWithKey:GreeKeyChainUserIdIdentifier value:@"ererer"];
@@ -209,6 +209,13 @@
     
 }
 
+// step definition: i recover my token with correct value
+- (void) I_recover_my_token_with_correct_value{
+    [self I_switch_to_user_PARAM:[[self getBlockRepo] objectForKey:@"valie_email"]
+            _with_password_PARAM:[[self getBlockRepo] objectForKey:@"valie_password"]];
+}
+
+// step definition: i do a reauthorization
 - (void) I_do_a_reauthorization{
     [GreePlatform authorizeWithBlock:^(GreeUser *localUser, NSError *error) {
         
@@ -241,6 +248,7 @@
 //    
 //    [self waitForInStep];
 //    [StepDefinition waitForOutsideStep];
+    [[StepDefinition getOutsideBlockRepo] removeObjectForKey:@"popup"];
 }
 
 // step definition: i tend to logout

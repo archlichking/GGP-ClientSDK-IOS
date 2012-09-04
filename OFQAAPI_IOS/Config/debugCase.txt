@@ -1,3 +1,6 @@
 Given I logged in with email auto3@136.com and password 123456
-When I sign request to url http://www.newsmth.net with extra params with key name and value lay
-Then signed request query params with key name should be lay
+And I replace my token with invalid value
+When I do a reauthorization
+Then authorization failed confirm popup should display well
+After I recover my token with correct value
+And I dismiss authorization popup
