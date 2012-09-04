@@ -19,6 +19,7 @@
 #import "GreeWalletPaymentPopup.h"
 #import "GreeWalletDepositPopup.h"
 #import "GreeWalletDepositIAPHistoryPopup.h"
+#import "GreeAgreementPopup.h"
 
 #import "Constant.h"
 #import "StringUtil.h"
@@ -754,5 +755,9 @@
 }
 
 //--- end ----------- deposit history popup
+
+//--- begin --------- agreement popup
+
+//--- end ----------- agreement popup
 
 @end

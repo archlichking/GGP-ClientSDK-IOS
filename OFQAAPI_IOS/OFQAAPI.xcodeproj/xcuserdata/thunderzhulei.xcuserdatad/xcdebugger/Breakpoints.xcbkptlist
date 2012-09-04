@@ -7,156 +7,169 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/ViewController.m"
-         timestampString = "365932492.048798"
+         filePath = "OFQASample/steps/GreePlatformStepDefinition.m"
+         timestampString = "368356704.285207"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "332"
-         endingLineNumber = "332"
-         landmarkName = "-dispatchCommand:withExecutor:extraInfo:"
+         startingLineNumber = "106"
+         endingLineNumber = "106"
+         landmarkName = "-I_sign_request_to_url_PARAM:_with_url_params_with_key_PARAM:_and_value_PARAM:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/JsKitStepDefinition.m"
-         timestampString = "365932514.97403"
+         filePath = "OFQASample/steps/GreePlatformStepDefinition.m"
+         timestampString = "368356704.285207"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "36"
-         endingLineNumber = "36"
-         landmarkName = "-I_load_jskit_popup"
+         startingLineNumber = "107"
+         endingLineNumber = "107"
+         landmarkName = "-I_sign_request_to_url_PARAM:_with_url_params_with_key_PARAM:_and_value_PARAM:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/ViewController.m"
-         timestampString = "365933001.674757"
+         filePath = "OFQASample/steps/GreePlatformStepDefinition.m"
+         timestampString = "368421251.824192"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "402"
-         endingLineNumber = "402"
-         landmarkName = "@implementation ViewController"
-         landmarkType = "3">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/JsKitStepDefinition.m"
-         timestampString = "365932679.061991"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "41"
-         endingLineNumber = "41"
-         landmarkName = "-I_load_jskit_popup"
+         startingLineNumber = "128"
+         endingLineNumber = "128"
+         landmarkName = "-signed_request_query_params_with_key_PARAM:_should_be_PARAM:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/PaymentStepDefinition.m"
-         timestampString = "367147949.582834"
+         filePath = "OFQASample/steps/GreePlatformStepDefinition.m"
+         timestampString = "368420974.712588"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "146"
-         endingLineNumber = "146"
-         landmarkName = "-I_verify_payment_order_PARAM:"
+         startingLineNumber = "119"
+         endingLineNumber = "119"
+         landmarkName = "-I_sign_request_to_url_PARAM:_with_extra_params_with_key_PARAM:_and_value_PARAM:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/steps/GreePlatformStepDefinition.m"
+         timestampString = "368420974.712588"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "120"
+         endingLineNumber = "120"
+         landmarkName = "-I_sign_request_to_url_PARAM:_with_extra_params_with_key_PARAM:_and_value_PARAM:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/PaymentStepDefinition.m"
-         timestampString = "367147949.582834"
+         filePath = "OFQASample/steps/GreePlatformStepDefinition.m"
+         timestampString = "368421251.824192"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "152"
-         endingLineNumber = "152"
-         landmarkName = "-I_verify_payment_order_PARAM:"
+         startingLineNumber = "126"
+         endingLineNumber = "126"
+         landmarkName = "-signed_request_query_params_with_key_PARAM:_should_be_PARAM:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/steps/AuthorizationStepDefinition.m"
+         timestampString = "368423118.002371"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "54"
+         endingLineNumber = "54"
+         landmarkName = "-I_logged_in_with_email_PARAM:_and_password_PARAM:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/steps/PeopleStepDefinition.m"
+         timestampString = "368423187.161619"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "38"
+         endingLineNumber = "38"
+         landmarkName = "-I_see_my_info_from_server"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/PaymentStepDefinition.m"
-         timestampString = "367147949.582834"
+         filePath = "OFQASample/steps/PeopleStepDefinition.m"
+         timestampString = "368423191.325192"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "151"
-         endingLineNumber = "151"
-         landmarkName = "-I_verify_payment_order_PARAM:"
+         startingLineNumber = "40"
+         endingLineNumber = "40"
+         landmarkName = "-I_see_my_info_from_server"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/WidgetStepDefinition.m"
-         timestampString = "366880477.481577"
+         filePath = "OFQASample/steps/PeopleStepDefinition.m"
+         timestampString = "368423194.390606"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "143"
-         endingLineNumber = "143"
-         landmarkName = "-screenshot_should_be_correct"
+         startingLineNumber = "77"
+         endingLineNumber = "77"
+         landmarkName = "-my_info_PARAM:_should_be_PARAM:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/PaymentStepDefinition.m"
-         timestampString = "367147949.582834"
+         filePath = "OFQASample/steps/PeopleStepDefinition.m"
+         timestampString = "368423200.105012"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "71"
+         endingLineNumber = "71"
+         landmarkName = "-I_see_my_info_from_native_cache"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/steps/AuthorizationStepDefinition.m"
+         timestampString = "368424212.590281"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "184"
+         endingLineNumber = "184"
+         landmarkName = "-I_switch_to_user_PARAM:_with_password_PARAM:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "OFQASample/steps/AuthorizationStepDefinition.m"
+         timestampString = "368424594.966734"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "183"
          endingLineNumber = "183"
-         landmarkName = "-purchased_product_id_should_be_PARAM:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/PaymentStepDefinition.m"
-         timestampString = "367147909.650871"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "171"
-         endingLineNumber = "171"
-         landmarkName = "-I_buy_product_with_id_PARAM:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/PaymentStepDefinition.m"
-         timestampString = "367147917.779293"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "173"
-         endingLineNumber = "173"
-         landmarkName = "-I_buy_product_with_id_PARAM:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "OFQASample/steps/PopupStepDefinition.m"
-         timestampString = "367148055.485266"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "528"
-         endingLineNumber = "528"
-         landmarkName = "-I_did_open_payment_request_popup"
+         landmarkName = "-I_switch_to_user_PARAM:_with_password_PARAM:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -22,6 +22,7 @@
 #import "GreePopup.h"
 #import "GreeWallet.h"
 #import "GreeWidget.h"
+#import "GreeAgreementPopup.h"
 
 #import <QuartzCore/QuartzCore.h>
 #import "UIViewController+GreePlatform.h"
@@ -310,6 +311,12 @@
                                 waitUntilDone:YES];
             [StepDefinition notifyOutsideStep];
             break;  
+        case dismissViewControl:
+            [self performSelectorOnMainThread:@selector(dismissActiveGreeViewControllerAnimated:) 
+                                   withObject:[NSNumber numberWithBool:YES] 
+                                waitUntilDone:YES];
+            [StepDefinition notifyOutsideStep];
+            break;
         case executeJavascriptInPopup:
             [self performSelectorOnMainThread:@selector(executeJsInPopup:) 
                                    withObject:extra 
@@ -332,7 +339,6 @@
                                    withObject:extra 
                                 waitUntilDone:YES];
             break;
-            
         case launchJskitPopup:
             [self performSelectorOnMainThread:@selector(launchJskitPopup:) 
                                    withObject:extra 

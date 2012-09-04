@@ -21,6 +21,7 @@ extern enum {
     // general popup test
     launchPopup,
     dismissPopup,
+    dismissViewControl,
     executeJavascriptInPopup,
     executeInPaymentRequestPopup,
     executeInDepositPopup,

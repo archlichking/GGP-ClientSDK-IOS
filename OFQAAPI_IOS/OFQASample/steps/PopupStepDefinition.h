@@ -77,6 +77,5 @@ extern NSString* const JsBaseCommand;
 - (NSString*) deposit_history_popup_info_PARAM:(NSString*) info
                               _should_be_PARAM:(NSString*) value;
 
-
 // -----------------
 @end
