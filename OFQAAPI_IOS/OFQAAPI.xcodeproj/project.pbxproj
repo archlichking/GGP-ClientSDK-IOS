@@ -81,6 +81,7 @@
 		BA5218F5150E04C2002F02B3 /* StepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5218F3150E04C2002F02B3 /* StepDefinition.m */; };
 		BA5287B615AC19B4005FBE21 /* StdioHack.c in Sources */ = {isa = PBXBuildFile; fileRef = BA5287B515AC19B4005FBE21 /* StdioHack.c */; };
 		BA52C55115F5E71C00DC7CB4 /* LoggerStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA52C55015F5E71C00DC7CB4 /* LoggerStepDefinition.m */; };
+		BA52C55415F6078300DC7CB4 /* AddonStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA52C55315F6078200DC7CB4 /* AddonStepDefinition.m */; };
 		BA52DE081566E59300F87A66 /* libOFQAAPI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA89094B14F75D6100018B0F /* libOFQAAPI.a */; };
 		BA56CAD81505A3CC001ECED4 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = BA56CAD71505A3CC001ECED4 /* checked.png */; };
 		BA56CADA1505A3FC001ECED4 /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = BA56CAD91505A3FC001ECED4 /* unchecked.png */; };
@@ -360,6 +361,8 @@
 		BA5287B515AC19B4005FBE21 /* StdioHack.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = StdioHack.c; sourceTree = "<group>"; };
 		BA52C54F15F5E71C00DC7CB4 /* LoggerStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LoggerStepDefinition.h; path = steps/LoggerStepDefinition.h; sourceTree = "<group>"; };
 		BA52C55015F5E71C00DC7CB4 /* LoggerStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LoggerStepDefinition.m; path = steps/LoggerStepDefinition.m; sourceTree = "<group>"; };
+		BA52C55215F6078200DC7CB4 /* AddonStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddonStepDefinition.h; path = steps/AddonStepDefinition.h; sourceTree = "<group>"; };
+		BA52C55315F6078200DC7CB4 /* AddonStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddonStepDefinition.m; path = steps/AddonStepDefinition.m; sourceTree = "<group>"; };
 		BA56CAD71505A3CC001ECED4 /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
 		BA56CAD91505A3FC001ECED4 /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
 		BA60CA2615E35DE2001319BB /* jskit_test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = jskit_test.js; path = OFQASample/vendor/jskit_test.js; sourceTree = "<group>"; };
@@ -690,6 +693,8 @@
 				BAE6AB9E15C78CA40036E379 /* WidgetStepDefinition.m */,
 				BA52C54F15F5E71C00DC7CB4 /* LoggerStepDefinition.h */,
 				BA52C55015F5E71C00DC7CB4 /* LoggerStepDefinition.m */,
+				BA52C55215F6078200DC7CB4 /* AddonStepDefinition.h */,
+				BA52C55315F6078200DC7CB4 /* AddonStepDefinition.m */,
 			);
 			name = Steps;
 			path = OFQASample;
@@ -1326,6 +1331,7 @@
 				BA198D5915D0C03400397DF7 /* LogJsKitStepDefinition.m in Sources */,
 				BA60CA2715E35DE2001319BB /* jskit_test.js in Sources */,
 				BA52C55115F5E71C00DC7CB4 /* LoggerStepDefinition.m in Sources */,
+				BA52C55415F6078300DC7CB4 /* AddonStepDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
