@@ -12,7 +12,7 @@
 @interface AuthorizationStepDefinition : StepDefinition{
     
 }
-
+// common
 - (void) I_logged_in_with_email_PARAM:(NSString*) email
                   _and_password_PARAM:(NSString*) password;
 
@@ -36,6 +36,10 @@
 - (void) I_dismiss_authorization_popup;
 
 - (void) logout_confirm_popup_should_display_well;
+
+
+
+
 
 - (void) print_user;
 - (void) as_server_automation_PARAM:(NSString*) anything;

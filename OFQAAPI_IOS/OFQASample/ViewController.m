@@ -230,7 +230,7 @@
                            withObject:nil
                         waitUntilDone:YES];
     
-//    exit(0);
+    exit(0);
 }
 
 

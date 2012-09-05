@@ -9,6 +9,7 @@
 #import "GreePlatformStepDefinition.h"
 
 #import "GreePlatform.h"
+#import "NSString+GreeAdditions.h"
 
 #import "CredentialStorage.h"
 #import "StringUtil.h"
@@ -96,9 +97,12 @@
 
 
 - (void) I_rotate_screen{
-    
+    NSString* k = @"eLXdwgcwNCA6zoG7SeuRRAjjUKDsctA8";
+    NSData* d = [k greeHexStringFormatInBinary];
+    NSLog(@"%@", d);
 }
 
+// step definition: i sign request to url U with url params with key K and value V
 - (void) I_sign_request_to_url_PARAM:(NSString*) url 
      _with_url_params_with_key_PARAM:(NSString*) key 
                     _and_value_PARAM:(NSString*) value{
@@ -109,6 +113,7 @@
     [[self getBlockRepo] setObject:request forKey:@"signed_request"];
 }
 
+// step definition: i sign request to url U with extra params with key K and value V
 - (void) I_sign_request_to_url_PARAM:(NSString*) url 
    _with_extra_params_with_key_PARAM:(NSString*) key 
                     _and_value_PARAM:(NSString*) value{
@@ -121,6 +126,7 @@
     [[self getBlockRepo] setObject:request forKey:@"signed_request"];
 }
 
+// step definitionL signed request query params with key K should be V
 - (void) signed_request_query_params_with_key_PARAM:(NSString*) key
                                    _should_be_PARAM:(NSString*) value{
     NSMutableURLRequest* request = [[self getBlockRepo] objectForKey:@"signed_request"];

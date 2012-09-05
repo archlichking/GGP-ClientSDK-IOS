@@ -1,6 +1,3 @@
 Given I logged in with email auto3@136.com and password 123456
-And I replace my token with invalid value
-When I do a reauthorization
-Then authorization failed confirm popup should display well
-After I recover my token with correct value
-And I dismiss authorization popup
+When I decode html element entries with string baidu.com?k=f&apos;&amp;&quot;&lt;&gt;&#311233&ier=31
+Then string result should be baidu.com?k=f'&"<>311233&ier=31
