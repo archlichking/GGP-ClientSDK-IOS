@@ -9,6 +9,7 @@
 #import "AuthorizationStepDefinition.h"
 #import "GreeKeyChain.h"
 #import "GreePlatform.h"
+#import "GreePlatform+Internal.h"
 #import "GreeUser.h"
 #import "GreeAuthorizationPopup.h"
 
@@ -58,29 +59,26 @@
                                 Actual:nil 
                            WithMessage:@"no credential for current user %@ found in credential storage. make sure you have it configured in credentialConfig.json"];
     }
+    [[self getBlockRepo] setObject:email forKey:@"valie_email"];
+    [[self getBlockRepo] setObject:password forKey:@"valie_password"];
     
     if ([[GreeKeyChain readWithKey:GreeKeyChainUserIdIdentifier] isEqualToString:[credentialDic objectForKey:CredentialStoredUserid]]) {
         // no need to switch user
-        [[self getBlockRepo] setObject:email forKey:@"valie_email"];
-        [[self getBlockRepo] setObject:password forKey:@"valie_password"];
+        
         return;
     }
     
     [GreeKeyChain saveWithKey:GreeKeyChainUserIdIdentifier value:[credentialDic objectForKey:CredentialStoredUserid]];
     [GreeKeyChain saveWithKey:GreeKeyChainAccessTokenIdentifier value:[credentialDic objectForKey:CredentialStoredOauthKey]];
     [GreeKeyChain saveWithKey:GreeKeyChainAccessTokenSecretIdentifier value:[credentialDic objectForKey:CredentialStoredOauthSecret]];
-    
-    [GreeUser loadUserWithId:[credentialDic objectForKey:CredentialStoredUserid] block:^(GreeUser *user, NSError *error) {
-        [[GreePlatform sharedInstance] updateLocalUser:user];
-        [[GreePlatform sharedInstance] authorizeDidUpdateUserId:[credentialDic objectForKey:CredentialStoredUserid] 
-                                                      withToken:[credentialDic objectForKey:CredentialStoredOauthKey] 
-                                                     withSecret:[credentialDic objectForKey:CredentialStoredOauthSecret]];
+
+    [GreePlatform authorizeNonInteractivelyWithBlock:^(GreeUser *localUser, NSError *error) {
+        if (error) {
+            
+        }
         [self notifyInStep];
     }];
     [self waitForInStep];
-    
-    [[self getBlockRepo] setObject:email forKey:@"valie_email"];
-    [[self getBlockRepo] setObject:password forKey:@"valie_password"];
 }
 
 // step definition: 
@@ -293,6 +291,23 @@
     
     [self waitForInStep];
     [StepDefinition waitForOutsideStep];
+}
+
+// step definition : i logout without popup
+- (void) I_logout_without_popup{
+    [GreePlatform revokeAuthorizationNonInteractivelyWithBlock:^(NSError *error) {
+        if (error) {
+            
+        }
+        [self notifyInStep];
+    }];
+    [self waitForInStep];
+}
+
+// step definition : i should logout
+- (void) I_should_logout{
+    GreeUser* u = [[GreePlatform sharedInstance] localUser];
+    [QAAssert assertNil:u];
 }
 
 - (void) I_dismiss_authorization_popup{

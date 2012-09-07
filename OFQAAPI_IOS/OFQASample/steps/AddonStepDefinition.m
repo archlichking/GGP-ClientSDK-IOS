@@ -9,10 +9,15 @@
 #import "AddonStepDefinition.h"
 
 #import "NSString+GreeAdditions.h"
+#import "NSObject+GreeAdditions.h"
+#import "UIImage+GreeAdditions.h"
 
 #import "QAAssert.h"
+#import "StringUtil.h"
 
 @implementation AddonStepDefinition
+
+//--- begin: NSString+GreeAdditions ------------
 
 // step definition: i get hex string from binary string STR
 - (void) I_get_hex_string_from_binary_string_PARAM:(NSString*) str{
@@ -69,4 +74,63 @@
     NSString* s = [str stringByDecodingHTMLEntities];
     [[self  getBlockRepo] setObject:s forKey:@"gree_string"];
 }
+
+//--- end: NSString+GreeAdditions ------------
+
+- (void) executeBlock:(void(^)(void)) block{
+    NSObject* o = [[NSObject alloc] init];
+    [o performBlock:block afterDelay:0];
+    [o release];
+}
+
+//--- begin: NSObject+GreeAdditions ----------
+- (void) I_execute_block_in_NSObject{
+    id executeBlock = ^(void){
+        [[self getBlockRepo] setObject:@"1" forKey:@"block_execution"];
+        [self notifyInStep];
+    };
+    [self performSelectorOnMainThread:@selector(executeBlock:) withObject:executeBlock waitUntilDone:YES]; 
+    
+    [self waitForInStep];
+}
+
+- (void) block_should_be_executed{
+    NSString* s = [[self getBlockRepo] objectForKey:@"block_execution"];
+    [QAAssert assertEqualsExpected:@"1" Actual:s];
+    [[self  getBlockRepo] setObject:s forKey:@"block_execution"];
+}
+//--- end: NSObject+GreeAdditions --------------
+//--- begin: UIImage+GreeAdditions -------------
+- (void) I_resize_image_with_name_PARAM:(NSString*) n 
+                       _to_height_PARAM:(NSString*) h 
+                       _and_width_PARAM:(NSString*) w{
+    NSArray* array = [StringUtil splitStepsFrom:n by:@"."];
+    NSString* imageName = [[NSBundle mainBundle] pathForResource:[array objectAtIndex:0] ofType:[array objectAtIndex:1]];
+    UIImage* img = [[UIImage alloc] initWithContentsOfFile:imageName];
+    UIImage* i = [UIImage greeResizeImage:img maxPixel:[h intValue]*[w intValue]];
+    [[self getBlockRepo] setObject:i forKey:@"gree_image"];
+}
+
+- (void) image_should_be_of_height_PARAM:(NSString*) h 
+                        _and_width_PARAM:(NSString*) w{
+    UIImage* i = [[self getBlockRepo] objectForKey:@"gree_image"];
+    NSLog(@"%@", [NSString stringWithFormat:@"%.0f", i.size.height]);
+    [QAAssert assertEqualsExpected:[NSString stringWithFormat:@"%0.f", i.size.height] Actual:h];
+    [QAAssert assertEqualsExpected:[NSString stringWithFormat:@"%0.f", i.size.width] Actual:w];
+    [[self getBlockRepo] removeObjectForKey:@"gree_image"];
+}
+
+
+- (void) I_get_app_icon_close_to_width_PARAM:(NSString*) w{
+    UIImage* i = [UIImage greeAppIconNearestWidth:[w integerValue]];
+    [[self getBlockRepo] setObject:i forKey:@"gree_image"];
+}
+
+- (void) app_icon_width_should_be_PARAM:(NSString*) w{
+    UIImage* i = [[self getBlockRepo] objectForKey:@"gree_image"];
+    NSLog(@"%@", [NSString stringWithFormat:@"%.0f", i.size.height]);
+    [QAAssert assertEqualsExpected:w Actual:[NSString stringWithFormat:@"%0.f", i.size.width]];
+    [[self getBlockRepo] removeObjectForKey:@"gree_image"];
+}
+//--- end: UIImage+GreeAdditions --------------
 @end

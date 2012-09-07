@@ -30,6 +30,9 @@
 
 
 - (void) I_logout;
+- (void) I_logout_without_popup;
+- (void) I_should_logout;
+
 
 // tend to logout 
 - (void) I_tend_to_logout;
