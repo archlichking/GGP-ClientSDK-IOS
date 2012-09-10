@@ -39,6 +39,9 @@
 - (void) image_should_be_of_height_PARAM:(NSString*) h 
                         _and_width_PARAM:(NSString*) w;
 
+- (void) I_get_base64_string_of_image_PARAM:(NSString*) n;
+- (void) base64_string_should_not_be_nil;
+
 - (void) I_get_app_icon_close_to_width_PARAM:(NSString*) w;
 - (void) app_icon_width_should_be_PARAM:(NSString*) w;
 

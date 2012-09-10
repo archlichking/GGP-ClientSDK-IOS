@@ -1,3 +1,3 @@
 Given I logged in with email auto3@136.com and password 123456
-When I resize image with name checked.png to height 60 and width 32
-Then image should be of height 60 and width 32
+When I get app icon close to width 32
+Then app icon width should be 32

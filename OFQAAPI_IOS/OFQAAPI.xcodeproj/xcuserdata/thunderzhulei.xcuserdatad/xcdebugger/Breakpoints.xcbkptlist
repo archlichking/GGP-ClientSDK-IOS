@@ -4,45 +4,45 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "OFQASample/steps/AddonStepDefinition.m"
-         timestampString = "368689471.051562"
+         timestampString = "368953220.444554"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "82"
-         endingLineNumber = "82"
-         landmarkName = "-executeBlock:"
+         startingLineNumber = "138"
+         endingLineNumber = "138"
+         landmarkName = "-base64_string_should_not_be_nil"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "OFQASample/steps/AddonStepDefinition.m"
-         timestampString = "368689471.588797"
+         timestampString = "368954167.650445"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "81"
-         endingLineNumber = "81"
-         landmarkName = "-executeBlock:"
+         startingLineNumber = "153"
+         endingLineNumber = "153"
+         landmarkName = "-app_icon_width_should_be_PARAM:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "OFQASample/steps/AddonStepDefinition.m"
-         timestampString = "368689473.44609"
+         isPathRelative = "0"
+         filePath = "/Users/thunderzhulei/lay-zhu/ios/ggplib_ios/sdk/source/core/categories/UIImage+GreeAdditions.m"
+         timestampString = "368953874.106613"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "92"
-         endingLineNumber = "92"
-         landmarkName = "-I_execute_block_in_NSObject"
+         startingLineNumber = "186"
+         endingLineNumber = "186"
+         landmarkName = "+greeAppIconNearestWidth:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
