@@ -34,7 +34,8 @@
 // image addon
 - (void) I_resize_image_with_name_PARAM:(NSString*) n 
                        _to_height_PARAM:(NSString*) h 
-                       _and_width_PARAM:(NSString*) w;
+                       _and_width_PARAM:(NSString*) w
+              _with_rotation_mark_PARAM:(NSString*) r;
 
 - (void) image_should_be_of_height_PARAM:(NSString*) h 
                         _and_width_PARAM:(NSString*) w;

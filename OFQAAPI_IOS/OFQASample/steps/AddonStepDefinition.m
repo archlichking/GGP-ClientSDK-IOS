@@ -84,6 +84,7 @@
 }
 
 //--- begin: NSObject+GreeAdditions ----------
+// step definition : i execute block in nsobject
 - (void) I_execute_block_in_NSObject{
     id executeBlock = ^(void){
         [[self getBlockRepo] setObject:@"1" forKey:@"block_execution"];
@@ -94,6 +95,7 @@
     [self waitForInStep];
 }
 
+// step definition : block should be executed
 - (void) block_should_be_executed{
     NSString* s = [[self getBlockRepo] objectForKey:@"block_execution"];
     [QAAssert assertEqualsExpected:@"1" Actual:s];
@@ -102,6 +104,7 @@
 //--- end: NSObject+GreeAdditions --------------
 
 //--- begin: UIImage+GreeAdditions -------------
+// step definition : i resize image with name N to height H and width W with rotation mark M
 - (void) I_resize_image_with_name_PARAM:(NSString*) n 
                        _to_height_PARAM:(NSString*) h 
                        _and_width_PARAM:(NSString*) w
@@ -118,6 +121,7 @@
     [[self getBlockRepo] setObject:i forKey:@"gree_image"];
 }
 
+// step definition : image should be height H and width W
 - (void) image_should_be_of_height_PARAM:(NSString*) h 
                         _and_width_PARAM:(NSString*) w{
     UIImage* i = [[self getBlockRepo] objectForKey:@"gree_image"];
@@ -126,6 +130,7 @@
     [[self getBlockRepo] removeObjectForKey:@"gree_image"];
 }
 
+// step definition : i get nase64 string of image N
 - (void) I_get_base64_string_of_image_PARAM:(NSString*) n{
     NSArray* array = [StringUtil splitStepsFrom:n by:@"."];
     NSString* imageName = [[NSBundle mainBundle] pathForResource:[array objectAtIndex:0] ofType:[array objectAtIndex:1]];
@@ -133,13 +138,15 @@
     NSString* s = [img greeBase64EncodedString];
     [[self getBlockRepo] setObject:s forKey:@"image_string"];
 }
+
+// step definition : base64 string should not be nill
 - (void) base64_string_should_not_be_nil{
     NSString* s = [[self getBlockRepo] objectForKey:@"image_string"];
     [QAAssert assertNotNil:s];
     [[self getBlockRepo] removeObjectForKey:@"image_string"];
 }
 
-
+// step definition : i get app icon close to width W
 - (void) I_get_app_icon_close_to_width_PARAM:(NSString*) w{
     UIImage* i = [UIImage greeAppIconNearestWidth:[w integerValue]];
     if (i) {
@@ -147,6 +154,7 @@
     }
 }
 
+// step definition : app icon width should be W
 - (void) app_icon_width_should_be_PARAM:(NSString*) w{
     UIImage* i = [[self getBlockRepo] objectForKey:@"gree_image"];
     if (i) {
