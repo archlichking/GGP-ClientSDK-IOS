@@ -9,26 +9,26 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "OFQASample/steps/AddonStepDefinition.m"
-         timestampString = "368506578.490935"
+         timestampString = "368953220.444554"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "64"
-         endingLineNumber = "64"
-         landmarkName = "-I_replace_localized_string_PARAM:_with_key_PARAM:_and_value_PARAM:"
+         startingLineNumber = "138"
+         endingLineNumber = "138"
+         landmarkName = "-base64_string_should_not_be_nil"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "OFQASample/steps/AddonStepDefinition.m"
-         timestampString = "368507311.663787"
+         timestampString = "368954167.650445"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "70"
-         endingLineNumber = "70"
-         landmarkName = "-I_decode_html_element_entries_with_string_PARAM:"
+         startingLineNumber = "153"
+         endingLineNumber = "153"
+         landmarkName = "-app_icon_width_should_be_PARAM:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -36,13 +36,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          isPathRelative = "0"
-         filePath = "/Users/thunderzhulei/lay-zhu/ios/ggplib_ios/sdk/source/core/categories/NSString+GreeAdditions.m"
-         timestampString = "368507423.767764"
+         filePath = "/Users/thunderzhulei/lay-zhu/ios/ggplib_ios/sdk/source/core/categories/UIImage+GreeAdditions.m"
+         timestampString = "368953874.106613"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "203"
-         endingLineNumber = "203"
-         landmarkName = "-stringByDecodingHTMLEntities"
+         startingLineNumber = "186"
+         endingLineNumber = "186"
+         landmarkName = "+greeAppIconNearestWidth:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

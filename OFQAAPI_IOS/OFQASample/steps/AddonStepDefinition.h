@@ -26,4 +26,23 @@
 
 - (void) I_decode_html_element_entries_with_string_PARAM:(NSString*) str;
 
+
+// object addon
+- (void) I_execute_block_in_NSObject;
+- (void) block_should_be_executed;
+
+// image addon
+- (void) I_resize_image_with_name_PARAM:(NSString*) n 
+                       _to_height_PARAM:(NSString*) h 
+                       _and_width_PARAM:(NSString*) w;
+
+- (void) image_should_be_of_height_PARAM:(NSString*) h 
+                        _and_width_PARAM:(NSString*) w;
+
+- (void) I_get_base64_string_of_image_PARAM:(NSString*) n;
+- (void) base64_string_should_not_be_nil;
+
+- (void) I_get_app_icon_close_to_width_PARAM:(NSString*) w;
+- (void) app_icon_width_should_be_PARAM:(NSString*) w;
+
 @end
