@@ -59,7 +59,7 @@
         [self waitForInStep];
     }else{
         NSDate* date = [FriendCodeStepDefinition dateFromString:time];
-        [GreeFriendCodes requestCodeWithExpireTime:date 
+        [GreeFriendCodes requestCodeWithExpirationDate:date
                                              block:^(NSString *code, NSError *error) {
                                                  if(!error){
                                                      [[self getBlockRepo] setObject:code 

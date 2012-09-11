@@ -440,7 +440,7 @@
     [self cleanCallbacks:popup];
     
     NSDictionary* shareMatrix = [[NSDictionary alloc] initWithObjectsAndKeys: 
-                                  @"stringify(fid('ggp_share_mood_message_display'))", @"text",
+                                  @"stringify(fid('ggp_share_body'))", @"text",
                                   nil];
     
     [[self getBlockRepo] setObject:shareMatrix forKey:@"sharePage"];

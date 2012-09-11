@@ -40,7 +40,7 @@
 
 @implementation GreePopup(PrivateJskitPopupHacking)
 - (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView{
-//    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
+    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
     [StepDefinition notifyOutsideStep];
 }
 
