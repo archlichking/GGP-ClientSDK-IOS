@@ -1,3 +1,0 @@
-Given I logged in with email auto3@136.com and password 123456
-When I get app icon close to width 32
-Then app icon width should be 32

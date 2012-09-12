@@ -4,45 +4,29 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "OFQASample/steps/AddonStepDefinition.m"
-         timestampString = "368953220.444554"
+         filePath = "OFQASample/steps/AuthorizationStepDefinition.m"
+         timestampString = "369049810.675501"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "138"
-         endingLineNumber = "138"
-         landmarkName = "-base64_string_should_not_be_nil"
+         startingLineNumber = "299"
+         endingLineNumber = "299"
+         landmarkName = "-I_logout_without_popup"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "No"
+         shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "OFQASample/steps/AddonStepDefinition.m"
-         timestampString = "368954167.650445"
+         filePath = "OFQASample/steps/AuthorizationStepDefinition.m"
+         timestampString = "369049821.381206"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "153"
-         endingLineNumber = "153"
-         landmarkName = "-app_icon_width_should_be_PARAM:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "0"
-         filePath = "/Users/thunderzhulei/lay-zhu/ios/ggplib_ios/sdk/source/core/categories/UIImage+GreeAdditions.m"
-         timestampString = "368953874.106613"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "186"
-         endingLineNumber = "186"
-         landmarkName = "+greeAppIconNearestWidth:"
+         startingLineNumber = "309"
+         endingLineNumber = "309"
+         landmarkName = "-I_should_logout"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
