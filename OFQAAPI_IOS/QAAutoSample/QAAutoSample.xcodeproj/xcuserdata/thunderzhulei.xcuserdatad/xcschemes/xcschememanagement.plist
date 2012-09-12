@@ -4,25 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>OFQAJenkins.xcscheme</key>
+		<key>QAAutoSample.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>2</integer>
+			<integer>3</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>BA34F4F515759ECC00EA1F50</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BA78B5FB14F792A200C4D6FB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BA89094A14F75D6100018B0F</key>
+		<key>BAEE813A16006AB60052FDC8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

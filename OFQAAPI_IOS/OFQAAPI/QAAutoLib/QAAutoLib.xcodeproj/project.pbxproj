@@ -1,0 +1,242 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BAEE80E6160069740052FDC8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE80E5160069740052FDC8 /* Foundation.framework */; };
+		BAEE80EB160069740052FDC8 /* QAAutoLib.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAEE80EA160069740052FDC8 /* QAAutoLib.h */; };
+		BAEE80ED160069740052FDC8 /* QAAutoLib.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE80EC160069740052FDC8 /* QAAutoLib.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BAEE80E0160069740052FDC8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				BAEE80EB160069740052FDC8 /* QAAutoLib.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		BAEE80E2160069740052FDC8 /* libQAAutoLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libQAAutoLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAEE80E5160069740052FDC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BAEE80E9160069740052FDC8 /* QAAutoLib-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QAAutoLib-Prefix.pch"; sourceTree = "<group>"; };
+		BAEE80EA160069740052FDC8 /* QAAutoLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QAAutoLib.h; sourceTree = "<group>"; };
+		BAEE80EC160069740052FDC8 /* QAAutoLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QAAutoLib.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BAEE80DF160069740052FDC8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAEE80E6160069740052FDC8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BAEE80D7160069740052FDC8 = {
+			isa = PBXGroup;
+			children = (
+				BAEE80E7160069740052FDC8 /* QAAutoLib */,
+				BAEE80E4160069740052FDC8 /* Frameworks */,
+				BAEE80E3160069740052FDC8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BAEE80E3160069740052FDC8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BAEE80E2160069740052FDC8 /* libQAAutoLib.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BAEE80E4160069740052FDC8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BAEE80E5160069740052FDC8 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BAEE80E7160069740052FDC8 /* QAAutoLib */ = {
+			isa = PBXGroup;
+			children = (
+				BAEE80EA160069740052FDC8 /* QAAutoLib.h */,
+				BAEE80EC160069740052FDC8 /* QAAutoLib.m */,
+				BAEE80E8160069740052FDC8 /* Supporting Files */,
+			);
+			path = QAAutoLib;
+			sourceTree = "<group>";
+		};
+		BAEE80E8160069740052FDC8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BAEE80E9160069740052FDC8 /* QAAutoLib-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BAEE80E1160069740052FDC8 /* QAAutoLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BAEE80F0160069740052FDC8 /* Build configuration list for PBXNativeTarget "QAAutoLib" */;
+			buildPhases = (
+				BAEE80DE160069740052FDC8 /* Sources */,
+				BAEE80DF160069740052FDC8 /* Frameworks */,
+				BAEE80E0160069740052FDC8 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QAAutoLib;
+			productName = QAAutoLib;
+			productReference = BAEE80E2160069740052FDC8 /* libQAAutoLib.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BAEE80D9160069740052FDC8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = OFQA;
+			};
+			buildConfigurationList = BAEE80DC160069740052FDC8 /* Build configuration list for PBXProject "QAAutoLib" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BAEE80D7160069740052FDC8;
+			productRefGroup = BAEE80E3160069740052FDC8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BAEE80E1160069740052FDC8 /* QAAutoLib */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BAEE80DE160069740052FDC8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAEE80ED160069740052FDC8 /* QAAutoLib.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		BAEE80EE160069740052FDC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BAEE80EF160069740052FDC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BAEE80F1160069740052FDC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/QAAutoLib.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QAAutoLib/QAAutoLib-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		BAEE80F2160069740052FDC8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/QAAutoLib.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "QAAutoLib/QAAutoLib-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BAEE80DC160069740052FDC8 /* Build configuration list for PBXProject "QAAutoLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAEE80EE160069740052FDC8 /* Debug */,
+				BAEE80EF160069740052FDC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BAEE80F0160069740052FDC8 /* Build configuration list for PBXNativeTarget "QAAutoLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAEE80F1160069740052FDC8 /* Debug */,
+				BAEE80F2160069740052FDC8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BAEE80D9160069740052FDC8 /* Project object */;
+}

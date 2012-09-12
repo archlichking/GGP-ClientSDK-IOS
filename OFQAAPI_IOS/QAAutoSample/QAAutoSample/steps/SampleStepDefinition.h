@@ -1,0 +1,18 @@
+//
+//  SampleStepDefinition.h
+//  OFQAAPI
+//
+//  Created by lei zhu on 2/28/12.
+//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import "StepDefinition.h"
+
+@interface SampleStepDefinition : StepDefinition{
+    
+}
+
+- (void) I_make_screenshot;
+
+@end

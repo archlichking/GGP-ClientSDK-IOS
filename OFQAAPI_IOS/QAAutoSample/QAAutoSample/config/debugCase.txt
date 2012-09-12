@@ -1,0 +1,6 @@
+Given I logged in with email auto3@136.com and password 123456
+And I load list of leaderboard
+And I make sure my score EXISTS in leaderboard Asc Board 02
+When I format my score of leaderboard Asc Board 02
+Then formatted score should be 0:50:00
+After I make sure my score NOTEXISTS in leaderboard Asc Board 02
