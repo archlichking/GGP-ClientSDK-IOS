@@ -1,0 +1,36 @@
+dependencies: \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/ViewController.m \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/ViewController.h \
+  ../../ggplib_ios/sdk/source/core/categories/UIViewController+GreePlatform.h \
+  ../../ggplib_ios/sdk/source/components/widget/GreeWidget.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/delegate/TestPopupDelegate.h \
+  ../QAAutoLib/QAAutoLib/vendor/SBJson/SBJson.h \
+  ../QAAutoLib/QAAutoLib/vendor/SBJson/SBJsonParser.h \
+  ../QAAutoLib/QAAutoLib/vendor/SBJson/SBJsonWriter.h \
+  ../QAAutoLib/QAAutoLib/vendor/SBJson/SBJsonStreamParser.h \
+  ../QAAutoLib/QAAutoLib/vendor/SBJson/SBJsonStreamParserAdapter.h \
+  ../QAAutoLib/QAAutoLib/vendor/SBJson/SBJsonStreamWriter.h \
+  ../QAAutoLib/QAAutoLib/vendor/SBJson/NSObject+SBJson.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/AppDelegate.h \
+  ../../ggplib_ios/sdk/source/GreePlatform.h \
+  ../../ggplib_ios/sdk/source/core/badge/GreeBadgeValues.h \
+  ../../ggplib_ios/sdk/source/GreeDeprecation.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/wrapper/TestCaseWrapper.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/wrapper/TestRunnerWrapper.h \
+  ../QAAutoLib/QAAutoLib/core/net/TcmCommunicator.h \
+  ../QAAutoLib/QAAutoLib/core/net/NetCommunicator.h \
+  ../QAAutoLib/QAAutoLib/core/caze/TestCase.h \
+  ../QAAutoLib/QAAutoLib/core/util/CommandUtil.h \
+  ../QAAutoLib/QAAutoLib/core/util/Constant.h \
+  ../QAAutoLib/QAAutoLib/core/caze/step/StepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/MAlertView.h \
+  ../../ggplib_ios/sdk/source/core/popup/GreePopup.h \
+  ../../ggplib_ios/sdk/source/components/wallet/GreeWallet.h \
+  ../../ggplib_ios/sdk/source/GreePlatformComponent.h \
+  ../../ggplib_ios/sdk/source/components/wallet/GreeWalletPaymentItem.h \
+  ../../ggplib_ios/sdk/source/core/serializer/GreeSerializable.h \
+  ../../ggplib_ios/sdk/source/core/agreement/GreeAgreementPopup.h \
+  ../../ggplib_ios/sdk/source/core/popup/GreePopupView.h \
+  ../../ggplib_ios/sdk/source/core/popup/GreePopupURLHandler.h \
+  ../../ggplib_ios/sdk/source/core/jskit/command/GreeJSCommandEnvironment.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/delegate/CaseTableDelegate.h

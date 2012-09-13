@@ -1,0 +1,21 @@
+dependencies: \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoLib/QAAutoLib/core/caze/builder/TcmCaseBuilder.m \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoLib/QAAutoLib/core/caze/builder/TcmCaseBuilder.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoLib/QAAutoLib/core/caze/builder/CaseBuilder.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoLib/QAAutoLib/core/caze/TestCase.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoLib/QAAutoLib/core/caze/step/StepHolder.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoLib/QAAutoLib/core/net/TcmCommunicator.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoLib/QAAutoLib/core/net/NetCommunicator.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoLib/QAAutoLib/vendor/SBJson/SBJson.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoLib/QAAutoLib/vendor/SBJson/SBJsonParser.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoLib/QAAutoLib/vendor/SBJson/SBJsonWriter.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoLib/QAAutoLib/vendor/SBJson/SBJsonStreamParser.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoLib/QAAutoLib/vendor/SBJson/SBJsonStreamParserAdapter.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoLib/QAAutoLib/vendor/SBJson/SBJsonStreamWriter.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoLib/QAAutoLib/vendor/SBJson/NSObject+SBJson.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoLib/QAAutoLib/core/util/StringUtil.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoLib/QAAutoLib/core/caze/step/StepParser.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoLib/QAAutoLib/core/util/QALog.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoLib/QAAutoLib/core/util/Constant.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoLib/QAAutoLib/core/exception/NoSuchStepException.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoLib/QAAutoLib/core/exception/NoCommandMatchException.h

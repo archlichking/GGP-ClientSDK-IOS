@@ -70,13 +70,24 @@
 		BAEE82D6160070180052FDC8 /* GreePlatformCoreResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAEE82D3160070180052FDC8 /* GreePlatformCoreResources.bundle */; };
 		BAEE82D7160070180052FDC8 /* GreePlatformLandscapeResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAEE82D4160070180052FDC8 /* GreePlatformLandscapeResources.bundle */; };
 		BAEE82D8160070180052FDC8 /* GreePlatformPortraitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAEE82D5160070180052FDC8 /* GreePlatformPortraitResources.bundle */; };
-		BAEE82DA160070250052FDC8 /* libQAAutoLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE82D9160070250052FDC8 /* libQAAutoLib.a */; };
 		BAEE82DD160070400052FDC8 /* libGreePlatform.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE82DB160070400052FDC8 /* libGreePlatform.a */; };
 		BAEE82DE160070400052FDC8 /* libGreeWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE82DC160070400052FDC8 /* libGreeWallet.a */; };
 		BAEE82E0160072250052FDC8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE82DF160072250052FDC8 /* CFNetwork.framework */; };
 		BAEE82E21600722E0052FDC8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE82E11600722E0052FDC8 /* CoreLocation.framework */; };
 		BAEE82E4160072320052FDC8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE82E3160072320052FDC8 /* MobileCoreServices.framework */; };
+		BAEF4BE216009573003FB345 /* QAAutoLib.xcodeproj in Resources */ = {isa = PBXBuildFile; fileRef = BAEF4BE116009573003FB345 /* QAAutoLib.xcodeproj */; };
+		BAEF4BE4160095FA003FB345 /* libQAAutoLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEF4BE3160095FA003FB345 /* libQAAutoLib.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BAAFB9701601B5C1001BAA35 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BAEF4BE116009573003FB345 /* QAAutoLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BAEE816716006AFB0052FDC8;
+			remoteInfo = QAAutoLib;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		BA085BD016007CE8001BDE34 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
@@ -179,6 +190,8 @@
 		BAEE82DF160072250052FDC8 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		BAEE82E11600722E0052FDC8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		BAEE82E3160072320052FDC8 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		BAEF4BE116009573003FB345 /* QAAutoLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = QAAutoLib.xcodeproj; path = ../QAAutoLib/QAAutoLib.xcodeproj; sourceTree = "<group>"; };
+		BAEF4BE3160095FA003FB345 /* libQAAutoLib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libQAAutoLib.a; path = "../../../../Library/Developer/Xcode/DerivedData/QAAutomation-bwwqfqzoxjkxieedtmgjxzllbnxv/Build/Products/Debug-iphoneos/libQAAutoLib.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +199,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAEF4BE4160095FA003FB345 /* libQAAutoLib.a in Frameworks */,
 				BA2C2E0F160079220041B688 /* StoreKit.framework in Frameworks */,
 				BA2C2E0D160078E80041B688 /* GameKit.framework in Frameworks */,
 				BA2C2E0B160078CC0041B688 /* MessageUI.framework in Frameworks */,
@@ -201,7 +215,6 @@
 				BAEE82E0160072250052FDC8 /* CFNetwork.framework in Frameworks */,
 				BAEE82DD160070400052FDC8 /* libGreePlatform.a in Frameworks */,
 				BAEE82DE160070400052FDC8 /* libGreeWallet.a in Frameworks */,
-				BAEE82DA160070250052FDC8 /* libQAAutoLib.a in Frameworks */,
 				BAEE814016006AB60052FDC8 /* UIKit.framework in Frameworks */,
 				BAEE814216006AB60052FDC8 /* Foundation.framework in Frameworks */,
 				BAEE814416006AB60052FDC8 /* CoreGraphics.framework in Frameworks */,
@@ -211,9 +224,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BAAFB96D1601B5C1001BAA35 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BAAFB9711601B5C1001BAA35 /* libQAAutoLib.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		BAEE813016006AB60052FDC8 = {
 			isa = PBXGroup;
 			children = (
+				BAEF4BE3160095FA003FB345 /* libQAAutoLib.a */,
+				BAEF4BE116009573003FB345 /* QAAutoLib.xcodeproj */,
 				BAEE82D3160070180052FDC8 /* GreePlatformCoreResources.bundle */,
 				BAEE82D4160070180052FDC8 /* GreePlatformLandscapeResources.bundle */,
 				BAEE82D5160070180052FDC8 /* GreePlatformPortraitResources.bundle */,
@@ -452,12 +475,28 @@
 			mainGroup = BAEE813016006AB60052FDC8;
 			productRefGroup = BAEE813C16006AB60052FDC8 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BAAFB96D1601B5C1001BAA35 /* Products */;
+					ProjectRef = BAEF4BE116009573003FB345 /* QAAutoLib.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				BAEE813A16006AB60052FDC8 /* QAAutoSample */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BAAFB9711601B5C1001BAA35 /* libQAAutoLib.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libQAAutoLib.a;
+			remoteRef = BAAFB9701601B5C1001BAA35 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		BAEE813916006AB60052FDC8 /* Resources */ = {
@@ -481,6 +520,7 @@
 				BAEE82CF16006E210052FDC8 /* demo.html in Resources */,
 				BAEE82D116006E210052FDC8 /* jskit_test.coffee in Resources */,
 				BA085BD116007CE8001BDE34 /* MainStoryboard.storyboard in Resources */,
+				BAEF4BE216009573003FB345 /* QAAutoLib.xcodeproj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,6 +654,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../ggplib_ios/release\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/OFQAAPI-blohjlkafsjoxudwxsztewgikoyx/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/QAAutomation-bwwqfqzoxjkxieedtmgjxzllbnxv/Build/Products/Debug-iphoneos\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -635,6 +677,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../ggplib_ios/release\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/OFQAAPI-blohjlkafsjoxudwxsztewgikoyx/Build/Products/Debug-iphoneos\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/QAAutomation-bwwqfqzoxjkxieedtmgjxzllbnxv/Build/Products/Debug-iphoneos\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

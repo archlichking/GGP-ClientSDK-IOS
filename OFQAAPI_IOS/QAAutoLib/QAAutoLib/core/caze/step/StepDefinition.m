@@ -15,7 +15,7 @@
 @implementation StepDefinition
 static NSMutableDictionary* outsideBlockRepo;
 static NSConditionLock* outsideStepLock; // this is now only allowed in popup steps
-static int OUTSIDETIMEOUT = 30;
+static int OUTSIDETIMEOUT = 10;
 
 - (NSMutableDictionary*) getBlockRepo{
     if (!blockRepo) {

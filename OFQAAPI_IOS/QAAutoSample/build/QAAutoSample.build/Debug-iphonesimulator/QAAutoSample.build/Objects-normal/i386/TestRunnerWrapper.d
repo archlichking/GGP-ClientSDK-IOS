@@ -1,0 +1,35 @@
+dependencies: \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/wrapper/TestRunnerWrapper.m \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/wrapper/TestRunnerWrapper.h \
+  ../QAAutoLib/QAAutoLib/core/caze/builder/CaseBuilder.h \
+  ../QAAutoLib/QAAutoLib/core/caze/TestCase.h \
+  ../QAAutoLib/QAAutoLib/core/caze/step/StepHolder.h \
+  ../QAAutoLib/QAAutoLib/core/caze/builder/TcmCaseBuilder.h \
+  ../QAAutoLib/QAAutoLib/core/caze/builder/FileCaseBuilder.h \
+  ../QAAutoLib/QAAutoLib/core/caze/TestRunner.h \
+  ../QAAutoLib/QAAutoLib/core/caze/builder/CaseBuilderFactory.h \
+  ../QAAutoLib/QAAutoLib/core/net/TcmCommunicator.h \
+  ../QAAutoLib/QAAutoLib/core/net/NetCommunicator.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/wrapper/TestCaseWrapper.h \
+  ../QAAutoLib/QAAutoLib/core/util/Constant.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/SampleStepDefinition.h \
+  ../QAAutoLib/QAAutoLib/core/caze/step/StepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/AuthorizationStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/AchievementStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/LeaderboardStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/PeopleStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/ModerationStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/FriendCodeStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/IgnorelistStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/NetworkStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/GreePlatformStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/PaymentStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/PopupStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/NotificationStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/BadgeStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/WidgetStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/jskit/LogJsKitStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/BaseJsKitStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/LoggerStepDefinition.h \
+  /Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutoSample/QAAutoSample/steps/AddonStepDefinition.h \
+  ../QAAutoLib/QAAutoLib/core/util/QALog.h

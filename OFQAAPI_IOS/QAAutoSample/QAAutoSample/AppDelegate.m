@@ -18,7 +18,9 @@
 #import "GreeAchievement.h"
 #import "GreePlatform.h"
 
-#define RUN_MODE 1
+#import "StepDefinition.h"
+
+#define RUN_MODE 0
 
 #if RUN_MODE == 0
 #define CONFIG_NAME           @"debugCase.txt"
@@ -42,7 +44,7 @@ static NSString* APPID = @"15265";
 //static NSString* APPID = @"15199";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+{    
     // Override point for customization after application launch.
     // to use debug case, switch to debugCase.txt
     // to use tcm settings, switch to tcmsConfig.json
@@ -98,12 +100,10 @@ static NSString* APPID = @"15265";
     //All requests from the sample app should be distinguishable in our analytics system 
     [[httpClient valueForKey:@"defaultHeaders"] setObject:@"x" forKey:@"x_gree_sample_app"];
     // init user
-    [GreePlatform authorizeWithBlock:^(GreeUser *localUser, NSError *error) {
-        
-    }];
+    
     [GreePlatform handleLaunchOptions:launchOptions application:application];
 //    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert];
-
+    
     // ---------
     return YES;
 }
@@ -169,6 +169,41 @@ static NSString* APPID = @"15265";
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
+    NSArray * arguments = [[NSProcessInfo processInfo] arguments];
+//    NSArray* arguments = [[NSArray alloc] initWithObjects:@"JenkinsMode", nil];
+    NSLog(@"%@", arguments);
+    
+    [GreePlatform authorizeWithBlock:^(GreeUser *localUser, NSError *error) {
+        if ([arguments containsObject:@"JenkinsMode"]) {
+            // jenkins mode launch
+            
+            // need to wait
+            
+            while (![[GreePlatform sharedInstance] localUser]) {
+                [NSThread sleepForTimeInterval:2];
+            }
+            
+            NSOperationQueue* operationQueue = [[NSOperationQueue alloc] init];
+            [operationQueue setMaxConcurrentOperationCount:1];
+            
+            NSString* suiteId = @"178";
+            NSString* runId = @"416";
+            
+            NSLog(@"======================== load cases from Suite %@ ======", suiteId);
+            [runnerWrapper emptyCaseWrappers];
+            [runnerWrapper buildRunner:suiteId];
+            
+            
+            [runnerWrapper markCaseWrappers:[TestCaseWrapper All]];
+            NSLog(@"======================== executing cases and update result for Run %@ ======",runId);
+            
+            NSInvocationOperation* theOp = [[[NSInvocationOperation alloc] initWithTarget:self
+                                                                                 selector:@selector(runCaseInAnotherThread:)
+                                                                                   object:runId]
+                                            autorelease];
+            [operationQueue addOperation:theOp];
+        }
+    }];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -181,6 +216,14 @@ static NSString* APPID = @"15265";
     // -------------- shut down gree platform
    [GreePlatform shutdown];
     // --------------
+}
+
+
+- (void) runCaseInAnotherThread:(NSString*) runId{
+    [runnerWrapper executeSelectedCasesWithSubmit:runId
+                                            block:^(NSArray *objs) {
+        
+    }];
 }
 
 - (NSData*) loadConfig:(NSString*) fname{
