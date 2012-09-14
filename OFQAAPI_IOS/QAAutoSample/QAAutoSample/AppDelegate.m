@@ -224,6 +224,8 @@ static NSString* APPID = @"15265";
                                             block:^(NSArray *objs) {
         
     }];
+    
+    exit(0);
 }
 
 - (NSData*) loadConfig:(NSString*) fname{
