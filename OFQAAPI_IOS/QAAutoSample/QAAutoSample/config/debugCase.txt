@@ -11,4 +11,3 @@ Then my info gender should be male
 Then my info language should be en-Latn-US
 Then my info bloodType should be A
 Then my info timezone should be 540
-Then my info hasApp should be true
