@@ -651,13 +651,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QAAutoSample/QAAutoSample-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"${SRCROOT}/../ggplib_ios/sdk/source\"/**",
-					"\"${SRCROOT}/../QAAutoLib/QAAutoLib/\"/**",
+					"\"../ggplib_ios/sdk/source\"/**",
+					"\"../QAAutoLib/QAAutoLib/\"/**",
 				);
 				INFOPLIST_FILE = "QAAutoSample/QAAutoSample-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../ggplib_ios/release\"",
+					"\"../ggplib_ios/release\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -672,13 +672,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QAAutoSample/QAAutoSample-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
-					"\"${SRCROOT}/../ggplib_ios/sdk/source\"/**",
-					"\"${SRCROOT}/../QAAutoLib/QAAutoLib/\"/**",
+					"\"../ggplib_ios/sdk/source\"/**",
+					"\"../QAAutoLib/QAAutoLib/\"/**",
 				);
 				INFOPLIST_FILE = "QAAutoSample/QAAutoSample-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../ggplib_ios/release\"",
+					"\"../ggplib_ios/release\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
