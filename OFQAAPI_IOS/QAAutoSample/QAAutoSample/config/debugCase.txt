@@ -1,6 +1,14 @@
 Given I logged in with email auto3@136.com and password 123456
-And I load list of leaderboard
-And I make sure my score EXISTS in leaderboard Asc Board 02
-When I format my score of leaderboard Asc Board 02
-Then formatted score should be 0:50:00
-After I make sure my score NOTEXISTS in leaderboard Asc Board 02
+When I see my info from server
+Then my info nickname should be auto-grade3-user
+Then my info displayName should be auto-grade3-user
+Then my info id should be 1000012971
+Then my info userGrade should be 3
+Then my info region should be US
+Then my info birthday should be 1980-01-01
+Then my info age should be 32
+Then my info gender should be male
+Then my info language should be en-Latn-US
+Then my info bloodType should be A
+Then my info timezone should be 540
+Then my info hasApp should be true
