@@ -170,8 +170,8 @@ static NSString* APPID = @"15265";
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
-    NSArray * arguments = [[NSProcessInfo processInfo] arguments];
-//    NSArray* arguments = [[NSArray alloc] initWithObjects:@"JenkinsMode", nil];
+//    NSArray * arguments = [[NSProcessInfo processInfo] arguments];
+    NSArray* arguments = [[NSArray alloc] initWithObjects:@"JenkinsMode", nil];
     NSLog(@"launch args include %@", arguments);
     
     [GreePlatform authorizeWithBlock:^(GreeUser *localUser, NSError *error) {
@@ -228,10 +228,12 @@ static NSString* APPID = @"15265";
 //    }
 //    
 //    a = [a substringToIndex:[a length]-1];
-//    a = [a stringByAppendingString:@"]}"];
-//    
-    [CIUtil generateReport:@"adfqet87983hiu783flkad09806g98adgk" fromUrl:@"http://localhost:3000/ios/report"];
     
+//    a = [a stringByAppendingString:@"]}"];
+//
+    NSLog(@"======================== requesting subserver to generate perf report for Run %@ ======",runId);
+    [CIUtil generateReport:@"adfqet87983hiu783flkad09806g98adgk" fromUrl:@"http://localhost:3000/ios/report"];
+    NSLog(@"======================== perf report generated for Run %@ ======",runId);
     exit(0);
 }
 
