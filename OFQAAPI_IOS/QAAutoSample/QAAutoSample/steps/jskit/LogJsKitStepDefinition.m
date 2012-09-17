@@ -48,9 +48,11 @@
 - (void) I_need_to_wait_for_test_done_PARAM:(NSString*) type{
     GreeSettings* st = [[GreePlatform sharedInstance] settings];
     NSString* result = [st objectValueForSetting:@"jskitTestDone"];
-    while (!result || ![result isEqualToString:@"true"]) {
+    int count = 0;
+    while ((!result || ![result isEqualToString:@"true"]) && count < 10) {
         result = [st objectValueForSetting:@"jskitTestDone"];
         [NSThread sleepForTimeInterval:2];
+        count ++;
     }
     NSLog(@"jskit test done %@", result);
 
