@@ -19,8 +19,9 @@
 #import "GreePlatform.h"
 
 #import "StepDefinition.h"
+#import "CIUtil.h"
 
-#define RUN_MODE 0
+#define RUN_MODE 1
 
 #if RUN_MODE == 0
 #define CONFIG_NAME           @"debugCase.txt"
@@ -171,28 +172,23 @@ static NSString* APPID = @"15265";
      */
     NSArray * arguments = [[NSProcessInfo processInfo] arguments];
 //    NSArray* arguments = [[NSArray alloc] initWithObjects:@"JenkinsMode", nil];
-    NSLog(@"%@", arguments);
+    NSLog(@"launch args include %@", arguments);
     
     [GreePlatform authorizeWithBlock:^(GreeUser *localUser, NSError *error) {
         if ([arguments containsObject:@"JenkinsMode"]) {
             // jenkins mode launch
             
-            // need to wait
-            
-            while (![[GreePlatform sharedInstance] localUser]) {
-                [NSThread sleepForTimeInterval:2];
-            }
-            
             NSOperationQueue* operationQueue = [[NSOperationQueue alloc] init];
             [operationQueue setMaxConcurrentOperationCount:1];
             
-            NSString* suiteId = @"178";
-            NSString* runId = @"416";
+            NSDictionary* configDicionary = [CIUtil getRunInfoFromUrl:@"http://localhost:3000/ios/config?key=adfqet87983hiu783flkad09806g98adgk"];
+            
+            NSString* suiteId = [configDicionary objectForKey:@"suite_id"];
+            NSString* runId = [configDicionary objectForKey:@"run_id"];
             
             NSLog(@"======================== load cases from Suite %@ ======", suiteId);
             [runnerWrapper emptyCaseWrappers];
             [runnerWrapper buildRunner:suiteId];
-            
             
             [runnerWrapper markCaseWrappers:[TestCaseWrapper All]];
             NSLog(@"======================== executing cases and update result for Run %@ ======",runId);
@@ -220,10 +216,21 @@ static NSString* APPID = @"15265";
 
 
 - (void) runCaseInAnotherThread:(NSString*) runId{
+    [runnerWrapper markCaseWrappers:[TestCaseWrapper All]];
     [runnerWrapper executeSelectedCasesWithSubmit:runId
-                                            block:^(NSArray *objs) {
-        
-    }];
+                                            block:^(NSArray* objs){}];
+//    //composite full result report, need to dimensionize it in express server
+//    NSString* a = @"{'case':[";
+//    
+//    for (TestCaseWrapper* wrapper in [runnerWrapper getCaseWrappers]) {
+//        NSString* s = [NSString stringWithFormat:@"{'cid':'%i','title':'%@','result':'%@',''},", [wrapper cId], [[wrapper tc] title], [wrapper], [wrapper result]];
+//        a = [a stringByAppendingString:s];
+//    }
+//    
+//    a = [a substringToIndex:[a length]-1];
+//    a = [a stringByAppendingString:@"]}"];
+//    
+    [CIUtil generateReport:@"adfqet87983hiu783flkad09806g98adgk" fromUrl:@"http://localhost:3000/ios/report"];
     
     exit(0);
 }

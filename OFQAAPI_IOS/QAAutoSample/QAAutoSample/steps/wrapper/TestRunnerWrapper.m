@@ -168,11 +168,12 @@
                    (float)info.resident_size/(1024*1024), 
                    (float)(info.resident_size-baseMem)*100/baseMem];
         }
-        
-        block([[[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%0.1f", (float)alreadyDoneNumber/all], 
-                doing, 
-                mem,
-                nil] autorelease]);
+        if(block){
+            block([[[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%0.1f", (float)alreadyDoneNumber/all],
+                    doing,
+                    mem,
+                    nil] autorelease]);
+        }
     }
     
     alreadyDoneNumber = 0.;

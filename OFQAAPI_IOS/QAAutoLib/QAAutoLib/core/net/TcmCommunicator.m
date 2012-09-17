@@ -34,8 +34,9 @@
 
     NSData* result = nil;
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:rUrl];
-    [request setPostValue:[params objectForKey:@"status_id"] forKey:@"status_id"];
-    [request setPostValue:[params objectForKey:@"comment"] forKey:@"comment"];
+    for (NSString* key in [params allKeys]) {
+        [request setPostValue:[params objectForKey:key] forKey:key];
+    }
     [request setValidatesSecureCertificate:NO];
     [request startSynchronous];
     NSError *error = [request error];

@@ -18,6 +18,7 @@
 		BA2C2E0B160078CC0041B688 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2C2E0A160078CC0041B688 /* MessageUI.framework */; };
 		BA2C2E0D160078E80041B688 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2C2E0C160078E80041B688 /* GameKit.framework */; };
 		BA2C2E0F160079220041B688 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2C2E0E160079220041B688 /* StoreKit.framework */; };
+		BA70BE751602FA4C005EEC8A /* CIUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = BA70BE741602FA4C005EEC8A /* CIUtil.m */; };
 		BAAFB97D1602D31B001BAA35 /* libQAAutoLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAFB9711601B5C1001BAA35 /* libQAAutoLib.a */; };
 		BAAFB9801602D32B001BAA35 /* libGreePlatform.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAFB97E1602D32A001BAA35 /* libGreePlatform.a */; };
 		BAAFB9811602D32B001BAA35 /* libGreeWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAFB97F1602D32B001BAA35 /* libGreeWallet.a */; };
@@ -102,6 +103,8 @@
 		BA2C2E0C160078E80041B688 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		BA2C2E0E160079220041B688 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		BA2C2E101600793B0041B688 /* libprofile_rt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprofile_rt.dylib; path = /usr/lib/libprofile_rt.dylib; sourceTree = "<absolute>"; };
+		BA70BE731602FA4B005EEC8A /* CIUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIUtil.h; sourceTree = "<group>"; };
+		BA70BE741602FA4C005EEC8A /* CIUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIUtil.m; sourceTree = "<group>"; };
 		BAAFB97E1602D32A001BAA35 /* libGreePlatform.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGreePlatform.a; path = ../ggplib_ios/release/libGreePlatform.a; sourceTree = "<group>"; };
 		BAAFB97F1602D32B001BAA35 /* libGreeWallet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGreeWallet.a; path = ../ggplib_ios/release/libGreeWallet.a; sourceTree = "<group>"; };
 		BAAFB9821602D34E001BAA35 /* GreePlatformCoreResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformCoreResources.bundle; path = ../ggplib_ios/release/resources/GreePlatformCoreResources.bundle; sourceTree = "<group>"; };
@@ -302,6 +305,8 @@
 				BAEE814E16006AB60052FDC8 /* AppDelegate.h */,
 				BAEE814F16006AB60052FDC8 /* AppDelegate.m */,
 				BAEE814616006AB60052FDC8 /* Supporting Files */,
+				BA70BE731602FA4B005EEC8A /* CIUtil.h */,
+				BA70BE741602FA4C005EEC8A /* CIUtil.m */,
 			);
 			path = QAAutoSample;
 			sourceTree = "<group>";
@@ -568,6 +573,7 @@
 				BAEE82CE16006E210052FDC8 /* command_interface.js in Sources */,
 				BAEE82D016006E210052FDC8 /* ggp_command.js in Sources */,
 				BAEE82D216006E210052FDC8 /* jskit_test.js in Sources */,
+				BA70BE751602FA4C005EEC8A /* CIUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
