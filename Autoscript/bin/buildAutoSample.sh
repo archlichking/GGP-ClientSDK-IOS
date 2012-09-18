@@ -12,9 +12,15 @@ TARGET="QAAutoSample"
 SCHEMA="QAAutoSample"
 #TARGET="QAAutoLib"
 #AIMSDK="iphonesimulator5.1"
-AIMSDK="iphonesimulator5.0"
 DSTROOT="/Users/thunderzhulei/Library/Application Support/iPhone Simulator/5.1/"
 COMMAND="install"
+
+echo "$2"
+AIMSDK="iphonesimulator5.0"
+if [ ! -z "$2" ]
+then
+  AIMSDK=$2
+fi
 
 #xcodebuild -project "$PROJECT" -target "$2" -configuration Debug -sdk "$AIMSDK" DSTROOT="$1/$3" $COMMAND
 xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEMA" -configuration Debug -sdk "$AIMSDK" DSTROOT="$1/$3" $COMMAND

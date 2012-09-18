@@ -9,11 +9,11 @@ then
 fi
 
 echo "$2"
-APP_NAME="QAAutoSample"
+SDK_NAME="iphonesimulator5.0"
 #APP_NAME="QAAutoLib"
 if [ ! -z "$2" ]
 then
-  APP_NAME=$2
+  SDK_NAME=$2
 fi
 
 echo "$3"
@@ -23,12 +23,18 @@ then
   IOS_VERSION=$3
 fi
 
+echo "$4"
+APP_NAME="QAAutoSample"
+if [ ! -z "$4" ]
+then
+  APP_NAME=$4
+fi
 
 SIMULATOR_LOCATION="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone Simulator.app"
 
 # 0. build OFQAJenkins
 # params : 
-sh -x buildAutoSample.sh "$APP_LOCATION" "$APP_NAME" "$IOS_VERSION"
+sh -x buildAutoSample.sh "$APP_LOCATION" "$SDK_NAME" "$IOS_VERSION"
 
 # 1. launch ios simulator with parameters
 # params : sim version = 5.1
