@@ -30,11 +30,18 @@ then
   APP_NAME=$4
 fi
 
+echo "$5"
+WORKSPACE="/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutomation.xcworkspace"
+if [ ! -z "$5" ]
+then
+  WORKSPACE=$5
+fi
+
 SIMULATOR_LOCATION="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone Simulator.app"
 
 # 0. build OFQAJenkins
 # params : 
-sh -x buildAutoSample.sh "$APP_LOCATION" "$SDK_NAME" "$IOS_VERSION"
+sh -x buildAutoSample.sh "$APP_LOCATION" "$SDK_NAME" "$IOS_VERSION" "$WORKSPACE"
 
 # 1. launch ios simulator with parameters
 # params : sim version = 5.1

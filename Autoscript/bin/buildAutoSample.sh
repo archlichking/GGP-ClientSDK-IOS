@@ -22,5 +22,12 @@ then
   AIMSDK=$2
 fi
 
+echo "$4"
+WORKSPACE="/Users/thunderzhulei/lay-zhu/ios/OFQAAPI_IOS/QAAutomation.xcworkspace"
+if [ ! -z "$4" ]
+then
+  WORKSPACE=$4
+fi
+
 #xcodebuild -project "$PROJECT" -target "$2" -configuration Debug -sdk "$AIMSDK" DSTROOT="$1/$3" $COMMAND
 xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEMA" -configuration Debug -sdk "$AIMSDK" DSTROOT="$1/$3" $COMMAND
