@@ -20,8 +20,9 @@
 - (void) addCase:(TestCase*) caze;
 - (void) addCases:(NSArray *) cazes;
 
-- (void) emptyCases;
-- (BOOL) hasCase;
-- (NSArray*) getAllCases;
-- (void) runAllcases;
+- (void) removeCases;
+- (BOOL) isEmpty;
+
+- (void) runCases;
+
 @end

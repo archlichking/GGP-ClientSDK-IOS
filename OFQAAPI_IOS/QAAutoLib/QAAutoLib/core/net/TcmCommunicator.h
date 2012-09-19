@@ -7,32 +7,33 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "NetCommunicator.h"
+#import "HttpCommunicator.h"
 #import "TestCase.h"
 
-@interface TcmCommunicator : NSObject <NetCommunicator>{
+@interface TcmCommunicator : HttpCommunicator{
     @private
     NSString* tcmRetrievalUrl;
     NSString* tcmSubmitUrl;
     NSString* tcmKey;
 }
 
+
 @property (retain) NSString* tcmRetrievalUrl;
 @property (retain) NSString* tcmSubmitUrl;
 @property (retain) NSString* tcmKey;
 
-- (id) initWithKey:(NSString*)key 
++ (TcmCommunicator*) sharedInstance;
+
++ (void) initWithKey:(NSString*)key
          submitUrl:(NSString*) Url 
       retrievalUrl:(NSString*)url;
 
-- (id) doHttpPost:(NSString*) url 
-              params:(NSDictionary*) params;
-- (id) doHttpGet:(NSString*) url;
+- (NSData*) pullAllCasesFromSuite:(NSString*) suiteId;
 
-- (NSData*) requestCasesBySuiteId:(NSString*) suiteId;
-- (void) postCasesResultByRunId:(NSString*)runId 
-                             cases:(NSArray*)cases;
+- (void) pushAllCases:(NSArray*) cases
+                toRun:(NSString*) runId;
 
-- (void) postCasesResultByRunId:(NSString *)runId AndCase:(TestCase *) caze;
+- (void) pushCase:(TestCase*) caze
+            toRun:(NSString*) runId;
 
 @end

@@ -19,7 +19,6 @@
 
 @implementation TcmCaseBuilder
 
-@synthesize tcmComm;
 @synthesize jsonParser;
 @synthesize stepParser;
 
@@ -33,11 +32,10 @@
         [self setJsonParser: sb];
         NSDictionary* tempSettings = [jsonParser objectWithData:rawCaze];
         
-        TcmCommunicator* tm = [[[TcmCommunicator alloc] initWithKey:[tempSettings valueForKey:@"tcmKey"]
+       [TcmCommunicator initWithKey:[tempSettings valueForKey:@"tcmKey"]
                                                           submitUrl:[tempSettings valueForKey:@"tcmSubmitUrl"] 
-                                                       retrievalUrl:[tempSettings valueForKey:@"tcmRetrievalUrl"]] autorelease];
+                                                       retrievalUrl:[tempSettings valueForKey:@"tcmRetrievalUrl"]];
         
-        [self setTcmComm:tm];
         
 //        [sb release];
 //        [sp release];
@@ -53,7 +51,7 @@
 - (NSArray*) buildCasesBySuiteId:(NSString*) suiteId{
     NSMutableArray* resultCases = [[[NSMutableArray alloc] init] autorelease];
     
-    NSData* rawResult = [tcmComm requestCasesBySuiteId:suiteId];
+    NSData* rawResult = [[TcmCommunicator sharedInstance] pullAllCasesFromSuite:suiteId];
     // get rid of first line of return data
     
     

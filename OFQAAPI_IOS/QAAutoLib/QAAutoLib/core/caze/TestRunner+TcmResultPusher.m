@@ -10,15 +10,21 @@
 #import "TestCase.h"
 #import "QALog.h"
 
+#import "TcmCommunicator.h"
+
 @implementation TestRunner (TcmResultPusher)
 
-- (void) pushCaseResultTo:(NSArray*) testCases 
-                    runId:(NSString*) runId{
+- (void) pushCase:(TestCase*) tc
+          toRunId:(NSString*) runId{
+    TcmCommunicator* tComm = [TcmCommunicator sharedInstance];
+    [tComm pushCase:tc toRun:runId];
+}
+
+- (void) pushAllCasesToRunId:(NSString*) runId{
+    TcmCommunicator* tComm = [TcmCommunicator sharedInstance];
     
-    for (int i=0; i<[testCases count]; i++) {
-        TestCase* tc = [testCases objectAtIndex:i];
-        QALog(@"%@ ==================", [tc caseId]);
-    }
+    [tComm pushAllCases:[self cases]
+                  toRun:runId];
 }
 
 @end

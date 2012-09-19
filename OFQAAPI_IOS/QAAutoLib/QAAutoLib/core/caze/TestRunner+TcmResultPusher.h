@@ -8,7 +8,13 @@
 
 #import "TestRunner.h"
 
+@class  TestCase;
+
 @interface TestRunner (TcmResultPusher)
-- (void) pushCaseResultTo:(NSArray*) testCases 
-                    runId:(NSString*) runId;
+
+- (void) pushCase:(TestCase*) tc
+                    toRunId:(NSString*) runId;
+
+- (void) pushAllCasesToRunId:(NSString*) runId;
+
 @end

@@ -29,19 +29,15 @@
     [[self cases] addObjectsFromArray:cazes];
 }
 
-- (void) emptyCases{
+- (void) removeCases{
     [[self cases] removeAllObjects];
 }
 
-- (BOOL) hasCase{
+- (BOOL) isEmpty{
     return [[self cases] count] == 0;
 }
 
-- (NSArray*) getAllCases{
-    return [self cases];
-}
-
-- (void) runAllcases{
+- (void) runCases{
     for (int i=0; i<cases.count; i++) {
         TestCase* tc = [cases objectAtIndex:i];
         [tc execute];

@@ -44,6 +44,9 @@
 
 #import "QALog.h"
 
+const int SELECT_ALL = 1;
+const int SELECT_FAILED = 2;
+const int SELECT_NONE = 10;
 
 @implementation TestRunnerWrapper
 
@@ -134,7 +137,7 @@
         }
     }
     
-    int all = [[runner getAllCases] count];
+    int all = [[runner cases] count];
     // run cases
     //[runner runAllcases];
     
@@ -153,7 +156,7 @@
     }
     
     for (int i=0; i<all; i++) {
-        TestCase* tc = [[runner getAllCases] objectAtIndex:i];
+        TestCase* tc = [[runner cases] objectAtIndex:i];
         [tc execute];
         alreadyDoneNumber ++;
         
@@ -179,12 +182,13 @@
     alreadyDoneNumber = 0.;
     // submit to tcm if needed
     if ([self type] == [CaseBuilderFactory TCM_BUILDER] && block) {
-        TcmCommunicator* tcmComm = [[self cb] tcmComm];
+        TcmCommunicator* tcmComm = [TcmCommunicator sharedInstance];
         
        
         for (int i=0; i<all; i++) {
-            TestCase* tc = [[runner getAllCases] objectAtIndex:i];
-            [tcmComm postCasesResultByRunId:runId AndCase:tc];
+            TestCase* tc = [[runner cases] objectAtIndex:i];
+            [tcmComm pushCase:tc
+                        toRun:runId];
             alreadyDoneNumber ++;
             doing = [NSString stringWithFormat:@"submitting %d/%d", alreadyDoneNumber, all];
             
@@ -205,7 +209,7 @@
     }
     
     // get case result and rebuilt case wrappers
-    NSArray* executedCases = [runner getAllCases];
+    NSArray* executedCases = [runner cases];
     for (int j=0; j<executedCases.count; j++) {
         
         TestCase* tc = [executedCases objectAtIndex:j];
@@ -250,13 +254,13 @@
 
 - (void) markCaseWrappers:(int) selectType{
     switch (selectType) {
-        case 1:
+        case SELECT_ALL:
             // select all
             for (int i=0; i<caseWrappers.count; i++) {
                 [[caseWrappers objectAtIndex:i] setIsSelected:true];
             }
             break;
-        case 2:
+        case SELECT_FAILED:
             // select failed
             for (int i=0; i<caseWrappers.count; i++) {
                 TestCaseWrapper* tcw = [caseWrappers objectAtIndex:i];
@@ -267,7 +271,7 @@
                 }
             }
             break;
-        case 10:
+        case SELECT_NONE:
             // unselect all
             for (int i=0; i<caseWrappers.count; i++) {
                 [[caseWrappers objectAtIndex:i] setIsSelected:false];

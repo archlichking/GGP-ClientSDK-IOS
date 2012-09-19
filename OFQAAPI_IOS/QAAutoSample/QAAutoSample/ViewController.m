@@ -141,11 +141,11 @@
         case 2:
             // case select alert
             if ([title isEqualToString:@"All"]) {
-                [[appDelegate runnerWrapper] markCaseWrappers:[TestCaseWrapper All]];
+                [[appDelegate runnerWrapper] markCaseWrappers:SELECT_ALL];
             }else if ([title isEqualToString:@"Failed"]) {
-                [[appDelegate runnerWrapper] markCaseWrappers:[TestCaseWrapper Failed]];
+                [[appDelegate runnerWrapper] markCaseWrappers:SELECT_FAILED];
             }else if ([title isEqualToString:@"Un All"]) {
-                [[appDelegate runnerWrapper] markCaseWrappers:[TestCaseWrapper UnAll]];
+                [[appDelegate runnerWrapper] markCaseWrappers:SELECT_NONE];
             }
             [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" object:nil];
             break;
