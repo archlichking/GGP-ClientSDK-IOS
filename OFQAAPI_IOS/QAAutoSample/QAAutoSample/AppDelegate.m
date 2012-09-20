@@ -21,6 +21,8 @@
 #import "StepDefinition.h"
 #import "CIUtil.h"
 
+#import "QAAutoFramework.h"
+
 #define RUN_MODE 1
 
 #if RUN_MODE == 0
@@ -73,7 +75,12 @@ static NSString* APPID = @"15265";
     [CredentialStorage initializeCredentialStorageWithAppid:APPID 
                                                     andData:rawCredential];
     
+    NSDictionary* qSettings = [NSDictionary dictionaryWithObjectsAndKeys:
+                               rawData, @"data",
+                               RUN_TYPE, @"runType",
+                               nil];
     
+    [QAAutoFramework initializeWithSettings:qSettings];
     
     runnerWrapper = [[TestRunnerWrapper alloc] initWithRawData:rawData 
                                                    builderType:[CaseBuilderFactory RUN_TYPE]];

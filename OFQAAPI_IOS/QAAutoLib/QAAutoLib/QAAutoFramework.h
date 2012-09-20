@@ -8,6 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-@interface QAAutoFramework : NSObject
+@class TestCase;
+@class TestRunner;
+
+@interface QAAutoFramework : NSObject{
+    @private
+    NSArray* originalTestCases;
+    TestRunner* runner;
+}
+
++ (QAAutoFramework*) sharedInstance;
++ (QAAutoFramework*) initializeWithSettings:(NSDictionary*) settings;
+
 
 @end
