@@ -23,7 +23,29 @@
 
 #import "QAAutoFramework.h"
 
-#define RUN_MODE 1
+#import "objc/runtime.h"
+#import <mach/mach.h>
+
+#import "SampleStepDefinition.h"
+#import "AuthorizationStepDefinition.h"
+#import "AchievementStepDefinition.h"
+#import "LeaderboardStepDefinition.h"
+#import "PeopleStepDefinition.h"
+#import "ModerationStepDefinition.h"
+#import "FriendCodeStepDefinition.h"
+#import "IgnorelistStepDefinition.h"
+#import "NetworkStepDefinition.h"
+#import "GreePlatformStepDefinition.h"
+#import "PaymentStepDefinition.h"
+#import "PopupStepDefinition.h"
+#import "NotificationStepDefinition.h"
+#import "BadgeStepDefinition.h"
+#import "WidgetStepDefinition.h"
+#import "LogJsKitStepDefinition.h"
+#import "LoggerStepDefinition.h"
+#import "AddonStepDefinition.h"
+
+#define RUN_MODE 0
 
 #if RUN_MODE == 0
 #define CONFIG_NAME           @"debugCase.txt"
@@ -75,15 +97,37 @@ static NSString* APPID = @"15265";
     [CredentialStorage initializeCredentialStorageWithAppid:APPID 
                                                     andData:rawCredential];
     
+    NSArray* classArray = [[[NSArray alloc] initWithObjects:
+                            class_createInstance([AuthorizationStepDefinition class], 0),
+                            class_createInstance([AchievementStepDefinition class], 0),
+                            class_createInstance([LeaderboardStepDefinition class], 0),
+                            class_createInstance([PeopleStepDefinition class], 0),
+                            class_createInstance([ModerationStepDefinition class], 0),
+                            class_createInstance([FriendCodeStepDefinition class], 0),
+                            class_createInstance([IgnorelistStepDefinition class], 0),
+                            class_createInstance([NetworkStepDefinition class], 0),
+                            class_createInstance([GreePlatformStepDefinition class], 0),
+                            class_createInstance([PaymentStepDefinition class], 0),
+                            class_createInstance([PopupStepDefinition class], 0),
+                            class_createInstance([NotificationStepDefinition class], 0),
+                            class_createInstance([BadgeStepDefinition class], 0),
+                            class_createInstance([WidgetStepDefinition class], 0),
+                            class_createInstance([LogJsKitStepDefinition class], 0),
+                            class_createInstance([LoggerStepDefinition class], 0),
+                            class_createInstance([AddonStepDefinition class], 0),
+                            nil] autorelease];
+
+    
     NSDictionary* qSettings = [NSDictionary dictionaryWithObjectsAndKeys:
                                rawData, @"data",
-                               RUN_TYPE, @"runType",
+                               [NSString stringWithFormat:@"%i", RUN_TYPE], @"type",
+                               classArray, @"steps",
                                nil];
     
     [QAAutoFramework initializeWithSettings:qSettings];
     
     runnerWrapper = [[TestRunnerWrapper alloc] initWithRawData:rawData 
-                                                   builderType:[CaseBuilderFactory RUN_TYPE]];
+                                                   builderType:RUN_TYPE];
     
     
     // --------- GREE Platform initialization

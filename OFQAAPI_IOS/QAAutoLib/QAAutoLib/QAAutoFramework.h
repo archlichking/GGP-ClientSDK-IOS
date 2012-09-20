@@ -15,10 +15,12 @@
     @private
     NSArray* originalTestCases;
     TestRunner* runner;
+    id builder;
 }
 
 + (QAAutoFramework*) sharedInstance;
 + (QAAutoFramework*) initializeWithSettings:(NSDictionary*) settings;
 
+- (void) buildCases:(NSString*) suiteId;
 
 @end

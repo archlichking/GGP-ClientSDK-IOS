@@ -12,18 +12,10 @@
 #import "TcmCaseBuilder.h"
 #import "StepHolder.h"
 
+const int TCM_BUILDER = 0;
+const int FILE_BUILDER = 1;
+
 @implementation CaseBuilderFactory
-
-static const int TCM_BUILDER = 0;
-static const int FILE_BUILDER = 1;
-
-+ (int) TCM_BUILDER{
-    return TCM_BUILDER;
-}
-
-+ (int) FILE_BUILDER{
-    return FILE_BUILDER;
-}
 
 + (id) makeBuilderByType:(int)type 
                      raw:(NSData*)rawValue  

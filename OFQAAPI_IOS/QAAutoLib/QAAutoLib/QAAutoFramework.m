@@ -41,13 +41,21 @@ static QAAutoFramework* sSharedInstance = nil;
         [holder addStepObj:p];
     }
     
-    
-    [CaseBuilderFactory makeBuilderByType:buildType
+    // initialize all private fields
+    builder = [CaseBuilderFactory makeBuilderByType:[buildType intValue]
                                       raw:rawData
                                stepHolder:holder];
     
     [holder release];
     return self;
+}
+
+- (void) buildCases:(NSString*) suiteId{
+    if (originalTestCases) {
+        [originalTestCases release];
+    }
+    originalTestCases = [builder buildCasesBySuiteId:suiteId == nil?@"178":suiteId];
+    
 }
 
 @end

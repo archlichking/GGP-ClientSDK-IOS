@@ -9,10 +9,10 @@
 #import <Foundation/Foundation.h>
 @class StepHolder;
 
-@interface CaseBuilderFactory : NSObject
+extern const int TCM_BUILDER;
+extern const int FILE_BUILDER;
 
-+ (int) TCM_BUILDER;
-+ (int) FILE_BUILDER;
+@interface CaseBuilderFactory : NSObject
 
 + (id) makeBuilderByType:(int)type 
                      raw:(NSData*)rawValue 

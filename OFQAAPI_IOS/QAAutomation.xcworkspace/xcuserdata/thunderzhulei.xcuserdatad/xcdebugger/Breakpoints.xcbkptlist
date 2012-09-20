@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "QAAutoSample/QAAutoSample/AppDelegate.m"
-         timestampString = "369562489.495951"
+         timestampString = "369806272.441542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "235"
-         endingLineNumber = "235"
+         startingLineNumber = "279"
+         endingLineNumber = "279"
          landmarkName = "-runCaseInAnotherThread:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,12 +34,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "QAAutoSample/QAAutoSample/AppDelegate.m"
-         timestampString = "369562489.495951"
+         timestampString = "369806272.441542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "237"
-         endingLineNumber = "237"
-         landmarkName = "-loadConfig:"
+         startingLineNumber = "281"
+         endingLineNumber = "281"
+         landmarkName = "-runCaseInAnotherThread:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -47,12 +47,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "QAAutoSample/QAAutoSample/AppDelegate.m"
-         timestampString = "369554609.372103"
+         timestampString = "369806272.441542"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "220"
-         endingLineNumber = "220"
-         landmarkName = "-runCaseInAnotherThread:"
+         startingLineNumber = "264"
+         endingLineNumber = "264"
+         landmarkName = "-applicationWillTerminate:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

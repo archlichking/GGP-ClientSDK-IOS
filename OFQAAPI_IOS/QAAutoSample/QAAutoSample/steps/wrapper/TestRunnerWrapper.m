@@ -235,7 +235,7 @@ const int SELECT_NONE = 10;
 
 
 - (void) emptyCaseWrappers{
-    [runner emptyCases];
+    [runner removeCases];
     [caseWrappers removeAllObjects];
 }
 
