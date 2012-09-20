@@ -181,7 +181,7 @@ static NSString* APPID = @"15265";
             NSOperationQueue* operationQueue = [[NSOperationQueue alloc] init];
             [operationQueue setMaxConcurrentOperationCount:1];
             
-            NSDictionary* configDicionary = [CIUtil getRunInfoFromUrl:@"http://localhost:3000/ios/config?key=adfqet87983hiu783flkad09806g98adgk"];
+            NSDictionary* configDicionary = [CIUtil getRunInfoFromUrl:@"http://localhost:3000/config?key=adfqet87983hiu783flkad09806g98adgk&platform=ios"];
             
             NSString* suiteId = [configDicionary objectForKey:@"suite_id"];
             NSString* runId = [configDicionary objectForKey:@"run_id"];
@@ -219,18 +219,7 @@ static NSString* APPID = @"15265";
     [runnerWrapper markCaseWrappers:[TestCaseWrapper All]];
     [runnerWrapper executeSelectedCasesWithSubmit:runId
                                             block:^(NSArray* objs){}];
-//    //composite full result report, need to dimensionize it in express server
-//    NSString* a = @"{'case':[";
-//    
-//    for (TestCaseWrapper* wrapper in [runnerWrapper getCaseWrappers]) {
-//        NSString* s = [NSString stringWithFormat:@"{'cid':'%i','title':'%@','result':'%@',''},", [wrapper cId], [[wrapper tc] title], [wrapper], [wrapper result]];
-//        a = [a stringByAppendingString:s];
-//    }
-//    
-//    a = [a substringToIndex:[a length]-1];
-    
-//    a = [a stringByAppendingString:@"]}"];
-//
+
     NSLog(@"======================== requesting subserver to generate perf report for Run %@ ======",runId);
     [CIUtil generateReport:@"adfqet87983hiu783flkad09806g98adgk" fromUrl:@"http://localhost:3000/ios/report"];
     NSLog(@"======================== perf report generated for Run %@ ======",runId);
