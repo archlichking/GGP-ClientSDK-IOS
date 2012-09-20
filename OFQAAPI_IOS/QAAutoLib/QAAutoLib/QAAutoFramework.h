@@ -10,17 +10,33 @@
 
 @class TestCase;
 @class TestRunner;
+@class CaseBuilder;
+
+extern const int SelectAll;
+extern const int SelectFailed;
+extern const int SelectNone;
 
 @interface QAAutoFramework : NSObject{
     @private
     NSArray* originalTestCases;
+    NSMutableArray* currentTestCases;
     TestRunner* runner;
-    id builder;
+    CaseBuilder* builder;
 }
+
+@property (copy) NSMutableArray* currentTestCases;
 
 + (QAAutoFramework*) sharedInstance;
 + (QAAutoFramework*) initializeWithSettings:(NSDictionary*) settings;
 
 - (void) buildCases:(NSString*) suiteId;
+- (void) filterCases:(int) filter;
 
+- (void) runCases;
+- (void) runCases:(NSArray*) cases;
+- (void) runCases:(NSArray *)cases
+    withTcmSubmit:(NSString*) runId
+withNotificationBlock:(void(^)(NSDictionary* params))block;
+
+- (void) runCasesWithTcmSubmit:(NSString*) runId;
 @end

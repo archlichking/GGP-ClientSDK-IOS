@@ -29,7 +29,7 @@
         [self setCaseId:cId];
         [self setTitle:cTitle];
         [self setSteps:cSteps];
-        [self setResult:CaseResultPassed];
+        [self setResult:CaseResultUntested];
         [self setResultComment:@""];
         [self setIsExecuted:false];
     }
@@ -41,7 +41,7 @@
     if (self = [super init]) {
         [self setCaseId:cId];
         [self setTitle:cTitle];
-        [self setResult:CaseResultPassed];
+        [self setResult:CaseResultUntested];
         [self setResultComment:@""];
         [self setIsExecuted:false];
     }

@@ -20,10 +20,11 @@
     [tComm pushCase:tc toRun:runId];
 }
 
-- (void) pushAllCasesToRunId:(NSString*) runId{
+- (void) pushCases:(NSArray*) tcs
+           toRunId:(NSString*) runId{
     TcmCommunicator* tComm = [TcmCommunicator sharedInstance];
     
-    [tComm pushAllCases:[self cases]
+    [tComm pushAllCases:tcs
                   toRun:runId];
 }
 

@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <UIViewController+GreePlatform.h>
-#import "TestPopupDelegate.h"
 
 @class AppDelegate;
 @class CaseTableDelegate;
@@ -16,7 +15,7 @@
 
 
 
-@interface ViewController : UIViewController<UITextFieldDelegate, UIAlertViewDelegate, PopupDelegate, GreeWidgetDataSource>{
+@interface ViewController : UIViewController<UITextFieldDelegate, UIAlertViewDelegate, GreeWidgetDataSource>{
     UIBarButtonItem* loadTestCasesButton;
     UIBarButtonItem* runTestCasesButton;
     

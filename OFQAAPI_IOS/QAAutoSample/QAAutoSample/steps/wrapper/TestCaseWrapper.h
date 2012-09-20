@@ -27,4 +27,7 @@
               selected:(BOOL) select 
                 result:(int) r;
 
+
++ (TestCaseWrapper*) buildWrapper:(TestCase*) caze;
+
 @end

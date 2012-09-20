@@ -7,10 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "TestRunnerWrapper.h"
 #import "CaseBuilderFactory.h"
 #import "CredentialStorage.h"
 
+#import "Constant.h"
 
 #import "GreePlatformSettings.h"
 #import "GreeUser.h"
@@ -45,14 +45,14 @@
 #import "LoggerStepDefinition.h"
 #import "AddonStepDefinition.h"
 
-#define RUN_MODE 0
+#define RUN_MODE 1
 
 #if RUN_MODE == 0
 #define CONFIG_NAME           @"debugCase.txt"
-#define RUN_TYPE              FILE_BUILDER
+#define RUN_TYPE              BuilderFile
 #elif RUN_MODE == 1
 #define CONFIG_NAME           @"tcmsConfig.json"
-#define RUN_TYPE              TCM_BUILDER
+#define RUN_TYPE              BuilderTCM
 #endif
 
 
@@ -96,7 +96,7 @@ static NSString* APPID = @"15265";
     NSData* rawCredential = [self loadConfig:appconf];
     [CredentialStorage initializeCredentialStorageWithAppid:APPID 
                                                     andData:rawCredential];
-    
+    // ------------
     NSArray* classArray = [[[NSArray alloc] initWithObjects:
                             class_createInstance([AuthorizationStepDefinition class], 0),
                             class_createInstance([AchievementStepDefinition class], 0),
@@ -125,10 +125,7 @@ static NSString* APPID = @"15265";
                                nil];
     
     [QAAutoFramework initializeWithSettings:qSettings];
-    
-    runnerWrapper = [[TestRunnerWrapper alloc] initWithRawData:rawData 
-                                                   builderType:RUN_TYPE];
-    
+    // ------------
     
     // --------- GREE Platform initialization
     
@@ -232,16 +229,13 @@ static NSString* APPID = @"15265";
             NSOperationQueue* operationQueue = [[NSOperationQueue alloc] init];
             [operationQueue setMaxConcurrentOperationCount:1];
             
-            NSDictionary* configDicionary = [CIUtil getRunInfoFromUrl:@"http://localhost:3000/ios/config?key=adfqet87983hiu783flkad09806g98adgk"];
+            NSDictionary* configDicionary = [CIUtil getRunInfoFromUrl:@"http://localhost:3000/config?key=adfqet87983hiu783flkad09806g98adgk&platform=ios"];
             
             NSString* suiteId = [configDicionary objectForKey:@"suite_id"];
             NSString* runId = [configDicionary objectForKey:@"run_id"];
             
             NSLog(@"======================== load cases from Suite %@ ======", suiteId);
-            [runnerWrapper emptyCaseWrappers];
-            [runnerWrapper buildRunner:suiteId];
-            
-            [runnerWrapper markCaseWrappers:[TestCaseWrapper All]];
+            [[QAAutoFramework sharedInstance] buildCases:suiteId];
             NSLog(@"======================== executing cases and update result for Run %@ ======",runId);
             
             NSInvocationOperation* theOp = [[[NSInvocationOperation alloc] initWithTarget:self
@@ -267,14 +261,14 @@ static NSString* APPID = @"15265";
 
 
 - (void) runCaseInAnotherThread:(NSString*) runId{
-    [runnerWrapper markCaseWrappers:[TestCaseWrapper All]];
-    [runnerWrapper executeSelectedCasesWithSubmit:runId
-                                            block:^(NSArray* objs){}];
+    
+    [[QAAutoFramework sharedInstance] filterCases:SelectAll];
+    [[QAAutoFramework sharedInstance] runCasesWithTcmSubmit:runId];
 
     // need to execute all failed cases again to make sure no network or other interference here
-    [runnerWrapper markCaseWrappers:[TestCaseWrapper Failed]];
-    [runnerWrapper executeSelectedCasesWithSubmit:runId
-                                            block:^(NSArray* objs){}];
+//    [[QAAutoFramework sharedInstance] filterCases:SelectFailed];
+//    [[QAAutoFramework sharedInstance] runCasesWithTcmSubmit:runId];
+    
     
     NSLog(@"======================== requesting subserver to generate perf report for Run %@ ======",runId);
     [CIUtil generateReport:@"adfqet87983hiu783flkad09806g98adgk" fromUrl:@"http://localhost:3000/ios/report"];

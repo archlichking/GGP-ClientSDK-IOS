@@ -12,11 +12,12 @@
 #import "SBJson.h"
 #import "AppDelegate.h"
 #import "TestCaseWrapper.h"
-#import "TestRunnerWrapper.h"
 #import "TcmCommunicator.h"
 #import "CommandUtil.h"
 #import "Constant.h"
 #import "StepDefinition.h"
+
+#import "QAAutoFramework.h"
 
 #import "MAlertView.h"
 #import "GreePopup.h"
@@ -141,11 +142,17 @@
         case 2:
             // case select alert
             if ([title isEqualToString:@"All"]) {
-                [[appDelegate runnerWrapper] markCaseWrappers:SELECT_ALL];
+                //--------
+                [[QAAutoFramework sharedInstance] filterCases:SelectAll];
+                //--------
             }else if ([title isEqualToString:@"Failed"]) {
-                [[appDelegate runnerWrapper] markCaseWrappers:SELECT_FAILED];
+                //--------
+                [[QAAutoFramework sharedInstance] filterCases:SelectFailed];
+                //--------
             }else if ([title isEqualToString:@"Un All"]) {
-                [[appDelegate runnerWrapper] markCaseWrappers:SELECT_NONE];
+                //--------
+                [[QAAutoFramework sharedInstance] filterCases:SelectNone];
+                //--------
             }
             [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" object:nil];
             break;
@@ -198,10 +205,16 @@
 }
 
 - (void) loadCasesInAnotherThread{
-    [[appDelegate runnerWrapper] emptyCaseWrappers];
-    [[appDelegate runnerWrapper] buildRunner:[suiteIdText text] == nil?@"178":[suiteIdText text]];
+    // ------------
+    [[QAAutoFramework sharedInstance] buildCases:[suiteIdText text] == nil?@"178":[suiteIdText text]];
+    // ------------
     
-    NSArray* tmp = [[appDelegate runnerWrapper] getCaseWrappers];
+    [[QAAutoFramework sharedInstance] filterCases:SelectAll];
+    NSMutableArray* tmp = [[NSMutableArray alloc] init];
+    for (TestCase* tc in[[QAAutoFramework sharedInstance] currentTestCases]){
+        [tmp addObject:[TestCaseWrapper buildWrapper:tc]];
+    }
+    
     [(CaseTableDelegate*)[tableView dataSource] initTableItems:tmp];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" object:nil];
@@ -212,16 +225,28 @@
 }
 
 - (void) runCasesInAnotherThread{
-    [[appDelegate runnerWrapper] setCaseWrappers:[(CaseTableDelegate*)[tableView dataSource] displayTableItems]];
-    // replace this line to not submit 
-    [[appDelegate runnerWrapper] executeSelectedCasesWithSubmit:[runIdText text] == nil?@"416":[runIdText text]
-                                                          block:^(NSArray* objs){
-                                                              [self performSelectorOnMainThread:@selector(updateProgressViewWithRunning:)
-                                                                                     withObject:objs 
-                                                                                  waitUntilDone:YES];
-                                                          }];
+    NSMutableArray* tmp = [[NSMutableArray alloc] init];
+    for (TestCaseWrapper* wrapper in [(CaseTableDelegate*)[tableView dataSource] displayTableItems]) {
+        if ([wrapper isSelected]) {
+            TestCase* tc = [wrapper tc];
+            [tmp addObject:tc];
+        }
+    }
+    // ------------
+    [[QAAutoFramework sharedInstance] runCases:tmp
+                                 withTcmSubmit:[runIdText text] == nil?@"416":[runIdText text]
+                         withNotificationBlock:^(NSDictionary *params) {
+                             [self performSelectorOnMainThread:@selector(updateProgressViewWithRunning:)
+                                                    withObject:[params objectForKey:@"cases"]
+                                                 waitUntilDone:YES];
+                         }];
+    // ------------
+        
+    [tmp removeAllObjects];
+    for (TestCase* tc in[[QAAutoFramework sharedInstance] currentTestCases]){
+        [tmp addObject:[TestCaseWrapper buildWrapper:tc]];
+    }
     
-    NSMutableArray* tmp = [[appDelegate runnerWrapper] getCaseWrappers];
     [(CaseTableDelegate*)[tableView dataSource] setDisplayTableItems:tmp];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" object:nil];

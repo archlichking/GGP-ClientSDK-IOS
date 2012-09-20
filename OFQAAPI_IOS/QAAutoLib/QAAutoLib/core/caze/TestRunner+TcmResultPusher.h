@@ -15,6 +15,7 @@
 - (void) pushCase:(TestCase*) tc
                     toRunId:(NSString*) runId;
 
-- (void) pushAllCasesToRunId:(NSString*) runId;
+- (void) pushCases:(NSArray*) tcs
+           toRunId:(NSString*) runId;
 
 @end

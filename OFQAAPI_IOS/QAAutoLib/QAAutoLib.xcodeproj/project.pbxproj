@@ -76,12 +76,12 @@
 		BA058EA11609A52200CA2522 /* HttpCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpCommunicator.m; sourceTree = "<group>"; };
 		BA058EA31609B3F100CA2522 /* QAAutoFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAAutoFramework.h; sourceTree = "<group>"; };
 		BA058EA41609B3F200CA2522 /* QAAutoFramework.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QAAutoFramework.m; sourceTree = "<group>"; };
+		BACD8D88160B0CE100F11BB6 /* CaseBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseBuilder.h; sourceTree = "<group>"; };
 		BAEE816716006AFB0052FDC8 /* libQAAutoLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libQAAutoLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAEE816A16006AFB0052FDC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BAEE816E16006AFB0052FDC8 /* QAAutoLib-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QAAutoLib-Prefix.pch"; sourceTree = "<group>"; };
 		BAEE816F16006AFB0052FDC8 /* QAAutoLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QAAutoLib.h; sourceTree = "<group>"; };
 		BAEE817116006AFB0052FDC8 /* QAAutoLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QAAutoLib.m; sourceTree = "<group>"; };
-		BAEE818116006B310052FDC8 /* CaseBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseBuilder.h; sourceTree = "<group>"; };
 		BAEE818216006B310052FDC8 /* CaseBuilderFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseBuilderFactory.h; sourceTree = "<group>"; };
 		BAEE818316006B310052FDC8 /* CaseBuilderFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseBuilderFactory.m; sourceTree = "<group>"; };
 		BAEE818416006B310052FDC8 /* FileCaseBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCaseBuilder.h; sourceTree = "<group>"; };
@@ -267,13 +267,13 @@
 		BAEE818016006B310052FDC8 /* builder */ = {
 			isa = PBXGroup;
 			children = (
-				BAEE818116006B310052FDC8 /* CaseBuilder.h */,
 				BAEE818216006B310052FDC8 /* CaseBuilderFactory.h */,
 				BAEE818316006B310052FDC8 /* CaseBuilderFactory.m */,
 				BAEE818416006B310052FDC8 /* FileCaseBuilder.h */,
 				BAEE818516006B310052FDC8 /* FileCaseBuilder.m */,
 				BAEE818616006B310052FDC8 /* TcmCaseBuilder.h */,
 				BAEE818716006B310052FDC8 /* TcmCaseBuilder.m */,
+				BACD8D88160B0CE100F11BB6 /* CaseBuilder.h */,
 			);
 			path = builder;
 			sourceTree = "<group>";
