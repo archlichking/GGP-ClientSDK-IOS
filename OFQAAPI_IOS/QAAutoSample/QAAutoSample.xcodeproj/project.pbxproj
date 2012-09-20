@@ -18,6 +18,7 @@
 		BA2C2E0B160078CC0041B688 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2C2E0A160078CC0041B688 /* MessageUI.framework */; };
 		BA2C2E0D160078E80041B688 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2C2E0C160078E80041B688 /* GameKit.framework */; };
 		BA2C2E0F160079220041B688 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2C2E0E160079220041B688 /* StoreKit.framework */; };
+		BA384190160ABDD1006D0ED9 /* baseCommand.js in Resources */ = {isa = PBXBuildFile; fileRef = BAEE825F16006DA30052FDC8 /* baseCommand.js */; };
 		BA70BE751602FA4C005EEC8A /* CIUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = BA70BE741602FA4C005EEC8A /* CIUtil.m */; };
 		BAAFB97D1602D31B001BAA35 /* libQAAutoLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAFB9711601B5C1001BAA35 /* libQAAutoLib.a */; };
 		BAAFB9801602D32B001BAA35 /* libGreePlatform.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAFB97E1602D32A001BAA35 /* libGreePlatform.a */; };
@@ -512,6 +513,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA384190160ABDD1006D0ED9 /* baseCommand.js in Resources */,
 				BAAFB9851602D34F001BAA35 /* GreePlatformCoreResources.bundle in Resources */,
 				BAAFB9861602D34F001BAA35 /* GreePlatformLandscapeResources.bundle in Resources */,
 				BAAFB9871602D34F001BAA35 /* GreePlatformPortraitResources.bundle in Resources */,
