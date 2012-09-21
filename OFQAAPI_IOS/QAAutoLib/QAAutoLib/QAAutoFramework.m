@@ -68,13 +68,13 @@ static QAAutoFramework* sSharedInstance = nil;
     if (currentTestCases) {
         [currentTestCases release];
     }
-    originalTestCases = [builder buildCasesBySuiteId:suiteId];
+    originalTestCases = [[NSArray alloc] initWithArray:[builder buildCasesBySuiteId:suiteId]];
     currentTestCases = [[NSMutableArray alloc] init];
     
 }
 
 - (void) filterCases:(int) filter{
-    NSMutableArray* filteredCases = [currentTestCases retain];
+    NSMutableArray* filteredCases = [[NSMutableArray alloc] initWithArray:currentTestCases];
     [currentTestCases removeAllObjects];
     switch (filter) {
         case SelectAll:
@@ -98,40 +98,25 @@ static QAAutoFramework* sSharedInstance = nil;
     [filteredCases release];
 }
 
-- (void) runCases{
+- (void) runAllCases{
     [runner runCases:currentTestCases];
+}
+
+- (void) runCase:(TestCase*) caze{
+    [runner runCase:caze];
 }
 
 - (void) runCases:(NSArray*) cases{
     if(currentTestCases){
-        [currentTestCases release];
+        [currentTestCases removeAllObjects];
     }
-    currentTestCases = [NSMutableArray arrayWithArray:cases];
+    [currentTestCases addObjectsFromArray:cases];
     [runner runCases:currentTestCases];
     
 }
 
-- (void) runCases:(NSArray *)cases
-    withTcmSubmit:(NSString*) runId
-withNotificationBlock:(void(^)(NSDictionary* params))block{
-    if (cases) {
-        currentTestCases = [NSMutableArray arrayWithArray:cases];
-    }
-        // case running
-    for (TestCase* tc in currentTestCases) {
-        [runner runCase:tc];
-    }
-    
-    // case submitting
-    for (TestCase* tc in currentTestCases){
-        [runner pushCase:tc
-                 toRunId:runId];
-        // update ui
-    }
-}
-
-- (void) runCasesWithTcmSubmit:(NSString*) runId{
-    [self runCases];
+- (void) runAllCasesWithTcmSubmit:(NSString*) runId{
+    [self runAllCases];
     [runner pushCases:currentTestCases
               toRunId:runId];
 }

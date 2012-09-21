@@ -87,7 +87,7 @@
             
         }
         @catch (NoCommandMatchException* exception) {
-            QALog(@"one step doesnt begin with keyword for case [%@]", [rawCase valueForKey:@"title"]);
+            QALog(@"[ERROR] one step doesn't start with keyword for case [%@]", [rawCase valueForKey:@"title"]);
             [tc setIsExecuted:true];
             [tc setResult:CaseResultUntested];
             [tc setResultComment:@"probably one or two step is not started with keywords"];
@@ -95,7 +95,7 @@
         }
         @catch (NoSuchStepException *exception) {
             // no step found in
-            QALog(@"no full steps defined for case [%@]", [rawCase valueForKey:@"title"]);
+            QALog(@"[ERROR] not all steps defined for case [%@]", [rawCase valueForKey:@"title"]);
             [tc setIsExecuted:true];
             [tc setResult:CaseResultUntested];
             [tc setResultComment:@"probably one or two step is not defined"];

@@ -60,7 +60,6 @@
         if(!error){
             [[self getBlockRepo] setObject:products forKey:@"products"];
         }
-        NSLog(@"%@", products);
         [self notifyInStep];
     }];
     

@@ -67,7 +67,7 @@ static TcmCommunicator* sSharedInstance = nil;
         
         [self doHttpPost:url
                   params:mud];
-        QALog(@"case result posted to TCM with id %@", [tc caseId]);
+        QALog(@"pushing TCM with case %@", [tc caseId]);
         [mud release];
     }
 }
@@ -83,7 +83,7 @@ static TcmCommunicator* sSharedInstance = nil;
     
     [self doHttpPost:url
               params:mud];
-    QALog(@"case result posted to TCM with id %@", [caze caseId]);
+    QALog(@"pushing TCM with case %@", [caze caseId]);
     [mud release];
 }
 

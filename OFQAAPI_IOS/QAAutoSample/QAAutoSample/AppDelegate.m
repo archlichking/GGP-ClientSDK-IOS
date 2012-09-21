@@ -22,6 +22,7 @@
 #import "CIUtil.h"
 
 #import "QAAutoFramework.h"
+#import "QALog.h"
 
 #import "objc/runtime.h"
 #import <mach/mach.h>
@@ -220,7 +221,6 @@ static NSString* APPID = @"15265";
      */
     NSArray * arguments = [[NSProcessInfo processInfo] arguments];
 //    NSArray* arguments = [[NSArray alloc] initWithObjects:@"JenkinsMode", nil];
-    NSLog(@"launch args include %@", arguments);
     
     [GreePlatform authorizeWithBlock:^(GreeUser *localUser, NSError *error) {
         if ([arguments containsObject:@"JenkinsMode"]) {
@@ -234,9 +234,9 @@ static NSString* APPID = @"15265";
             NSString* suiteId = [configDicionary objectForKey:@"suite_id"];
             NSString* runId = [configDicionary objectForKey:@"run_id"];
             
-            NSLog(@"======================== load cases from Suite %@ ======", suiteId);
+            QALog(@"------------- load cases from Suite %@ ", suiteId);
             [[QAAutoFramework sharedInstance] buildCases:suiteId];
-            NSLog(@"======================== executing cases and update result for Run %@ ======",runId);
+            QALog(@"------------- executing cases and update result for Run %@ ",runId);
             
             NSInvocationOperation* theOp = [[[NSInvocationOperation alloc] initWithTarget:self
                                                                                  selector:@selector(runCaseInAnotherThread:)
@@ -263,16 +263,16 @@ static NSString* APPID = @"15265";
 - (void) runCaseInAnotherThread:(NSString*) runId{
     
     [[QAAutoFramework sharedInstance] filterCases:SelectAll];
-    [[QAAutoFramework sharedInstance] runCasesWithTcmSubmit:runId];
+    [[QAAutoFramework sharedInstance] runAllCasesWithTcmSubmit:runId];
 
     // need to execute all failed cases again to make sure no network or other interference here
 //    [[QAAutoFramework sharedInstance] filterCases:SelectFailed];
 //    [[QAAutoFramework sharedInstance] runCasesWithTcmSubmit:runId];
     
     
-    NSLog(@"======================== requesting subserver to generate perf report for Run %@ ======",runId);
+    QALog(@"------------- requesting subserver to generate perf report for Run %@",runId);
     [CIUtil generateReport:@"adfqet87983hiu783flkad09806g98adgk" fromUrl:@"http://localhost:3000/ios/report"];
-    NSLog(@"======================== perf report generated for Run %@ ======",runId);
+    QALog(@"------------- perf report generated for Run %@",runId);
     
     
     

@@ -30,7 +30,7 @@
     if (!error) {
         result = [request responseData];
     }else{
-        QALog(@"sb xcode, network error ===== %@", [error description]);
+        QALog(@"[NETWORK ERROR] %@", [error description]);
     }
     
     return result;
@@ -58,7 +58,7 @@
     if (!error) {
         result = [request responseData];
     }else{
-        QALog(@"sb xcode, network error ===== %@", [error description]);
+        QALog(@"[NETWORK ERROR] %@", [error description]);
     }
     return result;
 }

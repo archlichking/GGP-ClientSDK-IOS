@@ -39,10 +39,10 @@ static int OUTSIDETIMEOUT = 10;
         [inStepLock unlock];
     }
     @catch (NSException *exception) {
-        NSLog(@"=======> exception in inside step unlock %@", exception);
+        QALog(@"[WAIT ERROR] inside step unlock %@", exception);
     }
     @catch (NSError *error) {
-        NSLog(@"=======> error in inside step unlock %@", error);
+        QALog(@"[WAIT ERROR] inside step unlock %@", error);
     }
     @finally {
         [inStepLock release];
@@ -104,10 +104,10 @@ static int OUTSIDETIMEOUT = 10;
         [outsideStepLock unlock];
     }
     @catch (NSException* exception) {
-        NSLog(@"=======> exception in outside step unlock %@", exception);
+        QALog(@"[WAIT ERROR] outside step unlock %@", exception);
     }
     @catch (NSError *error) {
-        NSLog(@"=======> error in inside step unlock %@", error);
+        QALog(@"[WAIT ERROR] inside step unlock %@", error);
     }
     @finally {
         // reset timeout and condition

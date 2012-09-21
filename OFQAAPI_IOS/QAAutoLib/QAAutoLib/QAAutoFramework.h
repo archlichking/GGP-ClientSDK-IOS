@@ -32,11 +32,8 @@ extern const int SelectNone;
 - (void) buildCases:(NSString*) suiteId;
 - (void) filterCases:(int) filter;
 
-- (void) runCases;
+- (void) runAllCases;
 - (void) runCases:(NSArray*) cases;
-- (void) runCases:(NSArray *)cases
-    withTcmSubmit:(NSString*) runId
-withNotificationBlock:(void(^)(NSDictionary* params))block;
-
-- (void) runCasesWithTcmSubmit:(NSString*) runId;
+- (void) runCase:(TestCase*) caze;
+- (void) runAllCasesWithTcmSubmit:(NSString*) runId;
 @end
