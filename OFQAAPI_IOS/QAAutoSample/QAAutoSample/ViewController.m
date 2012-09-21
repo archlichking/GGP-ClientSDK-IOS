@@ -9,14 +9,15 @@
 #import "ViewController.h"
 
 #import "objc/runtime.h"
-#import "SBJson.h"
 #import "AppDelegate.h"
 #import "TestCaseWrapper.h"
-#import "TestRunnerWrapper.h"
-#import "TcmCommunicator.h"
+#import "TestRunner.h"
+#import "TestRunner+TcmResultPusher.h"
 #import "CommandUtil.h"
-#import "Constant.h"
 #import "StepDefinition.h"
+#import "QALog.h"
+
+#import "QAAutoFramework.h"
 
 #import "MAlertView.h"
 #import "GreePopup.h"
@@ -24,9 +25,123 @@
 #import "GreeWidget.h"
 #import "GreeAgreementPopup.h"
 
+#import "objc/runtime.h"
+#import <mach/mach.h>
 #import <QuartzCore/QuartzCore.h>
 #import "UIViewController+GreePlatform.h"
 #import "CaseTableDelegate.h"
+
+
+@interface QAAutoFramework (RunWithNotificationBlock)
+- (void) runCases:(NSArray *)cases
+    withTcmSubmit:(NSString*) runId
+    withNotificationBlock:(void(^)(NSDictionary* params))block;
+
+@end
+
+@implementation QAAutoFramework (RunWithNotificationBlock)
+- (void) runCases:(NSArray *)cases
+    withTcmSubmit:(NSString*) runId
+    withNotificationBlock:(void(^)(NSDictionary* params))block{
+    if (cases) {
+        [currentTestCases removeAllObjects];
+        [currentTestCases addObjectsFromArray:cases];
+    }
+    
+    int alreadyDoneNumber = 0;
+    int all = [currentTestCases count];
+    NSString* doing = @"";
+    NSString* mem = @"";
+    
+    struct task_basic_info info;
+    // used for memory inspect
+    mach_msg_type_number_t size = sizeof(info);
+    
+    kern_return_t kerr = task_info(mach_task_self(),
+                                   TASK_BASIC_INFO,
+                                   (task_info_t)&info,
+                                   &size);
+    unsigned long baseMem = 1l;
+    
+    if( kerr == KERN_SUCCESS ) {
+        baseMem = info.resident_size;
+    }
+    
+    // case running
+    for (TestCase* tc in currentTestCases) {
+        [runner runCase:tc];
+        if (block) {
+            alreadyDoneNumber ++;
+            doing = [NSString stringWithFormat:@"executing %d/%d", alreadyDoneNumber, all];
+            
+            kerr = task_info(mach_task_self(),
+                             TASK_BASIC_INFO,
+                             (task_info_t)&info,
+                             &size);
+            if( kerr == KERN_SUCCESS ) {
+                mem = [NSString stringWithFormat:@"mem usage(MB):%0.3f, INC by:%0.2f",
+                       (float)info.resident_size/(1024*1024),
+                       (float)(info.resident_size-baseMem)*100/baseMem];
+            }
+            
+            NSMutableDictionary* ps = [[NSMutableDictionary alloc] init];
+            NSArray* tempA = [[[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%0.1f", (float)alreadyDoneNumber/all],
+                               doing,
+                               mem,
+                               nil] autorelease];
+            [ps setObject:tempA
+                   forKey:@"monitorParams"];
+            block(ps);
+            
+            [ps release];
+        }
+    }
+    
+    alreadyDoneNumber = 0.;
+    
+    // case submitting
+    for (TestCase* tc in currentTestCases){
+        [runner pushCase:tc
+                    toRunId:runId];
+        if (block) {
+            alreadyDoneNumber ++;
+            doing = [NSString stringWithFormat:@"submitting %d/%d", alreadyDoneNumber, all];
+            
+            kerr = task_info(mach_task_self(),
+                             TASK_BASIC_INFO,
+                             (task_info_t)&info,
+                             &size);
+            if( kerr == KERN_SUCCESS ) {
+                mem = [NSString stringWithFormat:@"mem usage(MB):%0.3f, INC by:%0.2f",
+                       (float)info.resident_size/(1024*1024),
+                       (float)(info.resident_size-baseMem)*100/baseMem];
+            }
+            NSMutableDictionary* ps = [[NSMutableDictionary alloc] init];
+            NSArray* tempA = [[[NSArray alloc] initWithObjects:[NSString stringWithFormat:@"%0.1f", (float)alreadyDoneNumber/all],
+                               doing,
+                               mem,
+                               nil] autorelease];
+            [ps setObject:tempA
+                   forKey:@"monitorParams"];
+            block(ps);
+            
+            [ps release];
+        }
+    }
+    
+    kerr = task_info(mach_task_self(),
+                     TASK_BASIC_INFO,
+                     (task_info_t)&info,
+                     &size);
+    if( kerr == KERN_SUCCESS ) {
+        QALog(@"total memory usage(MB) : %0.3f, increased by : %0.2f",
+              (float)info.resident_size/(1024*1024),
+              (float)(info.resident_size-baseMem)*100/baseMem);
+    }
+}
+
+@end
+
 
 @implementation ViewController
 
@@ -141,12 +256,19 @@
         case 2:
             // case select alert
             if ([title isEqualToString:@"All"]) {
-                [[appDelegate runnerWrapper] markCaseWrappers:[TestCaseWrapper All]];
+                //--------
+                [[QAAutoFramework sharedInstance] filterCases:SelectAll];
+                //--------
             }else if ([title isEqualToString:@"Failed"]) {
-                [[appDelegate runnerWrapper] markCaseWrappers:[TestCaseWrapper Failed]];
+                //--------
+                [[QAAutoFramework sharedInstance] filterCases:SelectFailed];
+                //--------
             }else if ([title isEqualToString:@"Un All"]) {
-                [[appDelegate runnerWrapper] markCaseWrappers:[TestCaseWrapper UnAll]];
+                //--------
+                [[QAAutoFramework sharedInstance] filterCases:SelectNone];
+                //--------
             }
+            [(CaseTableDelegate*)[tableView dataSource] shuffleDisplayTableItems:[[QAAutoFramework sharedInstance] currentTestCases]];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" object:nil];
             break;
         default:
@@ -198,11 +320,13 @@
 }
 
 - (void) loadCasesInAnotherThread{
-    [[appDelegate runnerWrapper] emptyCaseWrappers];
-    [[appDelegate runnerWrapper] buildRunner:[suiteIdText text] == nil?@"178":[suiteIdText text]];
+    // ------------
+    [[QAAutoFramework sharedInstance] buildCases:[suiteIdText text] == nil?@"178":[suiteIdText text]];
+    // ------------
     
-    NSArray* tmp = [[appDelegate runnerWrapper] getCaseWrappers];
-    [(CaseTableDelegate*)[tableView dataSource] initTableItems:tmp];
+    [[QAAutoFramework sharedInstance] filterCases:SelectAll];
+        
+    [(CaseTableDelegate*)[tableView dataSource] initTableItems:[[QAAutoFramework sharedInstance] currentTestCases]];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" object:nil];
     
@@ -212,17 +336,23 @@
 }
 
 - (void) runCasesInAnotherThread{
-    [[appDelegate runnerWrapper] setCaseWrappers:[(CaseTableDelegate*)[tableView dataSource] displayTableItems]];
-    // replace this line to not submit 
-    [[appDelegate runnerWrapper] executeSelectedCasesWithSubmit:[runIdText text] == nil?@"416":[runIdText text]
-                                                          block:^(NSArray* objs){
-                                                              [self performSelectorOnMainThread:@selector(updateProgressViewWithRunning:)
-                                                                                     withObject:objs 
-                                                                                  waitUntilDone:YES];
-                                                          }];
-    
-    NSMutableArray* tmp = [[appDelegate runnerWrapper] getCaseWrappers];
-    [(CaseTableDelegate*)[tableView dataSource] setDisplayTableItems:tmp];
+    NSMutableArray* tmp = [[NSMutableArray alloc] init];
+    for (TestCaseWrapper* wrapper in [(CaseTableDelegate*)[tableView dataSource] displayTableItems]) {
+        if ([wrapper isSelected]) {
+            TestCase* tc = [wrapper tc];
+            [tmp addObject:tc];
+        }
+    }
+    // ------------
+    [[QAAutoFramework sharedInstance] runCases:tmp
+                                 withTcmSubmit:[runIdText text] == nil?@"416":[runIdText text]
+                         withNotificationBlock:^(NSDictionary *params) {
+                             [self performSelectorOnMainThread:@selector(updateProgressViewWithRunning:)
+                                                    withObject:[params objectForKey:@"monitorParams"]
+                                                 waitUntilDone:YES];
+                         }];
+    // ------------
+    [(CaseTableDelegate*)[tableView dataSource] shuffleDisplayTableItems:[[QAAutoFramework sharedInstance] currentTestCases]];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RefreshCases" object:nil];
     
@@ -230,6 +360,7 @@
                            withObject:nil
                         waitUntilDone:YES];
     
+    [tmp release];
 //    exit(0);
 }
 

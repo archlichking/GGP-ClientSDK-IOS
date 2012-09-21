@@ -22,5 +22,6 @@
 @property (retain) NSMutableArray* displayTableItems;
 
 - (void) initTableItems:(NSArray*) items;
+- (void) shuffleDisplayTableItems:(NSArray*) checkedItems;
 
 @end

@@ -29,7 +29,7 @@
         [self setCaseId:cId];
         [self setTitle:cTitle];
         [self setSteps:cSteps];
-        [self setResult:CaseResultPassed];
+        [self setResult:CaseResultUntested];
         [self setResultComment:@""];
         [self setIsExecuted:false];
     }
@@ -41,7 +41,7 @@
     if (self = [super init]) {
         [self setCaseId:cId];
         [self setTitle:cTitle];
-        [self setResult:CaseResultPassed];
+        [self setResult:CaseResultUntested];
         [self setResultComment:@""];
         [self setIsExecuted:false];
     }
@@ -50,16 +50,16 @@
 
 - (void) execute{
     self.result = CaseResultPassed;
-    QALog(@"============= launching case of [id: %@, title: %@] =============", [self caseId], [self title]);
+    QALog(@"case [id: %@, title: %@]", [self caseId], [self title]);
     if ([[[self title] lowercaseString] rangeOfString:@"android only"].length > 0) {
         // case that doesnt support IOS SDK
         self.result = CaseResultBlocked;
-        [self setResultComment: @"Not an IOS SDK case, skipped"];
+        [self setResultComment: @"[WARNNING] Not an IOS SDK case, skipped"];
     }else if(steps.count == 0){
         //current platform but without steps
         [self setResult:CaseResultRetested];
         [self setResultComment: @"No Step Found for this case, maybe a parse error, need retested"];
-        QALog(@"No Step Found for this case, maybe a parse error, need retested");
+        QALog(@"[ERROR] No Step Found for this case, maybe a parse error, need retested");
     }else{
         //finally can be executed
         for (int i=0;i<[self steps].count;i++) {

@@ -13,12 +13,11 @@
 
 @interface TcmCaseBuilder : NSObject <CaseBuilder>{
     @private
-    TcmCommunicator* tcmComm;
     SBJsonParser* jsonParser;
     StepParser* stepParser;
 }
 
-@property (retain) TcmCommunicator* tcmComm;
+
 @property (retain) SBJsonParser* jsonParser;
 @property (retain) StepParser* stepParser;
 

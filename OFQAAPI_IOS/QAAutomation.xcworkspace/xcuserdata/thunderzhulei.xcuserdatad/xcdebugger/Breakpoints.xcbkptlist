@@ -4,68 +4,107 @@
    version = "1.0">
    <FileBreakpoints>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "QAAutoSample/QAAutoSample/CIUtil.m"
-         timestampString = "369554459.931947"
+         filePath = "QAAutoLib/QAAutoLib/QAAutoFramework.m"
+         timestampString = "369891674.685345"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "41"
-         endingLineNumber = "41"
-         landmarkName = "+generateReport:fromUrl:"
+         startingLineNumber = "77"
+         endingLineNumber = "77"
+         landmarkName = "-filterCases:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "QAAutoSample/QAAutoSample/AppDelegate.m"
-         timestampString = "369828629.956187"
+         filePath = "QAAutoSample/QAAutoSample/ViewController.m"
+         timestampString = "369914154.021408"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "224"
-         endingLineNumber = "224"
-         landmarkName = "-runCaseInAnotherThread:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "QAAutoSample/QAAutoSample/AppDelegate.m"
-         timestampString = "369828629.956187"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "226"
-         endingLineNumber = "226"
-         landmarkName = "-runCaseInAnotherThread:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "QAAutoSample/QAAutoSample/AppDelegate.m"
-         timestampString = "369554609.372103"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "220"
-         endingLineNumber = "220"
-         landmarkName = "-runCaseInAnotherThread:"
+         startingLineNumber = "260"
+         endingLineNumber = "260"
+         landmarkName = "-alertView:clickedButtonAtIndex:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "QAAutoLib/QAAutoLib/core/net/TcmCommunicator.m"
-         timestampString = "369554709.966192"
+         filePath = "QAAutoLib/QAAutoLib/QAAutoFramework.m"
+         timestampString = "369905139.787372"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "35"
-         endingLineNumber = "35"
-         landmarkName = "-doHttpPost:params:"
+         startingLineNumber = "81"
+         endingLineNumber = "81"
+         landmarkName = "-filterCases:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QAAutoLib/QAAutoLib/QAAutoFramework.m"
+         timestampString = "369905141.012742"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "82"
+         endingLineNumber = "82"
+         landmarkName = "-filterCases:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QAAutoSample/QAAutoSample/delegate/CaseTableDelegate.m"
+         timestampString = "369905145.531116"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "49"
+         endingLineNumber = "49"
+         landmarkName = "-shuffleDisplayTableItems:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QAAutoSample/QAAutoSample/ViewController.m"
+         timestampString = "369914154.021408"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "271"
+         endingLineNumber = "271"
+         landmarkName = "-alertView:clickedButtonAtIndex:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QAAutoSample/QAAutoSample/ViewController.m"
+         timestampString = "369914154.021408"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "264"
+         endingLineNumber = "264"
+         landmarkName = "-alertView:clickedButtonAtIndex:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QAAutoLib/QAAutoLib/core/caze/builder/TcmCaseBuilder.m"
+         timestampString = "369905599.296161"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "112"
+         endingLineNumber = "112"
+         landmarkName = "-buildCasesBySuiteId:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint

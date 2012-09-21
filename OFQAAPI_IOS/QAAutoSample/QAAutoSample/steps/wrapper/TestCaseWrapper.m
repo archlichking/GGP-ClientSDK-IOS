@@ -35,22 +35,21 @@
     return self;
 }
 
++ (TestCaseWrapper*) buildWrapper:(TestCase*) caze{
+    BOOL se = true;
+    if ([caze result] == 4 ||[caze result] == 2||[caze result] == 0) {
+        se = false;
+    }
+    
+    return [[TestCaseWrapper alloc] initWithTestCase:caze
+                                            selected:[caze isExecuted]&&se
+                                              result:[caze result]];
+}
+
 - (void)dealloc{
     [tc release];
     [result release];
     [super dealloc];
-}
-
-+ (int) All{
-    return 1;
-}
-
-+ (int) Failed{
-    return 2;
-}
-
-+ (int) UnAll{
-    return 10;
 }
 
 @end

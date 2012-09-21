@@ -34,8 +34,30 @@
 }
 
 - (void) initTableItems:(NSArray*) items{
-    displayTableItems = [[NSMutableArray alloc] initWithArray:items];
-    fullTableItems = [[NSArray alloc] initWithArray:items];
+    NSMutableArray* tmp = [[NSMutableArray alloc] init];
+    for (TestCase* tc in items){
+        [tmp addObject:[TestCaseWrapper buildWrapper:tc]];
+    }
+    
+    displayTableItems = [[NSMutableArray alloc] initWithArray:tmp];
+    fullTableItems = [[NSArray alloc] initWithArray:tmp];
+    [tmp release];
+}
+
+- (void) shuffleDisplayTableItems:(NSArray*) checkedItems{
+    
+    if (checkedItems) {
+        for (TestCaseWrapper* w in displayTableItems) {
+            [w setIsSelected:false];
+            for (TestCase* c in checkedItems) {
+                if ([w cId] == [[c caseId] intValue]) {
+                    [w setIsSelected:true];
+                    [w setResult:[Constant getReadableResult:[c result]]];
+                    break;
+                }
+            }
+        }
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tView 
@@ -77,7 +99,6 @@ titleForHeaderInSection:(NSInteger)section {
 
 - (void)tableView:(UITableView *)tableView 
 didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    NSLog(@"%i", indexPath.row);
     if ([[displayTableItems objectAtIndex:indexPath.row] isSelected]) {
         [tableView cellForRowAtIndexPath:indexPath].imageView.image = unchecked;
         [[displayTableItems objectAtIndex:indexPath.row] setIsSelected:false];

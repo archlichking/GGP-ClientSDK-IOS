@@ -7,10 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "TestRunnerWrapper.h"
 #import "CaseBuilderFactory.h"
 #import "CredentialStorage.h"
 
+#import "Constant.h"
 
 #import "GreePlatformSettings.h"
 #import "GreeUser.h"
@@ -21,14 +21,39 @@
 #import "StepDefinition.h"
 #import "CIUtil.h"
 
+#import "QAAutoFramework.h"
+#import "QALog.h"
+
+#import "objc/runtime.h"
+#import <mach/mach.h>
+
+#import "SampleStepDefinition.h"
+#import "AuthorizationStepDefinition.h"
+#import "AchievementStepDefinition.h"
+#import "LeaderboardStepDefinition.h"
+#import "PeopleStepDefinition.h"
+#import "ModerationStepDefinition.h"
+#import "FriendCodeStepDefinition.h"
+#import "IgnorelistStepDefinition.h"
+#import "NetworkStepDefinition.h"
+#import "GreePlatformStepDefinition.h"
+#import "PaymentStepDefinition.h"
+#import "PopupStepDefinition.h"
+#import "NotificationStepDefinition.h"
+#import "BadgeStepDefinition.h"
+#import "WidgetStepDefinition.h"
+#import "LogJsKitStepDefinition.h"
+#import "LoggerStepDefinition.h"
+#import "AddonStepDefinition.h"
+
 #define RUN_MODE 1
 
 #if RUN_MODE == 0
 #define CONFIG_NAME           @"debugCase.txt"
-#define RUN_TYPE              FILE_BUILDER
+#define RUN_TYPE              BuilderFile
 #elif RUN_MODE == 1
 #define CONFIG_NAME           @"tcmsConfig.json"
-#define RUN_TYPE              TCM_BUILDER
+#define RUN_TYPE              BuilderTCM
 #endif
 
 
@@ -72,12 +97,36 @@ static NSString* APPID = @"15265";
     NSData* rawCredential = [self loadConfig:appconf];
     [CredentialStorage initializeCredentialStorageWithAppid:APPID 
                                                     andData:rawCredential];
+    // ------------
+    NSArray* classArray = [[[NSArray alloc] initWithObjects:
+                            class_createInstance([AuthorizationStepDefinition class], 0),
+                            class_createInstance([AchievementStepDefinition class], 0),
+                            class_createInstance([LeaderboardStepDefinition class], 0),
+                            class_createInstance([PeopleStepDefinition class], 0),
+                            class_createInstance([ModerationStepDefinition class], 0),
+                            class_createInstance([FriendCodeStepDefinition class], 0),
+                            class_createInstance([IgnorelistStepDefinition class], 0),
+                            class_createInstance([NetworkStepDefinition class], 0),
+                            class_createInstance([GreePlatformStepDefinition class], 0),
+                            class_createInstance([PaymentStepDefinition class], 0),
+                            class_createInstance([PopupStepDefinition class], 0),
+                            class_createInstance([NotificationStepDefinition class], 0),
+                            class_createInstance([BadgeStepDefinition class], 0),
+                            class_createInstance([WidgetStepDefinition class], 0),
+                            class_createInstance([LogJsKitStepDefinition class], 0),
+                            class_createInstance([LoggerStepDefinition class], 0),
+                            class_createInstance([AddonStepDefinition class], 0),
+                            nil] autorelease];
+
     
+    NSDictionary* qSettings = [NSDictionary dictionaryWithObjectsAndKeys:
+                               rawData, @"data",
+                               [NSString stringWithFormat:@"%i", RUN_TYPE], @"type",
+                               classArray, @"steps",
+                               nil];
     
-    
-    runnerWrapper = [[TestRunnerWrapper alloc] initWithRawData:rawData 
-                                                   builderType:[CaseBuilderFactory RUN_TYPE]];
-    
+    [QAAutoFramework initializeWithSettings:qSettings];
+    // ------------
     
     // --------- GREE Platform initialization
     
@@ -172,7 +221,6 @@ static NSString* APPID = @"15265";
      */
     NSArray * arguments = [[NSProcessInfo processInfo] arguments];
 //    NSArray* arguments = [[NSArray alloc] initWithObjects:@"JenkinsMode", nil];
-    NSLog(@"launch args include %@", arguments);
     
     [GreePlatform authorizeWithBlock:^(GreeUser *localUser, NSError *error) {
         if ([arguments containsObject:@"JenkinsMode"]) {
@@ -186,12 +234,9 @@ static NSString* APPID = @"15265";
             NSString* suiteId = [configDicionary objectForKey:@"suite_id"];
             NSString* runId = [configDicionary objectForKey:@"run_id"];
             
-            NSLog(@"======================== load cases from Suite %@ ======", suiteId);
-            [runnerWrapper emptyCaseWrappers];
-            [runnerWrapper buildRunner:suiteId];
-            
-            [runnerWrapper markCaseWrappers:[TestCaseWrapper All]];
-            NSLog(@"======================== executing cases and update result for Run %@ ======",runId);
+            QALog(@"------------- load cases from Suite %@ ", suiteId);
+            [[QAAutoFramework sharedInstance] buildCases:suiteId];
+            QALog(@"------------- executing cases and update result for Run %@ ",runId);
             
             NSInvocationOperation* theOp = [[[NSInvocationOperation alloc] initWithTarget:self
                                                                                  selector:@selector(runCaseInAnotherThread:)
@@ -216,13 +261,20 @@ static NSString* APPID = @"15265";
 
 
 - (void) runCaseInAnotherThread:(NSString*) runId{
-    [runnerWrapper markCaseWrappers:[TestCaseWrapper All]];
-    [runnerWrapper executeSelectedCasesWithSubmit:runId
-                                            block:^(NSArray* objs){}];
+    [[QAAutoFramework sharedInstance] filterCases:SelectAll];
+    [[QAAutoFramework sharedInstance] runAllCasesWithTcmSubmit:runId];
 
-    NSLog(@"======================== requesting subserver to generate perf report for Run %@ ======",runId);
+    // need to execute all failed cases again to make sure no network or other interference here
+//    [[QAAutoFramework sharedInstance] filterCases:SelectFailed];
+//    [[QAAutoFramework sharedInstance] runCasesWithTcmSubmit:runId];
+    
+    
+    QALog(@"------------- requesting subserver to generate perf report for Run %@",runId);
     [CIUtil generateReport:@"adfqet87983hiu783flkad09806g98adgk" fromUrl:@"http://localhost:3000/ios/report"];
-    NSLog(@"======================== perf report generated for Run %@ ======",runId);
+    QALog(@"------------- perf report generated for Run %@",runId);
+    
+    
+    
     exit(0);
 }
 

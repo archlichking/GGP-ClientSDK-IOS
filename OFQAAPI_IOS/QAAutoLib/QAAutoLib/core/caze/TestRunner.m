@@ -11,41 +11,21 @@
 
 @implementation TestRunner
 
-@synthesize cases;
-
 - (id) init{
     if (self = [super init]) {
-        NSMutableArray* mt = [[[NSMutableArray alloc] init] autorelease];
-        [self setCases:mt];
-//        [mt release];
     }
     return self;
 }
 
-- (void) addCase:(TestCase*) caze{
-    [[self cases] addObject:caze];
-}
-- (void) addCases:(NSArray *) cazes{
-    [[self cases] addObjectsFromArray:cazes];
-}
-
-- (void) emptyCases{
-    [[self cases] removeAllObjects];
-}
-
-- (BOOL) hasCase{
-    return [[self cases] count] == 0;
-}
-
-- (NSArray*) getAllCases{
-    return [self cases];
-}
-
-- (void) runAllcases{
-    for (int i=0; i<cases.count; i++) {
-        TestCase* tc = [cases objectAtIndex:i];
+- (void) runCases:(NSArray*) runningCases{
+    for (int i=0; i<runningCases.count; i++) {
+        TestCase* tc = [runningCases objectAtIndex:i];
         [tc execute];
     }
+}
+
+- (void) runCase:(TestCase*) tc{
+    [tc execute];
 }
 
 //- (void)dealloc{

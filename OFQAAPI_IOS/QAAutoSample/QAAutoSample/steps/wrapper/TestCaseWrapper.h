@@ -15,8 +15,6 @@
     int cId;
     BOOL isSelected;
     NSString* result;
-    
-    
 }
 
 @property (retain) TestCase* tc;
@@ -29,8 +27,7 @@
               selected:(BOOL) select 
                 result:(int) r;
 
-+ (int) All;
-+ (int) Failed;
-+ (int) UnAll;
+
++ (TestCaseWrapper*) buildWrapper:(TestCase*) caze;
 
 @end

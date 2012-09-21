@@ -13,8 +13,8 @@
 @implementation CIUtil
 
 + (NSDictionary*) getRunInfoFromUrl:(NSString*) url{
-    TcmCommunicator* tcmComm = [[TcmCommunicator alloc] init];
-    NSData* resp = [tcmComm doHttpGet:url];
+    NSData* resp = [[TcmCommunicator sharedInstance] doHttpGet:url
+                                                        params:nil];
     NSString *rawConfigJson = [[[NSString alloc] initWithData:resp
                                                      encoding:NSUTF8StringEncoding] autorelease];
     SBJsonParser* jsonParser = [[SBJsonParser alloc] init];
@@ -25,7 +25,6 @@
     // run id 402 by default
     NSString* runId = [configSettings valueForKey:@"run_id"]?[configSettings valueForKey:@"run_id"]: @"402";
     
-    [tcmComm release];
     [rawConfigJson release];
     [jsonParser release];
     
@@ -38,14 +37,12 @@
 + (void) generateReport:(NSString*) key
                 fromUrl:(NSString*) url;{
     // result need to follow specific format
-    TcmCommunicator* tcmComm = [[TcmCommunicator alloc] init];
     NSMutableDictionary* paramDictionary = [[NSMutableDictionary alloc] init];
     
     [paramDictionary setObject:key
                         forKey:@"key"];
-    [tcmComm doHttpPost:url params:paramDictionary];
+    [[TcmCommunicator sharedInstance] doHttpPost:url params:paramDictionary];
     
-    [tcmComm release];
     [paramDictionary release];
 }
 

@@ -15,6 +15,7 @@
 #import "QAAssert.h"
 #import "StringUtil.h"
 #import "Constant.h"
+#import "QALog.h"
 
 @implementation LogJsKitStepDefinition
 
@@ -54,7 +55,7 @@
         [NSThread sleepForTimeInterval:2];
         count ++;
     }
-    NSLog(@"jskit test done %@", result);
+    QALog(@"jskit test done %@", result);
 
     // reset @"jskitTestDone" to false
     NSDictionary* dic = [[NSDictionary alloc] initWithObjectsAndKeys:

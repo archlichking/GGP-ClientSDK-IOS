@@ -13,66 +13,49 @@
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
 
+static TcmCommunicator* sSharedInstance = nil;
+
 @implementation TcmCommunicator
 
 @synthesize tcmKey;
 @synthesize tcmSubmitUrl;
 @synthesize tcmRetrievalUrl;
 
-- (id) initWithKey:(NSString*)key 
++ (void) initWithKey:(NSString*)key
          submitUrl:(NSString*)submitUrl 
       retrievalUrl:(NSString*)url{
+    if (!sSharedInstance) {
+        sSharedInstance = [[TcmCommunicator alloc] initializeWithKey:key
+                                                           submitUrl:submitUrl
+                                                        retrievalUrl:url];
+    }
+}
+
++ (TcmCommunicator*) sharedInstance{
+    return sSharedInstance;
+}
+
+- (id) initializeWithKey:(NSString*)key
+         submitUrl:(NSString*)submitUrl
+      retrievalUrl:(NSString*)url{
+    
     [self setTcmKey:key];
     [self setTcmSubmitUrl:submitUrl];
     [self setTcmRetrievalUrl:url];
     return self;
 }
 
-- (id) doHttpPost:(NSString*)url 
-              params:(NSDictionary*)params{
-    NSURL* rUrl = [NSURL URLWithString:url];
 
-    NSData* result = nil;
-    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:rUrl];
-    for (NSString* key in [params allKeys]) {
-        [request setPostValue:[params objectForKey:key] forKey:key];
-    }
-    [request setValidatesSecureCertificate:NO];
-    [request startSynchronous];
-    NSError *error = [request error];
-    if (!error) {
-        result = [request responseData];
-    }else{
-        QALog(@"sb xcode, network error ===== %@", [error description]);
-    }
 
-    return result;
-}
-
-- (id) doHttpGet:(NSString*)url{
-    NSURL* rUrl = [NSURL URLWithString:url];
-    NSData* result = nil;
-    
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:rUrl];
-    [request setValidatesSecureCertificate:NO];
-    [request startSynchronous];
-    NSError *error = [request error];
-    if (!error) {
-        result = [request responseData];
-    }else{
-        QALog(@"sb xcode, network error ===== %@", [error description]);
-    }
-    return result;
-}
-
-- (NSData*) requestCasesBySuiteId:(NSString*)suiteId{
+- (NSData*) pullAllCasesFromSuite:(NSString*) suiteId{
     NSString* url = [[self tcmRetrievalUrl] stringByAppendingFormat:@"%@&key=%@", suiteId, [self tcmKey]];
-    NSData* rawResult = [self doHttpGet:url];
+    NSData* rawResult = [self doHttpGet:url
+                                 params:nil];
     return rawResult;
 }
 
-- (void) postCasesResultByRunId:(NSString*)runId 
-                             cases:(NSArray*)cases{
+- (void) pushAllCases:(NSArray*)cases
+                toRun:(NSString*) runId{
     for (int i=0; i<cases.count; i++) {
         TestCase* tc = [cases objectAtIndex:i];
         NSString* url = [[self tcmSubmitUrl] stringByAppendingFormat:@"%@/%@&key=%@", runId, [tc caseId], [self tcmKey]];
@@ -82,21 +65,25 @@
         [mud setValue:[tc resultComment] 
                forKey:@"comment"];
         
-        [self doHttpPost:url params:mud];
+        [self doHttpPost:url
+                  params:mud];
+        QALog(@"pushing TCM with case %@", [tc caseId]);
         [mud release];
     }
 }
 
-- (void) postCasesResultByRunId:(NSString *)runId 
-                        AndCase:(TestCase *) tc{
-    NSString* url = [[self tcmSubmitUrl] stringByAppendingFormat:@"%@/%@&key=%@", runId, [tc caseId], [self tcmKey]];
+- (void) pushCase:(TestCase*) caze
+            toRun:(NSString*) runId{
+    NSString* url = [[self tcmSubmitUrl] stringByAppendingFormat:@"%@/%@&key=%@", runId, [caze caseId], [self tcmKey]];
     NSMutableDictionary* mud = [[NSMutableDictionary alloc] init];
-    [mud setValue: [NSString stringWithFormat:@"%d", [tc result]]
+    [mud setValue: [NSString stringWithFormat:@"%d", [caze result]]
            forKey:@"status_id"];
-    [mud setValue:[tc resultComment] 
+    [mud setValue:[caze resultComment]
            forKey:@"comment"];
     
-    [self doHttpPost:url params:mud];
+    [self doHttpPost:url
+              params:mud];
+    QALog(@"pushing TCM with case %@", [caze caseId]);
     [mud release];
 }
 
