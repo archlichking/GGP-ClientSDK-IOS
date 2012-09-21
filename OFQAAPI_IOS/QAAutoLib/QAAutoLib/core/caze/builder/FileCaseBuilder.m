@@ -10,6 +10,7 @@
 #import "StringUtil.h"
 #import "CommandUtil.h"
 #import "StepParser.h"
+#import "TestCase.h"
 #import "NoSuchStepException.h"
 #import "NoCommandMatchException.h"
 #import "Constant.h"

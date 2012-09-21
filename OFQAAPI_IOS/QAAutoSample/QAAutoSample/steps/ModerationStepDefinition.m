@@ -148,6 +148,6 @@
 
 // step definition : I serialize moderation text
 - (void) I_serialize_moderation_text{
-    GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
+//    GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
 }
 @end
