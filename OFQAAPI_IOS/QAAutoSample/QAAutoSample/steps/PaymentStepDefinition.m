@@ -29,7 +29,7 @@
     [[self getBlockRepo] removeObjectForKey:@"balance"];
     [GreeWallet loadBalanceWithBlock:^(unsigned long long balance, NSError *error) {
         if(!error){
-            [[self getBlockRepo] setObject:[NSString stringWithFormat:@"%d", balance] 
+            [[self getBlockRepo] setObject:[NSString stringWithFormat:@"%lld", balance] 
                                     forKey:@"balance"];
         }
         [self notifyInStep];
@@ -60,7 +60,6 @@
         if(!error){
             [[self getBlockRepo] setObject:products forKey:@"products"];
         }
-        NSLog(@"%@", products);
         [self notifyInStep];
     }];
     

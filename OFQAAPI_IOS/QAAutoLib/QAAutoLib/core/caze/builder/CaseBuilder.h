@@ -1,20 +1,19 @@
 //
 //  CaseBuilder.h
-//  OFQAAPI
+//  QAAutoLib
 //
-//  Created by lei zhu on 2/27/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Created by zhu lei on 9/20/12.
+//  Copyright (c) 2012 OFQA. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "TestCase.h"
-#import "StepHolder.h"
+
+@class TestCase;
+@class StepHolder;
 
 @protocol CaseBuilder <NSObject>
 
-@required
 - (id)initWithRawValue:(NSData*)rawCaze holder:(StepHolder*) holder;
 - (TestCase*) buildCaseBySuiteId:(NSString*) suiteId caseId:(NSString*) caseId;
 - (NSArray*) buildCasesBySuiteId:(NSString*) suiteId;
-
 @end

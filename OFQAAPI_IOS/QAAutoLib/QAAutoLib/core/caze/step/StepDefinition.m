@@ -31,15 +31,27 @@ static int OUTSIDETIMEOUT = 10;
         inStepLock = [[NSConditionLock alloc] initWithCondition:0];
     }
     if(!TIMEOUT || TIMEOUT == 0){
-        TIMEOUT = 10;
+        TIMEOUT = 5;
     }
-    [inStepLock lockWhenCondition:1 
-                       beforeDate:[NSDate dateWithTimeIntervalSinceNow:TIMEOUT]];
-    [inStepLock unlock];
+    @try {
+        [inStepLock lockWhenCondition:1
+                           beforeDate:[NSDate dateWithTimeIntervalSinceNow:TIMEOUT]];
+        [inStepLock unlock];
+    }
+    @catch (NSException *exception) {
+        QALog(@"[WAIT ERROR] inside step unlock %@", exception);
+    }
+    @catch (NSError *error) {
+        QALog(@"[WAIT ERROR] inside step unlock %@", error);
+    }
+    @finally {
+        [inStepLock release];
+        inStepLock = [[NSConditionLock alloc] initWithCondition:0];
+        TIMEOUT = 0;
+    }
+    
     // reset timeout and condition
-    [inStepLock release];
-    inStepLock = [[NSConditionLock alloc] initWithCondition:0];
-    TIMEOUT = 0;
+    
     
 }
 
@@ -86,14 +98,24 @@ static int OUTSIDETIMEOUT = 10;
     if (!outsideStepLock) {
         outsideStepLock = [[NSConditionLock alloc] initWithCondition:0];
     }
-    
-    [outsideStepLock lockWhenCondition:1 
+    @try{
+        [outsideStepLock lockWhenCondition:1 
                        beforeDate:[NSDate dateWithTimeIntervalSinceNow:OUTSIDETIMEOUT]];
-    [outsideStepLock unlock];
+        [outsideStepLock unlock];
+    }
+    @catch (NSException* exception) {
+        QALog(@"[WAIT ERROR] outside step unlock %@", exception);
+    }
+    @catch (NSError *error) {
+        QALog(@"[WAIT ERROR] inside step unlock %@", error);
+    }
+    @finally {
+        // reset timeout and condition
+        [outsideStepLock release];
+        outsideStepLock = [[NSConditionLock alloc] initWithCondition:0];
+    }
     
-    // reset timeout and condition
-    [outsideStepLock release];
-    outsideStepLock = [[NSConditionLock alloc] initWithCondition:0];
+    
 }
 
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA058EA21609A52200CA2522 /* HttpCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = BA058EA11609A52200CA2522 /* HttpCommunicator.m */; };
+		BA058EA51609B3F300CA2522 /* QAAutoFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = BA058EA41609B3F200CA2522 /* QAAutoFramework.m */; };
 		BAEE816B16006AFB0052FDC8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE816A16006AFB0052FDC8 /* Foundation.framework */; };
 		BAEE817016006AFB0052FDC8 /* QAAutoLib.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAEE816F16006AFB0052FDC8 /* QAAutoLib.h */; };
 		BAEE817216006AFB0052FDC8 /* QAAutoLib.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE817116006AFB0052FDC8 /* QAAutoLib.m */; };
@@ -70,12 +72,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		BA058EA01609A52200CA2522 /* HttpCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpCommunicator.h; sourceTree = "<group>"; };
+		BA058EA11609A52200CA2522 /* HttpCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpCommunicator.m; sourceTree = "<group>"; };
+		BA058EA31609B3F100CA2522 /* QAAutoFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAAutoFramework.h; sourceTree = "<group>"; };
+		BA058EA41609B3F200CA2522 /* QAAutoFramework.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QAAutoFramework.m; sourceTree = "<group>"; };
+		BACD8D88160B0CE100F11BB6 /* CaseBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseBuilder.h; sourceTree = "<group>"; };
 		BAEE816716006AFB0052FDC8 /* libQAAutoLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libQAAutoLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAEE816A16006AFB0052FDC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		BAEE816E16006AFB0052FDC8 /* QAAutoLib-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "QAAutoLib-Prefix.pch"; sourceTree = "<group>"; };
 		BAEE816F16006AFB0052FDC8 /* QAAutoLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QAAutoLib.h; sourceTree = "<group>"; };
 		BAEE817116006AFB0052FDC8 /* QAAutoLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QAAutoLib.m; sourceTree = "<group>"; };
-		BAEE818116006B310052FDC8 /* CaseBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseBuilder.h; sourceTree = "<group>"; };
 		BAEE818216006B310052FDC8 /* CaseBuilderFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseBuilderFactory.h; sourceTree = "<group>"; };
 		BAEE818316006B310052FDC8 /* CaseBuilderFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseBuilderFactory.m; sourceTree = "<group>"; };
 		BAEE818416006B310052FDC8 /* FileCaseBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileCaseBuilder.h; sourceTree = "<group>"; };
@@ -108,7 +114,6 @@
 		BAEE81A116006B310052FDC8 /* NoSuchStepException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoSuchStepException.m; sourceTree = "<group>"; };
 		BAEE81A216006B310052FDC8 /* TcmNotReachableException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TcmNotReachableException.h; sourceTree = "<group>"; };
 		BAEE81A316006B310052FDC8 /* TcmNotReachableException.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TcmNotReachableException.m; sourceTree = "<group>"; };
-		BAEE81A516006B310052FDC8 /* NetCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetCommunicator.h; sourceTree = "<group>"; };
 		BAEE81A616006B310052FDC8 /* TcmCommunicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TcmCommunicator.h; sourceTree = "<group>"; };
 		BAEE81A716006B310052FDC8 /* TcmCommunicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TcmCommunicator.m; sourceTree = "<group>"; };
 		BAEE81A816006B310052FDC8 /* QAAssert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAAssert.h; sourceTree = "<group>"; };
@@ -217,6 +222,8 @@
 				BAEE816F16006AFB0052FDC8 /* QAAutoLib.h */,
 				BAEE817116006AFB0052FDC8 /* QAAutoLib.m */,
 				BAEE816D16006AFB0052FDC8 /* Supporting Files */,
+				BA058EA31609B3F100CA2522 /* QAAutoFramework.h */,
+				BA058EA41609B3F200CA2522 /* QAAutoFramework.m */,
 			);
 			path = QAAutoLib;
 			sourceTree = "<group>";
@@ -260,13 +267,13 @@
 		BAEE818016006B310052FDC8 /* builder */ = {
 			isa = PBXGroup;
 			children = (
-				BAEE818116006B310052FDC8 /* CaseBuilder.h */,
 				BAEE818216006B310052FDC8 /* CaseBuilderFactory.h */,
 				BAEE818316006B310052FDC8 /* CaseBuilderFactory.m */,
 				BAEE818416006B310052FDC8 /* FileCaseBuilder.h */,
 				BAEE818516006B310052FDC8 /* FileCaseBuilder.m */,
 				BAEE818616006B310052FDC8 /* TcmCaseBuilder.h */,
 				BAEE818716006B310052FDC8 /* TcmCaseBuilder.m */,
+				BACD8D88160B0CE100F11BB6 /* CaseBuilder.h */,
 			);
 			path = builder;
 			sourceTree = "<group>";
@@ -308,9 +315,10 @@
 		BAEE81A416006B310052FDC8 /* net */ = {
 			isa = PBXGroup;
 			children = (
-				BAEE81A516006B310052FDC8 /* NetCommunicator.h */,
 				BAEE81A616006B310052FDC8 /* TcmCommunicator.h */,
 				BAEE81A716006B310052FDC8 /* TcmCommunicator.m */,
+				BA058EA01609A52200CA2522 /* HttpCommunicator.h */,
+				BA058EA11609A52200CA2522 /* HttpCommunicator.m */,
 			);
 			path = net;
 			sourceTree = "<group>";
@@ -498,6 +506,8 @@
 				BAEE825516006B9A0052FDC8 /* SBJsonTokeniser.m in Sources */,
 				BAEE825616006B9A0052FDC8 /* SBJsonUTF8Stream.m in Sources */,
 				BAEE825716006B9A0052FDC8 /* SBJsonWriter.m in Sources */,
+				BA058EA21609A52200CA2522 /* HttpCommunicator.m in Sources */,
+				BA058EA51609B3F300CA2522 /* QAAutoFramework.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -595,6 +605,7 @@
 				BAEE817716006AFB0052FDC8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

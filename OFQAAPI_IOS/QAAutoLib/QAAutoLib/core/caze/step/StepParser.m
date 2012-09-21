@@ -31,7 +31,7 @@
     Step* step = nil;
     StepMethod* mInvo = [holder getMethodByStep:cmd];
     if(mInvo == nil){
-        QALog(@"no defininition for step [%@]", cmd);
+        QALog(@"[WARNING] no defininition for step [%@]", cmd);
         // throw exception directly if no step found for current test case
         [NoSuchStepException raise:@"No Step Found"
                             format:@"no such step [%@] defined in StepDefinition", cmd];

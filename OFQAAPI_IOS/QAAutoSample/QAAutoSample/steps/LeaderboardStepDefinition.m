@@ -238,7 +238,7 @@
     [self waitForInStep];
     
     [QAAssert assertEqualsExpected:score 
-                            Actual:[NSString stringWithFormat:@"%i", s]];
+                            Actual:[NSString stringWithFormat:@"%lli", s]];
 }
 
 // step definition : my score SCORE should not be updated in leaderboard LB_NAME
@@ -266,7 +266,7 @@
     [self waitForInStep];
     
     [QAAssert assertNotEqualsExpected:score 
-                            Actual:[NSString stringWithFormat:@"%i", s]];
+                            Actual:[NSString stringWithFormat:@"%lli", s]];
     //    [identi release];
     return;
     
@@ -292,7 +292,7 @@
             [self waitForInStep];
             
             [QAAssert assertEqualsExpected:rank 
-                                    Actual:[NSString stringWithFormat:@"%i", r]];
+                                    Actual:[NSString stringWithFormat:@"%lli", r]];
             return;
         }
     }
@@ -369,9 +369,9 @@
     for(GreeScore* gs in srcs){
         if ([[[gs user] nickname] isEqual:p_name]) {
             [QAAssert assertEqualsExpected:rank
-                                    Actual:[NSString stringWithFormat:@"%i", [gs rank]]];
+                                    Actual:[NSString stringWithFormat:@"%lli", [gs rank]]];
             [QAAssert assertEqualsExpected:score 
-                                    Actual:[NSString stringWithFormat:@"%i", [gs score]]];
+                                    Actual:[NSString stringWithFormat:@"%lli", [gs score]]];
             return;
         }
     }

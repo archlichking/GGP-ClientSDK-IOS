@@ -91,29 +91,26 @@
         _with_new_text_PARAM:(NSString*) text2{
     
     GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
-//    NSLog(@"%@ --------- in update one", t);
+    
     [t updateWithString:text2 block:^(NSError *error) {
         if(!error) {
             [[self getBlockRepo] setObject:t forKey:@"text"];
-//            NSLog(@"%@ --------- in update two", t);
         }
         [self notifyInStep];    
     }];
     [self waitForInStep];
-    
-//    [[self getBlockRepo] setObject:[self fetchModerationFromServerById:[t textId]] forKey:@"text"];
-    
+
 }
 
 // step definition : I check from SERVER with status of text TEXT
 - (void) I_load_from_PARAM:(NSString*) position _with_moderation_text_PARAM:(NSString*) text{
     GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
-//    NSLog(@"%@ --------- in load one", t);
+    
     NSMutableArray* ids = [[NSMutableArray alloc] initWithObjects:[t textId], nil];
     [GreeModeratedText loadFromIds:ids
                              block:^(NSArray *userTexts, NSError *error) {
                                  if(!error){
-//                                     NSLog(@"%@ --------- in load two", [userTexts objectAtIndex:0]);
+                                     
                                      [[self getBlockRepo] setObject:[userTexts objectAtIndex:0] 
                                                              forKey:@"text"];
                                  }
@@ -131,8 +128,6 @@
 // step definition : new text should be TEXT
 - (void) new_text_should_be_PARAM:(NSString*) text{
     GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
-//    NSLog(@"%@", [t content]);
-//    NSLog(@"%@", text);
     [QAAssert assertEqualsExpected:text 
                             Actual:[t content]];
 }
@@ -153,6 +148,6 @@
 
 // step definition : I serialize moderation text
 - (void) I_serialize_moderation_text{
-    GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
+//    GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
 }
 @end

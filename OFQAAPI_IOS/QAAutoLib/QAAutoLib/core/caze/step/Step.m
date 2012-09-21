@@ -57,7 +57,7 @@
         // step 2: set mInvocation
         [[self refMethodInvocation] retainArguments];
         // step 3: invoke 
-        QALog(@"invoking [%@]", [self command]);
+        QALog(@"step [%@]", [self command]);
         [[self refMethodInvocation] invoke];
         // step 4: set result
         NSString* returnType = [NSString stringWithCString:[[[self refMethodInvocation] methodSignature] methodReturnType] 
@@ -70,11 +70,11 @@
     }
     @catch (AssertException *exception) {
         resultComment = [resultComment stringByAppendingFormat:@"%@ ==> %@", [self command], [exception reason]];
-        QALog(@"oooooops, [%@]", resultComment);
+        QALog(@"[Assert Failed] [%@]", resultComment);
     }
     @catch (NSException* exception) {
         resultComment = [resultComment stringByAppendingFormat:@"%@ ==> %@", [self command], [exception reason]];
-        QALog(@"oooooops, [%@]", resultComment);
+        QALog(@"[Assert Failed] [%@]", resultComment);
     }
     @finally {
         return [[StepResult alloc] initWithResult:result 

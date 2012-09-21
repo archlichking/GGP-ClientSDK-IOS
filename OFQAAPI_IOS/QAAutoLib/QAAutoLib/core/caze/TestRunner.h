@@ -7,21 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+
 @class TestCase;
 
-@interface TestRunner : NSObject{
-    @private
-    NSMutableArray* cases;
-}
+@interface TestRunner : NSObject
 
-@property (retain) NSMutableArray* cases;
-
-
-- (void) addCase:(TestCase*) caze;
-- (void) addCases:(NSArray *) cazes;
-
-- (void) emptyCases;
-- (BOOL) hasCase;
-- (NSArray*) getAllCases;
-- (void) runAllcases;
+- (void) runCases:(NSArray*) runningCases;
+- (void) runCase:(TestCase*) t;
 @end

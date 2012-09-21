@@ -25,25 +25,7 @@
 #import "StringUtil.h"
 #import "CommandUtil.h"
 #import "QAAssert.h"
-
-// define gree payment delegate
-@interface GreePaymentDelegate : NSObject <GreeWalletDelegate>
-- (void) walletPaymentDidLaunchPopup;
-- (void) walletPaymentDidDismissPopup;
-@end
-
-@implementation GreePaymentDelegate
-- (void) walletPaymentDidLaunchPopup;{
-    NSLog(@"payment request popup did launch");
-    //[StepDefinition notifyOutsideStep];
-}
-
-- (void) walletPaymentDidDismissPopup{
-    NSLog(@"payment request popup did dismiss");
-}
-@end
-
-// --- begin ------------ popup hack
+#import "QALog.h"
 
 // hack did finish load to notify outside
 @interface GreeWalletDepositPopup(PrivateDepositetHack)
@@ -52,7 +34,7 @@
 
 @implementation GreeWalletDepositPopup(PrivateDepositetHack)
 -(void)popupViewWebViewDidFinishLoad:(UIWebView *)aWebView{
-//    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
+//    QALog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
     [[StepDefinition getOutsideBlockRepo] setObject:self forKey:@"popup"];
     [StepDefinition notifyOutsideStep];
 }
@@ -71,7 +53,7 @@
     if ([self respondsToSelector:@selector(showCloseButton)]) {
         [self performSelector:@selector(showCloseButton)];
     }
-//    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
+//    QALog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
     [[StepDefinition getOutsideBlockRepo] setObject:self forKey:@"popup"];
     [StepDefinition notifyOutsideStep];
 }
@@ -85,7 +67,7 @@
 
 @implementation GreeWalletDepositIAPHistoryPopup(PrivatePaymentHack)
 -(void)popupViewWebViewDidFinishLoad:(UIWebView *)aWebView{
-//    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
+//    QALog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
     [[StepDefinition getOutsideBlockRepo] setObject:self forKey:@"popup"];
     [StepDefinition notifyOutsideStep];
 }
@@ -98,7 +80,7 @@
 
 @implementation GreePopup(PrivatePopupHacking)
 - (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView{
-//    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
+//    QALog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
     [StepDefinition notifyOutsideStep];
 }
 @end
@@ -133,7 +115,6 @@
 //---------end-------utils
 
 - (void) I_execute_js_command_in_popup_PARAM:(NSString*) command{
-    NSLog(@"starting command %@", command);
     
     GreePopup* popup = [[self getBlockRepo] objectForKey:@"popup"];
     
@@ -526,7 +507,7 @@
 - (void) I_did_open_payment_request_popup{
     
     id successBlock = ^ (NSString* paymentId, NSArray* items){
-        NSLog(@"%@", paymentId);
+        QALog(@"%@", paymentId);
         // [self notifyInStep];  
     };
     
@@ -543,8 +524,6 @@
                                         failureBlock, @"fBlock",
                                         nil];
     // set delegate to hack did popup and did dismiss
-    GreePaymentDelegate* delegate = [[GreePaymentDelegate alloc] init];
-    [GreeWallet setDelegate:delegate];
     
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
@@ -628,8 +607,6 @@
                                         [NSString stringWithFormat:@"%i", executeInDepositPopup], @"command",
                                         nil];
     // set delegate to hack did popup and did dismiss
-    GreePaymentDelegate* delegate = [[GreePaymentDelegate alloc] init];
-    [GreeWallet setDelegate:delegate];
     
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
@@ -697,8 +674,6 @@
                                         [NSString stringWithFormat:@"%i", executeInDepositHistoryPopup], @"command",
                                         nil];
     // set delegate to hack did popup and did dismiss
-    GreePaymentDelegate* delegate = [[GreePaymentDelegate alloc] init];
-    [GreeWallet setDelegate:delegate];
     
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];

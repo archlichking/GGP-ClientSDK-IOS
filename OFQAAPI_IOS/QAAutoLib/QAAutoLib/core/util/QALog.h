@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #define QALog(message,...){                     \
-    NSLog(message, ##__VA_ARGS__);              \
+    NSLog([NSString stringWithFormat:@"[QAAuto] => %@", message], ##__VA_ARGS__);              \
 }                                               
 
 @interface QALog : NSObject

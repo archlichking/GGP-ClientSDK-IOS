@@ -18,6 +18,8 @@
 		BA2C2E0B160078CC0041B688 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2C2E0A160078CC0041B688 /* MessageUI.framework */; };
 		BA2C2E0D160078E80041B688 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2C2E0C160078E80041B688 /* GameKit.framework */; };
 		BA2C2E0F160079220041B688 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2C2E0E160079220041B688 /* StoreKit.framework */; };
+		BA384190160ABDD1006D0ED9 /* baseCommand.js in Resources */ = {isa = PBXBuildFile; fileRef = BAEE825F16006DA30052FDC8 /* baseCommand.js */; };
+		BA70BE751602FA4C005EEC8A /* CIUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = BA70BE741602FA4C005EEC8A /* CIUtil.m */; };
 		BAAFB97D1602D31B001BAA35 /* libQAAutoLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAFB9711601B5C1001BAA35 /* libQAAutoLib.a */; };
 		BAAFB9801602D32B001BAA35 /* libGreePlatform.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAFB97E1602D32A001BAA35 /* libGreePlatform.a */; };
 		BAAFB9811602D32B001BAA35 /* libGreeWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAFB97F1602D32B001BAA35 /* libGreeWallet.a */; };
@@ -39,7 +41,6 @@
 		BAEE826716006DA30052FDC8 /* debugCase.txt in Resources */ = {isa = PBXBuildFile; fileRef = BAEE826016006DA30052FDC8 /* debugCase.txt */; };
 		BAEE826816006DA30052FDC8 /* tcmsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BAEE826116006DA30052FDC8 /* tcmsConfig.json */; };
 		BAEE826E16006DAA0052FDC8 /* CaseTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE826B16006DAA0052FDC8 /* CaseTableDelegate.m */; };
-		BAEE826F16006DAA0052FDC8 /* TestPopupDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE826D16006DAA0052FDC8 /* TestPopupDelegate.m */; };
 		BAEE827416006DB20052FDC8 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = BAEE827116006DB20052FDC8 /* checked.png */; };
 		BAEE827516006DB20052FDC8 /* failed_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = BAEE827216006DB20052FDC8 /* failed_checked.png */; };
 		BAEE827616006DB20052FDC8 /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = BAEE827316006DB20052FDC8 /* unchecked.png */; };
@@ -64,7 +65,6 @@
 		BAEE82B616006DE70052FDC8 /* SampleStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE82A016006DE70052FDC8 /* SampleStepDefinition.m */; };
 		BAEE82B716006DE70052FDC8 /* WidgetStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE82A216006DE70052FDC8 /* WidgetStepDefinition.m */; };
 		BAEE82BD16006DF30052FDC8 /* TestCaseWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE82BA16006DF30052FDC8 /* TestCaseWrapper.m */; };
-		BAEE82BE16006DF30052FDC8 /* TestRunnerWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE82BC16006DF30052FDC8 /* TestRunnerWrapper.m */; };
 		BAEE82C116006E0A0052FDC8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE82C016006E0A0052FDC8 /* ViewController.m */; };
 		BAEE82C416006E130052FDC8 /* MAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE82C316006E130052FDC8 /* MAlertView.m */; };
 		BAEE82CD16006E210052FDC8 /* cases.html in Resources */ = {isa = PBXBuildFile; fileRef = BAEE82C716006E210052FDC8 /* cases.html */; };
@@ -102,6 +102,8 @@
 		BA2C2E0C160078E80041B688 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		BA2C2E0E160079220041B688 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		BA2C2E101600793B0041B688 /* libprofile_rt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprofile_rt.dylib; path = /usr/lib/libprofile_rt.dylib; sourceTree = "<absolute>"; };
+		BA70BE731602FA4B005EEC8A /* CIUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIUtil.h; sourceTree = "<group>"; };
+		BA70BE741602FA4C005EEC8A /* CIUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIUtil.m; sourceTree = "<group>"; };
 		BAAFB97E1602D32A001BAA35 /* libGreePlatform.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGreePlatform.a; path = ../ggplib_ios/release/libGreePlatform.a; sourceTree = "<group>"; };
 		BAAFB97F1602D32B001BAA35 /* libGreeWallet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGreeWallet.a; path = ../ggplib_ios/release/libGreeWallet.a; sourceTree = "<group>"; };
 		BAAFB9821602D34E001BAA35 /* GreePlatformCoreResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformCoreResources.bundle; path = ../ggplib_ios/release/resources/GreePlatformCoreResources.bundle; sourceTree = "<group>"; };
@@ -127,8 +129,6 @@
 		BAEE826116006DA30052FDC8 /* tcmsConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = tcmsConfig.json; sourceTree = "<group>"; };
 		BAEE826A16006DAA0052FDC8 /* CaseTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseTableDelegate.h; sourceTree = "<group>"; };
 		BAEE826B16006DAA0052FDC8 /* CaseTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseTableDelegate.m; sourceTree = "<group>"; };
-		BAEE826C16006DAA0052FDC8 /* TestPopupDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestPopupDelegate.h; sourceTree = "<group>"; };
-		BAEE826D16006DAA0052FDC8 /* TestPopupDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestPopupDelegate.m; sourceTree = "<group>"; };
 		BAEE827116006DB20052FDC8 /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
 		BAEE827216006DB20052FDC8 /* failed_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = failed_checked.png; sourceTree = "<group>"; };
 		BAEE827316006DB20052FDC8 /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
@@ -174,8 +174,6 @@
 		BAEE82A216006DE70052FDC8 /* WidgetStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WidgetStepDefinition.m; sourceTree = "<group>"; };
 		BAEE82B916006DF30052FDC8 /* TestCaseWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCaseWrapper.h; sourceTree = "<group>"; };
 		BAEE82BA16006DF30052FDC8 /* TestCaseWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCaseWrapper.m; sourceTree = "<group>"; };
-		BAEE82BB16006DF30052FDC8 /* TestRunnerWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestRunnerWrapper.h; sourceTree = "<group>"; };
-		BAEE82BC16006DF30052FDC8 /* TestRunnerWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestRunnerWrapper.m; sourceTree = "<group>"; };
 		BAEE82BF16006E0A0052FDC8 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		BAEE82C016006E0A0052FDC8 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		BAEE82C216006E130052FDC8 /* MAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAlertView.h; sourceTree = "<group>"; };
@@ -294,14 +292,16 @@
 				BAEE82C316006E130052FDC8 /* MAlertView.m */,
 				BAEE82BF16006E0A0052FDC8 /* ViewController.h */,
 				BAEE82C016006E0A0052FDC8 /* ViewController.m */,
+				BAEE814E16006AB60052FDC8 /* AppDelegate.h */,
+				BAEE814F16006AB60052FDC8 /* AppDelegate.m */,
 				BAEE827716006DE70052FDC8 /* steps */,
 				BAEE827016006DB20052FDC8 /* resource */,
 				BAEE826916006DAA0052FDC8 /* delegate */,
 				BAEE825A16006DA30052FDC8 /* config */,
 				BAEE825816006D990052FDC8 /* StdioHack.c */,
-				BAEE814E16006AB60052FDC8 /* AppDelegate.h */,
-				BAEE814F16006AB60052FDC8 /* AppDelegate.m */,
 				BAEE814616006AB60052FDC8 /* Supporting Files */,
+				BA70BE731602FA4B005EEC8A /* CIUtil.h */,
+				BA70BE741602FA4C005EEC8A /* CIUtil.m */,
 			);
 			path = QAAutoSample;
 			sourceTree = "<group>";
@@ -334,10 +334,9 @@
 		BAEE826916006DAA0052FDC8 /* delegate */ = {
 			isa = PBXGroup;
 			children = (
+				BAEE82B816006DF30052FDC8 /* wrapper */,
 				BAEE826A16006DAA0052FDC8 /* CaseTableDelegate.h */,
 				BAEE826B16006DAA0052FDC8 /* CaseTableDelegate.m */,
-				BAEE826C16006DAA0052FDC8 /* TestPopupDelegate.h */,
-				BAEE826D16006DAA0052FDC8 /* TestPopupDelegate.m */,
 			);
 			path = delegate;
 			sourceTree = "<group>";
@@ -355,7 +354,6 @@
 		BAEE827716006DE70052FDC8 /* steps */ = {
 			isa = PBXGroup;
 			children = (
-				BAEE82B816006DF30052FDC8 /* wrapper */,
 				BAEE827816006DE70052FDC8 /* AchievementStepDefinition.h */,
 				BAEE827916006DE70052FDC8 /* AchievementStepDefinition.m */,
 				BAEE827A16006DE70052FDC8 /* AddonStepDefinition.h */,
@@ -413,10 +411,9 @@
 			children = (
 				BAEE82B916006DF30052FDC8 /* TestCaseWrapper.h */,
 				BAEE82BA16006DF30052FDC8 /* TestCaseWrapper.m */,
-				BAEE82BB16006DF30052FDC8 /* TestRunnerWrapper.h */,
-				BAEE82BC16006DF30052FDC8 /* TestRunnerWrapper.m */,
 			);
-			path = wrapper;
+			name = wrapper;
+			path = ../steps/wrapper;
 			sourceTree = "<group>";
 		};
 		BAEE82C516006E210052FDC8 /* vendor */ = {
@@ -507,6 +504,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA384190160ABDD1006D0ED9 /* baseCommand.js in Resources */,
 				BAAFB9851602D34F001BAA35 /* GreePlatformCoreResources.bundle in Resources */,
 				BAAFB9861602D34F001BAA35 /* GreePlatformLandscapeResources.bundle in Resources */,
 				BAAFB9871602D34F001BAA35 /* GreePlatformPortraitResources.bundle in Resources */,
@@ -540,7 +538,6 @@
 				BAEE825916006D990052FDC8 /* StdioHack.c in Sources */,
 				BAEE826616006DA30052FDC8 /* baseCommand.js in Sources */,
 				BAEE826E16006DAA0052FDC8 /* CaseTableDelegate.m in Sources */,
-				BAEE826F16006DAA0052FDC8 /* TestPopupDelegate.m in Sources */,
 				BAEE82A316006DE70052FDC8 /* AchievementStepDefinition.m in Sources */,
 				BAEE82A416006DE70052FDC8 /* AddonStepDefinition.m in Sources */,
 				BAEE82A616006DE70052FDC8 /* AuthorizationStepDefinition.m in Sources */,
@@ -562,12 +559,12 @@
 				BAEE82B616006DE70052FDC8 /* SampleStepDefinition.m in Sources */,
 				BAEE82B716006DE70052FDC8 /* WidgetStepDefinition.m in Sources */,
 				BAEE82BD16006DF30052FDC8 /* TestCaseWrapper.m in Sources */,
-				BAEE82BE16006DF30052FDC8 /* TestRunnerWrapper.m in Sources */,
 				BAEE82C116006E0A0052FDC8 /* ViewController.m in Sources */,
 				BAEE82C416006E130052FDC8 /* MAlertView.m in Sources */,
 				BAEE82CE16006E210052FDC8 /* command_interface.js in Sources */,
 				BAEE82D016006E210052FDC8 /* ggp_command.js in Sources */,
 				BAEE82D216006E210052FDC8 /* jskit_test.js in Sources */,
+				BA70BE751602FA4C005EEC8A /* CIUtil.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

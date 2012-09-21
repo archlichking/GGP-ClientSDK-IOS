@@ -20,6 +20,7 @@
 #import "StringUtil.h"
 #import "CommandUtil.h"
 #import "QAAssert.h"
+#import "QALog.h"
 
 // private hacking to update local user
 @interface GreePlatform(PrivateUserHacking)
@@ -37,7 +38,7 @@
 
 @implementation GreeAuthorizationPopup(AuthorizationPopupHacking)
 - (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView{
-//    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
+//    QALog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
     if (self.didFinishLoadHandlingBlock){
         self.didFinishLoadHandlingBlock(aWebView.request);
     }
@@ -331,10 +332,10 @@
 }
 
 - (void) print_user{
-    NSLog(@"%@", [[GreePlatform sharedInstance] localUser]);
+    QALog(@"%@", [[GreePlatform sharedInstance] localUser]);
     [GreeUser loadUserWithId:@"@me" block:^(GreeUser *user, NSError *error) {
         if (!error) {
-            NSLog(@"%@", user);
+            QALog(@"%@", user);
         }
     }];
 }

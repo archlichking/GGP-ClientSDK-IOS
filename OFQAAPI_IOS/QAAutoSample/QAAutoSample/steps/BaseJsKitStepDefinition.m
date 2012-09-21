@@ -15,23 +15,7 @@
 #import "StringUtil.h"
 #import "CommandUtil.h"
 #import "QAAssert.h"
-
-//@interface GreePopupView(PrivateJskitPopupHacking)
-//- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
-//@end
-//
-//@implementation GreePopupView(PrivateJskitPopupHacking)
-//- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
-//    NSLog(@"%@", [[request URL] absoluteString]);
-//    if ([[[request URL] absoluteString] hasPrefix:@"file://"] || [[[request URL] absoluteString] hasPrefix:@"proton://"]) {
-//        return YES;
-//    }else if([[[request URL] absoluteString] hasPrefix:@"jnc://"]){
-//        //handle jskit native callback
-//        
-//    }
-//    return NO;
-//}
-//@end
+#import "QALog.h"
 
 @interface GreePopup(PrivateJskitPopupHacking)
 - (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView;
@@ -40,7 +24,7 @@
 
 @implementation GreePopup(PrivateJskitPopupHacking)
 - (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView{
-    NSLog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
+    QALog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
     [StepDefinition notifyOutsideStep];
 }
 

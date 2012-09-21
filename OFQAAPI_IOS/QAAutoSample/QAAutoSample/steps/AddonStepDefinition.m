@@ -158,7 +158,6 @@
 - (void) app_icon_width_should_be_PARAM:(NSString*) w{
     UIImage* i = [[self getBlockRepo] objectForKey:@"gree_image"];
     if (i) {
-        NSLog(@"%@", [NSString stringWithFormat:@"%.0f", i.size.height]);
 //        [QAAssert assertEqualsExpected:w Actual:[NSString stringWithFormat:@"%0.f", i.size.width]];
         [[self getBlockRepo] removeObjectForKey:@"gree_image"];
     }  

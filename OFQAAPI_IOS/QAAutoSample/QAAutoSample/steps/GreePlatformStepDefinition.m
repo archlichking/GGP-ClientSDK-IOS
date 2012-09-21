@@ -97,9 +97,8 @@
 
 
 - (void) I_rotate_screen{
-    NSString* k = @"eLXdwgcwNCA6zoG7SeuRRAjjUKDsctA8";
-    NSData* d = [k greeHexStringFormatInBinary];
-    NSLog(@"%@", d);
+//    NSString* k = @"eLXdwgcwNCA6zoG7SeuRRAjjUKDsctA8";
+//    NSData* d = [k greeHexStringFormatInBinary];
 }
 
 // step definition: i sign request to url U with url params with key K and value V

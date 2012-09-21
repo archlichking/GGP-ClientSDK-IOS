@@ -149,7 +149,7 @@
 
 // step definition : 
 - (void) screenshot_should_be_correct{
-    UIImage* shot = [[self getBlockRepo] objectForKey:@"screenshot"];
+//    UIImage* shot = [[self getBlockRepo] objectForKey:@"screenshot"];
 }
 
 @end

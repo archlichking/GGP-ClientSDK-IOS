@@ -12,28 +12,21 @@
 #import "TcmCaseBuilder.h"
 #import "StepHolder.h"
 
+
+const int BuilderTCM = 0;
+const int BuilderFile = 1;
+
 @implementation CaseBuilderFactory
-
-static const int TCM_BUILDER = 0;
-static const int FILE_BUILDER = 1;
-
-+ (int) TCM_BUILDER{
-    return TCM_BUILDER;
-}
-
-+ (int) FILE_BUILDER{
-    return FILE_BUILDER;
-}
 
 + (id) makeBuilderByType:(int)type 
                      raw:(NSData*)rawValue  
               stepHolder:(StepHolder*) holder{
     switch (type) {
-        case TCM_BUILDER:
-            return [[[TcmCaseBuilder alloc] initWithRawValue:rawValue holder:holder] autorelease];
+        case BuilderTCM:
+            return [[TcmCaseBuilder alloc] initWithRawValue:rawValue holder:holder];
             break;
-        case FILE_BUILDER:
-            return [[[FileCaseBuilder alloc] initWithRawValue:rawValue holder:holder] autorelease];
+        case BuilderFile:
+            return [[FileCaseBuilder alloc] initWithRawValue:rawValue holder:holder];
         default:
             break;
     }

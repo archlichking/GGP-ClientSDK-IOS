@@ -11,6 +11,9 @@
 @class CaseBuilder;
 @class TcmCommunicator;
 
+extern const int SELECT_ALL;
+extern const int SELECT_FAILED;
+extern const int SELECT_NONE;
 
 @interface TestRunnerWrapper : NSObject{
     @private
