@@ -26,6 +26,7 @@
 		BAAFB9851602D34F001BAA35 /* GreePlatformCoreResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAAFB9821602D34E001BAA35 /* GreePlatformCoreResources.bundle */; };
 		BAAFB9861602D34F001BAA35 /* GreePlatformLandscapeResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAAFB9831602D34F001BAA35 /* GreePlatformLandscapeResources.bundle */; };
 		BAAFB9871602D34F001BAA35 /* GreePlatformPortraitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAAFB9841602D34F001BAA35 /* GreePlatformPortraitResources.bundle */; };
+		BAD0D027160FFDF70046BD0A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD0D026160FFDF70046BD0A /* CoreTelephony.framework */; };
 		BAEE814016006AB60052FDC8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE813F16006AB60052FDC8 /* UIKit.framework */; };
 		BAEE814216006AB60052FDC8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE814116006AB60052FDC8 /* Foundation.framework */; };
 		BAEE814416006AB60052FDC8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE814316006AB60052FDC8 /* CoreGraphics.framework */; };
@@ -109,6 +110,7 @@
 		BAAFB9821602D34E001BAA35 /* GreePlatformCoreResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformCoreResources.bundle; path = ../ggplib_ios/release/resources/GreePlatformCoreResources.bundle; sourceTree = "<group>"; };
 		BAAFB9831602D34F001BAA35 /* GreePlatformLandscapeResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformLandscapeResources.bundle; path = ../ggplib_ios/release/resources/GreePlatformLandscapeResources.bundle; sourceTree = "<group>"; };
 		BAAFB9841602D34F001BAA35 /* GreePlatformPortraitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformPortraitResources.bundle; path = ../ggplib_ios/release/resources/GreePlatformPortraitResources.bundle; sourceTree = "<group>"; };
+		BAD0D026160FFDF70046BD0A /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		BAEE813B16006AB60052FDC8 /* QAAutoSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QAAutoSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAEE813F16006AB60052FDC8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BAEE814116006AB60052FDC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -199,6 +201,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAD0D027160FFDF70046BD0A /* CoreTelephony.framework in Frameworks */,
 				BAAFB9801602D32B001BAA35 /* libGreePlatform.a in Frameworks */,
 				BAAFB9811602D32B001BAA35 /* libGreeWallet.a in Frameworks */,
 				BAAFB97D1602D31B001BAA35 /* libQAAutoLib.a in Frameworks */,
@@ -235,6 +238,7 @@
 		BAEE813016006AB60052FDC8 = {
 			isa = PBXGroup;
 			children = (
+				BAD0D026160FFDF70046BD0A /* CoreTelephony.framework */,
 				BAAFB9821602D34E001BAA35 /* GreePlatformCoreResources.bundle */,
 				BAAFB9831602D34F001BAA35 /* GreePlatformLandscapeResources.bundle */,
 				BAAFB9841602D34F001BAA35 /* GreePlatformPortraitResources.bundle */,
