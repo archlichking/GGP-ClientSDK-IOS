@@ -1,8 +1,6 @@
 Given I logged in with email auto3@136.com and password 123456
-And I initialize request popup with title Hell That Diablo3 and body Monk female monk fist
-And I did open popup
-When I check request popup setting info title
-And I check request popup setting info body
-Then request popup info title should be Hell That Diablo3
-And request popup info body should be Monk female monk fist
-After I did dismiss popup
+And I load first page of my friend list
+When I load friend list of user 1000012972
+Then friend list should be size of 1
+Then friend list should have auto-grade3-user
+Then userid of auto-grade3-user should be 1000012971 and grade should be 3
