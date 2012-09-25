@@ -46,7 +46,7 @@
 #import "LoggerStepDefinition.h"
 #import "AddonStepDefinition.h"
 
-#define RUN_MODE 0
+#define RUN_MODE 1
 
 #if RUN_MODE == 0
 #define CONFIG_NAME           @"debugCase.txt"
