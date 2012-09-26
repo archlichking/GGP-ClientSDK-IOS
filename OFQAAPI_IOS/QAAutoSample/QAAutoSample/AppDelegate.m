@@ -68,6 +68,7 @@
 //static NSString* APPID = @"12697";
 static NSString* APPID = @"15265";
 //static NSString* APPID = @"15199";
+static int enterSwitch = 0;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
@@ -219,11 +220,15 @@ static NSString* APPID = @"15265";
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
-    NSArray * arguments = [[NSProcessInfo processInfo] arguments];
-//    NSArray* arguments = [[NSArray alloc] initWithObjects:@"JenkinsMode", nil];
+//    NSArray * arguments = [[NSProcessInfo processInfo] arguments];
+    NSArray* arguments = [[NSArray alloc] initWithObjects:@"JenkinsMode", nil];
     
     [GreePlatform authorizeWithBlock:^(GreeUser *localUser, NSError *error) {
-        if ([arguments containsObject:@"JenkinsMode"]) {
+        
+        QALog(@"**************** %@", [localUser userId]);
+        QALog(@"**************** %@", error);
+        // only tmp hack to promise automatically launch
+        if ([arguments containsObject:@"JenkinsMode"] && enterSwitch == 0) {
             // jenkins mode launch
             
             NSOperationQueue* operationQueue = [[NSOperationQueue alloc] init];
@@ -243,6 +248,7 @@ static NSString* APPID = @"15265";
                                                                                    object:runId]
                                             autorelease];
             [operationQueue addOperation:theOp];
+            enterSwitch = 1;
         }
     }];
 }

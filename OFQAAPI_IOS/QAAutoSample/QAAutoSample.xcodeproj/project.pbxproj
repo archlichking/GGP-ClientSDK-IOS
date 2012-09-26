@@ -19,6 +19,7 @@
 		BA2C2E0D160078E80041B688 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2C2E0C160078E80041B688 /* GameKit.framework */; };
 		BA2C2E0F160079220041B688 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2C2E0E160079220041B688 /* StoreKit.framework */; };
 		BA384190160ABDD1006D0ED9 /* baseCommand.js in Resources */ = {isa = PBXBuildFile; fileRef = BAEE825F16006DA30052FDC8 /* baseCommand.js */; };
+		BA57B8691612B27F009B7539 /* 52760credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA57B8681612B27F009B7539 /* 52760credentialsConfig.json */; };
 		BA70BE751602FA4C005EEC8A /* CIUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = BA70BE741602FA4C005EEC8A /* CIUtil.m */; };
 		BAA2899216119D9F0075F643 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA2899116119D9F0075F643 /* ImageIO.framework */; };
 		BAAFB97D1602D31B001BAA35 /* libQAAutoLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAFB9711601B5C1001BAA35 /* libQAAutoLib.a */; };
@@ -104,6 +105,7 @@
 		BA2C2E0C160078E80041B688 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		BA2C2E0E160079220041B688 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		BA2C2E101600793B0041B688 /* libprofile_rt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprofile_rt.dylib; path = /usr/lib/libprofile_rt.dylib; sourceTree = "<absolute>"; };
+		BA57B8681612B27F009B7539 /* 52760credentialsConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 52760credentialsConfig.json; sourceTree = "<group>"; };
 		BA70BE731602FA4B005EEC8A /* CIUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIUtil.h; sourceTree = "<group>"; };
 		BA70BE741602FA4C005EEC8A /* CIUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIUtil.m; sourceTree = "<group>"; };
 		BAA2899116119D9F0075F643 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -328,6 +330,7 @@
 		BAEE825A16006DA30052FDC8 /* config */ = {
 			isa = PBXGroup;
 			children = (
+				BA57B8681612B27F009B7539 /* 52760credentialsConfig.json */,
 				BAEE825B16006DA30052FDC8 /* 11787credentialsConfig.json */,
 				BAEE825C16006DA30052FDC8 /* 12697credentialsConfig.json */,
 				BAEE825D16006DA30052FDC8 /* 15199credentialsConfig.json */,
@@ -531,6 +534,7 @@
 				BAEE82D116006E210052FDC8 /* jskit_test.coffee in Resources */,
 				BA085BD116007CE8001BDE34 /* MainStoryboard.storyboard in Resources */,
 				BAEF4BE216009573003FB345 /* QAAutoLib.xcodeproj in Resources */,
+				BA57B8691612B27F009B7539 /* 52760credentialsConfig.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
