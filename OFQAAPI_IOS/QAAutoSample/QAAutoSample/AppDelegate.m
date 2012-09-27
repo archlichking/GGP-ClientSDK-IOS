@@ -225,8 +225,6 @@ static int enterSwitch = 0;
     
     [GreePlatform authorizeWithBlock:^(GreeUser *localUser, NSError *error) {
         
-        QALog(@"**************** %@", [localUser userId]);
-        QALog(@"**************** %@", error);
         // only tmp hack to promise automatically launch
         if ([arguments containsObject:@"JenkinsMode"] && enterSwitch == 0) {
             // jenkins mode launch

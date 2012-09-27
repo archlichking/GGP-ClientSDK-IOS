@@ -56,9 +56,7 @@
     NSString* tempKey = [NSString stringWithFormat:@"%@&%@", email, password];
     NSDictionary* credentialDic = [[CredentialStorage sharedInstance] getValueForKey:tempKey];
     if (!credentialDic) {
-        [QAAssert assertEqualsExpected:tempKey 
-                                Actual:nil 
-                           WithMessage:@"no credential for current user %@ found in credential storage. make sure you have it configured in credentialConfig.json"];
+        [QAAssert assertNil:@"no credential for current user in credential storage. make sure you have it configured in credentialConfig.json"];
     }
     [[self getBlockRepo] setObject:email forKey:@"valie_email"];
     [[self getBlockRepo] setObject:password forKey:@"valie_password"];
@@ -183,9 +181,7 @@
     NSString* tempKey = [NSString stringWithFormat:@"%@&%@", user, pwd];
     NSDictionary* credentialDic = [[CredentialStorage sharedInstance] getValueForKey:tempKey];
     if (!credentialDic) {
-        [QAAssert assertEqualsExpected:tempKey 
-                                Actual:nil 
-                           WithMessage:@"no credential for current user %@ found in credential storage. make sure you have it configured in credentialConfig.json"];
+        [QAAssert assertNil:@"no credential for current user in credential storage. make sure you have it configured in credentialConfig.json"];
     }
     
     [GreeKeyChain saveWithKey:GreeKeyChainUserIdIdentifier value:[credentialDic objectForKey:CredentialStoredUserid]];

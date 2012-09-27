@@ -24,9 +24,7 @@
         [self I_delete_my_friend_code];
         [self I_request_friend_code_with_expire_time_PARAM:@"2013-01-01T23:00:00-0800"];
     }else{
-        [QAAssert assertEqualsExpected:@"" 
-                                Actual:nil 
-                           WithMessage:@"no param matches"];
+        [QAAssert assertNil:@"no param matches"];
     }
 }
 
@@ -232,9 +230,7 @@
             return result;
         }
     }
-    [QAAssert assertEqualsExpected:nil
-                            Actual:@"TRUE" 
-                       WithMessage:[NSString stringWithFormat:@"friends with id %@ not found", person]];
+    [QAAssert assertNil:[NSString stringWithFormat:@"friends with id %@ not found", person]];
     return nil;
 }
 

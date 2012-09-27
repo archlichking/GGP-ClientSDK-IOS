@@ -129,9 +129,7 @@
         }
         return result;
     }
-    [QAAssert assertEqualsExpected:pid 
-                            Actual:nil 
-                       WithMessage:@"no product item matches"];
+    [QAAssert assertNil:@"no product item matches"];
     return result;
     
 }

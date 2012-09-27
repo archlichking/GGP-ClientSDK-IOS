@@ -9,88 +9,38 @@
 #import "QAAssert.h"
 #import "AssertException.h"
 
+#define HC_SHORTHAND
+#import <OCHamcrestIOS/OCHamcrestIOS.h>
+
+
 @implementation QAAssert
 
-
-+ (void) assertEqualsExpected:(id)expected 
-                       Actual:(id)result{
-    if (![expected isEqualToString:result]) {
-        [AssertException raise:@"assertEquals failed" 
-                        format:@"expected:<%@> but was:<%@>", expected, result];
-    }
++ (void) failWithException:(NSException*) e{
+    [AssertException raise:[e name]
+                    format:@"%@", [e reason]];
 }
 
 + (void) assertEqualsExpected:(id)expected 
-                       Actual:(id)result 
-                  WithMessage:(NSString*) message{
-    if (![expected isEqualToString:result]) {
-        [AssertException raise:@"assertEquals failed" 
-                        format:@"expected:<%@> but was:<%@> with message [%@]", expected, result, message];
-    }
+                       Actual:(id)result{
+    assertThat(result, equalTo(expected));
 }
 
 + (void) assertNotEqualsExpected:(id)expected 
                           Actual:(id)result{
-    if ([expected isEqualToString:result]) {
-        [AssertException raise:@"assertEquals failed" 
-                        format:@"expected:<%@> but was:<%@>", expected, result];
-    }
-}
-
-+ (void) assertNotEqualsExpected:(id)expected 
-                          Actual:(id)result 
-                     WithMessage:(NSString*) message{
-    if ([expected isEqualToString:result]) {
-        [AssertException raise:@"assertEquals failed" 
-                        format:@"expected:<%@> but was:<%@> with message [%@]", expected, result, message];
-    }
+    assertThat(result, isNot(equalTo(expected)));
 }
 
 + (void) assertContainsExpected:(id)expected 
                        Contains:(id)result{
-    if ([expected rangeOfString:result].length <= 0) {
-        [AssertException raise:@"assertIncludes failed" 
-                        format:@"expected:<%@> should contain result:<%@>", expected, result];
-    }
-}
-
-+ (void) assertContainsExpected:(id)expected 
-                       Contains:(id)result
-                    WithMessage:(NSString*) message{
-    if ([expected rangeOfString:result].length <= 0) {
-        [AssertException raise:@"assertIncludes failed" 
-                        format:@"expected:<%@> should contain result:<%@> with message [%@]", expected, result, message];
-    }
+    assertThat(result, containsString(expected));
 }
 
 + (void) assertNotNil:(id)result{
-    if (result == nil) {
-        [AssertException raise:@"assertNotNil failed" 
-                        format:@"expected:not nil but was:<%@>", result];
-    }
-}
-
-+ (void) assertNotNil:(id)result 
-          WithMessage:(NSString*) message{
-    if (result == nil) {
-        [AssertException raise:@"assertNotNil failed" 
-                        format:@"expected:not nil but was:<%@> with message [%@]", result, message];
-    }
+    assertThat(result, isNot(nilValue()));
 }
 
 + (void) assertNil:(id)result{
-    if (result != nil) {
-        [AssertException raise:@"assertNil failed" 
-                        format:@"expected:nil but was:<%@>", result];
-    }
-}
-
-+ (void) assertNil:(id)result 
-       WithMessage:(NSString*) message{
-    if (result != nil) {
-        [AssertException raise:@"assertNil failed" 
-                        format:@"expected:nil but was:<%@> with message [%@]", result, message];
-    }
+    assertThat(result, nilValue());
 }
 
 @end
