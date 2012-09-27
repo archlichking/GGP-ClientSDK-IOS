@@ -117,12 +117,4 @@ static int OUTSIDETIMEOUT = 10;
     
     
 }
-
-// for OCHamcrest use to raise exception if assert fails
-+ (void) failWithException:(NSException*) e{
-    [AssertException raise:[e name]
-                    format:@"%@", [e reason]];
-}
-
-
 @end
