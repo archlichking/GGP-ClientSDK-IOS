@@ -7,13 +7,11 @@
 //
 
 #import "AchievementStepDefinition.h"
-
 #import "QAAssert.h"
 #import "QALog.h"
 #import "StringUtil.h"
 
 #import "GreeAchievement.h"
-
 
 @implementation AchievementStepDefinition
 
@@ -67,9 +65,7 @@
             return;
         }
     }
-    [QAAssert assertEqualsExpected:ach_name
-                            Actual:@"nil"
-                       WithMessage:@"no achieveiemt matches"];
+    [QAAssert assertNil:@"no achievement matches"];
 }
 
 // step definition :  I make sure status of achievement ACH_NAME is LOCK
@@ -96,9 +92,7 @@
             return;
         }
     }
-    [QAAssert assertEqualsExpected:ach_name
-                            Actual:@"nil"
-                       WithMessage:@"no achieveiemt matches"];
+    [QAAssert assertNil:@"no achievement matches"];
 }
 
 // step definition : I update status of achievement ACH_NAME to UNLOCK
@@ -291,9 +285,7 @@
                 SpliterTcmLine];
     }
     else {
-        [QAAssert assertEqualsExpected:info
-                                Actual:nil
-                           WithMessage:@"no info found"];
+        [QAAssert assertNil:@"no info matches"];
     }
     return result;
 }

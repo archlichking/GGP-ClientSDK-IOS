@@ -20,6 +20,7 @@
 		BA2C2E0F160079220041B688 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2C2E0E160079220041B688 /* StoreKit.framework */; };
 		BA384190160ABDD1006D0ED9 /* baseCommand.js in Resources */ = {isa = PBXBuildFile; fileRef = BAEE825F16006DA30052FDC8 /* baseCommand.js */; };
 		BA57B8691612B27F009B7539 /* 52760credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA57B8681612B27F009B7539 /* 52760credentialsConfig.json */; };
+		BA57B8F7161307B6009B7539 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA57B8F6161307B6009B7539 /* OCHamcrestIOS.framework */; };
 		BA70BE751602FA4C005EEC8A /* CIUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = BA70BE741602FA4C005EEC8A /* CIUtil.m */; };
 		BAA2899216119D9F0075F643 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA2899116119D9F0075F643 /* ImageIO.framework */; };
 		BAAFB97D1602D31B001BAA35 /* libQAAutoLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAFB9711601B5C1001BAA35 /* libQAAutoLib.a */; };
@@ -106,6 +107,8 @@
 		BA2C2E0E160079220041B688 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		BA2C2E101600793B0041B688 /* libprofile_rt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprofile_rt.dylib; path = /usr/lib/libprofile_rt.dylib; sourceTree = "<absolute>"; };
 		BA57B8681612B27F009B7539 /* 52760credentialsConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 52760credentialsConfig.json; sourceTree = "<group>"; };
+		BA57B8F216130767009B7539 /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = ../QAAutoLib/QAAutoLib/vendor/OCHamcrest.framework; sourceTree = "<group>"; };
+		BA57B8F6161307B6009B7539 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = ../QAAutoLib/QAAutoLib/vendor/OCHamcrestIOS.framework; sourceTree = "<group>"; };
 		BA70BE731602FA4B005EEC8A /* CIUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIUtil.h; sourceTree = "<group>"; };
 		BA70BE741602FA4C005EEC8A /* CIUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIUtil.m; sourceTree = "<group>"; };
 		BAA2899116119D9F0075F643 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -205,6 +208,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA57B8F7161307B6009B7539 /* OCHamcrestIOS.framework in Frameworks */,
 				BAA2899216119D9F0075F643 /* ImageIO.framework in Frameworks */,
 				BAD0D027160FFDF70046BD0A /* CoreTelephony.framework in Frameworks */,
 				BAAFB9801602D32B001BAA35 /* libGreePlatform.a in Frameworks */,
@@ -243,6 +247,8 @@
 		BAEE813016006AB60052FDC8 = {
 			isa = PBXGroup;
 			children = (
+				BA57B8F6161307B6009B7539 /* OCHamcrestIOS.framework */,
+				BA57B8F216130767009B7539 /* OCHamcrest.framework */,
 				BAA2899116119D9F0075F643 /* ImageIO.framework */,
 				BAD0D026160FFDF70046BD0A /* CoreTelephony.framework */,
 				BAAFB9821602D34E001BAA35 /* GreePlatformCoreResources.bundle */,
@@ -657,6 +663,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../QAAutoLib/QAAutoLib/vendor\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QAAutoSample/QAAutoSample-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
@@ -678,6 +688,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../QAAutoLib/QAAutoLib/vendor\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QAAutoSample/QAAutoSample-Prefix.pch";
 				HEADER_SEARCH_PATHS = (

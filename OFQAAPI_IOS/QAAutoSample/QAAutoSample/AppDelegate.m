@@ -46,7 +46,7 @@
 #import "LoggerStepDefinition.h"
 #import "AddonStepDefinition.h"
 
-#define RUN_MODE 1
+#define RUN_MODE 0
 
 #if RUN_MODE == 0
 #define CONFIG_NAME           @"debugCase.txt"
@@ -225,8 +225,6 @@ static int enterSwitch = 0;
     
     [GreePlatform authorizeWithBlock:^(GreeUser *localUser, NSError *error) {
         
-        QALog(@"**************** %@", [localUser userId]);
-        QALog(@"**************** %@", error);
         // only tmp hack to promise automatically launch
         if ([arguments containsObject:@"JenkinsMode"] && enterSwitch == 0) {
             // jenkins mode launch

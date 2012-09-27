@@ -13,32 +13,16 @@
 + (void) assertEqualsExpected:(id)expected 
                        Actual:(id)result;
 
-+ (void) assertEqualsExpected:(id)expected 
-                       Actual:(id)result 
-                      WithMessage:(NSString*) message;
-
 + (void) assertNotEqualsExpected:(id)expected 
                        Actual:(id)result;
-
-+ (void) assertNotEqualsExpected:(id)expected 
-                       Actual:(id)result 
-                  WithMessage:(NSString*) message;
 
 + (void) assertContainsExpected:(id)expected 
                         Contains:(id)result;
 
-+ (void) assertContainsExpected:(id)expected 
-                       Contains:(id)result
-                    WithMessage:(NSString*) message;
-
-
 + (void) assertNotNil:(id)result;
-
-+ (void) assertNotNil:(id)result 
-          WithMessage:(NSString*) message;
 
 + (void) assertNil:(id)result;
 
-+ (void) assertNil:(id)result 
-          WithMessage:(NSString*) message;
+
++ (void) failWithException:(NSException*) e;
 @end

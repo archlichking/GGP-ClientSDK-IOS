@@ -154,9 +154,7 @@
             return;
         }
     }
-    [QAAssert assertEqualsExpected:ld_name
-                            Actual:nil
-                       WithMessage:@"no leaderboard matches"];
+    [QAAssert assertNil:@"no leaderboard matches"];
 }
 
 // step definition : I make sure my score NOTEXISTS in leaderboard LB_NAME
@@ -185,9 +183,7 @@
             return;
         }
     }
-    [QAAssert assertEqualsExpected:ld_name
-                            Actual:nil
-                       WithMessage:@"no leaderboard matches"];
+    [QAAssert assertNil:@"no leaderboard matches"];
 }
 
 // step definition : I add score to leaderboard LB_NAME with score SCORE
@@ -296,9 +292,7 @@
             return;
         }
     }
-    [QAAssert assertEqualsExpected:ld_name
-                            Actual:nil
-                       WithMessage:@"no leaderboard matches"];
+    [QAAssert assertNil:@"no leaderboard matches"];
 }
 
 
@@ -375,9 +369,7 @@
             return;
         }
     }
-    [QAAssert assertEqualsExpected:p_name
-                            Actual:nil
-                       WithMessage:@"no player score matches"];
+    [QAAssert assertNil:@"no player score matches"];
 }
 
 // step definition : I load top MARK score list for leaderboard LB_NAME for period PERIOD
@@ -594,9 +586,7 @@
                 SpliterTcmLine];
     }
     else {
-        [QAAssert assertEqualsExpected:info
-                                Actual:nil
-                           WithMessage:@"no info found"];
+        [QAAssert assertNil:@"no info matches"];
         return nil;
     }
 }

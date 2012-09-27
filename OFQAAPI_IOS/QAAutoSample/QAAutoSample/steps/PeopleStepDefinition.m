@@ -11,8 +11,9 @@
 #import "GreeUser.h"
 #import "GreePlatform.h"
 
-#import "StringUtil.h"
 #import "QAAssert.h"
+#import "StringUtil.h"
+
 
 @implementation PeopleStepDefinition
 
@@ -28,7 +29,7 @@
     }else{
         return -100;
     }
-    
+
 }
 
 
@@ -202,10 +203,7 @@
                       SpliterTcmLine];
         }
         else{
-            [QAAssert assertEqualsExpected:nil 
-                                    Actual:key
-                               WithMessage:@"no key matched"];
-        }
+            [QAAssert assertNil:@"no key matches"];        }
         return result;
     }
     [QAAssert assertEqualsExpected:value
@@ -263,9 +261,7 @@
              return @"";
         }
     }
-    [QAAssert assertEqualsExpected:person
-                            Actual:nil
-                       WithMessage:@"no person matches"];
+    [QAAssert assertNil:@"no person matches"];
     return nil;
     
 }
@@ -275,9 +271,7 @@
     NSArray* friends = [[self getBlockRepo] objectForKey:@"friends"];
     for (GreeUser* f in friends) {
         if ([[f displayName] isEqualToString:person]) {
-            [QAAssert assertEqualsExpected:@"FALSE" 
-                                    Actual:@"TRUE"
-                               WithMessage:@"Friend found!!!"];
+            [QAAssert assertNil:@"friend found"];
             return @"";
         }
     }
@@ -299,9 +293,7 @@
              return @"";
         }
     }
-    [QAAssert assertEqualsExpected:person
-                            Actual:nil
-                       WithMessage:@"no person matches"];
+    [QAAssert assertNil:@"no person matches"];
     return nil;
 }
 

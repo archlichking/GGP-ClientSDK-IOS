@@ -1,6 +1,4 @@
 Given I logged in with email auto3@136.com and password 123456
-And I load first page of my friend list
-When I load friend list of user 1000012972
-Then friend list should be size of 1
-Then friend list should have auto-grade3-user
-Then userid of auto-grade3-user should be 1000012971 and grade should be 3
+When I logout without popup
+Then I should logout
+After I logged in with email auto3@136.com and password 123456

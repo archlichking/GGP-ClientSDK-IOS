@@ -81,9 +81,7 @@
             return;
         }
     }
-    [QAAssert assertEqualsExpected:message
-                            Actual:@"nil"
-                       WithMessage:[NSString stringWithFormat:@"notification with message %@ isn't in notification queue", message]];
+    [QAAssert assertNil:[NSString stringWithFormat:@"notification with message %@ isn't in notification queue", message]];
 }
 
 //--- begin --------- local notificaiton

@@ -130,7 +130,7 @@
                                    _should_be_PARAM:(NSString*) value{
     NSMutableURLRequest* request = [[self getBlockRepo] objectForKey:@"signed_request"];
     NSDictionary* dic = [request allHTTPHeaderFields];
-    [QAAssert assertContainsExpected:[dic objectForKey:@"Authorization"] Contains:value];
+    [QAAssert assertContainsExpected:value Contains:[dic objectForKey:@"Authorization"]];
 //    [r release];
 }
 

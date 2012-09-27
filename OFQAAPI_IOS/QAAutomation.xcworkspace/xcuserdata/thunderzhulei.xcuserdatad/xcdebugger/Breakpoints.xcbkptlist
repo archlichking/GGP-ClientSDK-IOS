@@ -7,13 +7,13 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "QAAutoSample/QAAutoSample/AppDelegate.m"
-         timestampString = "370339972.89648"
+         filePath = "QAAutoLib/QAAutoLib/core/QAAssert.m"
+         timestampString = "370407860.073408"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "231"
-         endingLineNumber = "231"
-         landmarkName = "-applicationDidBecomeActive:"
+         startingLineNumber = "19"
+         endingLineNumber = "19"
+         landmarkName = "+failWithException:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

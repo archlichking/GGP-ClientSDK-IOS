@@ -332,7 +332,7 @@
     
     NSString* jsResult = [[self getBlockRepo] objectForKey:info];
     
-    [QAAssert assertContainsExpected:jsResult Contains:value];
+    [QAAssert assertContainsExpected:value Contains:jsResult];
     return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
             @"request popup info", 
             value,
@@ -401,7 +401,7 @@
                      _should_be_PARAM:(NSString*) value{
     NSString* jsResult = [[self getBlockRepo] objectForKey:info];
     
-    [QAAssert assertContainsExpected:jsResult Contains:value];
+    [QAAssert assertContainsExpected:value Contains:jsResult];
     return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
             @"request popup info", 
             value,
@@ -463,7 +463,7 @@
                     _should_be_PARAM:(NSString*) value{
     NSString* jsResult = [[self getBlockRepo] objectForKey:info];
     
-    [QAAssert assertContainsExpected:jsResult Contains:value];
+    [QAAssert assertContainsExpected:value Contains:jsResult];
     return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
             @"request popup info", 
             value,
@@ -574,7 +574,7 @@
                          _should_be_PARAM:(NSString*) value{
     NSString* jsResult = [[self getBlockRepo] objectForKey:info];
     
-    [QAAssert assertContainsExpected:jsResult Contains:value];
+    [QAAssert assertContainsExpected:value Contains:jsResult];
     return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
             @"payment request popup info", 
             value,
@@ -590,7 +590,7 @@
         return @"";
     }
     NSString* jsResult = [[self getBlockRepo] objectForKey:@"payment items"];
-    [QAAssert assertContainsExpected:jsResult Contains:value];
+    [QAAssert assertContainsExpected:value Contains:jsResult];
     return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
             @"payment request item info", 
             value,
@@ -658,7 +658,7 @@
                       _should_be_PARAM:(NSString*) value{
     NSString* jsResult = [[self getBlockRepo] objectForKey:info];
     
-    [QAAssert assertContainsExpected:jsResult Contains:value];
+    [QAAssert assertContainsExpected:value Contains:jsResult];
     return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
             @"deposit popup info", 
             value,
@@ -721,7 +721,7 @@
                               _should_be_PARAM:(NSString*) value{
     NSString* jsResult = [[self getBlockRepo] objectForKey:info];
     
-    [QAAssert assertContainsExpected:jsResult Contains:value];
+    [QAAssert assertContainsExpected:value Contains:jsResult];
     return [NSString stringWithFormat:@"[%@] checked, expected (%@) ==> actual (%@) %@", 
             @"deposit history popup info", 
             value,
