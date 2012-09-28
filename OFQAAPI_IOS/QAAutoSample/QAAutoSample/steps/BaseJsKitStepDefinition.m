@@ -25,7 +25,7 @@
 @implementation GreePopup(PrivateJskitPopupHacking)
 - (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView{
     QALog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
-    [StepDefinition notifyOutsideStep];
+    [StepDefinition globalNotify];
 }
 
 @end
@@ -45,7 +45,7 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     
     [[self getBlockRepo] setObject:popup forKey:@"baseJskitPopup"];
 }
@@ -66,7 +66,7 @@
                            object:userinfoDic];
     
 //    [self inStepWait];
-    [StepDefinition waitForOutsideStep];
+//    [StepDefinition globalWait];
 }
 
 - (void) I_dismiss_last_opened_popup{
@@ -85,7 +85,7 @@
                            object:userinfoDic];
     
     //    [self inStepWait];
-    [StepDefinition waitForOutsideStep]; 
+//    [StepDefinition globalWait]; 
 }
 
 - (void) I_dismiss_last_opened_viewControl{
@@ -95,7 +95,7 @@
                                         nil];
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
-    [StepDefinition waitForOutsideStep]; 
+    [StepDefinition globalWait]; 
 }
 
 - (void) step_sleep:(NSTimeInterval) interval{
@@ -122,7 +122,7 @@
                            object:userinfoDic];
     
     [self inStepWait];
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     [popup release];
     
     [self step_sleep:2];
@@ -149,8 +149,9 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
+    
+//    [StepDefinition globalWait];
     [self inStepWait];
-    [StepDefinition waitForOutsideStep];
     [popup release];
 }
 

@@ -104,7 +104,7 @@
                                         nil];
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
 }
 
 // step definition : widget position should be P

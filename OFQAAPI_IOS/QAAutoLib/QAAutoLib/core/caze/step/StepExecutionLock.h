@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+extern const int InStepType;
+extern const int GlobalType;
+
 @interface StepExecutionLock : NSObject{
     @private
     NSConditionLock* inStepLock;
+    NSConditionLock* globalLock;
     int timeout;
     int switc;
 }
@@ -19,8 +23,10 @@
 
 + (StepExecutionLock*) coreLock;
 
-- (void) unlockCore:(NSString*) name;
-- (void) lockCore:(NSString*) name;
+- (void) unlockCore:(NSString*) name
+               Type:(int) type;
+- (void) lockCore:(NSString*) name
+             Type:(int) type;
 
 
 @end

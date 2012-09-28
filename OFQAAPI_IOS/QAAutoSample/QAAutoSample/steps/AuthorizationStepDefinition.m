@@ -44,7 +44,7 @@
     }
     
     [[StepDefinition getOutsideBlockRepo] setObject:self forKey:@"popup"];
-    [StepDefinition notifyOutsideStep];
+    [StepDefinition globalNotify];
 }
 @end
 
@@ -87,7 +87,7 @@
 - (void) I_logged_in_via_popup_with_email_PARAM:(NSString*) email
                             _and_password_PARAM:(NSString*) password{
     
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     
     GreeAuthorizationPopup* popup = [[StepDefinition getOutsideBlockRepo] objectForKey:@"popup"];
     // email
@@ -108,7 +108,7 @@
                            object:userinfoDic];
     
     [self inStepWait];
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     
     // 2. input name/pwd and click log in
     // this is for login popup, and only for sandbox
@@ -131,7 +131,7 @@
                            object:userinfoDic];
     
     [self inStepWait];
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     
     [userinfoDic release];
     
@@ -153,7 +153,7 @@
                            object:userinfoDic];
     
     [self inStepWait];
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     
     // login button
     js = @"click(fclass('button large block primary')[0])";
@@ -173,7 +173,7 @@
                            object:userinfoDic];
     
     [self inStepWait];
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
 }
 
 // step definition: i switch to user U with password P
@@ -219,7 +219,7 @@
         
     }];
     
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     
     
 }
@@ -245,7 +245,7 @@
 //                           object:userinfoDic];
 //    
 //    [self inStepWait];
-//    [StepDefinition waitForOutsideStep];
+//    [StepDefinition globalWait];
     [[StepDefinition getOutsideBlockRepo] removeObjectForKey:@"popup"];
 }
 
@@ -253,7 +253,7 @@
 - (void) I_tend_to_logout{
     [GreePlatform revokeAuthorizationWithBlock:^(NSError *error) {
     }];
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
 }
 // step definition: logout confirm popup should display well
 - (void) logout_confirm_popup_should_display_well{
@@ -268,7 +268,7 @@
     }];
     
     // wait for logout popup
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     
     GreeAuthorizationPopup* popup = [[StepDefinition getOutsideBlockRepo] objectForKey:@"popup"];
     
@@ -290,7 +290,7 @@
                            object:userinfoDic];
     
     [self inStepWait];
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
 }
 
 // step definition : i logout without popup
@@ -320,7 +320,7 @@
     
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     
 }
 

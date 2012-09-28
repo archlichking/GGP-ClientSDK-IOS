@@ -1,3 +1,15 @@
 Given I logged in with email auto3@136.com and password 123456
-When I cancel load my image with size standard
-Then the returned thumbnail should be null
+And I launch jskit popup
+When I click invoke button invokeRequestPopup
+And I dismiss last opened popup
+When I click invoke button invokeSharePopup
+And I dismiss last opened popup
+When I click invoke button invokeInvitePopup
+And I dismiss last opened popup
+When I click invoke button invokeWebviewDialog
+And I dismiss last opened popup
+When I click invoke button invokeDepositProductDialog
+And I dismiss last opened popup
+When I click invoke button invokeDepositHistoryDialog
+And I dismiss last opened popup
+After I dismiss jskit base popup

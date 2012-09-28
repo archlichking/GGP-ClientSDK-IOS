@@ -14,17 +14,17 @@
 }
 
 - (NSMutableDictionary*) getBlockRepo;
+- (void) setTimeout:(int) timeout;
+
 
 - (void) inStepWait;
 - (void) inStepNotify;
 
-- (void) setTimeout:(int) timeout;
-
 - (void) notifyMainUIWithCommand:(NSString*) command 
                           object:(id) obj;
 
-+ (void) notifyOutsideStep;
-+ (void) waitForOutsideStep;
++ (void) globalNotify;
++ (void) globalWait;
 + (NSMutableDictionary*) getOutsideBlockRepo;
 
 @end

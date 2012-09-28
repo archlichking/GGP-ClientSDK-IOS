@@ -8,6 +8,10 @@
 
 #import "StepExecutionLock.h"
 
+const int InStepType = 1;
+const int GlobalType = 100;
+
+
 static StepExecutionLock* cCoreLock = nil;
 
 @implementation StepExecutionLock
@@ -17,8 +21,9 @@ static StepExecutionLock* cCoreLock = nil;
 - (id) initWithStepLock{
     if (self) {
         inStepLock = [[NSConditionLock alloc] initWithCondition:0];
+        globalLock = [[NSConditionLock alloc] initWithCondition:0];
         timeout = 10;
-        switc = 0;
+        switc = -1;
     }
     return self;
 }
@@ -30,30 +35,60 @@ static StepExecutionLock* cCoreLock = nil;
     return cCoreLock;
 }
 
-- (void) unlockCore:(NSString*) name{
-    [inStepLock setName:name];
-    switc = 1;
-//    NSLog(@"begin unlockCore %@, %i", inStepLock, switc);
-    [inStepLock lockWhenCondition:1
-                       beforeDate:[NSDate dateWithTimeIntervalSinceNow:timeout]];
-    [inStepLock unlockWithCondition:0];
-//    NSLog(@"end unlockCore %@", inStepLock);
-    
+- (void) unlockCore:(NSString*) name
+               Type:(int) type{
+    switc = type;
+    switch (type) {
+        case InStepType:
+            [inStepLock setName:name];
+//            NSLog(@"begin unlockCore %@, %i", inStepLock, switc);
+            [inStepLock lockWhenCondition:1
+                               beforeDate:[NSDate dateWithTimeIntervalSinceNow:timeout]];
+            [inStepLock unlockWithCondition:0];
+//            NSLog(@"end unlockCore %@", inStepLock);
+            break;
+        case GlobalType:
+            [globalLock setName:name];
+//            NSLog(@"begin unlockCore %@, %i", globalLock, switc);
+            [globalLock lockWhenCondition:1
+                               beforeDate:[NSDate dateWithTimeIntervalSinceNow:timeout]];
+            [globalLock unlockWithCondition:0];
+//            NSLog(@"end unlockCore %@", globalLock);
+            break;
+        default:
+            break;
+    }    
 }
 
-- (void) lockCore:(NSString*) name{
+- (void) lockCore:(NSString*) name
+             Type:(int) type{
     @synchronized(self){
+        int swap = switc;
         switc -= 1;
-        if (switc == 0) {
+        if (switc == InStepType - 1 || switc == GlobalType - 1) {
             // to avoid some unncessary unlock outside
-            [inStepLock setName:name];
-//            NSLog(@"beign lockCore %@, %i", inStepLock, switc);
-            [inStepLock lock];
-            [inStepLock unlockWithCondition:1];
-//            NSLog(@"end lockCore %@", inStepLock);
+            switch (type) {
+                case InStepType:
+                    [inStepLock setName:name];
+//                    NSLog(@"beign lockCore %@, %i", inStepLock, switc);
+                    [inStepLock lock];
+                    [inStepLock unlockWithCondition:1];
+//                    NSLog(@"end lockCore %@", inStepLock);
+                    break;
+                    
+                case GlobalType:
+                    [globalLock setName:name];
+//                    NSLog(@"beign lockCore %@, %i", globalLock, switc);
+                    [globalLock lock];
+                    [globalLock unlockWithCondition:1];
+//                    NSLog(@"end lockCore %@", globalLock);
+                    break;
+                default:
+                    break;
+            }
         }else{
             // reset the switc
-            switc = 0;
+            switc = swap;
         }
     }
 }

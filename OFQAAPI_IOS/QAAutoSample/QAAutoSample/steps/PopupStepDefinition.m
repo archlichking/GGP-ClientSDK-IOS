@@ -36,7 +36,7 @@
 -(void)popupViewWebViewDidFinishLoad:(UIWebView *)aWebView{
 //    QALog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
     [[StepDefinition getOutsideBlockRepo] setObject:self forKey:@"popup"];
-    [StepDefinition notifyOutsideStep];
+    [StepDefinition globalNotify];
 }
 @end
 
@@ -55,7 +55,7 @@
     }
 //    QALog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
     [[StepDefinition getOutsideBlockRepo] setObject:self forKey:@"popup"];
-    [StepDefinition notifyOutsideStep];
+    [StepDefinition globalNotify];
 }
 
 @end
@@ -69,7 +69,7 @@
 -(void)popupViewWebViewDidFinishLoad:(UIWebView *)aWebView{
 //    QALog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
     [[StepDefinition getOutsideBlockRepo] setObject:self forKey:@"popup"];
-    [StepDefinition notifyOutsideStep];
+    [StepDefinition globalNotify];
 }
 
 @end
@@ -81,7 +81,7 @@
 @implementation GreePopup(PrivatePopupHacking)
 - (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView{
 //    QALog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
-    [StepDefinition notifyOutsideStep];
+    [StepDefinition globalNotify];
 }
 @end
 
@@ -127,7 +127,7 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
 }
 
 //--- begin ----------- common popup
@@ -149,7 +149,7 @@
                            object:userinfoDic];
     
     [self inStepWait];
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     
     // reset value to default
     [self cleanCallbacks:popup];
@@ -173,7 +173,7 @@
                            object:userinfoDic];
     
     [self inStepWait];
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     
     // reset value to default
     [self cleanCallbacks:popup];
@@ -198,7 +198,7 @@
     
     
     [self inStepWait];
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     
     // set value to default
     [self cleanCallbacks:popup];
@@ -223,7 +223,7 @@
                            object:userinfoDic];
     
     [self inStepWait];
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     
     // set value to default
     [self cleanCallbacks:popup];
@@ -320,7 +320,7 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     [self inStepWait];
     
     [requestPopup release];
@@ -390,7 +390,7 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     [self inStepWait];
     [invitePopup release];
 
@@ -453,7 +453,7 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     [self inStepWait];
     [popup release];
 }
@@ -527,7 +527,7 @@
     
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     
     GreeWalletPaymentPopup* popup = [[StepDefinition getOutsideBlockRepo] objectForKey:@"popup"];
     [[self getBlockRepo] setObject:popup 
@@ -566,7 +566,7 @@
                            object:userinfoDic];
     
     [self inStepWait];
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
    
 }
 
@@ -610,7 +610,7 @@
     
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     
     GreeWalletDepositPopup* popup = [[StepDefinition getOutsideBlockRepo] objectForKey:@"popup"];
     [[self getBlockRepo] setObject:popup 
@@ -649,7 +649,7 @@
                            object:userinfoDic];
     
     [self inStepWait];
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     [popup release];
 }
 
@@ -677,7 +677,7 @@
     
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     
     GreeWalletDepositIAPHistoryPopup* popup = [[StepDefinition getOutsideBlockRepo] objectForKey:@"popup"];
     [[self getBlockRepo] setObject:popup 
@@ -713,7 +713,7 @@
                            object:userinfoDic];
     
     [self inStepWait];
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     [popup release];
 }
 
