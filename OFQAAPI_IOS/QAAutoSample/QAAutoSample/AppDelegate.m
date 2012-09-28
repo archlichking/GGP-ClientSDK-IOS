@@ -297,13 +297,13 @@ static int enterSwitch = 0;
 }
 
 - (void)greePlatform:(GreePlatform*)platform didLoginUser:(GreeUser*)localUser{
-    NSLog(@"%s", __FUNCTION__);
-    NSLog(@"Local User: %@", localUser);
+//    NSLog(@"%s", __FUNCTION__);
+//    NSLog(@"Local User: %@", localUser);
 
 }
 //#indoc "GreePlatformDelegate#greePlatform:didLogoutUser:"
 - (void)greePlatform:(GreePlatform*)platform didLogoutUser:(GreeUser*)localUser{
-    NSLog(@"%s", __FUNCTION__);
+//    NSLog(@"%s", __FUNCTION__);
 }
 
 - (void)greePlatformParamsReceived:(NSDictionary*)params

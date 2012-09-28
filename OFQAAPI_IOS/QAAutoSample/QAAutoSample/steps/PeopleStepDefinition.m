@@ -42,10 +42,10 @@
            // use actual to store achievement result
             [[self getBlockRepo] setObject:user forKey:@"user"];
         }
-        [self notifyInStep];
+        [self inStepNotify];
     }];
     
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 // step definition : I check my friend list first page
@@ -60,9 +60,9 @@
                 [[self getBlockRepo] setObject:friends 
                                         forKey:@"friends"];
             }
-            [self notifyInStep];
+            [self inStepNotify];
         }];
-        [self waitForInStep];
+        [self inStepWait];
         [[self getBlockRepo] setObject:enumerator forKey:@"enumerator"];
     }
 }
@@ -226,18 +226,18 @@
                 [array addObjectsFromArray:friends];
             }
 
-            [self notifyInStep];
+            [self inStepNotify];
         }];
-        [self waitForInStep];
+        [self inStepWait];
         while ([enumerator canLoadNext]) {
             [enumerator loadNext:^(NSArray *items, NSError *error) {
                 if(!error){
                     [array addObjectsFromArray:items];
                 }
-                [self notifyInStep];
+                [self inStepNotify];
             }];
             
-            [self waitForInStep];
+            [self inStepWait];
         }
     }
     [[self getBlockRepo] setObject:array forKey:@"friends"];
@@ -315,10 +315,10 @@
             if(!error){
                 [arr addObjectsFromArray:items];
             }
-            [self notifyInStep];
+            [self inStepNotify];
         }];
         
-        [self waitForInStep];
+        [self inStepWait];
     }
     [[self getBlockRepo] setObject:arr forKey:@"friends"];
 }
@@ -350,9 +350,9 @@
                               if(!error){
                                   [[self getBlockRepo] setObject:icon forKey:@"myImage"];
                               }
-                              [self notifyInStep];
+                              [self inStepNotify];
     }];
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 - (void) I_cancel_load_my_image_with_size_PARAM:(NSString*) size{
@@ -366,10 +366,10 @@
                               if(!error){
                                   [[self getBlockRepo] setObject:icon forKey:@"myImage"];
                               }
-                              [self notifyInStep];
+                              [self inStepNotify];
                           }];
     [user cancelThumbnailLoad];
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 // step definition : the returned thumbnail should be TYPE

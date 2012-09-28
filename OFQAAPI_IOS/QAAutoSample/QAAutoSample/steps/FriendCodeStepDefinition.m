@@ -52,9 +52,9 @@
                 [[self getBlockRepo] setObject:code 
                                         forKey:@"code"];
             }
-            [self notifyInStep];
+            [self inStepNotify];
         }];
-        [self waitForInStep];
+        [self inStepWait];
     }else{
         NSDate* date = [FriendCodeStepDefinition dateFromString:time];
         [GreeFriendCodes requestCodeWithExpirationDate:date
@@ -63,9 +63,9 @@
                                                      [[self getBlockRepo] setObject:code 
                                                                              forKey:@"code"];
                                                  }
-                                                 [self notifyInStep];
+                                                 [self inStepNotify];
                                              }];
-        [self waitForInStep];
+        [self inStepWait];
     }
 }
 
@@ -85,9 +85,9 @@
                                     forKey:@"expiretime"];
             
         }
-        [self notifyInStep];
+        [self inStepNotify];
     }];
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 // step definition : I verify my friend code
@@ -103,9 +103,9 @@
                               [[self getBlockRepo] setObject:[FriendCodeStepDefinition dateFromString:@"2012-01-01T23:00:00-0800"]
                                                       forKey:@"expiretime"];
                           }
-                          [self notifyInStep];
+                          [self inStepNotify];
                       }];
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 // step definition : I delete my friend code
@@ -114,9 +114,9 @@
         if(!error){
             
         }
-        [self notifyInStep];
+        [self inStepNotify];
     }];
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 // step definition :  my friend code length should be LENGTH
@@ -145,9 +145,9 @@
             [[self getBlockRepo] setObject:userId 
                                     forKey:@"owner"];
         }
-        [self notifyInStep];
+        [self inStepNotify];
     }];
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 // step definition :  the owner should be user USER_ID
@@ -184,18 +184,18 @@
         if(!error){
             [array addObjectsFromArray:friends];
         }
-        [self notifyInStep];
+        [self inStepNotify];
     }];
-    [self waitForInStep];
+    [self inStepWait];
     while ([enumerator canLoadNext]) {
         [enumerator loadNext:^(NSArray *items, NSError *error) {
             if(!error){
                 [array addObjectsFromArray:items];
             }
-            [self notifyInStep];
+            [self inStepNotify];
         }];
             
-        [self waitForInStep];
+        [self inStepWait];
     }
     
     [[self getBlockRepo] setObject:array forKey:@"friends"];

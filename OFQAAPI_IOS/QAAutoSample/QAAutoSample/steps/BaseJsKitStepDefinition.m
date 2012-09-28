@@ -54,7 +54,7 @@
     GreePopup* popup = [[self getBlockRepo] objectForKey:@"baseJskitPopup"];
     
 //    popup.didDismissBlock = ^(id aSender) {
-//        [self notifyInStep];
+//        [self inStepNotify];
 //    };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -65,7 +65,7 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-//    [self waitForInStep];
+//    [self inStepWait];
     [StepDefinition waitForOutsideStep];
 }
 
@@ -73,7 +73,7 @@
     GreePopup* popup = [[self getBlockRepo] objectForKey:@"baseJskitPopup"];
     
     //    popup.didDismissBlock = ^(id aSender) {
-    //        [self notifyInStep];
+    //        [self inStepNotify];
     //    };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -84,7 +84,7 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    //    [self waitForInStep];
+    //    [self inStepWait];
     [StepDefinition waitForOutsideStep]; 
 }
 
@@ -106,7 +106,7 @@
     GreePopup* popup = [[self getBlockRepo] objectForKey:@"baseJskitPopup"];
     
     id resultBlock = ^(NSString* result){
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -121,7 +121,7 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [self waitForInStep];
+    [self inStepWait];
     [StepDefinition waitForOutsideStep];
     [popup release];
     
@@ -134,7 +134,7 @@
     GreePopup* popup = [[self getBlockRepo] objectForKey:@"baseJskitPopup"];
     
     id resultBlock = ^(NSString* result){
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -149,7 +149,7 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [self waitForInStep];
+    [self inStepWait];
     [StepDefinition waitForOutsideStep];
     [popup release];
 }

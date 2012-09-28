@@ -67,17 +67,20 @@
         return;
     }
     
-    [GreeKeyChain saveWithKey:GreeKeyChainUserIdIdentifier value:[credentialDic objectForKey:CredentialStoredUserid]];
-    [GreeKeyChain saveWithKey:GreeKeyChainAccessTokenIdentifier value:[credentialDic objectForKey:CredentialStoredOauthKey]];
-    [GreeKeyChain saveWithKey:GreeKeyChainAccessTokenSecretIdentifier value:[credentialDic objectForKey:CredentialStoredOauthSecret]];
+    [GreeKeyChain saveWithKey:GreeKeyChainUserIdIdentifier
+                        value:[credentialDic objectForKey:CredentialStoredUserid]];
+    [GreeKeyChain saveWithKey:GreeKeyChainAccessTokenIdentifier
+                        value:[credentialDic objectForKey:CredentialStoredOauthKey]];
+    [GreeKeyChain saveWithKey:GreeKeyChainAccessTokenSecretIdentifier
+                        value:[credentialDic objectForKey:CredentialStoredOauthSecret]];
 
     [GreePlatform authorizeNonInteractivelyWithBlock:^(GreeUser *localUser, NSError *error) {
         if (error) {
             
         }
-        [self notifyInStep];
+        [self inStepNotify];
     }];
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 // step definition: 
@@ -91,7 +94,7 @@
     NSString* js = @"click(fclass('button block register')[0])";
     
     id resultBlock = ^(NSString* result){
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -104,7 +107,7 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [self waitForInStep];
+    [self inStepWait];
     [StepDefinition waitForOutsideStep];
     
     // 2. input name/pwd and click log in
@@ -114,7 +117,7 @@
     js = [NSString stringWithFormat:@"setText(fid('mail'), '%@')", email];
     
     resultBlock = ^(NSString* result){
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -127,7 +130,7 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [self waitForInStep];
+    [self inStepWait];
     [StepDefinition waitForOutsideStep];
     
     [userinfoDic release];
@@ -136,7 +139,7 @@
     js = [NSString stringWithFormat:@"setText(fid('user_password'), '%@')", password];
     
     resultBlock = ^(NSString* result){
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -149,14 +152,14 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [self waitForInStep];
+    [self inStepWait];
     [StepDefinition waitForOutsideStep];
     
     // login button
     js = @"click(fclass('button large block primary')[0])";
     
     resultBlock = ^(NSString* result){
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -169,7 +172,7 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [self waitForInStep];
+    [self inStepWait];
     [StepDefinition waitForOutsideStep];
 }
 
@@ -189,9 +192,9 @@
     [GreeKeyChain saveWithKey:GreeKeyChainAccessTokenSecretIdentifier value:[credentialDic objectForKey:CredentialStoredOauthSecret]];
         
     [GreePlatform authorizeWithBlock:^(GreeUser *localUser, NSError *error) {
-        [self notifyInStep];
+        [self inStepNotify];
     }];
-    [self waitForInStep];
+    [self inStepWait];
     
 }
 
@@ -228,7 +231,7 @@
 //    NSString* js = @"click(fclass('button large block per80')[0])";
 //    
 //    id resultBlock = ^(NSString* result){
-//        [self notifyInStep];
+//        [self inStepNotify];
 //    };
 //    
 //    NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -241,7 +244,7 @@
 //    [self notifyMainUIWithCommand:CommandDispatchCommand 
 //                           object:userinfoDic];
 //    
-//    [self waitForInStep];
+//    [self inStepWait];
 //    [StepDefinition waitForOutsideStep];
     [[StepDefinition getOutsideBlockRepo] removeObjectForKey:@"popup"];
 }
@@ -273,7 +276,7 @@
     NSString* js = @"click(fclass('button large block primary')[0])";
     
     id resultBlock = ^(NSString* result){
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -286,7 +289,7 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [self waitForInStep];
+    [self inStepWait];
     [StepDefinition waitForOutsideStep];
 }
 
@@ -296,9 +299,9 @@
         if (error) {
             
         }
-        [self notifyInStep];
+        [self inStepNotify];
     }];
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 // step definition : i should logout

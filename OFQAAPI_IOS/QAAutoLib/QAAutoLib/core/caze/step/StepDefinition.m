@@ -7,6 +7,8 @@
 //
 
 #import "StepDefinition.h"
+
+#import "StepExecutionLock.h"
 #import "QAAssert.h"
 #import "QALog.h"
 #import "AssertException.h"
@@ -26,48 +28,16 @@ static int OUTSIDETIMEOUT = 10;
 
 
 
-- (void) waitForInStep{
-    if (!inStepLock) {
-        inStepLock = [[NSConditionLock alloc] initWithCondition:0];
-    }
-    if(!TIMEOUT || TIMEOUT == 0){
-        TIMEOUT = 5;
-    }
-    @try {
-        [inStepLock lockWhenCondition:1
-                           beforeDate:[NSDate dateWithTimeIntervalSinceNow:TIMEOUT]];
-        [inStepLock unlock];
-    }
-    @catch (NSException *exception) {
-        QALog(@"[WAIT ERROR] inside step unlock %@", exception);
-    }
-    @catch (NSError *error) {
-        QALog(@"[WAIT ERROR] inside step unlock %@", error);
-    }
-    @finally {
-        [inStepLock release];
-        inStepLock = [[NSConditionLock alloc] initWithCondition:0];
-        TIMEOUT = 0;
-    }
-    
-    // reset timeout and condition
-    
-    
+- (void) inStepWait{
+    [[StepExecutionLock coreLock] unlockCore:[self description]];
 }
 
-- (void) notifyInStep{
-    if (!inStepLock) {
-        inStepLock = [[NSConditionLock alloc] initWithCondition:0];
-    }
-    @synchronized (self) {
-        [inStepLock lock];
-        [inStepLock unlockWithCondition:1];
-    }
-    
+- (void) inStepNotify{
+    [[StepExecutionLock coreLock] lockCore:[self description]];
 }
 
 -(void) setTimeout:(int) timeout{
-    TIMEOUT = timeout;
+    [[StepExecutionLock coreLock] setTimeout:timeout];
 }
 
 - (void) notifyMainUIWithCommand:(NSString*) command 

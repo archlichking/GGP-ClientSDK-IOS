@@ -48,19 +48,19 @@
                                       if(!error) {
                                           [[self getBlockRepo] setObject:createdUserText forKey:@"text"];
                                       }
-                                      [self notifyInStep];
+                                      [self inStepNotify];
     }];
     
-    [self waitForInStep];
+    [self inStepWait];
 
 //    if (![ModerationStepDefinition StringToBool:contain]) {
 //        // need to delete one
 //        GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
 //        
 //        [t deleteWithBlock:^(NSError *error) {
-//            [self notifyInStep];
+//            [self inStepNotify];
 //        }];
-//        [self waitForInStep];
+//        [self inStepWait];
 //    }
 }
 
@@ -71,10 +71,10 @@
         if(!error) {
             [[self getBlockRepo] setObject:createdUserText forKey:@"text"];
         }
-        [self notifyInStep];
+        [self inStepNotify];
     }];
     
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 // step definition : status of text TEXT in server should be STATUS
@@ -96,9 +96,9 @@
         if(!error) {
             [[self getBlockRepo] setObject:t forKey:@"text"];
         }
-        [self notifyInStep];    
+        [self inStepNotify];    
     }];
-    [self waitForInStep];
+    [self inStepWait];
 
 }
 
@@ -114,9 +114,9 @@
                                      [[self getBlockRepo] setObject:[userTexts objectAtIndex:0] 
                                                              forKey:@"text"];
                                  }
-                                 [self notifyInStep];
+                                 [self inStepNotify];
                              }];
-    [self waitForInStep];
+    [self inStepWait];
     [ids release];
 }
 
@@ -138,10 +138,10 @@
     GreeModeratedText* t = [[self getBlockRepo] objectForKey:@"text"];
     [t deleteWithBlock:^(NSError *error) {
         if(!error){
-            [self notifyInStep];
+            [self inStepNotify];
         }
     }];
-    [self waitForInStep];
+    [self inStepWait];
     
 //    [[self getBlockRepo] setObject:[self fetchModerationFromServerById:[t textId]] forKey:@"text"];
 }

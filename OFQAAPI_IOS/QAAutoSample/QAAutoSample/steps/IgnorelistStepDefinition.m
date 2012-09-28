@@ -50,18 +50,18 @@
                 [array addObjectsFromArray:ignoreUserIds];
             }
             
-            [self notifyInStep];
+            [self inStepNotify];
         }];
-        [self waitForInStep];
+        [self inStepWait];
         while ([enumerator canLoadNext]) {
             [enumerator loadNext:^(NSArray *items, NSError *error) {
                 if(!error){
                     [array addObjectsFromArray:items];
                 }
-                [self notifyInStep];
+                [self inStepNotify];
             }];
             
-            [self waitForInStep];
+            [self inStepWait];
         }
     }
     [[self getBlockRepo] setObject:array forKey:@"ignorelist"];
@@ -84,9 +84,9 @@
                 
             }
             
-            [self notifyInStep];
+            [self inStepNotify];
         }];
-        [self waitForInStep];
+        [self inStepWait];
     }
 }
 
@@ -121,9 +121,9 @@
                                  [[self getBlockRepo] setObject:[IgnorelistStepDefinition boolToString:isIgnored] 
                                                          forKey:userid];
                              }
-                             [self notifyInStep];
+                             [self inStepNotify];
                          }];
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 

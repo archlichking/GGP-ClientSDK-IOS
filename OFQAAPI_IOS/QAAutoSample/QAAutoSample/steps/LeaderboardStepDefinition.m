@@ -71,10 +71,10 @@
         if(!error) {
             [[self getBlockRepo] setObject:leaderboards forKey:@"leaderboards"];
         }
-        [self notifyInStep];
+        [self inStepNotify];
     }];
     
-    [self waitForInStep];
+    [self inStepWait];
     NSArray* leaderboards = [[self getBlockRepo] objectForKey:@"leaderboards"];
     [enumerator setStartIndex:[leaderboards count]+1];
     [[self getBlockRepo] setObject:enumerator forKey:@"enumerator"];
@@ -97,10 +97,10 @@
             if(!error){
                 [[self getBlockRepo] setObject:items forKey:@"leaderboards"];
             }
-            [self notifyInStep];
+            [self inStepNotify];
         }];
         
-        [self waitForInStep];
+        [self inStepWait];
     }
 }
 
@@ -110,9 +110,9 @@
 //    
 //    id<GreeEnumerator> enumerator = nil;
 //    enumerator = [GreeLeaderboard loadLeaderboardsWithBlock:^(NSArray *leaderboards, NSError *error) {
-//        [self notifyInStep];
+//        [self inStepNotify];
 //    }];
-//    [self waitForInStep];
+//    [self inStepWait];
 //    
 //    [enumerator setPageSize:<#(NSInteger)#>]
 //    [enumerator setPageSize:[size intValue]];
@@ -122,9 +122,9 @@
 //            if(!error){
 //                [array addObjectsFromArray:items];
 //            }
-//            [self notifyInStep];
+//            [self inStepNotify];
 //        }];
-//        [self waitForInStep];
+//        [self inStepWait];
 //    }
 //    [[self getBlockRepo] setObject:array forKey:@"leaderboards"];
 //}
@@ -168,17 +168,17 @@
                 GreeScore* score = [[GreeScore alloc] initWithLeaderboard:[ld identifier] 
                                                                     score:3000];
                 [score submitWithBlock:^{
-                    [self notifyInStep];
+                    [self inStepNotify];
                 }];
-                [self waitForInStep];
+                [self inStepWait];
                 [score release];
             }else{
                 // need to delete existed score
                 [GreeScore deleteMyScoreForLeaderboard:[ld identifier] 
                                              withBlock:^(NSError *error){
-                                                 [self notifyInStep];
+                                                 [self inStepNotify];
                                              }];
-                [self waitForInStep];
+                [self inStepWait];
             }
             return;
         }
@@ -203,9 +203,9 @@
                                                     score:[score integerValue]];
   
     [s submitWithBlock:^{
-        [self notifyInStep];
+        [self inStepNotify];
     }];
-    [self waitForInStep];
+    [self inStepWait];
     [s release];
 }
 
@@ -228,10 +228,10 @@
                                        if(!error){
                                            s = [score score];
                                        }
-                                       [self notifyInStep];
+                                       [self inStepNotify];
                                    }];
     // has to wait for async call finished
-    [self waitForInStep];
+    [self inStepWait];
     
     [QAAssert assertEqualsExpected:score 
                             Actual:[NSString stringWithFormat:@"%lli", s]];
@@ -256,10 +256,10 @@
                                        if(!error){
                                            s = [score score];
                                        }
-                                       [self notifyInStep];
+                                       [self inStepNotify];
                                    }];
     // has to wait for async call finished
-    [self waitForInStep];
+    [self inStepWait];
     
     [QAAssert assertNotEqualsExpected:score 
                             Actual:[NSString stringWithFormat:@"%lli", s]];
@@ -282,10 +282,10 @@
                                                if(!error){
                                                    r = [score rank];
                                                }
-                                               [self notifyInStep];
+                                               [self inStepNotify];
                                            }];
             // has to wait for async call finished
-            [self waitForInStep];
+            [self inStepWait];
             
             [QAAssert assertEqualsExpected:rank 
                                     Actual:[NSString stringWithFormat:@"%lli", r]];
@@ -309,9 +309,9 @@
     }
     [GreeScore deleteMyScoreForLeaderboard:identi 
                                  withBlock:^(NSError *error) {
-                                     [self notifyInStep];
+                                     [self inStepNotify];
                                  }];
-    [self waitForInStep];
+    [self inStepWait];
    // [identi release];
     return;
 }
@@ -335,19 +335,19 @@
                 if(!error){
                     [array addObjectsFromArray:items];
                 }
-                [self notifyInStep];
+                [self inStepNotify];
             }];
                     
-            [self waitForInStep];
+            [self inStepWait];
             while ([enumerator canLoadNext]) {
                 
                 [enumerator loadNext:^(NSArray *items, NSError *error) {
                     if(!error){
                         [array addObjectsFromArray:items];
                     }
-                    [self notifyInStep];
+                    [self inStepNotify];
                 }];
-                [self waitForInStep];
+                [self inStepWait];
             }
             break;
         }
@@ -387,18 +387,18 @@
                                                               if(!error){
                                                                   [array addObjectsFromArray:scoreList];
                                                               }
-                                                              [self notifyInStep];
+                                                              [self inStepNotify];
                                                           }];
-            [self waitForInStep];
+            [self inStepWait];
             while ([enumerator canLoadNext]) {
                
                 [enumerator loadNext:^(NSArray *items, NSError *error) {
                     if(!error){
                         [array addObjectsFromArray:items];
                     }
-                    [self notifyInStep];
+                    [self inStepNotify];
                 }];
-                [self waitForInStep];
+                [self inStepWait];
             }
             break;
         }
@@ -420,17 +420,17 @@
                                                               if(!error){
                                                                   [array addObjectsFromArray:scoreList];
                                                               }
-                                                              [self notifyInStep];
+                                                              [self inStepNotify];
                                                           }];
-            [self waitForInStep];
+            [self inStepWait];
             while ([enumerator canLoadNext]) {
                 [enumerator loadNext:^(NSArray *items, NSError *error) {
                     if(!error){
                         [array addObjectsFromArray:items];
                     }
-                    [self notifyInStep];
+                    [self inStepNotify];
                 }];
-                [self waitForInStep];
+                [self inStepWait];
             }
             break;
         }
@@ -451,9 +451,9 @@
                     [[self getBlockRepo] setObject:image 
                                             forKey:@"leaderboardIcon"]; 
                 }
-                [self notifyInStep];
+                [self inStepNotify];
             }];
-            [self waitForInStep];
+            [self inStepWait];
             return;
         }
     }
@@ -474,10 +474,10 @@
                     [[self getBlockRepo] setObject:image 
                                             forKey:@"leaderboardIcon"]; 
                 }
-                [self notifyInStep];
+                [self inStepNotify];
             }];
             [ld cancelIconLoad];
-            [self waitForInStep];
+            [self inStepWait];
             return;
         }
     }
@@ -615,10 +615,10 @@
                                        fs = [score formattedScoreWithLeaderboard:lb];
                                        [[self getBlockRepo] setObject:fs forKey:@"formattedScore"];
                                    }
-                                   [self notifyInStep];
+                                   [self inStepNotify];
                                }];
     // has to wait for async call finished
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 - (NSString*) formatted_score_should_be_PARAM:(NSString*) score{

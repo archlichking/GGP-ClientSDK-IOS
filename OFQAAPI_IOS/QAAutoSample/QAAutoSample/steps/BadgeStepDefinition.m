@@ -23,9 +23,9 @@
 - (void) I_update_badge_value_to_latest_one{
     [[GreePlatform sharedInstance] updateBadgeValuesWithBlock:^(GreeBadgeValues *badgeValues) {
         [[self getBlockRepo] setObject:badgeValues forKey:@"badgeValues"];
-        [self notifyInStep];
+        [self inStepNotify];
     }];
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 // step definition : my social badge value should be VALUE
@@ -51,9 +51,9 @@
 - (void) I_update_badge_value_to_latest_one_for_all_application{
     [GreeBadgeValues loadBadgeValuesForAllApplicationsWithBlock:^(GreeBadgeValues *badgeValues, NSError *error) {
         [[self getBlockRepo] setObject:badgeValues forKey:@"badgeValues"];
-        [self notifyInStep];
+        [self inStepNotify];
     }];
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 @end

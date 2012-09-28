@@ -7,13 +7,39 @@
          shouldBeEnabled = "Yes"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "QAAutoLib/QAAutoLib/core/QAAssert.m"
-         timestampString = "370407860.073408"
+         filePath = "QAAutoSample/QAAutoSample/steps/AuthorizationStepDefinition.m"
+         timestampString = "370495359.564238"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "19"
-         endingLineNumber = "19"
-         landmarkName = "+failWithException:"
+         startingLineNumber = "81"
+         endingLineNumber = "81"
+         landmarkName = "-I_logged_in_with_email_PARAM:_and_password_PARAM:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QAAutoSample/QAAutoSample/steps/AuthorizationStepDefinition.m"
+         timestampString = "370495373.222487"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "302"
+         endingLineNumber = "302"
+         landmarkName = "-I_logout_without_popup"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QAAutoLib/QAAutoLib/core/caze/step/StepExecutionLock.m"
+         timestampString = "370496190.246951"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "39"
+         endingLineNumber = "39"
+         landmarkName = "-unlockCore:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

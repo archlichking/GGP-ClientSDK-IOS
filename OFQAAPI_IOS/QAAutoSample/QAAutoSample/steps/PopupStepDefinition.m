@@ -137,7 +137,7 @@
     GreePopup* popup = [[self getBlockRepo] objectForKey:@"popup"];
     popup.willLaunchBlock = ^(id aSender) {
         [[self getBlockRepo] setObject:@"1" forKey:@"willLaunchMark"];
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -148,7 +148,7 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [self waitForInStep];
+    [self inStepWait];
     [StepDefinition waitForOutsideStep];
     
     // reset value to default
@@ -161,7 +161,7 @@
     
     popup.didLaunchBlock = ^(id aSender) {
         [[self getBlockRepo] setObject:@"1" forKey:@"didLaunchMark"];
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -172,7 +172,7 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [self waitForInStep];
+    [self inStepWait];
     [StepDefinition waitForOutsideStep];
     
     // reset value to default
@@ -185,7 +185,7 @@
 
     popup.willDismissBlock = ^(id aSender) {
         [[self getBlockRepo] setObject:@"1" forKey:@"willDismissMark"];
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -197,7 +197,7 @@
                            object:userinfoDic];
     
     
-    [self waitForInStep];
+    [self inStepWait];
     [StepDefinition waitForOutsideStep];
     
     // set value to default
@@ -211,7 +211,7 @@
     
     popup.didDismissBlock = ^(id aSender) {
         [[self getBlockRepo] setObject:@"1" forKey:@"didDismissMark"];
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -222,7 +222,7 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [self waitForInStep];
+    [self inStepWait];
     [StepDefinition waitForOutsideStep];
     
     // set value to default
@@ -307,7 +307,7 @@
     
     id resultBlock = ^(NSString* result){
         [[self getBlockRepo] setObject:result forKey:info];
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -321,7 +321,7 @@
                            object:userinfoDic];
     
     [StepDefinition waitForOutsideStep];
-    [self waitForInStep];
+    [self inStepWait];
     
     [requestPopup release];
 }
@@ -377,7 +377,7 @@
     
     id resultBlock = ^(NSString* result){
         [[self getBlockRepo] setObject:result forKey:info];
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -391,7 +391,7 @@
                            object:userinfoDic];
     
     [StepDefinition waitForOutsideStep];
-    [self waitForInStep];
+    [self inStepWait];
     [invitePopup release];
 
 }
@@ -440,7 +440,7 @@
     
     id resultBlock = ^(NSString* result){
         [[self getBlockRepo] setObject:result forKey:info];
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -454,7 +454,7 @@
                            object:userinfoDic];
     
     [StepDefinition waitForOutsideStep];
-    [self waitForInStep];
+    [self inStepWait];
     [popup release];
 }
 
@@ -508,11 +508,11 @@
     
     id successBlock = ^ (NSString* paymentId, NSArray* items){
         QALog(@"%@", paymentId);
-        // [self notifyInStep];  
+        // [self inStepNotify];  
     };
     
     id failureBlock = ^ (NSString* paymentId, NSArray* items, NSError* error){
-        // [self notifyInStep];  
+        // [self inStepNotify];  
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -552,7 +552,7 @@
     
     id resultBlock = ^(NSString* result){
         [[self getBlockRepo] setObject:result forKey:info];
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -565,7 +565,7 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [self waitForInStep];
+    [self inStepWait];
     [StepDefinition waitForOutsideStep];
    
 }
@@ -635,7 +635,7 @@
     
     id resultBlock = ^(NSString* result){
         [[self getBlockRepo] setObject:result forKey:info];
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -648,7 +648,7 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [self waitForInStep];
+    [self inStepWait];
     [StepDefinition waitForOutsideStep];
     [popup release];
 }
@@ -699,7 +699,7 @@
     
     id resultBlock = ^(NSString* result){
         [[self getBlockRepo] setObject:result forKey:info];
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -712,7 +712,7 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [self waitForInStep];
+    [self inStepWait];
     [StepDefinition waitForOutsideStep];
     [popup release];
 }
