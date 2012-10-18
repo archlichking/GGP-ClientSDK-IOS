@@ -45,8 +45,9 @@
 #import "LogJsKitStepDefinition.h"
 #import "LoggerStepDefinition.h"
 #import "AddonStepDefinition.h"
+#import "IncentiveStepDefinition.h"
 
-#define RUN_MODE 1
+#define RUN_MODE 0
 
 #if RUN_MODE == 0
 #define CONFIG_NAME           @"debugCase.txt"
@@ -117,6 +118,7 @@ static int enterSwitch = 0;
                             class_createInstance([LogJsKitStepDefinition class], 0),
                             class_createInstance([LoggerStepDefinition class], 0),
                             class_createInstance([AddonStepDefinition class], 0),
+                            class_createInstance([IncentiveStepDefinition class], 0),
                             nil] autorelease];
 
     

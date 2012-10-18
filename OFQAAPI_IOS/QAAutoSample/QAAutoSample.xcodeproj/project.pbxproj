@@ -19,6 +19,8 @@
 		BA2C2E0D160078E80041B688 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2C2E0C160078E80041B688 /* GameKit.framework */; };
 		BA2C2E0F160079220041B688 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2C2E0E160079220041B688 /* StoreKit.framework */; };
 		BA384190160ABDD1006D0ED9 /* baseCommand.js in Resources */ = {isa = PBXBuildFile; fileRef = BAEE825F16006DA30052FDC8 /* baseCommand.js */; };
+		BA392F07162FDE4E00A5EAE3 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA392F06162FDE4E00A5EAE3 /* CoreText.framework */; };
+		BA392F33162FE4D400A5EAE3 /* IncentiveStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA392F32162FE4D400A5EAE3 /* IncentiveStepDefinition.m */; };
 		BA57B8691612B27F009B7539 /* 52760credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA57B8681612B27F009B7539 /* 52760credentialsConfig.json */; };
 		BA57B8F7161307B6009B7539 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA57B8F6161307B6009B7539 /* OCHamcrestIOS.framework */; };
 		BA70BE751602FA4C005EEC8A /* CIUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = BA70BE741602FA4C005EEC8A /* CIUtil.m */; };
@@ -106,8 +108,10 @@
 		BA2C2E0C160078E80041B688 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		BA2C2E0E160079220041B688 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		BA2C2E101600793B0041B688 /* libprofile_rt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprofile_rt.dylib; path = /usr/lib/libprofile_rt.dylib; sourceTree = "<absolute>"; };
+		BA392F06162FDE4E00A5EAE3 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		BA392F31162FE4D400A5EAE3 /* IncentiveStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IncentiveStepDefinition.h; sourceTree = "<group>"; };
+		BA392F32162FE4D400A5EAE3 /* IncentiveStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IncentiveStepDefinition.m; sourceTree = "<group>"; };
 		BA57B8681612B27F009B7539 /* 52760credentialsConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 52760credentialsConfig.json; sourceTree = "<group>"; };
-		BA57B8F216130767009B7539 /* OCHamcrest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrest.framework; path = ../QAAutoLib/QAAutoLib/vendor/OCHamcrest.framework; sourceTree = "<group>"; };
 		BA57B8F6161307B6009B7539 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = ../QAAutoLib/QAAutoLib/vendor/OCHamcrestIOS.framework; sourceTree = "<group>"; };
 		BA70BE731602FA4B005EEC8A /* CIUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIUtil.h; sourceTree = "<group>"; };
 		BA70BE741602FA4C005EEC8A /* CIUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIUtil.m; sourceTree = "<group>"; };
@@ -208,6 +212,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA392F07162FDE4E00A5EAE3 /* CoreText.framework in Frameworks */,
+				BAEE82E0160072250052FDC8 /* CFNetwork.framework in Frameworks */,
 				BA57B8F7161307B6009B7539 /* OCHamcrestIOS.framework in Frameworks */,
 				BAA2899216119D9F0075F643 /* ImageIO.framework in Frameworks */,
 				BAD0D027160FFDF70046BD0A /* CoreTelephony.framework in Frameworks */,
@@ -226,7 +232,6 @@
 				BA2C2DFD160076AD0041B688 /* libsqlite3.dylib in Frameworks */,
 				BAEE82E4160072320052FDC8 /* MobileCoreServices.framework in Frameworks */,
 				BAEE82E21600722E0052FDC8 /* CoreLocation.framework in Frameworks */,
-				BAEE82E0160072250052FDC8 /* CFNetwork.framework in Frameworks */,
 				BAEE814016006AB60052FDC8 /* UIKit.framework in Frameworks */,
 				BAEE814216006AB60052FDC8 /* Foundation.framework in Frameworks */,
 				BAEE814416006AB60052FDC8 /* CoreGraphics.framework in Frameworks */,
@@ -247,8 +252,8 @@
 		BAEE813016006AB60052FDC8 = {
 			isa = PBXGroup;
 			children = (
+				BA392F06162FDE4E00A5EAE3 /* CoreText.framework */,
 				BA57B8F6161307B6009B7539 /* OCHamcrestIOS.framework */,
-				BA57B8F216130767009B7539 /* OCHamcrest.framework */,
 				BAA2899116119D9F0075F643 /* ImageIO.framework */,
 				BAD0D026160FFDF70046BD0A /* CoreTelephony.framework */,
 				BAAFB9821602D34E001BAA35 /* GreePlatformCoreResources.bundle */,
@@ -410,6 +415,8 @@
 				BAEE82A016006DE70052FDC8 /* SampleStepDefinition.m */,
 				BAEE82A116006DE70052FDC8 /* WidgetStepDefinition.h */,
 				BAEE82A216006DE70052FDC8 /* WidgetStepDefinition.m */,
+				BA392F31162FE4D400A5EAE3 /* IncentiveStepDefinition.h */,
+				BA392F32162FE4D400A5EAE3 /* IncentiveStepDefinition.m */,
 			);
 			path = steps;
 			sourceTree = "<group>";
@@ -583,6 +590,7 @@
 				BAEE82D016006E210052FDC8 /* ggp_command.js in Sources */,
 				BAEE82D216006E210052FDC8 /* jskit_test.js in Sources */,
 				BA70BE751602FA4C005EEC8A /* CIUtil.m in Sources */,
+				BA392F33162FE4D400A5EAE3 /* IncentiveStepDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
