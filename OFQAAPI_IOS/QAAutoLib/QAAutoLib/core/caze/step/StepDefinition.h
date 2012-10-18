@@ -11,25 +11,20 @@
 @interface StepDefinition : NSObject{
     @protected
     __block NSMutableDictionary* blockRepo;
-    
-    @private
-    NSConditionLock* inStepLock;
-    int TIMEOUT;
 }
 
 - (NSMutableDictionary*) getBlockRepo;
+- (void) setTimeout:(int) timeout;
 
-- (void) waitForInStep;
 
-- (void) notifyInStep;
-
--(void) setTimeout:(int) timeout;
+- (void) inStepWait;
+- (void) inStepNotify;
 
 - (void) notifyMainUIWithCommand:(NSString*) command 
                           object:(id) obj;
 
-+ (void) notifyOutsideStep;
-+ (void) waitForOutsideStep;
++ (void) globalNotify;
++ (void) globalWait;
 + (NSMutableDictionary*) getOutsideBlockRepo;
 
 @end

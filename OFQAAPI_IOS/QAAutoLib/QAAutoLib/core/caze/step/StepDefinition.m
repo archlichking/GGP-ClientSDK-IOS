@@ -7,6 +7,8 @@
 //
 
 #import "StepDefinition.h"
+
+#import "StepExecutionLock.h"
 #import "QAAssert.h"
 #import "QALog.h"
 #import "AssertException.h"
@@ -14,8 +16,6 @@
 
 @implementation StepDefinition
 static NSMutableDictionary* outsideBlockRepo;
-static NSConditionLock* outsideStepLock; // this is now only allowed in popup steps
-static int OUTSIDETIMEOUT = 10;
 
 - (NSMutableDictionary*) getBlockRepo{
     if (!blockRepo) {
@@ -26,48 +26,18 @@ static int OUTSIDETIMEOUT = 10;
 
 
 
-- (void) waitForInStep{
-    if (!inStepLock) {
-        inStepLock = [[NSConditionLock alloc] initWithCondition:0];
-    }
-    if(!TIMEOUT || TIMEOUT == 0){
-        TIMEOUT = 5;
-    }
-    @try {
-        [inStepLock lockWhenCondition:1
-                           beforeDate:[NSDate dateWithTimeIntervalSinceNow:TIMEOUT]];
-        [inStepLock unlock];
-    }
-    @catch (NSException *exception) {
-        QALog(@"[WAIT ERROR] inside step unlock %@", exception);
-    }
-    @catch (NSError *error) {
-        QALog(@"[WAIT ERROR] inside step unlock %@", error);
-    }
-    @finally {
-        [inStepLock release];
-        inStepLock = [[NSConditionLock alloc] initWithCondition:0];
-        TIMEOUT = 0;
-    }
-    
-    // reset timeout and condition
-    
-    
+- (void) inStepWait{
+    [[StepExecutionLock coreLock] unlockCore:[NSString stringWithFormat:@"in step notify %@", [self description]]
+                                        Type:InStepType];
 }
 
-- (void) notifyInStep{
-    if (!inStepLock) {
-        inStepLock = [[NSConditionLock alloc] initWithCondition:0];
-    }
-    @synchronized (self) {
-        [inStepLock lock];
-        [inStepLock unlockWithCondition:1];
-    }
-    
+- (void) inStepNotify{
+    [[StepExecutionLock coreLock] lockCore:[NSString stringWithFormat:@"in step notify %@", [self description]]
+                                      Type:InStepType];
 }
 
 -(void) setTimeout:(int) timeout{
-    TIMEOUT = timeout;
+    [[StepExecutionLock coreLock] setTimeout:timeout];
 }
 
 - (void) notifyMainUIWithCommand:(NSString*) command 
@@ -84,37 +54,40 @@ static int OUTSIDETIMEOUT = 10;
     return outsideBlockRepo;
 }
 
-+ (void) notifyOutsideStep{
-    if (!outsideStepLock) {
-        outsideStepLock = [[NSConditionLock alloc] initWithCondition:0];
-    }
-    @synchronized ([self class]){
-        [outsideStepLock lock];
-        [outsideStepLock unlockWithCondition:1];
-    }
++ (void) globalNotify{
+//    if (!outsideStepLock) {
+//        outsideStepLock = [[NSConditionLock alloc] initWithCondition:0];
+//    }
+//    @synchronized ([self class]){
+//        [outsideStepLock lock];
+//        [outsideStepLock unlockWithCondition:1];
+//    }
+    [[StepExecutionLock coreLock] lockCore:[NSString stringWithFormat:@"global notify %@", [self description]]
+                                      Type:GlobalType];
+
 }
 
-+ (void) waitForOutsideStep{
-    if (!outsideStepLock) {
-        outsideStepLock = [[NSConditionLock alloc] initWithCondition:0];
-    }
-    @try{
-        [outsideStepLock lockWhenCondition:1 
-                       beforeDate:[NSDate dateWithTimeIntervalSinceNow:OUTSIDETIMEOUT]];
-        [outsideStepLock unlock];
-    }
-    @catch (NSException* exception) {
-        QALog(@"[WAIT ERROR] outside step unlock %@", exception);
-    }
-    @catch (NSError *error) {
-        QALog(@"[WAIT ERROR] inside step unlock %@", error);
-    }
-    @finally {
-        // reset timeout and condition
-        [outsideStepLock release];
-        outsideStepLock = [[NSConditionLock alloc] initWithCondition:0];
-    }
-    
-    
++ (void) globalWait{
+//    if (!outsideStepLock) {
+//        outsideStepLock = [[NSConditionLock alloc] initWithCondition:0];
+//    }
+//    @try{
+//        [outsideStepLock lockWhenCondition:1 
+//                       beforeDate:[NSDate dateWithTimeIntervalSinceNow:OUTSIDETIMEOUT]];
+//        [outsideStepLock unlock];
+//    }
+//    @catch (NSException* exception) {
+//        QALog(@"[WAIT ERROR] outside step unlock %@", exception);
+//    }
+//    @catch (NSError *error) {
+//        QALog(@"[WAIT ERROR] inside step unlock %@", error);
+//    }
+//    @finally {
+//        // reset timeout and condition
+//        [outsideStepLock release];
+//        outsideStepLock = [[NSConditionLock alloc] initWithCondition:0];
+//    }
+    [[StepExecutionLock coreLock] unlockCore:[NSString stringWithFormat:@"global wait %@", [self description]]
+                                        Type:GlobalType];
 }
 @end

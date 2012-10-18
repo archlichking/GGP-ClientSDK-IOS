@@ -39,10 +39,10 @@
         if(!error) {
             [[self getBlockRepo] setObject:achievements forKey:@"achievements"];
         }
-        [self notifyInStep];
+        [self inStepNotify];
     }];
     
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 // step definition :  I should have total NUMBER achievements
@@ -80,14 +80,14 @@
                 // reset status of achievement
                 if ([ach isUnlocked]) {
                     [ach relockWithBlock:^{
-                        [self notifyInStep];
+                        [self inStepNotify];
                     }];
                 }else{
                     [ach unlockWithBlock:^{
-                        [self notifyInStep];
+                        [self inStepNotify];
                     }];
                 }
-                [self waitForInStep];
+                [self inStepWait];
             }
             return;
         }
@@ -113,14 +113,14 @@
     
     if ([AchievementStepDefinition lockToBool:status]) {
         [ach relockWithBlock:^{
-            [self notifyInStep];
+            [self inStepNotify];
         }];
     }else{
         [ach unlockWithBlock:^{
-            [self notifyInStep];
+            [self inStepNotify];
         }];
     }
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 // step definition : status of achievement ACH_NAME should be UNLOCK
@@ -159,9 +159,9 @@
                     [[self getBlockRepo] setObject:image 
                                             forKey:@"achievementIcon"]; 
                 }
-                [self notifyInStep];
+                [self inStepNotify];
             }];
-            [self waitForInStep];
+            [self inStepWait];
             return;
         }
     }
@@ -180,10 +180,10 @@
                     [[self getBlockRepo] setObject:image 
                                             forKey:@"achievementIcon"]; 
                 }
-                [self notifyInStep];
+                [self inStepNotify];
             }];
             [ach cancelIconLoad];
-            [self waitForInStep];
+            [self inStepWait];
             return;
         }
     }

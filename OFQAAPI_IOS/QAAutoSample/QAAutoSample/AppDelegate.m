@@ -45,6 +45,7 @@
 #import "LogJsKitStepDefinition.h"
 #import "LoggerStepDefinition.h"
 #import "AddonStepDefinition.h"
+#import "IncentiveStepDefinition.h"
 
 #define RUN_MODE 1
 
@@ -117,6 +118,7 @@ static int enterSwitch = 0;
                             class_createInstance([LogJsKitStepDefinition class], 0),
                             class_createInstance([LoggerStepDefinition class], 0),
                             class_createInstance([AddonStepDefinition class], 0),
+                            class_createInstance([IncentiveStepDefinition class], 0),
                             nil] autorelease];
 
     
@@ -297,13 +299,13 @@ static int enterSwitch = 0;
 }
 
 - (void)greePlatform:(GreePlatform*)platform didLoginUser:(GreeUser*)localUser{
-    NSLog(@"%s", __FUNCTION__);
-    NSLog(@"Local User: %@", localUser);
+//    NSLog(@"%s", __FUNCTION__);
+//    NSLog(@"Local User: %@", localUser);
 
 }
 //#indoc "GreePlatformDelegate#greePlatform:didLogoutUser:"
 - (void)greePlatform:(GreePlatform*)platform didLogoutUser:(GreeUser*)localUser{
-    NSLog(@"%s", __FUNCTION__);
+//    NSLog(@"%s", __FUNCTION__);
 }
 
 - (void)greePlatformParamsReceived:(NSDictionary*)params

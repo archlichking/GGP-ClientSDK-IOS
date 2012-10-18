@@ -1,4 +1,7 @@
 Given I logged in with email auto3@136.com and password 123456
-When I logout without popup
-Then I should logout
-After I logged in with email auto3@136.com and password 123456
+And I initialize incentive with incentive type invite and message i want to add him
+And I send incentive to user of email auto4@136.com
+When I query unprocessed incentives of type invite
+Then unprocessed incentive number should be 1
+And unprocessed incentives should include incentive of message i want to add him
+After I mark incentive as processed

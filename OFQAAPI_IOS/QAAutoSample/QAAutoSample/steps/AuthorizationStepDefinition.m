@@ -44,7 +44,7 @@
     }
     
     [[StepDefinition getOutsideBlockRepo] setObject:self forKey:@"popup"];
-    [StepDefinition notifyOutsideStep];
+    [StepDefinition globalNotify];
 }
 @end
 
@@ -67,31 +67,34 @@
         return;
     }
     
-    [GreeKeyChain saveWithKey:GreeKeyChainUserIdIdentifier value:[credentialDic objectForKey:CredentialStoredUserid]];
-    [GreeKeyChain saveWithKey:GreeKeyChainAccessTokenIdentifier value:[credentialDic objectForKey:CredentialStoredOauthKey]];
-    [GreeKeyChain saveWithKey:GreeKeyChainAccessTokenSecretIdentifier value:[credentialDic objectForKey:CredentialStoredOauthSecret]];
+    [GreeKeyChain saveWithKey:GreeKeyChainUserIdIdentifier
+                        value:[credentialDic objectForKey:CredentialStoredUserid]];
+    [GreeKeyChain saveWithKey:GreeKeyChainAccessTokenIdentifier
+                        value:[credentialDic objectForKey:CredentialStoredOauthKey]];
+    [GreeKeyChain saveWithKey:GreeKeyChainAccessTokenSecretIdentifier
+                        value:[credentialDic objectForKey:CredentialStoredOauthSecret]];
 
     [GreePlatform authorizeNonInteractivelyWithBlock:^(GreeUser *localUser, NSError *error) {
         if (error) {
             
         }
-        [self notifyInStep];
+        [self inStepNotify];
     }];
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 // step definition: 
 - (void) I_logged_in_via_popup_with_email_PARAM:(NSString*) email
                             _and_password_PARAM:(NSString*) password{
     
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     
     GreeAuthorizationPopup* popup = [[StepDefinition getOutsideBlockRepo] objectForKey:@"popup"];
     // email
     NSString* js = @"click(fclass('button block register')[0])";
     
     id resultBlock = ^(NSString* result){
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -104,8 +107,8 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [self waitForInStep];
-    [StepDefinition waitForOutsideStep];
+    [self inStepWait];
+    [StepDefinition globalWait];
     
     // 2. input name/pwd and click log in
     // this is for login popup, and only for sandbox
@@ -114,7 +117,7 @@
     js = [NSString stringWithFormat:@"setText(fid('mail'), '%@')", email];
     
     resultBlock = ^(NSString* result){
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -127,8 +130,8 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [self waitForInStep];
-    [StepDefinition waitForOutsideStep];
+    [self inStepWait];
+    [StepDefinition globalWait];
     
     [userinfoDic release];
     
@@ -136,7 +139,7 @@
     js = [NSString stringWithFormat:@"setText(fid('user_password'), '%@')", password];
     
     resultBlock = ^(NSString* result){
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -149,14 +152,14 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [self waitForInStep];
-    [StepDefinition waitForOutsideStep];
+    [self inStepWait];
+    [StepDefinition globalWait];
     
     // login button
     js = @"click(fclass('button large block primary')[0])";
     
     resultBlock = ^(NSString* result){
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -169,8 +172,8 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [self waitForInStep];
-    [StepDefinition waitForOutsideStep];
+    [self inStepWait];
+    [StepDefinition globalWait];
 }
 
 // step definition: i switch to user U with password P
@@ -189,9 +192,9 @@
     [GreeKeyChain saveWithKey:GreeKeyChainAccessTokenSecretIdentifier value:[credentialDic objectForKey:CredentialStoredOauthSecret]];
         
     [GreePlatform authorizeWithBlock:^(GreeUser *localUser, NSError *error) {
-        [self notifyInStep];
+        [self inStepNotify];
     }];
-    [self waitForInStep];
+    [self inStepWait];
     
 }
 
@@ -216,7 +219,7 @@
         
     }];
     
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     
     
 }
@@ -228,7 +231,7 @@
 //    NSString* js = @"click(fclass('button large block per80')[0])";
 //    
 //    id resultBlock = ^(NSString* result){
-//        [self notifyInStep];
+//        [self inStepNotify];
 //    };
 //    
 //    NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -241,8 +244,8 @@
 //    [self notifyMainUIWithCommand:CommandDispatchCommand 
 //                           object:userinfoDic];
 //    
-//    [self waitForInStep];
-//    [StepDefinition waitForOutsideStep];
+//    [self inStepWait];
+//    [StepDefinition globalWait];
     [[StepDefinition getOutsideBlockRepo] removeObjectForKey:@"popup"];
 }
 
@@ -250,7 +253,7 @@
 - (void) I_tend_to_logout{
     [GreePlatform revokeAuthorizationWithBlock:^(NSError *error) {
     }];
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
 }
 // step definition: logout confirm popup should display well
 - (void) logout_confirm_popup_should_display_well{
@@ -265,7 +268,7 @@
     }];
     
     // wait for logout popup
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     
     GreeAuthorizationPopup* popup = [[StepDefinition getOutsideBlockRepo] objectForKey:@"popup"];
     
@@ -273,7 +276,7 @@
     NSString* js = @"click(fclass('button large block primary')[0])";
     
     id resultBlock = ^(NSString* result){
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -286,8 +289,8 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [self waitForInStep];
-    [StepDefinition waitForOutsideStep];
+    [self inStepWait];
+    [StepDefinition globalWait];
 }
 
 // step definition : i logout without popup
@@ -296,9 +299,9 @@
         if (error) {
             
         }
-        [self notifyInStep];
+        [self inStepNotify];
     }];
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 // step definition : i should logout
@@ -317,7 +320,7 @@
     
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     
 }
 

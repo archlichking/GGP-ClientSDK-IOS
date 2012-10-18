@@ -62,7 +62,7 @@
 - (void) I_active_default_widget{
     id resultBlock = ^(GreeWidget* widget){
         [[self getBlockRepo] setObject:widget forKey:@"widget"];
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -74,7 +74,7 @@
     
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 // step definition : i activate widget with position P and expandable E
@@ -82,7 +82,7 @@
                        _and_expandable_PARAM:(NSString*) expandable{
     id resultBlock = ^(GreeWidget* widget){
         [[self getBlockRepo] setObject:widget forKey:@"widget"];
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -94,7 +94,7 @@
     
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 // step definition : i hide widget
@@ -104,7 +104,7 @@
                                         nil];
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
 }
 
 // step definition : widget position should be P
@@ -134,7 +134,7 @@
     
     id resultBlock = ^(UIImage* shot){
         [[self getBlockRepo] setObject:shot forKey:@"screenshot"];
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -144,7 +144,7 @@
                                         nil];
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 // step definition : 

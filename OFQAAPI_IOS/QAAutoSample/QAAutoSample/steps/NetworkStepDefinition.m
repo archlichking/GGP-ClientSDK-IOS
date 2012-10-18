@@ -49,9 +49,9 @@
                                     forKey:@"networkResult"];
             [[self getBlockRepo] setObject:[NetworkStepDefinition methodToString:current] 
                                     forKey:@"networkMethod"];
-            [self notifyInStep];
+            [self inStepNotify];
         }];
-        [self waitForInStep];
+        [self inStepWait];
         // time out here indicates given host is not reachable
         
     }

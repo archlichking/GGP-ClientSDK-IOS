@@ -25,7 +25,7 @@
 @implementation GreePopup(PrivateJskitPopupHacking)
 - (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView{
     QALog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
-    [StepDefinition notifyOutsideStep];
+    [StepDefinition globalNotify];
 }
 
 @end
@@ -45,7 +45,7 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
     
     [[self getBlockRepo] setObject:popup forKey:@"baseJskitPopup"];
 }
@@ -54,7 +54,7 @@
     GreePopup* popup = [[self getBlockRepo] objectForKey:@"baseJskitPopup"];
     
 //    popup.didDismissBlock = ^(id aSender) {
-//        [self notifyInStep];
+//        [self inStepNotify];
 //    };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -65,15 +65,15 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-//    [self waitForInStep];
-    [StepDefinition waitForOutsideStep];
+//    [self inStepWait];
+//    [StepDefinition globalWait];
 }
 
 - (void) I_dismiss_last_opened_popup{
     GreePopup* popup = [[self getBlockRepo] objectForKey:@"baseJskitPopup"];
     
     //    popup.didDismissBlock = ^(id aSender) {
-    //        [self notifyInStep];
+    //        [self inStepNotify];
     //    };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -84,8 +84,8 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    //    [self waitForInStep];
-    [StepDefinition waitForOutsideStep]; 
+    //    [self inStepWait];
+//    [StepDefinition globalWait]; 
 }
 
 - (void) I_dismiss_last_opened_viewControl{
@@ -95,7 +95,7 @@
                                         nil];
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
-    [StepDefinition waitForOutsideStep]; 
+    [StepDefinition globalWait]; 
 }
 
 - (void) step_sleep:(NSTimeInterval) interval{
@@ -106,7 +106,7 @@
     GreePopup* popup = [[self getBlockRepo] objectForKey:@"baseJskitPopup"];
     
     id resultBlock = ^(NSString* result){
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -121,8 +121,8 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [self waitForInStep];
-    [StepDefinition waitForOutsideStep];
+    [self inStepWait];
+    [StepDefinition globalWait];
     [popup release];
     
     [self step_sleep:2];
@@ -134,7 +134,7 @@
     GreePopup* popup = [[self getBlockRepo] objectForKey:@"baseJskitPopup"];
     
     id resultBlock = ^(NSString* result){
-        [self notifyInStep];
+        [self inStepNotify];
     };
     
     NSMutableDictionary* userinfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
@@ -149,8 +149,9 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [self waitForInStep];
-    [StepDefinition waitForOutsideStep];
+    
+//    [StepDefinition globalWait];
+    [self inStepWait];
     [popup release];
 }
 

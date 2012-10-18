@@ -10,6 +10,7 @@
 		BA058EA21609A52200CA2522 /* HttpCommunicator.m in Sources */ = {isa = PBXBuildFile; fileRef = BA058EA11609A52200CA2522 /* HttpCommunicator.m */; };
 		BA058EA51609B3F300CA2522 /* QAAutoFramework.m in Sources */ = {isa = PBXBuildFile; fileRef = BA058EA41609B3F200CA2522 /* QAAutoFramework.m */; };
 		BA57B8F5161307AB009B7539 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA57B8F4161307AB009B7539 /* OCHamcrestIOS.framework */; };
+		BA57B91C16144415009B7539 /* StepExecutionLock.m in Sources */ = {isa = PBXBuildFile; fileRef = BA57B91B16144415009B7539 /* StepExecutionLock.m */; };
 		BAEE816B16006AFB0052FDC8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE816A16006AFB0052FDC8 /* Foundation.framework */; };
 		BAEE817016006AFB0052FDC8 /* QAAutoLib.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = BAEE816F16006AFB0052FDC8 /* QAAutoLib.h */; };
 		BAEE817216006AFB0052FDC8 /* QAAutoLib.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEE817116006AFB0052FDC8 /* QAAutoLib.m */; };
@@ -78,6 +79,8 @@
 		BA058EA31609B3F100CA2522 /* QAAutoFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QAAutoFramework.h; sourceTree = "<group>"; };
 		BA058EA41609B3F200CA2522 /* QAAutoFramework.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QAAutoFramework.m; sourceTree = "<group>"; };
 		BA57B8F4161307AB009B7539 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OCHamcrestIOS.framework; sourceTree = "<group>"; };
+		BA57B91A16144415009B7539 /* StepExecutionLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StepExecutionLock.h; sourceTree = "<group>"; };
+		BA57B91B16144415009B7539 /* StepExecutionLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StepExecutionLock.m; sourceTree = "<group>"; };
 		BACD8D88160B0CE100F11BB6 /* CaseBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseBuilder.h; sourceTree = "<group>"; };
 		BAEE816716006AFB0052FDC8 /* libQAAutoLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libQAAutoLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAEE816A16006AFB0052FDC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -296,6 +299,8 @@
 				BAEE819216006B310052FDC8 /* StepParser.m */,
 				BAEE819316006B310052FDC8 /* StepResult.h */,
 				BAEE819416006B310052FDC8 /* StepResult.m */,
+				BA57B91A16144415009B7539 /* StepExecutionLock.h */,
+				BA57B91B16144415009B7539 /* StepExecutionLock.m */,
 			);
 			path = step;
 			sourceTree = "<group>";
@@ -512,6 +517,7 @@
 				BAEE825716006B9A0052FDC8 /* SBJsonWriter.m in Sources */,
 				BA058EA21609A52200CA2522 /* HttpCommunicator.m in Sources */,
 				BA058EA51609B3F300CA2522 /* QAAutoFramework.m in Sources */,
+				BA57B91C16144415009B7539 /* StepExecutionLock.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

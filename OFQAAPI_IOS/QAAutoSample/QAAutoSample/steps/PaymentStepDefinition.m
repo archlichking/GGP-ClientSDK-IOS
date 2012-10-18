@@ -32,9 +32,9 @@
             [[self getBlockRepo] setObject:[NSString stringWithFormat:@"%lld", balance] 
                                     forKey:@"balance"];
         }
-        [self notifyInStep];
+        [self inStepNotify];
     }];
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 // step definition : my balance should be BALANCE
@@ -60,10 +60,10 @@
         if(!error){
             [[self getBlockRepo] setObject:products forKey:@"products"];
         }
-        [self notifyInStep];
+        [self inStepNotify];
     }];
     
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 // step definition : product list should be size of SIZE
@@ -141,13 +141,13 @@
     [GreeWallet paymentVerifyWithPaymentId:order 
                               successBlock:^(NSString *paymentId, NSArray *items) {
                                   [[self getBlockRepo] setObject:@"SUCCESS" forKey:@"paymentVerificationResult"];
-                                  [self notifyInStep];
+                                  [self inStepNotify];
                               } 
                               failureBlock:^(NSString *paymentId, NSArray *items, NSError *error) {
                                   [[self getBlockRepo] setObject:@"FAILED" forKey:@"paymentVerificationResult"];
-                                  [self notifyInStep];
+                                  [self inStepNotify];
                               }];
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 
@@ -166,9 +166,9 @@
                           if (!error) {
                               [[self getBlockRepo] setObject:product forKey:@"purchasedProduct"];
                           }
-                          [self notifyInStep];
+                          [self inStepNotify];
                       }];
-    [self waitForInStep];
+    [self inStepWait];
     
     [self I_check_my_balance];
 }

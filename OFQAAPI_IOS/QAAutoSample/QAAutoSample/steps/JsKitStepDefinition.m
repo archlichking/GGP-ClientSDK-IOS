@@ -22,7 +22,7 @@
 @implementation GreePopup(PrivatePopupHacking)
 - (void)popupViewWebViewDidFinishLoad:(UIWebView*)aWebView{
     //    QALog(@"%@", [aWebView stringByEvaluatingJavaScriptFromString:@"document.documentElement.outerHTML"]);
-    [StepDefinition notifyOutsideStep];
+    [StepDefinition globalNotify];
 }
 @end
 
@@ -41,7 +41,7 @@
     [self notifyMainUIWithCommand:CommandDispatchCommand 
                            object:userinfoDic];
     
-    [StepDefinition waitForOutsideStep];
+    [StepDefinition globalWait];
 }
 
 - (void) I_test_jskit{

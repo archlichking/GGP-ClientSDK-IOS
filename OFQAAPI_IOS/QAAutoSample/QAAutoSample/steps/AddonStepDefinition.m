@@ -88,11 +88,11 @@
 - (void) I_execute_block_in_NSObject{
     id executeBlock = ^(void){
         [[self getBlockRepo] setObject:@"1" forKey:@"block_execution"];
-        [self notifyInStep];
+        [self inStepNotify];
     };
     [self performSelectorOnMainThread:@selector(executeBlock:) withObject:executeBlock waitUntilDone:YES]; 
     
-    [self waitForInStep];
+    [self inStepWait];
 }
 
 // step definition : block should be executed

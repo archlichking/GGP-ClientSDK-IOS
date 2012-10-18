@@ -440,19 +440,18 @@
             [self performSelectorOnMainThread:@selector(dismissGreePopup) 
                                    withObject:(GreePopup*) popupExecutor 
                                 waitUntilDone:YES];
-            [StepDefinition notifyOutsideStep];
-            break;  
+            break;
         case dismissViewControl:
             [self performSelectorOnMainThread:@selector(dismissActiveGreeViewControllerAnimated:) 
                                    withObject:[NSNumber numberWithBool:YES] 
                                 waitUntilDone:YES];
-            [StepDefinition notifyOutsideStep];
+            [StepDefinition globalNotify];
             break;
         case executeJavascriptInPopup:
             [self performSelectorOnMainThread:@selector(executeJsInPopup:) 
                                    withObject:extra 
                                 waitUntilDone:YES];
-            [StepDefinition notifyOutsideStep];
+            [StepDefinition globalNotify];
             break;
             
         case executeInPaymentRequestPopup:
@@ -479,9 +478,9 @@
         case executeJskitCommandInPopup:
             [self performSelectorOnMainThread:@selector(executeJskitCommandInPopup:) 
                                    withObject:extra 
-                                waitUntilDone:YES];
+                                waitUntilDone:NO];
             
-            [StepDefinition notifyOutsideStep];
+//            [StepDefinition globalNotify];
             break;
             
             
@@ -494,7 +493,7 @@
             [self performSelectorOnMainThread:@selector(hideGreeWidget) 
                                    withObject:nil 
                                 waitUntilDone:YES];
-            [StepDefinition notifyOutsideStep];
+            [StepDefinition globalNotify];
             break;
             
         case screenShotWidget:
