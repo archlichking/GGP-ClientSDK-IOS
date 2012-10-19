@@ -30,4 +30,5 @@ then
 fi
 
 #xcodebuild -project "$PROJECT" -target "$2" -configuration Debug -sdk "$AIMSDK" DSTROOT="$1/$3" $COMMAND
-xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEMA" -configuration Debug -sdk "$AIMSDK" DSTROOT="$1/$3" $COMMAND
+xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEMA" -configuration Debug -sdk "$AIMSDK" DSTROOT="$1/$3" $COMMAND | grep 'BUILD FAILED'
+exit $?

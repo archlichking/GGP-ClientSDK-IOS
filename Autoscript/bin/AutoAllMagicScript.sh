@@ -42,10 +42,19 @@ SIMULATOR_LOCATION="/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneS
 # 0. build OFQAJenkins
 # params : 
 sh -x buildAutoSample.sh "$APP_LOCATION" "$SDK_NAME" "$IOS_VERSION" "$WORKSPACE"
-
+if [ $? == 0 ]
+# fail if build failed
+then
+  exit 1
+fi
 # 1. launch ios simulator with parameters
 # params : sim version = 5.1
 sh -x launchSimulator.sh "$SIMULATOR_LOCATION"
+if [ $? == 0 ]
+# fail if simulator launch  failed
+then
+  exit 1
+fi
 
 # 2. launch OFQAJenkins in simulator with parameters.
 # params : tcm suite id = 178
