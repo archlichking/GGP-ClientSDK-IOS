@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "QAAutoSample/QAAutoSample/AppDelegate.m"
-         timestampString = "373262086.77494"
+         timestampString = "373273365.030098"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "271"
-         endingLineNumber = "271"
+         startingLineNumber = "274"
+         endingLineNumber = "274"
          landmarkName = "-runCaseInAnotherThread:"
          landmarkType = "5">
       </FileBreakpoint>

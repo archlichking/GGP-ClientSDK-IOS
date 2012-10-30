@@ -19,6 +19,7 @@
 #import "GreePlatform.h"
 
 #import "StepDefinition.h"
+#import "StepExecutionLock.h"
 #import "CIUtil.h"
 
 #import "QAAutoFramework.h"
@@ -154,6 +155,9 @@ static int enterSwitch = 0;
     [[httpClient valueForKey:@"defaultHeaders"] setObject:@"x" forKey:@"x_gree_sample_app"];
     // init user
     
+    [GreePlatform authorizeWithBlock:^(GreeUser *localUser, NSError *error) {
+    }];
+    
     [GreePlatform handleLaunchOptions:launchOptions application:application];
 //    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert];
     
@@ -243,10 +247,9 @@ static int enterSwitch = 0;
             [[QAAutoFramework sharedInstance] buildCases:suiteId];
             QALog(@"------------- executing cases and update result for Run %@ ",runId);
             
-            NSInvocationOperation* theOp = [[[NSInvocationOperation alloc] initWithTarget:self
+            NSInvocationOperation* theOp = [[NSInvocationOperation alloc] initWithTarget:self
                                                                                  selector:@selector(runCaseInAnotherThread:)
-                                                                                   object:runId]
-                                            autorelease];
+                                                                                   object:runId];
             [operationQueue addOperation:theOp];
             enterSwitch = 1;
         }
