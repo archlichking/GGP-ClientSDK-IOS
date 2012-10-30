@@ -121,4 +121,9 @@ static QAAutoFramework* sSharedInstance = nil;
               toRunId:runId];
 }
 
+- (void) submitTcm:(NSString*) runId{
+    [runner pushCases:currentTestCases
+             toRunId:runId];
+}
+
 @end

@@ -1,7 +1,6 @@
 Given I logged in with email auto3@136.com and password 123456
-And I initialize incentive with incentive type invite and message i want to add him
-And I send incentive to user of email auto4@136.com
-When I query unprocessed incentives of type invite
-Then unprocessed incentive number should be 1
-And unprocessed incentives should include incentive of message i want to add him
-After I mark incentive as processed
+And I load first page of my friend list
+When I load friend list of user 1000012972
+Then friend list should be size of 1
+Then friend list should have auto-grade3-user
+Then userid of auto-grade3-user should be 1000012971 and grade should be 3

@@ -334,7 +334,9 @@
     while ([enumerator canLoadNext]) {
         [enumerator loadNext:^(NSArray *items, NSError *error) {
             [arr addObjectsFromArray:items];
+            [self inStepNotify];
         }];
+        [self inStepWait];
     }
     [[self getBlockRepo] setObject:arr forKey:@"friends"];
 }
