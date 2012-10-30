@@ -36,4 +36,5 @@ extern const int SelectNone;
 - (void) runCases:(NSArray*) cases;
 - (void) runCase:(TestCase*) caze;
 - (void) runAllCasesWithTcmSubmit:(NSString*) runId;
+- (void) submitTcm:(NSString*) runId;
 @end

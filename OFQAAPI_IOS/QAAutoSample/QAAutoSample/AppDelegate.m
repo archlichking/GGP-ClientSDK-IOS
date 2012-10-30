@@ -268,11 +268,12 @@ static int enterSwitch = 0;
 
 - (void) runCaseInAnotherThread:(NSString*) runId{
     [[QAAutoFramework sharedInstance] filterCases:SelectAll];
-    [[QAAutoFramework sharedInstance] runAllCasesWithTcmSubmit:runId];
+    [[QAAutoFramework sharedInstance] runAllCases];
 
     // need to execute all failed cases again to make sure no network or other interference here
-//    [[QAAutoFramework sharedInstance] filterCases:SelectFailed];
-//    [[QAAutoFramework sharedInstance] runCasesWithTcmSubmit:runId];
+    [[QAAutoFramework sharedInstance] filterCases:SelectFailed];
+    [[QAAutoFramework sharedInstance] runAllCases];
+    [[QAAutoFramework sharedInstance] submitTcm:runId];
     
     
     QALog(@"------------- requesting subserver to generate perf report for Run %@",runId);
