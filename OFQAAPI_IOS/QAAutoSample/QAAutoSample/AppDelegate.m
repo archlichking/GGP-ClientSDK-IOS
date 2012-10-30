@@ -222,8 +222,8 @@ static int enterSwitch = 0;
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
-    NSArray * arguments = [[NSProcessInfo processInfo] arguments];
-//    NSArray* arguments = [[NSArray alloc] initWithObjects:@"JenkinsMode", nil];
+//    NSArray * arguments = [[NSProcessInfo processInfo] arguments];
+    NSArray* arguments = [[NSArray alloc] initWithObjects:@"JenkinsMode", nil];
     
     [GreePlatform authorizeWithBlock:^(GreeUser *localUser, NSError *error) {
         
@@ -273,6 +273,8 @@ static int enterSwitch = 0;
     // need to execute all failed cases again to make sure no network or other interference here
     [[QAAutoFramework sharedInstance] filterCases:SelectFailed];
     [[QAAutoFramework sharedInstance] runAllCases];
+    
+    [[QAAutoFramework sharedInstance] filterCases:SelectAll];
     [[QAAutoFramework sharedInstance] submitTcm:runId];
     
     
