@@ -4,4 +4,7 @@
    <FileRef
       location = "group:QAAutoSample/QAAutoSample.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:QAAutoLib/QAAutoLib.xcodeproj">
+   </FileRef>
 </Workspace>

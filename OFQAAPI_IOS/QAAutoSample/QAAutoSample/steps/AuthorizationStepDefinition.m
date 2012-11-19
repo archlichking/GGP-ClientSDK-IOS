@@ -74,7 +74,7 @@
     [GreeKeyChain saveWithKey:GreeKeyChainAccessTokenSecretIdentifier
                         value:[credentialDic objectForKey:CredentialStoredOauthSecret]];
 
-    [GreePlatform authorizeNonInteractivelyWithBlock:^(GreeUser *localUser, NSError *error) {
+    [GreePlatform authorizeWithBlock:^(GreeUser *localUser, NSError *error) {
         if (error) {
             
         }

@@ -1,6 +1,4 @@
-Given I logged in with email auto3@136.com and password 123456
-And I load first page of my friend list
-When I load friend list of user 1000012972
-Then friend list should be size of 1
-Then friend list should have auto-grade3-user
-Then userid of auto-grade3-user should be 1000012971 and grade should be 3
+Given I logged in with email 229627987@qq.com and password aaaaaa
+When I load vgs announcement
+Then vgs announcement amount should be 2
+And vgs announcement should include title do this man and body announcement test
