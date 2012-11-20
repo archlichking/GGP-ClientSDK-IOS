@@ -1,4 +1,8 @@
 Given I logged in with email 229627987@qq.com and password aaaaaa
-When developer uses SDK to load vgs currency listings with category bumper
-Then vgs currency listings amount should be 2
-And vgs currency listings should include currency c2 list
+And developer uses SDK to load vgs currency listings
+When developer uses SDK to check basic info of currency listing with name c2 list
+Then info category of vgs currency listing c2 list should be bumper
+And info listingDescription of vgs currency listing c2 list should be c2 description
+And info quantity of vgs currency listing c2 list should be 5
+And info currency of vgs currency listing c2 list should be vgs.app.test.gree.k2
+And info metadata of vgs currency listing c2 list should be "c2 m1" = "c2 v1"

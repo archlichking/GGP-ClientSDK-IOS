@@ -51,6 +51,7 @@
     for (GreeVGAnnouncement* ann in vgannouncements) {
         if ([[ann subject] isEqualToString:title]) {
             [[self getBlockRepo] setObject:ann forKey:@"vgannouncement"];
+            break;
         }
     }
 }

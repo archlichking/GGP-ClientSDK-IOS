@@ -46,6 +46,22 @@
     [[self getBlockRepo] setObject:currencylistingCategories forKey:@"vgcurrenylistingCategories"];
 }
 
+
+- (void) developer_uses_SDK_to_check_basic_info_of_currency_listing_with_name_PARAM:(NSString*) name{
+    NSArray* currencylistings = [[self getBlockRepo] objectForKey:@"vgcurrenylistings"];
+    [[self getBlockRepo] removeObjectForKey:@"vgcurrenylisting"];
+    
+    for (GreeVGCurrencyListing* cl in currencylistings) {
+        if ([[cl listingName] isEqualToString:name]){
+            [[self getBlockRepo] setObject:cl
+                                    forKey:@"vgcurrenylisting"];
+            break;
+        }
+    }
+
+}
+
+
 - (void) vgs_currencies_amount_should_be_PARAMINT:(NSString*) size{
     NSArray* currencies = [[self getBlockRepo] objectForKey:@"vgcurrencies"];
     [QAAssert assertEqualsExpected:size
@@ -108,6 +124,25 @@
     }
     [QAAssert assertNil:found];
 
+}
+
+- (void) info_PARAM:(NSString*) info _of_vgs_currency_listing_PARAM:(NSString*) name
+   _should_be_PARAM:(NSString*) content{
+    GreeVGCurrencyListing* cl = [[self getBlockRepo] objectForKey:@"vgcurrenylisting"];
+    if ([info isEqualToString:@"category"]) {
+        [QAAssert assertEqualsExpected:content Actual:[cl category]];
+    }else if ([info isEqualToString:@"listingDescription"]) {
+        [QAAssert assertEqualsExpected:content Actual:[cl listingDescription]];
+    }else if ([info isEqualToString:@"quantity"]) {
+        [QAAssert assertEqualsExpected:content
+                                Actual:[NSString stringWithFormat:@"%i", [cl quantity]]];
+    }else if ([info isEqualToString:@"currency"]) {
+        [QAAssert assertEqualsExpected:content Actual:[[cl currency] identifier]];
+    }else if ([info isEqualToString:@"metadata"]) {
+        [QAAssert assertContainsExpected:content Contains:[[cl metadata] description]];
+    }else{
+        [QAAssert assertNotNil:nil];
+    }
 }
 
 @end

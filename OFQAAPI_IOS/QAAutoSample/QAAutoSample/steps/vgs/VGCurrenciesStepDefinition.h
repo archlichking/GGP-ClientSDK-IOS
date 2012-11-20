@@ -17,6 +17,8 @@
 - (void) developer_uses_SDK_to_load_vgs_currency_listings_with_category_PARAM:(NSString*) category;
 
 - (void) developer_uses_SDK_to_load_vgs_currency_listing_categories;
+- (void) developer_uses_SDK_to_check_basic_info_of_currency_listing_with_name_PARAM:(NSString*) name;
+
 
 - (void) vgs_currencies_amount_should_be_PARAMINT:(NSString*) size;
 - (void) vgs_currencies_should_include_name_PARAM:(NSString*) name;
@@ -28,5 +30,8 @@
 
 - (void) vgs_currency_listing_categories_amount_should_be_PARAMINT:(NSString*) size;
 - (void) vgs_currency_listing_categories_should_include_category_PARAM:(NSString*) name;
+
+- (void) info_PARAM:(NSString*) info _of_vgs_currency_listing_PARAM:(NSString*) name
+   _should_be_PARAM:(NSString*) content;
 
 @end
