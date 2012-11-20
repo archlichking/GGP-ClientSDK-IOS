@@ -1,4 +1,4 @@
 Given I logged in with email 229627987@qq.com and password aaaaaa
-When I load vgs announcement
-Then vgs announcement amount should be 2
-And vgs announcement should include title do this man and body announcement test
+When developer uses SDK to load vgs currency listings with category bumper
+Then vgs currency listings amount should be 2
+And vgs currency listings should include currency c2 list

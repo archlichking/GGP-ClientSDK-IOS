@@ -15,7 +15,7 @@
 
 @implementation VGAnnouncementStepDefinition
 
-- (void) I_load_vgs_announcement{
+- (void) developer_uses_SDK_to_load_vgs_announcements{
     [[self getBlockRepo] removeObjectForKey:@"vgannouncements"];
     [[GreeVirtualGoods sharedInstance] loadAnnouncementsWithBlock:^(NSArray *announcements, NSError *error) {
         if(!error){
@@ -43,6 +43,30 @@
         }
     }
     [QAAssert assertNil:found];
+}
+
+- (void) developer_uses_SDK_to_check_basic_info_of_announcement_with_title_PARAM:(NSString*) title{
+    [[self getBlockRepo] removeObjectForKey:@"vgannouncement"];
+    NSArray* vgannouncements = [[self getBlockRepo] objectForKey:@"vgannouncements"];
+    for (GreeVGAnnouncement* ann in vgannouncements) {
+        if ([[ann subject] isEqualToString:title]) {
+            [[self getBlockRepo] setObject:ann forKey:@"vgannouncement"];
+        }
+    }
+}
+
+- (void) info_PARAM:(NSString*) info _of_announcement_PARAM:(NSString*) title
+   _should_be_PARAM:(NSString*) content{
+    GreeVGAnnouncement* ann = [[self getBlockRepo] objectForKey:@"vgannouncement"];
+    if ([info isEqualToString:@"body"]) {
+        [QAAssert assertEqualsExpected:content Actual:[ann body]];
+    }else if([info isEqualToString:@"isRead"]){
+        [QAAssert assertEqualsExpected:content Actual:[ann isUnread]?@"YES":@"NO"];
+    }else if([info isEqualToString:@"date"]){
+        [QAAssert assertEqualsExpected:content Actual:[[ann date] description]];
+    }else{
+        [QAAssert assertNotNil:nil];
+    }
 }
 
 @end

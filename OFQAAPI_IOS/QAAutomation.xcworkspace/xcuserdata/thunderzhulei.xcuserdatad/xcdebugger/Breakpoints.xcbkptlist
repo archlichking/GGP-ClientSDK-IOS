@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "QAAutoSample/QAAutoSample/AppDelegate.m"
-         timestampString = "375010668.747288"
+         timestampString = "375086747.22931"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "307"
-         endingLineNumber = "307"
+         startingLineNumber = "309"
+         endingLineNumber = "309"
          landmarkName = "-runCaseInAnotherThread:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -39,7 +39,46 @@
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "21"
          endingLineNumber = "21"
-         landmarkName = "-I_load_vgs_announcement"
+         landmarkName = "-developer_uses_SDK_to_load_vgs_announcements"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QAAutoSample/QAAutoSample/steps/vgs/VGAnnouncementStepDefinition.m"
+         timestampString = "375085381.048144"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "60"
+         endingLineNumber = "60"
+         landmarkName = "-info_PARAM:_of_announcement_PARAM:_should_be_PARAM:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QAAutoSample/QAAutoSample/steps/AuthorizationStepDefinition.m"
+         timestampString = "375085968.833544"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "64"
+         endingLineNumber = "64"
+         landmarkName = "-I_logged_in_with_email_PARAM:_and_password_PARAM:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QAAutoSample/QAAutoSample/steps/vgs/VGCurrenciesStepDefinition.m"
+         timestampString = "375091342.433917"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "22"
+         endingLineNumber = "22"
+         landmarkName = "-developer_uses_SDK_to_load_vgs_currencies"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

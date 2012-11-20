@@ -52,9 +52,10 @@
 #import "AddonStepDefinition.h"
 #import "IncentiveStepDefinition.h"
 #import "VGAnnouncementStepDefinition.h"
+#import "VGCurrenciesStepDefinition.h"
 #import "StepDefinition.h"
 
-#define RUN_MODE 1
+#define RUN_MODE 0
 
 #if RUN_MODE == 0
 #define CONFIG_NAME           @"debugCase.txt"
@@ -74,9 +75,9 @@
 @synthesize runnerWrapper;
 
 //static NSString* APPID = @"12697";
-static NSString* APPID = @"15265";
+//static NSString* APPID = @"15265";
 //static NSString* APPID = @"15199";
-//static NSString* APPID = @"57209";
+static NSString* APPID = @"57209";
 static int enterSwitch = 0;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -129,6 +130,7 @@ static int enterSwitch = 0;
                             class_createInstance([IncentiveStepDefinition class], 0),
     
                             class_createInstance([VGAnnouncementStepDefinition class], 0),
+                            class_createInstance([VGCurrenciesStepDefinition class], 0),
                             nil] autorelease];
 
     
@@ -144,7 +146,7 @@ static int enterSwitch = 0;
     // --------- GREE Platform initialization
     
     NSDictionary* settings = [NSDictionary dictionaryWithObjectsAndKeys: 
-                              @"sandbox", GreeSettingDevelopmentMode,
+                              @"production", GreeSettingDevelopmentMode,
 //                              [NSNumber numberWithBool:YES], GreeSettingUseWallet,
                               @"https://vgs.developer.gree.net/api", @"virtualGoodServerURL",
                               @"test", GreeSettingVirtualGoodDevelopmentMode,
@@ -176,7 +178,7 @@ static int enterSwitch = 0;
         if(newItemListings.count > 0 || newCurrencyListings.count > 0) {
             NSString* message = [NSString stringWithFormat:@"Currency: %@  Item: %@", newCurrencyListings, newItemListings];
             UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"New listings found" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [[alertView autorelease] show];
+//            [[alertView autorelease] show];
             
         }
         

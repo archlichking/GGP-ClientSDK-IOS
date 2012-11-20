@@ -29,6 +29,8 @@
 		BA5E6297165A290D0008DAEE /* libGreeVirtualGoods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5E6296165A290D0008DAEE /* libGreeVirtualGoods.a */; };
 		BA5E62D3165A2D1A0008DAEE /* 57209credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA5E62D2165A2D1A0008DAEE /* 57209credentialsConfig.json */; };
 		BA5E62D7165A30B00008DAEE /* VGAnnouncementStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5E62D6165A30B00008DAEE /* VGAnnouncementStepDefinition.m */; };
+		BA5E62E1165B5B590008DAEE /* 58148credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA5E62E0165B5B590008DAEE /* 58148credentialsConfig.json */; };
+		BA5E62E4165B5D820008DAEE /* VGCurrenciesStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5E62E3165B5D820008DAEE /* VGCurrenciesStepDefinition.m */; };
 		BA70BE751602FA4C005EEC8A /* CIUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = BA70BE741602FA4C005EEC8A /* CIUtil.m */; };
 		BAA2899216119D9F0075F643 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA2899116119D9F0075F643 /* ImageIO.framework */; };
 		BAAFB9851602D34F001BAA35 /* GreePlatformCoreResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAAFB9821602D34E001BAA35 /* GreePlatformCoreResources.bundle */; };
@@ -109,6 +111,9 @@
 		BA5E62D2165A2D1A0008DAEE /* 57209credentialsConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 57209credentialsConfig.json; sourceTree = "<group>"; };
 		BA5E62D5165A30B00008DAEE /* VGAnnouncementStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VGAnnouncementStepDefinition.h; path = vgs/VGAnnouncementStepDefinition.h; sourceTree = "<group>"; };
 		BA5E62D6165A30B00008DAEE /* VGAnnouncementStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VGAnnouncementStepDefinition.m; path = vgs/VGAnnouncementStepDefinition.m; sourceTree = "<group>"; };
+		BA5E62E0165B5B590008DAEE /* 58148credentialsConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 58148credentialsConfig.json; sourceTree = "<group>"; };
+		BA5E62E2165B5D820008DAEE /* VGCurrenciesStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VGCurrenciesStepDefinition.h; path = vgs/VGCurrenciesStepDefinition.h; sourceTree = "<group>"; };
+		BA5E62E3165B5D820008DAEE /* VGCurrenciesStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VGCurrenciesStepDefinition.m; path = vgs/VGCurrenciesStepDefinition.m; sourceTree = "<group>"; };
 		BA70BE731602FA4B005EEC8A /* CIUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIUtil.h; sourceTree = "<group>"; };
 		BA70BE741602FA4C005EEC8A /* CIUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIUtil.m; sourceTree = "<group>"; };
 		BAA2899116119D9F0075F643 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -239,6 +244,8 @@
 			children = (
 				BA5E62D5165A30B00008DAEE /* VGAnnouncementStepDefinition.h */,
 				BA5E62D6165A30B00008DAEE /* VGAnnouncementStepDefinition.m */,
+				BA5E62E2165B5D820008DAEE /* VGCurrenciesStepDefinition.h */,
+				BA5E62E3165B5D820008DAEE /* VGCurrenciesStepDefinition.m */,
 			);
 			name = vgs;
 			sourceTree = "<group>";
@@ -341,6 +348,7 @@
 				BAEE826016006DA30052FDC8 /* debugCase.txt */,
 				BAEE826116006DA30052FDC8 /* tcmsConfig.json */,
 				BA5E62D2165A2D1A0008DAEE /* 57209credentialsConfig.json */,
+				BA5E62E0165B5B590008DAEE /* 58148credentialsConfig.json */,
 			);
 			path = config;
 			sourceTree = "<group>";
@@ -525,6 +533,7 @@
 				BA085BD116007CE8001BDE34 /* MainStoryboard.storyboard in Resources */,
 				BA57B8691612B27F009B7539 /* 52760credentialsConfig.json in Resources */,
 				BA5E62D3165A2D1A0008DAEE /* 57209credentialsConfig.json in Resources */,
+				BA5E62E1165B5B590008DAEE /* 58148credentialsConfig.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,6 +578,7 @@
 				BA70BE751602FA4C005EEC8A /* CIUtil.m in Sources */,
 				BA392F33162FE4D400A5EAE3 /* IncentiveStepDefinition.m in Sources */,
 				BA5E62D7165A30B00008DAEE /* VGAnnouncementStepDefinition.m in Sources */,
+				BA5E62E4165B5D820008DAEE /* VGCurrenciesStepDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

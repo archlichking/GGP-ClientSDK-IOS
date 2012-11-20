@@ -295,9 +295,9 @@
 
 // step definition : i logout without popup
 - (void) I_logout_without_popup{
-    [GreePlatform revokeAuthorizationNonInteractivelyWithBlock:^(NSError *error) {
+    [GreePlatform revokeAuthorizationWithBlock:^(NSError *error) {
         if (error) {
-            
+        
         }
         [self inStepNotify];
     }];
