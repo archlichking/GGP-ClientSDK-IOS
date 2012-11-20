@@ -670,7 +670,7 @@
 					"\"../vgslib_ios/release\"",
 					"\"$(SRCROOT)/../vgslib_ios/release\"",
 				);
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -701,7 +701,7 @@
 					"\"../vgslib_ios/release\"",
 					"\"$(SRCROOT)/../vgslib_ios/release\"",
 				);
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
