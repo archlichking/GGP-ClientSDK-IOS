@@ -1,8 +1,11 @@
 Given I logged in with email 229627987@qq.com and password aaaaaa
-And developer uses SDK to load vgs currency listings
-When developer uses SDK to check basic info of currency listing with name c2 list
-Then info category of vgs currency listing c2 list should be bumper
-And info listingDescription of vgs currency listing c2 list should be c2 description
-And info quantity of vgs currency listing c2 list should be 5
-And info currency of vgs currency listing c2 list should be vgs.app.test.gree.k2
-And info metadata of vgs currency listing c2 list should be "c2 m1" = "c2 v1"
+And developer uses SDK to load vgs item listings
+When developer uses SDK to check basic info of item listing with name it list 1
+Then info listingDescription of vgs item listing it list 1 should be it list desc 1
+And info category of vgs item listing it list 1 should be kooler
+And info quantity of vgs item listing it list 1 should be 2
+And info currencies of vgs item listing it list 1 should be identifier:vgs.app.test.gree.k2
+And info currencies of vgs item listing it list 1 should be identifier:vgs.app.test.gree.k1
+And info metadata of vgs item listing it list 1 should be "ilist1 k1" = "ilist1 v1"
+And info priceForCurrency of vgs item listing it list 1 and currency with identifier vgs.app.test.gree.k2 should be -1
+And info formattedPriceForCurrency of vgs item listing it list 1 and currency with identifier vgs.app.test.gree.k2 should be N/A

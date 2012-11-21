@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "QAAutoSample/QAAutoSample/AppDelegate.m"
-         timestampString = "375086747.22931"
+         timestampString = "375159670.522837"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "309"
-         endingLineNumber = "309"
+         startingLineNumber = "311"
+         endingLineNumber = "311"
          landmarkName = "-runCaseInAnotherThread:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -79,6 +79,58 @@
          startingLineNumber = "22"
          endingLineNumber = "22"
          landmarkName = "-developer_uses_SDK_to_load_vgs_currencies"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QAAutoSample/QAAutoSample/steps/vgs/VGItemStepDefinition.m"
+         timestampString = "375162174.403795"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "59"
+         endingLineNumber = "59"
+         landmarkName = "-info_PARAM:_of_item_PARAM:_should_be_PARAM:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QAAutoSample/QAAutoSample/steps/vgs/VGCurrenciesStepDefinition.m"
+         timestampString = "375162490.245862"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "120"
+         endingLineNumber = "120"
+         landmarkName = "-vgs_currency_listing_categories_should_include_category_PARAM:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QAAutoSample/QAAutoSample/steps/vgs/VGItemStepDefinition.m"
+         timestampString = "375181360.536926"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "156"
+         endingLineNumber = "156"
+         landmarkName = "-info_PARAM:_of_vgs_item_listing_PARAM:_and_currency_PARAM:_should_be_PARAM:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "QAAutoSample/QAAutoSample/steps/vgs/VGItemStepDefinition.m"
+         timestampString = "375181413.411003"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "155"
+         endingLineNumber = "155"
+         landmarkName = "-info_PARAM:_of_vgs_item_listing_PARAM:_and_currency_PARAM:_should_be_PARAM:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -37,6 +37,7 @@
 		BAAFB9861602D34F001BAA35 /* GreePlatformLandscapeResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAAFB9831602D34F001BAA35 /* GreePlatformLandscapeResources.bundle */; };
 		BAAFB9871602D34F001BAA35 /* GreePlatformPortraitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAAFB9841602D34F001BAA35 /* GreePlatformPortraitResources.bundle */; };
 		BAD0D027160FFDF70046BD0A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD0D026160FFDF70046BD0A /* CoreTelephony.framework */; };
+		BAEA78ED165C76840042321D /* VGItemStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEA78EC165C76840042321D /* VGItemStepDefinition.m */; };
 		BAEE814016006AB60052FDC8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE813F16006AB60052FDC8 /* UIKit.framework */; };
 		BAEE814216006AB60052FDC8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE814116006AB60052FDC8 /* Foundation.framework */; };
 		BAEE814416006AB60052FDC8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE814316006AB60052FDC8 /* CoreGraphics.framework */; };
@@ -123,6 +124,8 @@
 		BAAFB9831602D34F001BAA35 /* GreePlatformLandscapeResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformLandscapeResources.bundle; path = ../ggplib_ios/release/resources/GreePlatformLandscapeResources.bundle; sourceTree = "<group>"; };
 		BAAFB9841602D34F001BAA35 /* GreePlatformPortraitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformPortraitResources.bundle; path = ../ggplib_ios/release/resources/GreePlatformPortraitResources.bundle; sourceTree = "<group>"; };
 		BAD0D026160FFDF70046BD0A /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		BAEA78EB165C76840042321D /* VGItemStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VGItemStepDefinition.h; path = vgs/VGItemStepDefinition.h; sourceTree = "<group>"; };
+		BAEA78EC165C76840042321D /* VGItemStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VGItemStepDefinition.m; path = vgs/VGItemStepDefinition.m; sourceTree = "<group>"; };
 		BAEE813B16006AB60052FDC8 /* QAAutoSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QAAutoSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAEE813F16006AB60052FDC8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BAEE814116006AB60052FDC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -246,6 +249,8 @@
 				BA5E62D6165A30B00008DAEE /* VGAnnouncementStepDefinition.m */,
 				BA5E62E2165B5D820008DAEE /* VGCurrenciesStepDefinition.h */,
 				BA5E62E3165B5D820008DAEE /* VGCurrenciesStepDefinition.m */,
+				BAEA78EB165C76840042321D /* VGItemStepDefinition.h */,
+				BAEA78EC165C76840042321D /* VGItemStepDefinition.m */,
 			);
 			name = vgs;
 			sourceTree = "<group>";
@@ -579,6 +584,7 @@
 				BA392F33162FE4D400A5EAE3 /* IncentiveStepDefinition.m in Sources */,
 				BA5E62D7165A30B00008DAEE /* VGAnnouncementStepDefinition.m in Sources */,
 				BA5E62E4165B5D820008DAEE /* VGCurrenciesStepDefinition.m in Sources */,
+				BAEA78ED165C76840042321D /* VGItemStepDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -53,6 +53,7 @@
 #import "IncentiveStepDefinition.h"
 #import "VGAnnouncementStepDefinition.h"
 #import "VGCurrenciesStepDefinition.h"
+#import "VGItemStepDefinition.h"
 #import "StepDefinition.h"
 
 #define RUN_MODE 0
@@ -131,6 +132,7 @@ static int enterSwitch = 0;
     
                             class_createInstance([VGAnnouncementStepDefinition class], 0),
                             class_createInstance([VGCurrenciesStepDefinition class], 0),
+                            class_createInstance([VGItemStepDefinition class], 0),
                             nil] autorelease];
 
     
