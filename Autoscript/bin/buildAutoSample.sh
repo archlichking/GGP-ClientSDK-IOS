@@ -30,5 +30,5 @@ then
 fi
 
 #xcodebuild -project "$PROJECT" -target "$2" -configuration Debug -sdk "$AIMSDK" DSTROOT="$1/$3" $COMMAND
-xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEMA" -configuration Debug -sdk "$AIMSDK" DSTROOT="$1/$3" $COMMAND | grep 'BUILD SUCCEEDED'
+xcodebuild -workspace "$WORKSPACE" -scheme "$SCHEMA" -configuration Debug -sdk "$AIMSDK" DSTROOT="$1/$3" ONLY_ACTIVE_ARCH=NO -arch armv7s $COMMAND | grep 'BUILD SUCCEEDED'
 exit $?
