@@ -19,9 +19,6 @@
 #import "GreeAchievement.h"
 #import "GreePlatform.h"
 
-#import "GreeVirtualGoods.h"
-#import "GreeVGPlayer.h"
-
 #import "StepDefinition.h"
 #import "StepExecutionLock.h"
 #import "CIUtil.h"
@@ -51,9 +48,6 @@
 #import "LoggerStepDefinition.h"
 #import "AddonStepDefinition.h"
 #import "IncentiveStepDefinition.h"
-#import "VGAnnouncementStepDefinition.h"
-#import "VGCurrenciesStepDefinition.h"
-#import "VGItemStepDefinition.h"
 #import "StepDefinition.h"
 
 #define RUN_MODE 1
@@ -130,9 +124,6 @@ static int enterSwitch = 0;
                             class_createInstance([AddonStepDefinition class], 0),
                             class_createInstance([IncentiveStepDefinition class], 0),
     
-                            class_createInstance([VGAnnouncementStepDefinition class], 0),
-                            class_createInstance([VGCurrenciesStepDefinition class], 0),
-                            class_createInstance([VGItemStepDefinition class], 0),
                             nil] autorelease];
 
     
@@ -150,9 +141,6 @@ static int enterSwitch = 0;
     NSDictionary* settings = [NSDictionary dictionaryWithObjectsAndKeys: 
                               @"sandbox", GreeSettingDevelopmentMode,
 //                              [NSNumber numberWithBool:YES], GreeSettingUseWallet,
-                              @"https://vgs.developer.gree.net/api", @"virtualGoodServerURL",
-                              @"test", GreeSettingVirtualGoodDevelopmentMode,
-                              @"1", GreeSettingVirtualGoodVersion,
                               nil]; 
 
       
@@ -166,25 +154,7 @@ static int enterSwitch = 0;
                                      settings:settings
                                      delegate:self];
     
-    [[GreeVirtualGoods sharedInstance] setOpenFeintImportBlock:^(NSDictionary* openFeintData, GreeVGPlayer* player) {
-        NSLog(@"We read stuff!   %@", openFeintData);
-    }];
-    [[GreeVirtualGoods sharedInstance] setOfflineMetadataImportBlock:^(NSDictionary *offlineMetadata, GreeVGPlayer *player) {
-        NSString* message = [NSString stringWithFormat:@"Offline: %@  Player keys: %@", offlineMetadata, player.metadataKeys];
-        UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"Offline metadata import" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [[alertView autorelease] show];
-    }];
-    [[GreeVirtualGoods sharedInstance] setStoreDataObserverBlock:^{
-        NSArray* newItemListings = [GreeVirtualGoods sharedInstance].itemListingsNewInLastSync;
-        NSArray* newCurrencyListings = [GreeVirtualGoods sharedInstance].currencyListingsNewInLastSync;
-        if(newItemListings.count > 0 || newCurrencyListings.count > 0) {
-            NSString* message = [NSString stringWithFormat:@"Currency: %@  Item: %@", newCurrencyListings, newItemListings];
-            UIAlertView* alertView = [[UIAlertView alloc] initWithTitle:@"New listings found" message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//            [[alertView autorelease] show];
-            
-        }
-        
-    }];
+    
     
     
     id httpClient = [[GreePlatform sharedInstance] valueForKey:@"httpClient"];

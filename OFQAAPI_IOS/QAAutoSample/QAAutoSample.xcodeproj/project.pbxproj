@@ -27,11 +27,8 @@
 		BA3E301F16561D4C00E38226 /* libGreeWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAFB97F1602D32B001BAA35 /* libGreeWallet.a */; };
 		BA3E302016561F3500E38226 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA57B8F6161307B6009B7539 /* OCHamcrestIOS.framework */; };
 		BA57B8691612B27F009B7539 /* 52760credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA57B8681612B27F009B7539 /* 52760credentialsConfig.json */; };
-		BA5E6297165A290D0008DAEE /* libGreeVirtualGoods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5E6296165A290D0008DAEE /* libGreeVirtualGoods.a */; };
 		BA5E62D3165A2D1A0008DAEE /* 57209credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA5E62D2165A2D1A0008DAEE /* 57209credentialsConfig.json */; };
-		BA5E62D7165A30B00008DAEE /* VGAnnouncementStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5E62D6165A30B00008DAEE /* VGAnnouncementStepDefinition.m */; };
 		BA5E62E1165B5B590008DAEE /* 58148credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA5E62E0165B5B590008DAEE /* 58148credentialsConfig.json */; };
-		BA5E62E4165B5D820008DAEE /* VGCurrenciesStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5E62E3165B5D820008DAEE /* VGCurrenciesStepDefinition.m */; };
 		BA70BE751602FA4C005EEC8A /* CIUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = BA70BE741602FA4C005EEC8A /* CIUtil.m */; };
 		BAA2899216119D9F0075F643 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA2899116119D9F0075F643 /* ImageIO.framework */; };
 		BAACAB991665EACA00848B1F /* libQAAutoLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEF4BE3160095FA003FB345 /* libQAAutoLib.a */; };
@@ -39,7 +36,6 @@
 		BAAFB9861602D34F001BAA35 /* GreePlatformLandscapeResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAAFB9831602D34F001BAA35 /* GreePlatformLandscapeResources.bundle */; };
 		BAAFB9871602D34F001BAA35 /* GreePlatformPortraitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAAFB9841602D34F001BAA35 /* GreePlatformPortraitResources.bundle */; };
 		BAD0D027160FFDF70046BD0A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAD0D026160FFDF70046BD0A /* CoreTelephony.framework */; };
-		BAEA78ED165C76840042321D /* VGItemStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEA78EC165C76840042321D /* VGItemStepDefinition.m */; };
 		BAEE814016006AB60052FDC8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE813F16006AB60052FDC8 /* UIKit.framework */; };
 		BAEE814216006AB60052FDC8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE814116006AB60052FDC8 /* Foundation.framework */; };
 		BAEE814416006AB60052FDC8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE814316006AB60052FDC8 /* CoreGraphics.framework */; };
@@ -122,13 +118,8 @@
 		BA392F32162FE4D400A5EAE3 /* IncentiveStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IncentiveStepDefinition.m; sourceTree = "<group>"; };
 		BA57B8681612B27F009B7539 /* 52760credentialsConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 52760credentialsConfig.json; sourceTree = "<group>"; };
 		BA57B8F6161307B6009B7539 /* OCHamcrestIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCHamcrestIOS.framework; path = ../QAAutoLib/QAAutoLib/vendor/OCHamcrestIOS.framework; sourceTree = "<group>"; };
-		BA5E6296165A290D0008DAEE /* libGreeVirtualGoods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGreeVirtualGoods.a; path = ../vgslib_ios/release/libGreeVirtualGoods.a; sourceTree = "<group>"; };
 		BA5E62D2165A2D1A0008DAEE /* 57209credentialsConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 57209credentialsConfig.json; sourceTree = "<group>"; };
-		BA5E62D5165A30B00008DAEE /* VGAnnouncementStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VGAnnouncementStepDefinition.h; path = vgs/VGAnnouncementStepDefinition.h; sourceTree = "<group>"; };
-		BA5E62D6165A30B00008DAEE /* VGAnnouncementStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VGAnnouncementStepDefinition.m; path = vgs/VGAnnouncementStepDefinition.m; sourceTree = "<group>"; };
 		BA5E62E0165B5B590008DAEE /* 58148credentialsConfig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 58148credentialsConfig.json; sourceTree = "<group>"; };
-		BA5E62E2165B5D820008DAEE /* VGCurrenciesStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VGCurrenciesStepDefinition.h; path = vgs/VGCurrenciesStepDefinition.h; sourceTree = "<group>"; };
-		BA5E62E3165B5D820008DAEE /* VGCurrenciesStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VGCurrenciesStepDefinition.m; path = vgs/VGCurrenciesStepDefinition.m; sourceTree = "<group>"; };
 		BA70BE731602FA4B005EEC8A /* CIUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIUtil.h; sourceTree = "<group>"; };
 		BA70BE741602FA4C005EEC8A /* CIUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIUtil.m; sourceTree = "<group>"; };
 		BAA2899116119D9F0075F643 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
@@ -139,8 +130,6 @@
 		BAAFB9831602D34F001BAA35 /* GreePlatformLandscapeResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformLandscapeResources.bundle; path = ../ggplib_ios/release/resources/GreePlatformLandscapeResources.bundle; sourceTree = "<group>"; };
 		BAAFB9841602D34F001BAA35 /* GreePlatformPortraitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformPortraitResources.bundle; path = ../ggplib_ios/release/resources/GreePlatformPortraitResources.bundle; sourceTree = "<group>"; };
 		BAD0D026160FFDF70046BD0A /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
-		BAEA78EB165C76840042321D /* VGItemStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VGItemStepDefinition.h; path = vgs/VGItemStepDefinition.h; sourceTree = "<group>"; };
-		BAEA78EC165C76840042321D /* VGItemStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VGItemStepDefinition.m; path = vgs/VGItemStepDefinition.m; sourceTree = "<group>"; };
 		BAEE813B16006AB60052FDC8 /* QAAutoSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QAAutoSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAEE813F16006AB60052FDC8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		BAEE814116006AB60052FDC8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -227,7 +216,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA5E6297165A290D0008DAEE /* libGreeVirtualGoods.a in Frameworks */,
 				BAACAB991665EACA00848B1F /* libQAAutoLib.a in Frameworks */,
 				BA3E302016561F3500E38226 /* OCHamcrestIOS.framework in Frameworks */,
 				BA3E301E16561D4C00E38226 /* libGreePlatform.a in Frameworks */,
@@ -257,19 +245,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BA5E62D4165A30870008DAEE /* vgs */ = {
-			isa = PBXGroup;
-			children = (
-				BA5E62D5165A30B00008DAEE /* VGAnnouncementStepDefinition.h */,
-				BA5E62D6165A30B00008DAEE /* VGAnnouncementStepDefinition.m */,
-				BA5E62E2165B5D820008DAEE /* VGCurrenciesStepDefinition.h */,
-				BA5E62E3165B5D820008DAEE /* VGCurrenciesStepDefinition.m */,
-				BAEA78EB165C76840042321D /* VGItemStepDefinition.h */,
-				BAEA78EC165C76840042321D /* VGItemStepDefinition.m */,
-			);
-			name = vgs;
-			sourceTree = "<group>";
-		};
 		BAACAB9E1665EB1200848B1F /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,7 +257,6 @@
 			isa = PBXGroup;
 			children = (
 				BAACAB9D1665EB1200848B1F /* QAAutoLib.xcodeproj */,
-				BA5E6296165A290D0008DAEE /* libGreeVirtualGoods.a */,
 				BAAFB9821602D34E001BAA35 /* GreePlatformCoreResources.bundle */,
 				BAAFB9831602D34F001BAA35 /* GreePlatformLandscapeResources.bundle */,
 				BAAFB9841602D34F001BAA35 /* GreePlatformPortraitResources.bundle */,
@@ -407,7 +381,6 @@
 		BAEE827716006DE70052FDC8 /* steps */ = {
 			isa = PBXGroup;
 			children = (
-				BA5E62D4165A30870008DAEE /* vgs */,
 				BAEE827816006DE70052FDC8 /* AchievementStepDefinition.h */,
 				BAEE827916006DE70052FDC8 /* AchievementStepDefinition.m */,
 				BAEE827A16006DE70052FDC8 /* AddonStepDefinition.h */,
@@ -626,9 +599,6 @@
 				BAEE82D216006E210052FDC8 /* jskit_test.js in Sources */,
 				BA70BE751602FA4C005EEC8A /* CIUtil.m in Sources */,
 				BA392F33162FE4D400A5EAE3 /* IncentiveStepDefinition.m in Sources */,
-				BA5E62D7165A30B00008DAEE /* VGAnnouncementStepDefinition.m in Sources */,
-				BA5E62E4165B5D820008DAEE /* VGCurrenciesStepDefinition.m in Sources */,
-				BAEA78ED165C76840042321D /* VGItemStepDefinition.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,16 +691,12 @@
 				HEADER_SEARCH_PATHS = (
 					"\"../ggplib_ios/sdk/source\"/**",
 					"\"../../QAAutoLib/QAAutoLib/QAAutoLib/\"/**",
-					"\"../vgslib_ios/sdk/source/components/virtualgoods\"/**",
 				);
 				INFOPLIST_FILE = "QAAutoSample/QAAutoSample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"../ggplib_ios/release\"",
-					"\"../vgslib_ios/release\"",
-					"\"$(SRCROOT)/../vgslib_ios/release\"",
-					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/QAAutomation-bwwqfqzoxjkxieedtmgjxzllbnxv/Build/Products/Debug-iphoneos\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
@@ -755,16 +721,12 @@
 				HEADER_SEARCH_PATHS = (
 					"\"../ggplib_ios/sdk/source\"/**",
 					"\"../../QAAutoLib/QAAutoLib/QAAutoLib/\"/**",
-					"\"../vgslib_ios/sdk/source/components/virtualgoods\"/**",
 				);
 				INFOPLIST_FILE = "QAAutoSample/QAAutoSample-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"../ggplib_ios/release\"",
-					"\"../vgslib_ios/release\"",
-					"\"$(SRCROOT)/../vgslib_ios/release\"",
-					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/QAAutomation-bwwqfqzoxjkxieedtmgjxzllbnxv/Build/Products/Debug-iphoneos\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
