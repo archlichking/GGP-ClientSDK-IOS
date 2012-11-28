@@ -34,4 +34,7 @@
 - (void) info_PARAM:(NSString*) info _of_vgs_currency_listing_PARAM:(NSString*) name
    _should_be_PARAM:(NSString*) content;
 
+
+- (void) I_test_purchase;
+
 @end

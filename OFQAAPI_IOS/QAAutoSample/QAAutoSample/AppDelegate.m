@@ -56,7 +56,7 @@
 #import "VGItemStepDefinition.h"
 #import "StepDefinition.h"
 
-#define RUN_MODE 0
+#define RUN_MODE 1
 
 #if RUN_MODE == 0
 #define CONFIG_NAME           @"debugCase.txt"
@@ -76,9 +76,9 @@
 @synthesize runnerWrapper;
 
 //static NSString* APPID = @"12697";
-//static NSString* APPID = @"15265";
+static NSString* APPID = @"15265";
 //static NSString* APPID = @"15199";
-static NSString* APPID = @"57209";
+//static NSString* APPID = @"57209";
 static int enterSwitch = 0;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -148,7 +148,7 @@ static int enterSwitch = 0;
     // --------- GREE Platform initialization
     
     NSDictionary* settings = [NSDictionary dictionaryWithObjectsAndKeys: 
-                              @"production", GreeSettingDevelopmentMode,
+                              @"sandbox", GreeSettingDevelopmentMode,
 //                              [NSNumber numberWithBool:YES], GreeSettingUseWallet,
                               @"https://vgs.developer.gree.net/api", @"virtualGoodServerURL",
                               @"test", GreeSettingVirtualGoodDevelopmentMode,

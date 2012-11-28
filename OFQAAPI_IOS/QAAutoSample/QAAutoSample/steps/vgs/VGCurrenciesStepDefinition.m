@@ -145,4 +145,12 @@
     }
 }
 
+- (void) I_test_purchase{
+    NSArray* currencylistings = [[GreeVirtualGoods sharedInstance] currencyListings];
+    NSError* e = nil;
+    BOOL b = [[GreeVirtualGoods sharedInstance] canPurchaseCurrencyListing:currencylistings[0] error:&e];
+    NSLog(@"%@, %@", b?@"YES":@"NO", e==nil?[e description]:@"");
+}
+
+
 @end

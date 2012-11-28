@@ -18,6 +18,8 @@
 		BA2C2E0B160078CC0041B688 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2C2E0A160078CC0041B688 /* MessageUI.framework */; };
 		BA2C2E0D160078E80041B688 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2C2E0C160078E80041B688 /* GameKit.framework */; };
 		BA2C2E0F160079220041B688 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA2C2E0E160079220041B688 /* StoreKit.framework */; };
+		BA2E7CD41664A85E00E910EE /* lay-3.png in Resources */ = {isa = PBXBuildFile; fileRef = BA2E7CD31664A85E00E910EE /* lay-3.png */; };
+		BA2E7CD71664A8BD00E910EE /* lay 2.png in Resources */ = {isa = PBXBuildFile; fileRef = BA2E7CD61664A8BD00E910EE /* lay 2.png */; };
 		BA384190160ABDD1006D0ED9 /* baseCommand.js in Resources */ = {isa = PBXBuildFile; fileRef = BAEE825F16006DA30052FDC8 /* baseCommand.js */; };
 		BA392F07162FDE4E00A5EAE3 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA392F06162FDE4E00A5EAE3 /* CoreText.framework */; };
 		BA392F33162FE4D400A5EAE3 /* IncentiveStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA392F32162FE4D400A5EAE3 /* IncentiveStepDefinition.m */; };
@@ -103,6 +105,8 @@
 		BA2C2E0C160078E80041B688 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		BA2C2E0E160079220041B688 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		BA2C2E101600793B0041B688 /* libprofile_rt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprofile_rt.dylib; path = /usr/lib/libprofile_rt.dylib; sourceTree = "<absolute>"; };
+		BA2E7CD31664A85E00E910EE /* lay-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lay-3.png"; sourceTree = "<group>"; };
+		BA2E7CD61664A8BD00E910EE /* lay 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lay 2.png"; sourceTree = "<group>"; };
 		BA392F06162FDE4E00A5EAE3 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		BA392F31162FE4D400A5EAE3 /* IncentiveStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IncentiveStepDefinition.h; sourceTree = "<group>"; };
 		BA392F32162FE4D400A5EAE3 /* IncentiveStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IncentiveStepDefinition.m; sourceTree = "<group>"; };
@@ -258,6 +262,8 @@
 		BAEE813016006AB60052FDC8 = {
 			isa = PBXGroup;
 			children = (
+				BA2E7CD61664A8BD00E910EE /* lay 2.png */,
+				BA2E7CD31664A85E00E910EE /* lay-3.png */,
 				BA5E6296165A290D0008DAEE /* libGreeVirtualGoods.a */,
 				BAAFB9821602D34E001BAA35 /* GreePlatformCoreResources.bundle */,
 				BAAFB9831602D34F001BAA35 /* GreePlatformLandscapeResources.bundle */,
@@ -539,6 +545,8 @@
 				BA57B8691612B27F009B7539 /* 52760credentialsConfig.json in Resources */,
 				BA5E62D3165A2D1A0008DAEE /* 57209credentialsConfig.json in Resources */,
 				BA5E62E1165B5B590008DAEE /* 58148credentialsConfig.json in Resources */,
+				BA2E7CD41664A85E00E910EE /* lay-3.png in Resources */,
+				BA2E7CD71664A8BD00E910EE /* lay 2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,13 +678,13 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../QAAutoLib/QAAutoLib/vendor\"",
+					"\"$(SRCROOT)/../../QAAutoLib/QAAutoLib/QAAutoLib/vendor\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QAAutoSample/QAAutoSample-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"../ggplib_ios/sdk/source\"/**",
-					"\"../QAAutoLib/QAAutoLib/\"/**",
+					"\"../../QAAutoLib/QAAutoLib/QAAutoLib/\"/**",
 					"\"../vgslib_ios/sdk/source/components/virtualgoods\"/**",
 				);
 				INFOPLIST_FILE = "QAAutoSample/QAAutoSample-Info.plist";
@@ -703,13 +711,13 @@
 				CLANG_ENABLE_OBJC_ARC = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../QAAutoLib/QAAutoLib/vendor\"",
+					"\"$(SRCROOT)/../../QAAutoLib/QAAutoLib/QAAutoLib/vendor\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QAAutoSample/QAAutoSample-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"\"../ggplib_ios/sdk/source\"/**",
-					"\"../QAAutoLib/QAAutoLib/\"/**",
+					"\"../../QAAutoLib/QAAutoLib/QAAutoLib/\"/**",
 					"\"../vgslib_ios/sdk/source/components/virtualgoods\"/**",
 				);
 				INFOPLIST_FILE = "QAAutoSample/QAAutoSample-Info.plist";

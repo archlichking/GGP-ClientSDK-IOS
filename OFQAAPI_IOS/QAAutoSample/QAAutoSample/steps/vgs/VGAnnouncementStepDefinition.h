@@ -18,4 +18,6 @@
 - (void) developer_uses_SDK_to_check_basic_info_of_announcement_with_title_PARAM:(NSString*) title;
 - (void) info_PARAM:(NSString*) info _of_announcement_PARAM:(NSString*) title
    _should_be_PARAM:(NSString*) content;
+
+
 @end
