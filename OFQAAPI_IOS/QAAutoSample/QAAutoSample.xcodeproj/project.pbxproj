@@ -105,8 +105,8 @@
 		BA2C2E0C160078E80041B688 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		BA2C2E0E160079220041B688 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		BA2C2E101600793B0041B688 /* libprofile_rt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libprofile_rt.dylib; path = /usr/lib/libprofile_rt.dylib; sourceTree = "<absolute>"; };
-		BA2E7CD31664A85E00E910EE /* lay-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lay-3.png"; sourceTree = "<group>"; };
-		BA2E7CD61664A8BD00E910EE /* lay 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lay 2.png"; sourceTree = "<group>"; };
+		BA2E7CD31664A85E00E910EE /* lay-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lay-3.png"; path = "../../lay-3.png"; sourceTree = "<group>"; };
+		BA2E7CD61664A8BD00E910EE /* lay 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "lay 2.png"; path = "../../lay 2.png"; sourceTree = "<group>"; };
 		BA392F06162FDE4E00A5EAE3 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		BA392F31162FE4D400A5EAE3 /* IncentiveStepDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IncentiveStepDefinition.h; sourceTree = "<group>"; };
 		BA392F32162FE4D400A5EAE3 /* IncentiveStepDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IncentiveStepDefinition.m; sourceTree = "<group>"; };
@@ -262,8 +262,6 @@
 		BAEE813016006AB60052FDC8 = {
 			isa = PBXGroup;
 			children = (
-				BA2E7CD61664A8BD00E910EE /* lay 2.png */,
-				BA2E7CD31664A85E00E910EE /* lay-3.png */,
 				BA5E6296165A290D0008DAEE /* libGreeVirtualGoods.a */,
 				BAAFB9821602D34E001BAA35 /* GreePlatformCoreResources.bundle */,
 				BAAFB9831602D34F001BAA35 /* GreePlatformLandscapeResources.bundle */,
@@ -377,6 +375,8 @@
 		BAEE827016006DB20052FDC8 /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				BA2E7CD61664A8BD00E910EE /* lay 2.png */,
+				BA2E7CD31664A85E00E910EE /* lay-3.png */,
 				BAEE827116006DB20052FDC8 /* checked.png */,
 				BAEE827216006DB20052FDC8 /* failed_checked.png */,
 				BAEE827316006DB20052FDC8 /* unchecked.png */,
