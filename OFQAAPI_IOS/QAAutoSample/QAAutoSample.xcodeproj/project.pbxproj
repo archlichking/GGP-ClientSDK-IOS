@@ -27,7 +27,6 @@
 		BA3E301F16561D4C00E38226 /* libGreeWallet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAFB97F1602D32B001BAA35 /* libGreeWallet.a */; };
 		BA3E302016561F3500E38226 /* OCHamcrestIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA57B8F6161307B6009B7539 /* OCHamcrestIOS.framework */; };
 		BA57B8691612B27F009B7539 /* 52760credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA57B8681612B27F009B7539 /* 52760credentialsConfig.json */; };
-		BA5E61E0165A13470008DAEE /* libQAAutoLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEF4BE3160095FA003FB345 /* libQAAutoLib.a */; };
 		BA5E6297165A290D0008DAEE /* libGreeVirtualGoods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5E6296165A290D0008DAEE /* libGreeVirtualGoods.a */; };
 		BA5E62D3165A2D1A0008DAEE /* 57209credentialsConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = BA5E62D2165A2D1A0008DAEE /* 57209credentialsConfig.json */; };
 		BA5E62D7165A30B00008DAEE /* VGAnnouncementStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5E62D6165A30B00008DAEE /* VGAnnouncementStepDefinition.m */; };
@@ -35,6 +34,7 @@
 		BA5E62E4165B5D820008DAEE /* VGCurrenciesStepDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = BA5E62E3165B5D820008DAEE /* VGCurrenciesStepDefinition.m */; };
 		BA70BE751602FA4C005EEC8A /* CIUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = BA70BE741602FA4C005EEC8A /* CIUtil.m */; };
 		BAA2899216119D9F0075F643 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAA2899116119D9F0075F643 /* ImageIO.framework */; };
+		BAACAB991665EACA00848B1F /* libQAAutoLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEF4BE3160095FA003FB345 /* libQAAutoLib.a */; };
 		BAAFB9851602D34F001BAA35 /* GreePlatformCoreResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAAFB9821602D34E001BAA35 /* GreePlatformCoreResources.bundle */; };
 		BAAFB9861602D34F001BAA35 /* GreePlatformLandscapeResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAAFB9831602D34F001BAA35 /* GreePlatformLandscapeResources.bundle */; };
 		BAAFB9871602D34F001BAA35 /* GreePlatformPortraitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BAAFB9841602D34F001BAA35 /* GreePlatformPortraitResources.bundle */; };
@@ -92,6 +92,16 @@
 		BAEE82E4160072320052FDC8 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAEE82E3160072320052FDC8 /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		BAACABA11665EB1200848B1F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BAACAB9D1665EB1200848B1F /* QAAutoLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BA2E7CE31664B20B00E910EE;
+			remoteInfo = QAAutoLib;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		BA085BD016007CE8001BDE34 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		BA2C2DFC160076AD0041B688 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -122,6 +132,7 @@
 		BA70BE731602FA4B005EEC8A /* CIUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CIUtil.h; sourceTree = "<group>"; };
 		BA70BE741602FA4C005EEC8A /* CIUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CIUtil.m; sourceTree = "<group>"; };
 		BAA2899116119D9F0075F643 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		BAACAB9D1665EB1200848B1F /* QAAutoLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = QAAutoLib.xcodeproj; path = "/Users/thunderzhulei/lay-zhu/GGP-ClientSDK-IOS/OFQAAPI_IOS/../QAAutoLib/QAAutoLib/QAAutoLib.xcodeproj"; sourceTree = "<absolute>"; };
 		BAAFB97E1602D32A001BAA35 /* libGreePlatform.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGreePlatform.a; path = ../ggplib_ios/release/libGreePlatform.a; sourceTree = "<group>"; };
 		BAAFB97F1602D32B001BAA35 /* libGreeWallet.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGreeWallet.a; path = ../ggplib_ios/release/libGreeWallet.a; sourceTree = "<group>"; };
 		BAAFB9821602D34E001BAA35 /* GreePlatformCoreResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GreePlatformCoreResources.bundle; path = ../ggplib_ios/release/resources/GreePlatformCoreResources.bundle; sourceTree = "<group>"; };
@@ -217,7 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA5E6297165A290D0008DAEE /* libGreeVirtualGoods.a in Frameworks */,
-				BA5E61E0165A13470008DAEE /* libQAAutoLib.a in Frameworks */,
+				BAACAB991665EACA00848B1F /* libQAAutoLib.a in Frameworks */,
 				BA3E302016561F3500E38226 /* OCHamcrestIOS.framework in Frameworks */,
 				BA3E301E16561D4C00E38226 /* libGreePlatform.a in Frameworks */,
 				BA3E301F16561D4C00E38226 /* libGreeWallet.a in Frameworks */,
@@ -259,9 +270,18 @@
 			name = vgs;
 			sourceTree = "<group>";
 		};
+		BAACAB9E1665EB1200848B1F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BAACABA21665EB1200848B1F /* libQAAutoLib.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		BAEE813016006AB60052FDC8 = {
 			isa = PBXGroup;
 			children = (
+				BAACAB9D1665EB1200848B1F /* QAAutoLib.xcodeproj */,
 				BA5E6296165A290D0008DAEE /* libGreeVirtualGoods.a */,
 				BAAFB9821602D34E001BAA35 /* GreePlatformCoreResources.bundle */,
 				BAAFB9831602D34F001BAA35 /* GreePlatformLandscapeResources.bundle */,
@@ -512,12 +532,28 @@
 			mainGroup = BAEE813016006AB60052FDC8;
 			productRefGroup = BAEE813C16006AB60052FDC8 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BAACAB9E1665EB1200848B1F /* Products */;
+					ProjectRef = BAACAB9D1665EB1200848B1F /* QAAutoLib.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				BAEE813A16006AB60052FDC8 /* QAAutoSample */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		BAACABA21665EB1200848B1F /* libQAAutoLib.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libQAAutoLib.a;
+			remoteRef = BAACABA11665EB1200848B1F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		BAEE813916006AB60052FDC8 /* Resources */ = {
@@ -694,6 +730,7 @@
 					"\"../ggplib_ios/release\"",
 					"\"../vgslib_ios/release\"",
 					"\"$(SRCROOT)/../vgslib_ios/release\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/QAAutomation-bwwqfqzoxjkxieedtmgjxzllbnxv/Build/Products/Debug-iphoneos\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
@@ -727,6 +764,7 @@
 					"\"../ggplib_ios/release\"",
 					"\"../vgslib_ios/release\"",
 					"\"$(SRCROOT)/../vgslib_ios/release\"",
+					"\"$(SRCROOT)/../../../../Library/Developer/Xcode/DerivedData/QAAutomation-bwwqfqzoxjkxieedtmgjxzllbnxv/Build/Products/Debug-iphoneos\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
