@@ -245,7 +245,7 @@ static int enterSwitch = 0;
             NSOperationQueue* operationQueue = [[NSOperationQueue alloc] init];
             [operationQueue setMaxConcurrentOperationCount:1];
             
-            NSDictionary* configDicionary = [CIUtil getRunInfoFromUrl:@"http://localhost:3000/config?key=adfqet87983hiu783flkad09806g98adgk&platform=ios"];
+            NSDictionary* configDicionary = [CIUtil getRunInfoFromUrl:@"http://localhost:3000/ios/ggp/config?key=adfqet87983hiu783flkad09806g98adgk&platform=ios"];
             
             NSString* suiteId = [configDicionary objectForKey:@"suite_id"];
             NSString* runId = [configDicionary objectForKey:@"run_id"];
