@@ -289,7 +289,7 @@ static int enterSwitch = 0;
     
     
     QALog(@"------------- requesting subserver to generate perf report for Run %@",runId);
-    [CIUtil generateReport:@"adfqet87983hiu783flkad09806g98adgk" fromUrl:@"http://localhost:3000/ios/report"];
+    [CIUtil generateReport:@"adfqet87983hiu783flkad09806g98adgk" fromUrl:@"http://localhost:3000/ios/ggp/report"];
     QALog(@"------------- perf report generated for Run %@",runId);
     
     

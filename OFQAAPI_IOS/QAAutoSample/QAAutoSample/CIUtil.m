@@ -25,8 +25,8 @@
     // run id 402 by default
     NSString* runId = [configSettings valueForKey:@"run_id"]?[configSettings valueForKey:@"run_id"]: @"402";
     
-    [rawConfigJson release];
-    [jsonParser release];
+//    [rawConfigJson release];
+//    [jsonParser release];
     
     return [[NSDictionary alloc] initWithObjectsAndKeys:
                                 suiteId, @"suite_id",
