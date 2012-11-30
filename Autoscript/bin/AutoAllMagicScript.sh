@@ -60,3 +60,8 @@ fi
 # params : tcm suite id = 178
 #          tcm run id   = 402
 sh -x launchAutoSample.sh "$APP_LOCATION" "$APP_NAME" "$IOS_VERSION"
+if [ $? == 1 ]
+# fail if simulator launch  failed
+then
+  exit 1
+fi

@@ -26,3 +26,4 @@ then
 fi
 
 ../lib/ios-sim/Release/ios-sim launch "$APP_PATH_PREFIX/$IOS_VERSION/Applications/$APP_NAME.app" --args JenkinsMode 
+exit 0
